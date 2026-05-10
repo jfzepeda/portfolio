@@ -11,7 +11,7 @@ export function FeaturedGrid() {
       id="projects"
       style={{
         padding: "var(--section-y) clamp(20px, 4vw, 40px)",
-        maxWidth: 1180,
+        maxWidth: 1400,
         margin: "0 auto",
       }}
     >
@@ -48,7 +48,7 @@ export function FeaturedGrid() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
               gap: "var(--gap)",
             }}
           >
@@ -78,7 +78,7 @@ export function FeaturedGrid() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
               gap: "var(--gap)",
             }}
           >

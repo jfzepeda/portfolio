@@ -67,9 +67,12 @@ export interface Project {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// TIER 1 — HERO: YANTISSIMO PLATFORM
-// Bundles iOS app + Express backend + Next.js Shopify storefront as one
-// end-to-end product case study.
+// TIER 1 — HERO: YANTISSIMO PLATFORM (a.k.a. ERP YSSM)
+//
+// The operational backbone of Llantísimo / YSSM — a multi-module enterprise
+// ERP plus the satellite Express backend and headless Shopify storefront
+// it powers. Every internal team and every customer-facing surface runs
+// through this stack.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const yantissimo: Project = {
@@ -77,7 +80,7 @@ export const yantissimo: Project = {
   slug: "yantissimo",
   name: "Yantissimo Platform",
   tagline:
-    "End-to-end commerce platform for a tire and wheel distributor — native iOS app, Express API, headless Shopify storefront.",
+    "Custom enterprise ERP powering a tire & wheel distributor — 24+ modules across audit, sales, scheduling, productivity, and warranties, plus the API, native iOS app, and storefront it feeds.",
   tier: 1,
   category: "enterprise",
   status: "production",
@@ -85,98 +88,141 @@ export const yantissimo: Project = {
   recencyLabel: "May 2026",
   icon: "Y",
   accent: "amber",
-  scaleSignal: "3 products · ~283 source files · ~14k+ LOC",
+  scaleSignal:
+    "4 surfaces · ~800+ source files · 24+ ERP modules · 60 audit tests · daily production use",
   executive: {
-    headline: "A complete digital platform for a real automotive distributor.",
+    headline:
+      "The operational backbone of an entire automotive distribution business.",
     summary:
-      "Yantissimo is the customer-facing digital layer of Llantísimo, a tire and wheel distributor in Mexico. I built the entire stack: a native iOS app for end customers, an Express backend orchestrating Shopify, payments, and scheduling, and a Next.js storefront that lets customers find tires by vehicle (make / model / year). The platform handles the full commercial loop — product discovery, quotes, payments, appointments, loyalty, and post-service follow-up.",
+      "Yantissimo Platform is the custom enterprise ERP I built for Llantísimo, a tire and wheel distributor in Mexico — and the satellite backend and storefront it feeds. The platform runs daily operations: parsing Microsip exports for next-day audits, computing technician and salesperson productivity, generating quotes and invoices, scheduling installations, managing wholesale and retail orders, tracking warranties, and surfacing live KPIs. The whole organization works inside it.",
     outcomes: [
-      "Customers self-serve the entire path from quote to payment to appointment, freeing the team to focus on operations.",
-      "Native iOS app with offline-first cache and 'eternal session' so customers never get logged out at the worst moment.",
-      "Storefront search by vehicle (make / model / year) using Wheel-Size API — no more manual tire-size lookups in store.",
-      "All three surfaces share one backend, one source of truth, one product catalog — Shopify-headless.",
-      "Production deployed: backend on Railway, storefront and admin on Vercel, iOS app on TestFlight.",
+      "Replaces a stack of spreadsheets, Microsip exports, and ad-hoc tools with one daily-used operational system.",
+      "Daily audit module reads Microsip data, validates technician/vendor performance, lets admins reassign labor (MO) and justify exceptions — with a soft-block before end-of-day close.",
+      "Live productivity dashboards for vendors and technicians; PDFs for quotes and post-service checks generated in-app.",
+      "Real-time collaboration via Socket.io — multiple team members work the same orders and audits simultaneously.",
+      "Customer-facing storefront and downstream apps share the same backend and data model — one source of truth.",
+      "Production deployed: ERP and storefront on Vercel with PR-preview CI, backend on Railway, native iOS app on TestFlight, all behind one Postgres.",
     ],
   },
   technical: {
-    headline: "Three coordinated products. One backend. Zero shortcuts.",
+    headline:
+      "A 24-module Next.js 16 ERP, an Express orchestration backend, a native SwiftUI iOS client, and a headless Shopify storefront — one Postgres, one team.",
     summary:
-      "Production-grade three-surface architecture. Each product is independently deployed and independently testable. The Express API is the single source of truth — Shopify Admin/Storefront, OpenAI, Backblaze B2, MySQL, Postgres, and Google Sheets all converge there. The iOS client uses zero external dependencies; the storefront extends Vercel's Next.js Commerce template with custom vehicle-search pipelines.",
+      "Production four-surface platform. The ERP is a Next.js 16 (App Router + Turbopack) app with route groups for protected staff, client portals, and public surfaces, plus 24+ feature modules ranging from auditoría (Microsip parser + KPI engine + reassignment workflow) to suite (sales / quotes / payments / invoices), mayoreo (wholesale), calendarios, equipo, garantías, and an embedded AI agent panel. The Express backend is the API the ERP, the iOS client, and the storefront all call into. The iOS client is hand-written SwiftUI with zero external dependencies. The storefront is a headless-Shopify Next.js front-end with vehicle-search wired through Wheel-Size API.",
     architecture:
-      "Express + Postgres backend with 41 modular routes, JWT auth, per-feature middleware, scheduled jobs, and a real Jest + Supertest test suite. iOS client uses a hand-written APIClient with 401-refresh-retry, Keychain-backed sessions, Application Support cache hydration before fetch, and per-build-config backend URLs. Storefront is Next.js 15.6 + React 19 with a custom 'Por auto' flow wiring Wheel-Size API into the Shopify GraphQL catalog.",
+      "ERP YSSM (plataforma): Next.js 16.0 App Router with Turbopack, route groups for (protected)/(clientes)/(public)/api, Material UI + HeroUI + custom Tailwind 4 design tokens, FullCalendar + react-big-calendar + react-date-range for scheduling, Recharts for KPIs, react-dnd for drag-and-drop, Socket.io for real-time collaboration, jspdf + jspdf-autotable for in-app PDF generation, xlsx for Excel exports/imports, libphonenumber-js for phone normalization, bcrypt for auth. The auditoría module ships its own pure-function calc layer (lib/excel/parseAuditoria.js, lib/calc/reasigMO.js), state via AuditoriaContext with patchSession persistence, and a 60-test suite under tests/auditoria/ run via node --import register. Backend (yssm-backend) is Express + Postgres + MySQL with 41 modular routes, Shopify Admin/Storefront SDKs, OpenAI, Backblaze B2, Google Sheets, Puppeteer, and Jest + Supertest tests. Storefront extends Vercel's Next.js Commerce template with a custom 'Por auto' flow.",
     highlights: [
-      "Express API: 167 source files, 41 routes, Jest + Supertest tests, modular middleware layer, async job queue.",
-      "Shopify Admin & Storefront API integration with cookie-jar auth and signed webhook handling.",
-      "iOS APIClient with one-shot 401 refresh retry, eternal session, and feature-flagged SMS-OTP.",
-      "Application Support cache hydration so the iOS app opens with content even before the network call returns.",
-      "Wheel-Size API integration for make/model/year → tire-size resolution on the storefront.",
-      "OpenAI integration for sales recommendations and customer inquiry triage.",
-      "Backblaze B2 for media, Google Sheets bridge for back-office reporting, Puppeteer for payment confirmation.",
+      "447 source files in the ERP alone; 24+ feature modules under (protected)/ — auditoría, ventas, suite, mayoreo, ordenes, cotizaciones, calendario, equipo, dashboard, agent, claude, campanas, configuracion, garantias, inventario, reports, ramps, seguimiento, todo, snapshots, administracion, myr, plus a (clientes) portal.",
+      "Real-time multi-user collaboration via socket.io-client across panels.",
+      "Auditoría module: Microsip Excel parser (parseAuditoria.js, ~550 LOC), pure-function reassignment helpers (reasigMO.js), context-driven state with patchSession persistence, soft-block end-of-day workflow, 60 tests under tests/auditoria/.",
+      "PDF generation in-app with jspdf + jspdf-autotable (quotes, post-service checks, invoices).",
+      "Excel import/export with xlsx; Microsip integration via custom parser bridge.",
+      "FullCalendar + react-big-calendar + react-date-range for service scheduling and team calendars.",
+      "Recharts dashboards for vendor + technician productivity KPIs.",
+      "Material UI + HeroUI + Tailwind 4 — heavy custom component library under src/components/{suite,mayoreo,orders,client,tables,modal,ItemModal}.",
+      "Express backend: 167 files, 41 routes, Jest + Supertest test coverage, async job queue.",
+      "Embedded AI agent panel inside the ERP itself (/agent route) plus a /claude route — internal staff get LLM help in-context.",
+      "PR-preview CI via GitHub Actions on the ERP repo.",
     ],
   },
   stack: [
+    "Next.js 16",
+    "React 18",
+    "TypeScript",
+    "Turbopack",
+    "Tailwind CSS 4",
+    "Material UI",
+    "HeroUI",
+    "FullCalendar",
+    "react-big-calendar",
+    "react-dnd",
+    "Recharts",
+    "Socket.io",
+    "jspdf",
+    "xlsx",
     "Swift 5.9",
     "SwiftUI",
+    "Network.framework",
+    "Keychain",
+    "APNs",
     "Node.js 20",
     "Express",
-    "TypeScript",
-    "Next.js 15",
-    "React 19",
-    "Tailwind CSS 4",
     "PostgreSQL",
     "MySQL",
     "Shopify Admin API",
     "Shopify Storefront API",
     "OpenAI",
     "JWT",
-    "Keychain",
+    "bcrypt",
     "Backblaze B2",
     "Google Sheets API",
     "Puppeteer",
+    "Wheel-Size API",
     "Vercel",
     "Railway",
     "Jest",
     "Supertest",
+    "GitHub Actions",
   ],
   capabilities: [
-    "E-commerce",
-    "Native Mobile",
+    "Enterprise ERP",
+    "Real-time Collaboration",
+    "Audit Workflow",
+    "Productivity Dashboards",
+    "Quote & Invoice Generation",
+    "Service Scheduling",
+    "Wholesale + Retail Orders",
+    "Warranty Tracking",
+    "Microsip Integration",
+    "PDF Generation",
+    "Excel Import/Export",
     "Headless Storefront",
-    "Payment Links",
-    "Appointment Scheduling",
-    "Loyalty / Membership",
     "Vehicle Search",
-    "AI Recommendations",
-    "Media CDN",
+    "Embedded AI Agent",
+    "Client Portal",
+    "Native Mobile",
+    "Offline Cache",
     "Push Notifications",
   ],
-  domain: "Tire & Wheel Distribution (B2C + B2B)",
-  users: "End customers (iOS), web shoppers, internal sales team.",
+  domain: "Tire & Wheel Distribution — Operations, Sales, Mobile & Storefront",
+  users:
+    "Internal staff across audit, sales, service, and admin teams; wholesale clients via portal; retail customers via the iOS app and the storefront.",
   subproducts: [
     {
-      name: "Yantissimo iOS",
-      role: "Native customer-facing app",
+      name: "Plataforma Yantissimo (ERP YSSM)",
+      role: "Operational ERP — daily-used backbone of the business",
       stack: [
-        "Swift 5.9",
-        "SwiftUI",
-        "iOS 16+",
-        "Network.framework",
-        "Keychain",
-        "APNs",
+        "Next.js 16",
+        "React 18",
+        "Turbopack",
+        "Material UI",
+        "HeroUI",
+        "Tailwind CSS 4",
+        "FullCalendar",
+        "Recharts",
+        "Socket.io",
+        "react-dnd",
+        "jspdf",
+        "xlsx",
+        "PostgreSQL",
+        "Vercel",
       ],
-      scale: "68 Swift files · ~7.1k LOC · 541 LOC of tests",
+      scale: "447 source files · 24+ feature modules · 60 audit tests",
       highlights: [
-        "Zero external dependencies (no SPM, no CocoaPods).",
-        "Custom APIClient with 401 refresh retry and eternal session.",
-        "10+ feature modules: Onboarding, Home, Profile, Club, Convenios, Promotions, Reminders, Visits, Quotes, Postchecks.",
-        "Offline cache hydrates UI before fetch.",
-        "Feature flags (e.g. SMS-OTP gate) controlled at compile time via xcconfig.",
-        "Push notifications wired through PushManager → backend device registration.",
+        "24+ modules under (protected)/: auditoría, ventas, suite, mayoreo, ordenes, cotizaciones, calendario, equipo, dashboard, agent, claude, campañas, configuración, garantías, inventario, reports, ramps, seguimiento, todo, snapshots, administración, myr — plus a (clientes) portal.",
+        "Auditoría: Microsip Excel parser + pure-function MO reassignment helpers + context-driven state with patchSession persistence + 60-test suite.",
+        "Real-time collaboration with Socket.io — multi-user editing of audits, orders, and dashboards.",
+        "Embedded AI agent (/agent) and /claude route — internal staff get LLM help in-context.",
+        "PDF generation (jspdf + jspdf-autotable) for quotes, invoices, and post-service checks.",
+        "FullCalendar + react-big-calendar + react-date-range for service scheduling.",
+        "Recharts dashboards: live vendor + technician productivity KPIs.",
+        "Drag-and-drop order management via react-dnd.",
+        "PR-preview CI via GitHub Actions.",
       ],
     },
     {
       name: "Yantissimo Backend (yssm-backend)",
-      role: "API + orchestration layer",
+      role: "API + orchestration layer feeding the ERP, iOS app, and storefront",
       stack: [
         "Node.js 20",
         "Express",
@@ -184,23 +230,50 @@ export const yantissimo: Project = {
         "MySQL",
         "Shopify SDKs",
         "OpenAI",
+        "Backblaze B2",
+        "Google Sheets",
         "Puppeteer",
         "Jest",
         "Supertest",
+        "Railway",
       ],
       scale: "167 source files · ~7.3k LOC · 41 route modules",
       highlights: [
-        "Modular routes: auth, mobile-app, services, quotes, ventas, dashboard, shopify, scrapper, calendar, formula, qr, cron, …",
-        "Real test coverage with Jest + Supertest.",
-        "Async job queue for long-running tasks.",
-        "Direct Shopify Admin + Storefront integration with cookie-jar auth.",
-        "Backblaze B2 for media, Google Sheets bridge for back-office reporting.",
-        "OpenAI integration powering sales recommendations and message triage.",
+        "41 modular routes: auth, mobile-app, services, quotes, ventas, dashboard, shopify, scrapper, calendar, formula, qr, cron, liquidaciones, invoices, snapshot, …",
+        "Real test coverage with Jest + Supertest; ESLint + Prettier configured.",
+        "Direct Shopify Admin + Storefront integration with cookie-jar auth and signed webhooks.",
+        "Backblaze B2 for media; Google Sheets bridge for back-office reporting.",
+        "OpenAI integration powering sales recommendations and customer message triage.",
+        "Async job queue for long-running tasks; cron module for scheduled jobs.",
+      ],
+    },
+    {
+      name: "Yantissimo iOS",
+      role: "Native customer-facing iOS app",
+      stack: [
+        "Swift 5.9",
+        "SwiftUI",
+        "iOS 16+",
+        "Network.framework",
+        "Keychain",
+        "Application Support",
+        "APNs",
+        "xcconfig",
+      ],
+      scale: "68 Swift files · ~7.1k LOC · 541 LOC of tests",
+      highlights: [
+        "Zero external dependencies — no SPM packages, no CocoaPods.",
+        "Custom APIClient with one-shot 401 refresh retry and 'eternal session' so customers never get logged out at the worst moment.",
+        "10+ feature modules: Onboarding, Home, Profile, Club, Convenios, Promotions, Reminders, Visits, Quotes, Postchecks.",
+        "Application Support cache hydrates UI before the network call — the app opens with content even offline.",
+        "Feature flags (e.g. SMS-OTP gate) controlled at compile time via xcconfig.",
+        "Push notifications wired through PushManager → backend device registration.",
+        "Per-build-config backend URLs (Debug → localhost, Release → Railway).",
       ],
     },
     {
       name: "Yantissimo Shop",
-      role: "Headless storefront",
+      role: "Headless customer-facing storefront",
       stack: [
         "Next.js 15.6",
         "React 19",
@@ -212,21 +285,22 @@ export const yantissimo: Project = {
       ],
       scale: "~116 source files · server components + edge middleware",
       highlights: [
-        "Vehicle search ('Por auto') wired through Wheel-Size API into Shopify catalog.",
-        "Server components, Server Actions, Suspense, useOptimistic.",
+        "Vehicle search ('Por auto') wired through Wheel-Size API into the Shopify catalog — customers find tires by make / model / year.",
+        "React Server Components, Server Actions, Suspense, useOptimistic.",
         "Edge middleware for routing and revalidation.",
-        "Integrated with the same backend cart and checkout flow as the iOS app.",
+        "Integrated with the same backend cart, checkout, and customer record as the ERP and iOS client.",
       ],
     },
   ],
-  hero: "/images/projects/yantissimo-hero.jpg",
+  hero: "/images/projects/plataforma-y.png",
   screenshots: [
-    "/images/projects/yantissimo-shop-1.jpg",
-    "/images/projects/yantissimo-shop-2.jpg",
-    "/images/projects/yantissimo-shop-3.jpg",
+    "/images/projects/plataforma-y.png",
+    "/images/projects/back-y.png",
+    "/images/projects/shop-y.png",
+    "/images/projects/shop-y.png",
   ],
   repoPath:
-    "Swift/yantissimo + YSSM/(yaol)/backend-yssm + YSSM/(yaol)/shop-yaol",
+    "YSSM/(plataforma)/erp-yssm + YSSM/(yaol)/backend-yssm + YSSM/(yaol)/shop-yaol",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -291,7 +365,7 @@ export const fitnessCopilot: Project = {
   ],
   domain: "Health & Fitness",
   users: "Athletes and quantified-self enthusiasts.",
-  hero: "/images/projects/fitness-copilot-hero.png",
+  hero: "/images/projects/fitness-icon.png",
   repoPath: "Swift/fitness_copilot",
 };
 
@@ -351,7 +425,7 @@ export const kioskoLogistics: Project = {
   ],
   domain: "Logistics & Fleet Operations",
   users: "Fleet operators and route planners.",
-  hero: "/images/projects/kiosko-hero.png",
+  hero: "/images/projects/kiosko-icon.png",
   repoPath: "Swift/kiosko-logistics",
 };
 
@@ -417,12 +491,7 @@ export const companyBrain: Project = {
   ],
   domain: "Enterprise Knowledge & BI",
   users: "Business analysts, ops teams, executives querying their own data.",
-  hero: "/images/projects/dataknife-home-final.png",
-  screenshots: [
-    "/images/projects/dataknife-home-final.png",
-    "/images/projects/dataknife-home-final-2.png",
-    "/images/projects/dataknife-home.png",
-  ],
+  hero: "/images/projects/dataknife-icon.svg",
   repoPath: "ai-lab/company-brain",
 };
 
@@ -489,7 +558,7 @@ export const crispDm: Project = {
   ],
   domain: "Data Science & Analytics",
   users: "Data scientists and analysts running CRISP-DM projects.",
-  hero: "/images/projects/crisp-dm-hero.png",
+  hero: "/images/projects/crisp-dm-icon.svg",
   repoPath: "ai-lab/crisp-dm-2",
 };
 
@@ -519,7 +588,8 @@ export const whatsappGateway: Project = {
     ],
   },
   technical: {
-    headline: "Token-scoped multi-tenant message broker with exactly-once read.",
+    headline:
+      "Token-scoped multi-tenant message broker with exactly-once read.",
     summary:
       "Two-service pnpm workspace: an Express server that talks WhatsApp via Baileys and persists everything to Neon Postgres, and a Next.js 15 dashboard that consumes the gateway's own REST API. Authentication is three-header: master token, project token, project name.",
     architecture:
@@ -553,7 +623,7 @@ export const whatsappGateway: Project = {
   ],
   domain: "Messaging Infrastructure",
   users: "Internal agents and CRM systems across the org.",
-  hero: "/images/projects/whatsapp-gateway-hero.png",
+  hero: "/images/projects/whatsapp-gateway-icon.svg",
   repoPath: "Web/whatsapp-gateway",
 };
 
@@ -563,7 +633,7 @@ export const overtree: Project = {
   name: "Overtree",
   tagline:
     "Local-first LaTeX editor with LAN collaboration, an MCP server, and the Tectonic compiler — Overleaf, but everything lives on your machine.",
-  tier: 3,
+  tier: 2,
   category: "web",
   status: "active",
   year: 2026,
@@ -622,7 +692,7 @@ export const overtree: Project = {
   ],
   domain: "Developer Tools / Writing",
   users: "Researchers, students, and writers who want local LaTeX with AI.",
-  hero: "/images/projects/overtree-hero.png",
+  hero: "/images/projects/overtree-logo.png",
   repoPath: "Web/overtree",
 };
 
@@ -641,8 +711,7 @@ export const swipeFotos: Project = {
   accent: "rose",
   scaleSignal: "18 Swift files · ~2k LOC · MVVM + Photos.framework",
   executive: {
-    headline:
-      "Tinder for your camera roll — clear out years of photos, fast.",
+    headline: "Tinder for your camera roll — clear out years of photos, fast.",
     summary:
       "Swipe Fotos lets you organize your photo library by swiping through it month by month. Progress is saved, so you can stop and resume. The UI is intentionally minimal — one photo at a time, two gestures, nothing else.",
     outcomes: [
@@ -679,7 +748,7 @@ export const swipeFotos: Project = {
   ],
   domain: "Personal Productivity",
   users: "Anyone with too many photos.",
-  hero: "/images/projects/swipe-fotos-hero.png",
+  hero: "/images/projects/swipe-fotos-icon.png",
   repoPath: "Swift/swipe-fotos",
 };
 
@@ -747,7 +816,7 @@ export const karate: Project = {
   ],
   domain: "Sports Tournament Management",
   users: "Tournament organizers, referees, and audience displays.",
-  hero: "/images/projects/karate-hero.png",
+  hero: "/images/projects/karate-icon.svg",
   repoPath: "Web/karate",
 };
 
@@ -813,7 +882,7 @@ export const smokeSignals: Project = {
   ],
   domain: "Secure Communications",
   users: "Privacy-focused users; reference implementation for secure chat.",
-  hero: "/images/projects/smoke-signals-hero.png",
+  hero: "/images/projects/smoke-signals-icon.svg",
   repoPath: "Swift/Smoke Singals",
 };
 
@@ -822,11 +891,15 @@ export const smokeSignals: Project = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const tier1: Project[] = [yantissimo];
-export const tier2: Project[] = [fitnessCopilot, kioskoLogistics, companyBrain];
+export const tier2: Project[] = [
+  fitnessCopilot,
+  kioskoLogistics,
+  companyBrain,
+  overtree,
+];
 export const tier3: Project[] = [
   crispDm,
   whatsappGateway,
-  overtree,
   swipeFotos,
   karate,
   smokeSignals,
@@ -850,17 +923,7 @@ export interface Tier4Project {
 }
 
 export const tier4: Tier4Project[] = [
-  // ─── YSSM / Real Enterprise ───
-  {
-    id: "erp-yssm",
-    name: "YSSM ERP",
-    category: "enterprise",
-    icon: "EY",
-    description:
-      "Enterprise ERP — orders, inventory, scheduling, financials. Next.js 16 + Vercel CI/CD.",
-    stack: ["Next.js 16", "React 18", "MUI", "Tailwind 4", "PostgreSQL"],
-    year: 2026,
-  },
+  // ─── YSSM / Real Enterprise satellites (the platform itself is Tier 1) ───
   {
     id: "agent-yssm",
     name: "Nexora Agent",
@@ -928,7 +991,8 @@ export const tier4: Tier4Project[] = [
     name: "Restaurant Waster",
     category: "experimental",
     icon: "RW",
-    description: "Monorepo scaffold (pnpm + Vitest + Prisma) for a restaurant tooling app.",
+    description:
+      "Monorepo scaffold (pnpm + Vitest + Prisma) for a restaurant tooling app.",
     stack: ["pnpm Workspaces", "TypeScript", "Vitest", "Prisma"],
     year: 2026,
   },
@@ -939,7 +1003,8 @@ export const tier4: Tier4Project[] = [
     name: "Mootie POS",
     category: "web",
     icon: "MO",
-    description: "Cafeteria point-of-sale — workspaces (server / client / shared).",
+    description:
+      "Cafeteria point-of-sale — workspaces (server / client / shared).",
     stack: ["Node.js Workspaces", "TypeScript"],
     year: 2026,
   },
@@ -1078,7 +1143,8 @@ export const tier4: Tier4Project[] = [
     name: "Altozano",
     category: "swift",
     icon: "AL",
-    description: "Auth-gated SwiftUI app with global state and Keychain credentials.",
+    description:
+      "Auth-gated SwiftUI app with global state and Keychain credentials.",
     stack: ["SwiftUI", "Keychain"],
     year: 2025,
   },
@@ -1164,5 +1230,4 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return featuredProjects.find((p) => p.slug === slug);
 }
 
-export const allProjectsCount =
-  featuredProjects.length + tier4.length;
+export const allProjectsCount = featuredProjects.length + tier4.length;

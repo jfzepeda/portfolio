@@ -59,20 +59,54 @@ export function SectionHeader({ n, kicker, title, subtitle }: Props) {
   );
 }
 
-// Striped paper-style placeholder slot
+// Striped paper-style placeholder slot — renders an image when `src` is provided,
+// otherwise falls back to the striped paper fill with a label.
 interface PHProps {
   label: string;
   ratio?: string;
   style?: React.CSSProperties;
+  src?: string;
+  fit?: "cover" | "contain";
 }
 
-export function PaperPlaceholder({ label, ratio = "4/3", style }: PHProps) {
+export function PaperPlaceholder({
+  label,
+  ratio = "4/3",
+  style,
+  src,
+  fit = "cover",
+}: PHProps) {
   return (
     <div
       className="paper-placeholder"
-      style={{ aspectRatio: ratio, width: "100%", ...style }}
+      style={{
+        aspectRatio: ratio,
+        width: "100%",
+        ...(src
+          ? { background: "none", border: "none", borderRadius: 16 }
+          : null),
+        ...style,
+      }}
     >
-      <span className="paper-placeholder-label">{label}</span>
+      {src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src}
+          alt={label}
+          loading="lazy"
+          decoding="async"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: fit,
+            background: fit === "contain" ? "var(--paper-2)" : undefined,
+          }}
+        />
+      ) : (
+        <span className="paper-placeholder-label">{label}</span>
+      )}
     </div>
   );
 }

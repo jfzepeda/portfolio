@@ -15,7 +15,7 @@ export function YantissimoCaseStudy() {
       id="yantissimo"
       style={{
         padding: "var(--section-y) clamp(20px, 4vw, 40px)",
-        maxWidth: 1180,
+        maxWidth: 1400,
         margin: "0 auto",
       }}
     >
@@ -350,10 +350,25 @@ export function YantissimoCaseStudy() {
                   }}
                 >
                   <div>
-                    <PaperPlaceholder
-                      label={`Product 0${i + 1}`}
-                      ratio="4/3"
-                    />
+                    {p.screenshots?.[i] ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={p.screenshots[i]}
+                        alt={`Product 0${i + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                        style={{
+                          display: "block",
+                          width: "100%",
+                          height: "auto",
+                        }}
+                      />
+                    ) : (
+                      <PaperPlaceholder
+                        label={`Product 0${i + 1}`}
+                        ratio="4/3"
+                      />
+                    )}
                     <div
                       className="kicker"
                       style={{ marginTop: 12, fontSize: 10 }}

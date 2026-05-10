@@ -15,22 +15,37 @@ Status: Open to senior product / AI engineering roles & high-leverage contract w
 - **Self-hosted infrastructure.** When per-seat SaaS stops making sense, I build the in-house version.
 - **Native iOS, done right.** Zero-dep APIClients, 401 refresh retry, Keychain sessions, Application Support cache.
 
-## Flagship — Yantissimo Platform (Tier 1)
+## Flagship — Yantissimo Platform / ERP YSSM (Tier 1)
 
-End-to-end commerce platform for Llantísimo, a tire and wheel distributor in Mexico.
-Three coordinated products, one backend, single architectural vision.
+The operational backbone of Llantísimo / YSSM, a tire and wheel distributor in Mexico.
+A custom enterprise ERP plus the Express backend, native iOS app, and headless Shopify
+storefront it feeds — four coordinated surfaces, one Postgres, one team using it daily.
 
-### Yantissimo iOS
-Native customer-facing app (Swift 5.9, SwiftUI, iOS 16+).
-- 68 Swift files, ~7.1k LOC, 541 LOC of tests.
-- Zero external dependencies (no SPM, no CocoaPods).
-- Custom APIClient with 401 refresh retry and eternal session.
-- Application Support cache hydrates UI before fetch.
-- Feature flags via xcconfig (e.g. SMS-OTP gate at compile time).
-- Push notifications wired through PushManager → backend device registration.
+### Plataforma Yantissimo (ERP YSSM) — the operational ERP
+Internal Next.js 16 application used daily by every team in the business.
+- Next.js 16 (App Router + Turbopack), React 18, Tailwind 4, Material UI + HeroUI.
+- 447 source files; 24+ feature modules under (protected)/.
+- Modules: auditoría, ventas, suite (quotes / invoices / payments / pre-quotes /
+  agendar / anticipo), mayoreo (wholesale), ordenes, cotizaciones, calendario,
+  equipo, dashboard, agent, claude, campañas, configuración, garantías,
+  inventario, reports, ramps, seguimiento, todo, snapshots, administración,
+  myr — plus a (clientes) portal.
+- Auditoría module: parses Microsip Excel exports, computes KPIs, validates
+  technician/vendor performance, supports labor (MO) reassignment with
+  justifications, soft-blocks end-of-day close until pendings are resolved.
+  Pure-function calc layer (parseAuditoria.js ~550 LOC, reasigMO.js).
+  Context-driven state with patchSession persistence. 60-test suite.
+- Real-time multi-user collaboration via socket.io-client.
+- Embedded AI agent panel (/agent) and /claude route for in-context LLM help.
+- PDF generation in-app with jspdf + jspdf-autotable (quotes, invoices, checks).
+- Excel import/export with xlsx; Microsip integration via custom parser.
+- FullCalendar + react-big-calendar + react-date-range for scheduling.
+- Recharts dashboards for vendor and technician productivity KPIs.
+- react-dnd for drag-and-drop order management.
+- PR-preview CI via GitHub Actions.
 
-### Yantissimo Backend (yssm-backend)
-API + orchestration layer (Node.js 20, Express, Postgres + MySQL).
+### Yantissimo Backend (yssm-backend) — orchestration API
+Node.js 20 / Express API on Railway feeding the ERP, the iOS app, and the storefront.
 - 167 source files, ~7.3k LOC, 41 modular routes.
 - Real test coverage: Jest + Supertest.
 - Direct Shopify Admin + Storefront API integration.
@@ -38,11 +53,24 @@ API + orchestration layer (Node.js 20, Express, Postgres + MySQL).
 - Backblaze B2 for media, Google Sheets bridge for back-office reporting.
 - Async job queue, scheduled cron jobs, signed webhooks.
 
-### Yantissimo Shop
-Headless storefront (Next.js 15.6 + React 19 + Tailwind 4 + Vercel).
+### Yantissimo iOS — native customer-facing app
+Hand-written Swift 5.9 / SwiftUI client (iOS 16+) — zero external dependencies.
+- 68 Swift files, ~7.1k LOC, 541 LOC of tests.
+- Custom APIClient with one-shot 401 refresh retry and "eternal session".
+- Application Support cache hydrates UI before fetch — opens with content offline.
+- 10+ feature modules: Onboarding, Home, Profile, Club, Convenios, Promotions,
+  Reminders, Visits, Quotes, Postchecks.
+- Feature flags via xcconfig (e.g. SMS-OTP gate at compile time).
+- APNs push notifications wired through PushManager → backend device registration.
+- Per-build-config backend URLs (Debug → localhost, Release → Railway).
+- TestFlight-deployed.
+
+### Yantissimo Shop — headless storefront
+Customer-facing Next.js 15.6 + React 19 + Tailwind 4 storefront on Vercel.
 - Vehicle search ("Por auto") wired Wheel-Size API → Shopify GraphQL.
 - Server Components, Server Actions, Suspense, useOptimistic.
 - Edge middleware for routing and revalidation.
+- Shares the backend cart, checkout, and customer record with the ERP and iOS app.
 
 ## Tier 2 — Featured Deep
 
@@ -106,7 +134,7 @@ Headless storefront (Next.js 15.6 + React 19 + Tailwind 4 + Vercel).
 
 ## Tier 4 — Additional projects (carousel)
 
-YSSM ERP, Nexora Agent, Nexora Distribution, YSSM Scraper, Mati Data,
+Nexora Agent, Nexora Distribution, YSSM Scraper, Mati Data,
 Suppliers Agent, OneDrive Retriever, Restaurant Waster, Mootie POS,
 Plick Clone, Pagarés, Padelón, Batch, Intercambio, Nexora Quoter, Eigenvalues,
 Food Healer, Investigación Interface, Next.js Dashboard, Termo Sapiens,

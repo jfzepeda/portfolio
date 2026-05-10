@@ -9,7 +9,7 @@ export function Hero() {
         minHeight: "100vh",
         padding:
           "calc(var(--section-y) * 1.1) clamp(20px, 4vw, 40px) var(--section-y)",
-        maxWidth: 1180,
+        maxWidth: 1400,
         margin: "0 auto",
         display: "flex",
         flexDirection: "column",

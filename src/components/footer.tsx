@@ -10,7 +10,7 @@ export function Footer() {
     <footer
       style={{
         padding: "60px clamp(20px, 4vw, 40px) 40px",
-        maxWidth: 1180,
+        maxWidth: 1400,
         margin: "0 auto",
         borderTop: "1px solid var(--rule)",
         display: "flex",

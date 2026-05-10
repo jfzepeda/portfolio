@@ -43,11 +43,17 @@ export function ProjectCard({ project, index = 0 }: Props) {
         itemScope
         itemType="https://schema.org/CreativeWork"
       >
-        {/* paper placeholder for hero image */}
+        {/* hero image with paper-style frame (falls back to striped placeholder) */}
         <div style={{ marginBottom: 20 }}>
           <PaperPlaceholder
             label={`${project.icon} · ${project.domain}`}
-            ratio="16/10"
+            ratio="1/1"
+            src={project.hero}
+            fit={
+              project.hero && /-(icon|logo)\./i.test(project.hero)
+                ? "contain"
+                : "cover"
+            }
           />
         </div>
 

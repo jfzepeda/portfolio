@@ -14,7 +14,7 @@ export function SkillsMatrix() {
       className="only-technical"
       style={{
         padding: "var(--section-y) clamp(20px, 4vw, 40px)",
-        maxWidth: 1180,
+        maxWidth: 1400,
         margin: "0 auto",
       }}
     >

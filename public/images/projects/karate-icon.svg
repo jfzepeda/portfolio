@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Karate Tournament">
+  <defs>
+    <linearGradient id="kt-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#facc15"/>
+      <stop offset="1" stop-color="#ca8a04"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#kt-bg)"/>
+  <g fill="none" stroke="#1f1300" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 192 h80 v40 h60 v-40 h80 v40 h-60 v40 h60 v40 h-80 v-40 h-60 v40 h-80 v-40 h60 v-40 h-60 z"/>
+  </g>
+  <rect x="96" y="332" width="320" height="44" rx="10" fill="#1f1300"/>
+  <rect x="96" y="332" width="320" height="44" rx="10" fill="none" stroke="#ca8a04" stroke-width="6"/>
+  <rect x="220" y="316" width="72" height="76" rx="6" fill="#1f1300"/>
+</svg>

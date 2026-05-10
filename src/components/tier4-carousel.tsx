@@ -1,7 +1,64 @@
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
 import { tier4, categoryLabels } from "@/data/projects";
-import type { Tier4Project } from "@/data/projects";
+import type { Tier4Project, Category } from "@/data/projects";
+
+function CategoryGlyph({ category }: { category: Category }) {
+  const props = {
+    width: 20,
+    height: 20,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.6,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+  switch (category) {
+    case "enterprise":
+      return (
+        <svg {...props}>
+          <rect x="4" y="4" width="7" height="7" />
+          <rect x="13" y="4" width="7" height="7" />
+          <rect x="4" y="13" width="7" height="7" />
+          <rect x="13" y="13" width="7" height="7" />
+        </svg>
+      );
+    case "ai":
+      return (
+        <svg {...props}>
+          <path d="M12 3 l2.2 5.6 L20 11 l-5.8 2.4 L12 19 l-2.2 -5.6 L4 11 l5.8 -2.4 z" />
+        </svg>
+      );
+    case "web":
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M3.5 12 h17 M12 3.5 a13 13 0 0 1 0 17 M12 3.5 a13 13 0 0 0 0 17" />
+        </svg>
+      );
+    case "swift":
+      return (
+        <svg {...props}>
+          <path d="M5 7 q7 4 14 13" />
+          <path d="M5 17 q7 -4 14 -13" />
+        </svg>
+      );
+    case "automation":
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="3" />
+          <path d="M12 3 v3 M12 18 v3 M3 12 h3 M18 12 h3 M5.5 5.5 l2.1 2.1 M16.4 16.4 l2.1 2.1 M5.5 18.5 l2.1 -2.1 M16.4 7.6 l2.1 -2.1" />
+        </svg>
+      );
+    case "experimental":
+      return (
+        <svg {...props}>
+          <path d="M9 3 h6 M10 3 v6 l-5 9 a2 2 0 0 0 1.8 3 h10.4 a2 2 0 0 0 1.8 -3 l-5 -9 v-6" />
+        </svg>
+      );
+  }
+}
 
 // Compact horizontal carousel of all remaining projects.
 // Mono labels, terracotta numerals, monospace stack list.
@@ -89,13 +146,10 @@ function Tier4Card({ project, index }: { project: Tier4Project; index: number })
           borderRadius: 8,
           background: "var(--paper)",
           border: "1px solid var(--rule)",
-          fontFamily: "var(--font-mono)",
-          fontSize: 12,
-          fontWeight: 500,
           color: "var(--ink-2)",
         }}
       >
-        {project.icon}
+        <CategoryGlyph category={project.category} />
       </div>
 
       <div>

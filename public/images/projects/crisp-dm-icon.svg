@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="CRISP-DM Workbench">
+  <defs>
+    <linearGradient id="cd-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d946ef"/>
+      <stop offset="1" stop-color="#a21caf"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#cd-bg)"/>
+  <g fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="256" cy="256" r="138"/>
+    <path d="M256 118 v44 M394 256 h-44 M256 394 v-44 M118 256 h44"/>
+    <path d="M205 222 l-30 -22 M337 200 l-30 22 M337 312 l-30 -22 M205 290 l-30 22"/>
+  </g>
+  <circle cx="256" cy="256" r="34" fill="#fff"/>
+  <circle cx="256" cy="256" r="14" fill="#a21caf"/>
+</svg>

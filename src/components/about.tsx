@@ -15,7 +15,7 @@ export function About() {
       id="about"
       style={{
         padding: "var(--section-y) clamp(20px, 4vw, 40px)",
-        maxWidth: 1180,
+        maxWidth: 1400,
         margin: "0 auto",
       }}
     >
@@ -40,7 +40,11 @@ export function About() {
       >
         <Reveal>
           <div style={{ position: "sticky", top: 100 }}>
-            <PaperPlaceholder label="Headshot · 4:5" ratio="4/5" />
+            <PaperPlaceholder
+              label="Headshot · 4:5"
+              ratio="4/5"
+              src="/images/projects/about-pic.jpeg"
+            />
             <div
               className="kicker"
               style={{ marginTop: 16, letterSpacing: "0.08em" }}
