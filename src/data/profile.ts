@@ -55,6 +55,134 @@ export interface SkillGroup {
   skills: { name: string; proficiency: Proficiency; note?: string }[];
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// CATEGORIZED TECH STACK — for the Tech recruiter view.
+// Domain-based, not "skill-bar" framing. Each group lists production-shipped
+// projects as social proof.
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface StackGroup {
+  domain: string;
+  blurb: string;
+  items: string[];
+  shippedIn: string[]; // project names
+}
+
+export const techStack: StackGroup[] = [
+  {
+    domain: "Backend",
+    blurb: "Production Express APIs with real test coverage, async jobs, modular middleware.",
+    items: [
+      "Node.js 20+",
+      "Express",
+      "Bun",
+      "Fastify",
+      "Multer",
+      "Jest + Supertest",
+    ],
+    shippedIn: ["Yantissimo Backend (167 files / 7.3k LOC, 41 routes)", "WhatsApp Gateway"],
+  },
+  {
+    domain: "Frontend",
+    blurb: "Next.js App Router + React 19 + TypeScript + Tailwind. Server Components, edge middleware.",
+    items: [
+      "Next.js 15 / 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "shadcn/ui",
+      "CodeMirror 6",
+      "Recharts",
+    ],
+    shippedIn: ["Yantissimo Shop", "YSSM ERP (450 files)", "Overtree", "DataKnife"],
+  },
+  {
+    domain: "Mobile",
+    blurb: "Native iOS, MVVM, zero external deps where it matters.",
+    items: [
+      "Swift 5.9",
+      "SwiftUI (iOS 16+ / 18)",
+      "Network.framework / NWConnection",
+      "Keychain",
+      "MapKit",
+      "Photos.framework",
+      "HealthKit",
+      "APNs (Push)",
+      "C FFI (LibSignal)",
+    ],
+    shippedIn: ["Yantissimo iOS (68 files, 0 SPM/Cocoapods)", "Smoke Signals (Signal protocol)", "Fitness Copilot"],
+  },
+  {
+    domain: "AI",
+    blurb: "Direct SDK use (not wrappers). Function calling with safety guards, hybrid RAG, MCP.",
+    items: [
+      "OpenAI SDK",
+      "Anthropic Claude SDK",
+      "OpenAI ChatKit",
+      "Vector Stores",
+      "Realtime API",
+      "Model Context Protocol (MCP)",
+      "Hybrid RAG",
+    ],
+    shippedIn: ["DataKnife (vector + SQL hybrid)", "Overtree (12-tool MCP server)", "Nexora Sales Agent"],
+  },
+  {
+    domain: "Real-time",
+    blurb: "CRDTs, WebSockets, voice, multi-channel messaging.",
+    items: [
+      "Yjs (CRDTs)",
+      "y-codemirror.next",
+      "y-websocket",
+      "ws",
+      "Baileys (WhatsApp)",
+      "Twilio Voice / Studio / Flex",
+    ],
+    shippedIn: ["Overtree (LAN multicursor)", "WhatsApp Gateway (multi-tenant)", "Smoke Signals"],
+  },
+  {
+    domain: "Cloud / DevOps",
+    blurb: "Vercel + Railway production deploys. CI/CD via GitHub Actions, Electron for desktop.",
+    items: [
+      "Vercel",
+      "Railway",
+      "GitHub Actions",
+      "pnpm Workspaces",
+      "Turbo",
+      "Electron + electron-builder",
+      "Backblaze B2",
+    ],
+    shippedIn: ["YSSM ERP (Vercel CI)", "Yantissimo Backend (Railway)", "Karate (.dmg/.exe/.AppImage)"],
+  },
+  {
+    domain: "Data",
+    blurb: "Postgres-first, Supabase RPC for security-definer functions, Shopify GraphQL, schema design.",
+    items: [
+      "PostgreSQL",
+      "MySQL",
+      "Supabase (RPC, security definer)",
+      "Shopify Admin & Storefront",
+      "Wheel-Size API",
+      "Google Workspace APIs",
+    ],
+    shippedIn: ["Yantissimo (PG + MySQL + Shopify)", "DataKnife (Supabase RPC)", "Nexora Agent"],
+  },
+  {
+    domain: "Auth & Security",
+    blurb: "JWT RS256 with on-device keypair generation, Keychain on iOS, iron-session on web.",
+    items: [
+      "JWT (RS256)",
+      "bcrypt",
+      "iron-session",
+      "Keychain (iOS)",
+      "401 refresh-retry",
+      "Signal protocol (Smoke Signals)",
+    ],
+    shippedIn: ["Yantissimo iOS", "Karate (RS256 keypair on first launch)", "Smoke Signals"],
+  },
+];
+
+// Legacy proficiency-based groups kept for reference but not rendered.
+// (skill bars are explicitly de-prioritized for recruiters per current plan.)
 export const skillGroups: SkillGroup[] = [
   {
     name: "AI Engineering",

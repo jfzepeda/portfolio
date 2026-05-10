@@ -2,16 +2,27 @@
 
 import { useEffect, useState } from "react";
 
-const links: [string, string][] = [
+type Mode = "executive" | "technical";
+
+// Nav adapts to view mode — Pro sees Services/Process, Tech sees Skills/Work.
+// Keeping About / Projects / More / Contact in both, since those exist in
+// both flows.
+const PRO_LINKS: [string, string][] = [
   ["About", "about"],
-  ["Skills", "skills"],
+  ["Services", "services"],
+  ["Process", "process"],
+  ["Projects", "projects"],
+  ["More", "more"],
+  ["Contact", "contact"],
+];
+const TECH_LINKS: [string, string][] = [
+  ["About", "about"],
+  ["Stack", "skills"],
   ["Work", "experience"],
   ["Projects", "projects"],
   ["More", "more"],
   ["Contact", "contact"],
 ];
-
-type Mode = "executive" | "technical";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -111,22 +122,24 @@ export function Nav() {
             justifyContent: "flex-end",
           }}
         >
-          {links.map(([label, id]) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              className="nav-link"
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: 11.5,
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                color: "var(--ink-2)",
-              }}
-            >
-              {label}
-            </a>
-          ))}
+          {(mounted ? (mode === "technical" ? TECH_LINKS : PRO_LINKS) : PRO_LINKS).map(
+            ([label, id]) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="nav-link"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11.5,
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  color: "var(--ink-2)",
+                }}
+              >
+                {label}
+              </a>
+            ),
+          )}
 
           {/* Executive ↔ Technical mode toggle */}
           <div

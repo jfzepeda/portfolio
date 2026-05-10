@@ -1,15 +1,11 @@
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
-import { skillGroups } from "@/data/profile";
+import { techStack } from "@/data/profile";
 
-// Warm-paper card grid. Mono header + accent dot + display-font group title +
-// monospace tag pills, paired with proficiency dots in tabular numerals.
-
-const profDots: Record<"expert" | "strong" | "working", string> = {
-  expert: "●●●",
-  strong: "●●○",
-  working: "●○○",
-};
+// Tech-mode-only categorized stack. Domain-based (Backend / Frontend /
+// Mobile / AI / Real-time / Cloud / Data / Auth) with a "shipped in"
+// production-credit line per group. No proficiency dots, no skill bars —
+// recruiters want concrete deployments, not self-reported levels.
 
 export function SkillsMatrix() {
   return (
@@ -24,28 +20,28 @@ export function SkillsMatrix() {
     >
       <SectionHeader
         n="02"
-        kicker="Stack"
-        title="The tools, in plain language."
-        subtitle="Working stack across AI, web, native, and infrastructure. Marker reads — ●●● expert · ●●○ strong · ●○○ working."
+        kicker="Tech stack"
+        title="What I work with — by domain, with proof of production."
+        subtitle="No skill bars. Each group lists where it's shipped, in production, today."
       />
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
           gap: "var(--gap)",
         }}
       >
-        {skillGroups.map((g, i) => (
-          <Reveal key={g.name} delay={i * 60}>
-            <div
+        {techStack.map((g, i) => (
+          <Reveal key={g.domain} delay={i * 50}>
+            <article
               className="paper-card paper-card-hover"
               style={{
                 padding: "clamp(20px, 2vw, 28px)",
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
-                gap: 16,
+                gap: 14,
               }}
             >
               <div
@@ -56,38 +52,37 @@ export function SkillsMatrix() {
                 }}
               >
                 <div
+                  className="kicker"
                   style={{
-                    fontFamily: "var(--font-mono)",
+                    color: "var(--accent)",
+                    letterSpacing: "0.16em",
                     fontSize: 11,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "var(--ink-3)",
                   }}
                 >
-                  {String(i + 1).padStart(2, "0")} /{" "}
-                  {String(skillGroups.length).padStart(2, "0")}
+                  {String(i + 1).padStart(2, "0")} · {g.domain}
                 </div>
                 <span
                   aria-hidden
                   style={{
                     width: 6,
                     height: 6,
-                    borderRadius: "50%",
+                    borderRadius: 999,
                     background: "var(--accent)",
                   }}
                 />
               </div>
-              <div
+              <h3
                 className="text-display"
                 style={{
-                  fontSize: 26,
-                  lineHeight: 1.1,
+                  fontSize: 22,
+                  lineHeight: 1.05,
                   color: "var(--ink)",
                   letterSpacing: "-0.01em",
+                  margin: 0,
                 }}
               >
-                {g.name}
-              </div>
+                {g.domain}
+              </h3>
               <p
                 style={{
                   fontSize: 13,
@@ -96,63 +91,69 @@ export function SkillsMatrix() {
                   margin: 0,
                 }}
               >
-                {g.description}
+                {g.blurb}
               </p>
-              <ul
-                style={{
-                  margin: 0,
-                  padding: 0,
-                  listStyle: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  marginTop: 4,
-                }}
-              >
-                {g.skills.map((s) => (
-                  <li
-                    key={s.name}
+
+              {/* tag cloud — monospace */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                {g.items.map((s) => (
+                  <span
+                    key={s}
                     style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "baseline",
-                      gap: 12,
-                      paddingTop: 8,
-                      borderTop: "1px solid var(--rule)",
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 11,
+                      padding: "3px 9px",
+                      color: "var(--ink-2)",
+                      border: "1px solid var(--rule)",
+                      borderRadius: 999,
+                      background: "var(--paper)",
                     }}
                   >
-                    <span
-                      style={{
-                        fontSize: 13,
-                        color: "var(--ink)",
-                        minWidth: 0,
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {s.name}
-                    </span>
-                    <span
-                      title={s.proficiency}
-                      aria-label={`${s.proficiency} proficiency`}
+                    {s}
+                  </span>
+                ))}
+              </div>
+
+              {/* production credit */}
+              <div
+                style={{
+                  marginTop: "auto",
+                  paddingTop: 12,
+                  borderTop: "1px solid var(--rule)",
+                }}
+              >
+                <div
+                  className="kicker"
+                  style={{ fontSize: 9.5, marginBottom: 6 }}
+                >
+                  Shipped in
+                </div>
+                <ul
+                  style={{
+                    margin: 0,
+                    padding: 0,
+                    listStyle: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 3,
+                  }}
+                >
+                  {g.shippedIn.map((s) => (
+                    <li
+                      key={s}
                       style={{
                         fontFamily: "var(--font-mono)",
-                        fontSize: 9,
-                        letterSpacing: "0.04em",
-                        color:
-                          s.proficiency === "expert"
-                            ? "var(--accent)"
-                            : "var(--ink-3)",
-                        flexShrink: 0,
+                        fontSize: 11,
+                        lineHeight: 1.5,
+                        color: "var(--ink-3)",
                       }}
                     >
-                      {profDots[s.proficiency]}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                      → {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
           </Reveal>
         ))}
       </div>

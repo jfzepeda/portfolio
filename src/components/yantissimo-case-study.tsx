@@ -1,8 +1,11 @@
 import { Reveal } from "./reveal";
 import { SectionHeader, PaperPlaceholder } from "./section-header";
+import { ArchitectureDiagram } from "./architecture-diagram";
+import { CodeSnippet } from "./code-snippet";
 import { yantissimo } from "@/data/projects";
 
-// Tier-1 hero case study, warm-paper style. Wide intro + 3 subproduct rows.
+// Tier-1 hero case study, warm-paper style. Wide intro + 3 subproduct rows
+// + (Tech) full case-study breakdown + (Pro) before/after value table.
 
 export function YantissimoCaseStudy() {
   const p = yantissimo;
@@ -469,6 +472,468 @@ export function YantissimoCaseStudy() {
           </div>
         </div>
       )}
+
+      {/* ───── PRO: Before / After ───── */}
+      <div
+        className="only-executive"
+        style={{ marginTop: "clamp(48px, 6vw, 80px)" }}
+      >
+        <Reveal>
+          <div
+            className="kicker"
+            style={{
+              marginBottom: 18,
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+            }}
+          >
+            <span style={{ color: "var(--accent)" }}>✦</span>
+            Before vs after — the operational impact
+          </div>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <div
+            className="paper-card collapse-mobile"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              padding: 0,
+              overflow: "hidden",
+            }}
+          >
+            <BeforeAfterColumn
+              kind="before"
+              title="Antes — operación manual"
+              points={[
+                "Atención al cliente atada a horario laboral por WhatsApp.",
+                "Sin app — los clientes no podían ver vehículos, citas ni estatus.",
+                "Cotizaciones y reservas hechas a mano, en hojas y mensajes.",
+                "Catálogo y precios solo en cabeza del equipo de ventas.",
+                "Pagos coordinados manualmente, sin link directo.",
+              ]}
+            />
+            <BeforeAfterColumn
+              kind="after"
+              title="Hoy — plataforma operando 24/7"
+              points={[
+                "Clientes se autoatienden 24/7: ven, cotizan, agendan y pagan.",
+                "App iOS nativa con sesión eterna y push de recordatorios.",
+                "Storefront público con búsqueda por auto (marca/modelo/año).",
+                "Catálogo único en Shopify, sincronizado en los tres frentes.",
+                "Agente IA en WhatsApp / Telegram filtra y atiende sin parar.",
+              ]}
+            />
+          </div>
+        </Reveal>
+      </div>
+
+      {/* ───── TECH: Problem · Tradeoffs · Results · Learnings ───── */}
+      <div
+        className="only-technical"
+        style={{ marginTop: "clamp(56px, 7vw, 96px)" }}
+      >
+        <Reveal>
+          <div
+            className="kicker"
+            style={{
+              marginBottom: 18,
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+            }}
+          >
+            <span style={{ color: "var(--accent)" }}>✦</span>
+            Case study — engineering depth
+          </div>
+        </Reveal>
+
+        <CaseStudyBlock
+          n="A"
+          title="Problem"
+          body={
+            <>
+              The distributor had a real catalog, real customers on WhatsApp,
+              and zero coordinated digital surface. Sales lived in the heads
+              of three people; pricing changes lived in a spreadsheet;
+              appointments were booked verbally. Building a unified front-end
+              wasn't enough — the system had to integrate with the existing
+              Shopify catalog, persist a session graph for thousands of
+              customers, and stay reliable enough that an iOS client could
+              cache it and open offline.
+            </>
+          }
+        />
+
+        <ArchitectureDiagram />
+
+        <CaseStudyBlock
+          n="B"
+          title="Tradeoffs"
+          body={
+            <ul
+              style={{
+                margin: 0,
+                padding: 0,
+                listStyle: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+              }}
+            >
+              {[
+                [
+                  "Express over Nest/Fastify",
+                  "I traded a heavier framework's structure for surgical control over middleware and route composition. With 41 routes and a real test suite, the trade has paid off in audit speed.",
+                ],
+                [
+                  "Zero-dep iOS APIClient",
+                  "Skipped Alamofire/Moya so I owned the 401 refresh-retry semantics, the cache hydration order, and the eternal-session contract. Worth the extra ~300 LOC.",
+                ],
+                [
+                  "Postgres + MySQL coexisting",
+                  "Postgres for the new transactional layer; MySQL kept for legacy ETL while we migrate. Cheaper than a big-bang and recoverable per-table.",
+                ],
+                [
+                  "Headless Shopify, not custom checkout",
+                  "Shopify is the source of truth for catalog/checkout — building those from scratch would've been a year of compliance work. Storefront API + custom search wins instead.",
+                ],
+                [
+                  "OpenAI tools with explicit budget",
+                  "The Nexora agent uses OpenAI tool calling, but every conversation has hard turn + cost ceilings. Cheaper than fine-tuning and easier to iterate.",
+                ],
+              ].map(([k, v]) => (
+                <li
+                  key={k}
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.6,
+                    color: "var(--ink-2)",
+                    paddingLeft: 18,
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: 11,
+                      width: 8,
+                      height: 1,
+                      background: "var(--accent)",
+                    }}
+                  />
+                  <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
+                    {k}.
+                  </strong>{" "}
+                  {v}
+                </li>
+              ))}
+            </ul>
+          }
+        />
+
+        <CaseStudyBlock
+          n="C"
+          title="Implementation snippets"
+          body={
+            <>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: 14.5,
+                  lineHeight: 1.65,
+                  color: "var(--ink-2)",
+                }}
+              >
+                Two of the highest-leverage decisions in code. Both are
+                simplified for legibility — the actual implementations have
+                additional logging, retries, and instrumentation.
+              </p>
+
+              <CodeSnippet
+                lang="Swift"
+                file="yantissimo/Core/Network/APIClient.swift"
+                caption={`401 → /auth/refresh → retry once. If the refresh itself fails, the user is bounced to Welcome — never two consecutive failures, never silent token expiry.`}
+                code={`func send<T: Decodable>(_ ep: APIEndpoint) async throws -> T {
+    var req = try await build(ep)
+    let (data, resp) = try await URLSession.shared.data(for: req)
+
+    guard let http = resp as? HTTPURLResponse else { throw APIError.transport }
+    if http.statusCode == 401, !ep.isAuthRoute, await refreshOnce() {
+        // refresh succeeded → re-sign and retry exactly once
+        req = try await build(ep)
+        let (data2, resp2) = try await URLSession.shared.data(for: req)
+        return try decode(T.self, data2, resp2)
+    }
+    return try decode(T.self, data, resp)
+}
+
+// shared single-flight refresh — concurrent 401s share one round-trip
+private func refreshOnce() async -> Bool {
+    if let inflight = self.refreshTask { return await inflight.value }
+    let task = Task<Bool, Never> {
+        defer { self.refreshTask = nil }
+        return await self.performRefresh()
+    }
+    self.refreshTask = task
+    return await task.value
+}`}
+              />
+
+              <CodeSnippet
+                lang="TypeScript"
+                file="company-brain/src/lib/openai/sql-tool.js"
+                caption={`OpenAI ChatKit tool that lets a non-technical user ask in plain language. SELECT-only guard + auto LIMIT means the worst case is "wrong answer", never "dropped table".`}
+                code={`export async function onSqlTool({ sql }) {
+  const trimmed = sql.trim().replace(/;\\s*$/, "");
+  if (!/^\\s*(select|with)\\b/i.test(trimmed)) {
+    return { error: "Only SELECT (or WITH … SELECT) is allowed." };
+  }
+
+  // force LIMIT when missing — runaway scans are the #1 OOM cause here
+  const sqlWithLimit = /\\blimit\\s+\\d+/i.test(trimmed)
+    ? trimmed
+    : \`\${trimmed} LIMIT 200\`;
+
+  // server-only: service role key never reaches the client
+  const { data, error } = await supabase.rpc(SQL_RPC, {
+    [SQL_ARG]: sqlWithLimit,
+  });
+  if (error) return { error: error.message };
+
+  return { rows: data, rowCount: Array.isArray(data) ? data.length : 0 };
+}`}
+              />
+            </>
+          }
+        />
+
+        <CaseStudyBlock
+          n="D"
+          title="Results"
+          body={
+            <ul
+              style={{
+                margin: 0,
+                padding: 0,
+                listStyle: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+              }}
+            >
+              {[
+                "Customers self-serve the full quote → payment → appointment loop without a sales rep on the line.",
+                "iOS app opens with content even before the first network call — Application Support cache hydrates the views on launch.",
+                "Backend test suite (Jest + Supertest) gates merges on Railway via a small CI script; no test, no deploy.",
+                "Storefront 'Por auto' search resolves vehicle → tire-size → in-stock SKUs in <300 ms thanks to a thin GraphQL projection over Shopify.",
+                "Nexora agent handles routine inbound on Telegram + WhatsApp 24/7, escalating to humans only when the conversation enters a configured trigger set.",
+              ].map((r, i) => (
+                <li
+                  key={i}
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.6,
+                    color: "var(--ink-2)",
+                    paddingLeft: 18,
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: 11,
+                      width: 8,
+                      height: 1,
+                      background: "var(--accent)",
+                    }}
+                  />
+                  {r}
+                </li>
+              ))}
+            </ul>
+          }
+        />
+
+        <CaseStudyBlock
+          n="E"
+          title="Learnings"
+          body={
+            <ul
+              style={{
+                margin: 0,
+                padding: 0,
+                listStyle: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+              }}
+            >
+              {[
+                "Owning the network layer end-to-end on iOS paid back instantly — every bug after launch has been a 5-minute breakpoint, not a third-party SDK detective hunt.",
+                "A modest test suite at the API boundary catches more regressions than fine-grained unit tests of business logic. Boundary-first.",
+                "Shopify's webhook contract is more reliable than its REST poll path — webhook-driven sync + idempotency keys removed an entire class of inventory drift.",
+                "OpenAI tool calling beats prompt-only RAG when the answer needs to mutate state. The agent that books a service is more useful than the one that describes it.",
+                "When the operations team can edit a JSON file, they don't need a feature request. Admin panel JSON editor saved at least a sprint.",
+              ].map((r, i) => (
+                <li
+                  key={i}
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.6,
+                    color: "var(--ink-2)",
+                    paddingLeft: 18,
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: 11,
+                      width: 8,
+                      height: 1,
+                      background: "var(--accent)",
+                    }}
+                  />
+                  {r}
+                </li>
+              ))}
+            </ul>
+          }
+        />
+      </div>
     </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────── */
+
+interface CaseStudyBlockProps {
+  n: string;
+  title: string;
+  body: React.ReactNode;
+}
+
+function CaseStudyBlock({ n, title, body }: CaseStudyBlockProps) {
+  return (
+    <Reveal>
+      <div
+        style={{
+          marginTop: "clamp(28px, 3.5vw, 48px)",
+          paddingTop: "clamp(24px, 3vw, 36px)",
+          borderTop: "1px solid var(--rule)",
+          display: "grid",
+          gridTemplateColumns: "120px 1fr",
+          gap: "clamp(20px, 3vw, 40px)",
+        }}
+        className="exp-row"
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <span
+            className="text-display"
+            style={{
+              fontSize: 36,
+              color: "var(--accent)",
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            {n}
+          </span>
+          <span className="kicker" style={{ fontSize: 10 }}>
+            {title}
+          </span>
+        </div>
+        <div>{body}</div>
+      </div>
+    </Reveal>
+  );
+}
+
+interface BeforeAfterColumnProps {
+  kind: "before" | "after";
+  title: string;
+  points: string[];
+}
+
+function BeforeAfterColumn({ kind, title, points }: BeforeAfterColumnProps) {
+  const isAfter = kind === "after";
+  return (
+    <div
+      style={{
+        padding: "clamp(20px, 2.5vw, 32px)",
+        background: isAfter ? "var(--paper-2)" : "var(--paper-3)",
+        borderRight: isAfter ? "none" : "1px solid var(--rule)",
+        display: "flex",
+        flexDirection: "column",
+        gap: 14,
+      }}
+    >
+      <div
+        className="kicker"
+        style={{
+          color: isAfter ? "var(--accent)" : "var(--ink-3)",
+          letterSpacing: "0.18em",
+          fontSize: 10,
+        }}
+      >
+        {kind === "before" ? "→ Antes" : "→ Hoy"}
+      </div>
+      <h4
+        className="text-display"
+        style={{
+          margin: 0,
+          fontSize: 22,
+          lineHeight: 1.1,
+          color: "var(--ink)",
+          letterSpacing: "-0.01em",
+        }}
+      >
+        {title}
+      </h4>
+      <ul
+        style={{
+          margin: 0,
+          padding: 0,
+          listStyle: "none",
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+        }}
+      >
+        {points.map((p, i) => (
+          <li
+            key={i}
+            style={{
+              fontSize: 14,
+              lineHeight: 1.55,
+              color: "var(--ink-2)",
+              paddingLeft: 18,
+              position: "relative",
+            }}
+          >
+            <span
+              aria-hidden
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 10,
+                width: 8,
+                height: 1,
+                background: isAfter ? "var(--accent)" : "var(--ink-3)",
+              }}
+            />
+            {p}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

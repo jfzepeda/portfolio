@@ -2,6 +2,8 @@ import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { BrandStrip } from "@/components/brand-strip";
 import { About } from "@/components/about";
+import { Services } from "@/components/services";
+import { Process } from "@/components/process";
 import { SkillsMatrix } from "@/components/skills-matrix";
 import { Experience } from "@/components/experience";
 import { YantissimoCaseStudy } from "@/components/yantissimo-case-study";
@@ -44,6 +46,17 @@ function CollectionSchema() {
   );
 }
 
+// Composition for both views. Each section internally hides itself in the
+// wrong mode via .only-executive / .only-technical, so we render the union
+// — same HTML for SEO/LLMs — and let CSS swap visibility.
+//
+// Pro view sequence    : Hero · Brands · Services · Process · About · Yantissimo · Projects · More · Contact
+// Tech view sequence   : Hero · Brands · Tech Stack · Experience · About · Yantissimo · Projects · More · Contact
+//
+// We render Services + Process (Pro-only) and Tech Stack + Experience
+// (Tech-only) in the order they should APPEAR for their respective viewer.
+// In the DOM, Services/Process come before Tech Stack/Experience; this
+// matches the Pro flow naturally and the Tech-only blocks just slot in.
 export default function HomePage() {
   return (
     <>
@@ -52,7 +65,11 @@ export default function HomePage() {
         <Hero />
         <BrandStrip />
         <About />
+        {/* § 02 — Services (Pro) / Tech Stack (Tech) */}
+        <Services />
         <SkillsMatrix />
+        {/* § 03 — Process (Pro) / Experience (Tech) */}
+        <Process />
         <Experience />
         <YantissimoCaseStudy />
         <FeaturedGrid />
