@@ -8,10 +8,7 @@ const description = profile.pitch;
 const url = "https://juanfe.dev";
 
 export const metadata: Metadata = {
-  title: {
-    default: title,
-    template: `%s — ${profile.name}`,
-  },
+  title: { default: title, template: `%s — ${profile.name}` },
   description,
   applicationName: "Juan Felipe Zepeda — Portfolio",
   authors: [{ name: profile.name, url }],
@@ -40,11 +37,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-  },
+  twitter: { card: "summary_large_image", title, description },
   robots: {
     index: true,
     follow: true,
@@ -55,35 +48,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: url,
-  },
+  alternates: { canonical: url },
   metadataBase: new URL(url),
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-    { media: "(prefers-color-scheme: light)", color: "#fafaf8" },
-  ],
+  themeColor: "#F4EFE5",
 };
-
-const FONTS_LINKS = (
-  <>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossOrigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500&display=swap"
-    />
-  </>
-);
 
 const SCHEMA = {
   "@context": "https://schema.org",
@@ -109,12 +82,16 @@ const SCHEMA = {
     "OpenAI",
     "Anthropic Claude",
   ],
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "Mexico",
-  },
+  address: { "@type": "PostalAddress", addressCountry: "Mexico" },
   sameAs: [profile.social.github, profile.social.linkedin].filter(Boolean),
 };
+
+// Locked Mono-led pairing — only the two fonts in active use are loaded.
+const FONTS_HREF =
+  "https://fonts.googleapis.com/css2?" +
+  "family=Space+Grotesk:wght@400;500;600;700&" +
+  "family=JetBrains+Mono:wght@400;500&" +
+  "display=swap";
 
 export default function RootLayout({
   children,
@@ -124,13 +101,25 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {FONTS_LINKS}
+        <meta name="color-scheme" content="light" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="stylesheet" href={FONTS_HREF} />
         <ModeScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
         />
-        <link rel="alternate" type="text/markdown" title="LLM-friendly summary" href="/llms.txt" />
+        <link
+          rel="alternate"
+          type="text/markdown"
+          title="LLM-friendly summary"
+          href="/llms.txt"
+        />
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body>

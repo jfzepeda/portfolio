@@ -1,133 +1,160 @@
+import { Reveal } from "./reveal";
+import { SectionHeader } from "./section-header";
 import { skillGroups } from "@/data/profile";
 
-const profFill: Record<"expert" | "strong" | "working", string> = {
-  expert: "100%",
-  strong: "66%",
-  working: "33%",
-};
+// Warm-paper card grid. Mono header + accent dot + display-font group title +
+// monospace tag pills, paired with proficiency dots in tabular numerals.
 
-const profLabel: Record<"expert" | "strong" | "working", string> = {
-  expert: "Expert",
-  strong: "Strong",
-  working: "Working",
+const profDots: Record<"expert" | "strong" | "working", string> = {
+  expert: "●●●",
+  strong: "●●○",
+  working: "●○○",
 };
 
 export function SkillsMatrix() {
   return (
     <section
       id="skills"
-      className="py-24 lg:py-32"
-      aria-labelledby="skills-title"
+      className="only-technical"
+      style={{
+        padding: "var(--section-y) clamp(20px, 4vw, 40px)",
+        maxWidth: 1180,
+        margin: "0 auto",
+      }}
     >
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <div className="flex items-center gap-3 mb-8">
-          <div
-            className="h-[2px] w-12"
-            style={{ background: "var(--fg-subtle)" }}
-          />
-          <span
-            className="text-[11px] uppercase tracking-[0.18em]"
-            style={{ color: "var(--fg-subtle)" }}
-          >
-            Skills matrix
-          </span>
-        </div>
-        <h2
-          id="skills-title"
-          className="text-display max-w-[860px]"
-          style={{ fontSize: "clamp(36px, 5.5vw, 64px)" }}
-        >
-          A working stack across AI, web, native, and infrastructure.
-        </h2>
-        <p
-          className="mt-5 max-w-[680px] text-[15px] leading-[1.55]"
-          style={{ color: "var(--fg-muted)" }}
-        >
-          A working stack across AI, web, native, and infrastructure. Proficiency:
-          <span className="inline-flex items-center gap-1.5 ml-2">
-            <span
-              className="prof-bar"
-              style={{ ["--prof-fill" as string]: "100%" } as React.CSSProperties}
-            />
-            <span style={{ color: "var(--fg)" }}>Expert</span>
-          </span>
-          <span className="inline-flex items-center gap-1.5 ml-2">
-            <span
-              className="prof-bar"
-              style={{ ["--prof-fill" as string]: "66%" } as React.CSSProperties}
-            />
-            <span>Strong</span>
-          </span>
-          <span className="inline-flex items-center gap-1.5 ml-2">
-            <span
-              className="prof-bar"
-              style={{ ["--prof-fill" as string]: "33%" } as React.CSSProperties}
-            />
-            <span>Working</span>
-          </span>
-          .
-        </p>
+      <SectionHeader
+        n="02"
+        kicker="Stack"
+        title="The tools, in plain language."
+        subtitle="Working stack across AI, web, native, and infrastructure. Marker reads — ●●● expert · ●●○ strong · ●○○ working."
+      />
 
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {skillGroups.map((g) => (
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: "var(--gap)",
+        }}
+      >
+        {skillGroups.map((g, i) => (
+          <Reveal key={g.name} delay={i * 60}>
             <div
-              key={g.name}
-              className="surface premium-card p-6"
+              className="paper-card paper-card-hover"
               style={{
-                borderRadius: "var(--radius-lg)",
-                ["--tier-grad" as string]:
-                  "linear-gradient(135deg, #f59e0b 0%, #a78bfa 100%)",
+                padding: "clamp(20px, 2vw, 28px)",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                gap: 16,
               }}
             >
-              <h3
-                className="text-[16px] mb-1"
+              <div
                 style={{
-                  fontFamily: "var(--font-display)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 11,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    color: "var(--ink-3)",
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")} /{" "}
+                  {String(skillGroups.length).padStart(2, "0")}
+                </div>
+                <span
+                  aria-hidden
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    background: "var(--accent)",
+                  }}
+                />
+              </div>
+              <div
+                className="text-display"
+                style={{
+                  fontSize: 26,
+                  lineHeight: 1.1,
+                  color: "var(--ink)",
                   letterSpacing: "-0.01em",
-                  color: "var(--fg)",
                 }}
               >
                 {g.name}
-              </h3>
+              </div>
               <p
-                className="text-[12px] mb-5"
-                style={{ color: "var(--fg-muted)" }}
+                style={{
+                  fontSize: 13,
+                  lineHeight: 1.55,
+                  color: "var(--ink-2)",
+                  margin: 0,
+                }}
               >
                 {g.description}
               </p>
-              <ul className="space-y-2.5">
+              <ul
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  listStyle: "none",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 6,
+                  marginTop: 4,
+                }}
+              >
                 {g.skills.map((s) => (
                   <li
                     key={s.name}
-                    className="flex justify-between items-center gap-3 text-[13px]"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "baseline",
+                      gap: 12,
+                      paddingTop: 8,
+                      borderTop: "1px solid var(--rule)",
+                    }}
                   >
-                    <div className="min-w-0">
-                      <div style={{ color: "var(--fg)" }}>{s.name}</div>
-                      {s.note && (
-                        <div
-                          className="text-[11px] truncate"
-                          style={{ color: "var(--fg-subtle)" }}
-                        >
-                          {s.note}
-                        </div>
-                      )}
-                    </div>
                     <span
-                      className="prof-bar flex-shrink-0"
-                      title={profLabel[s.proficiency]}
-                      aria-label={`${profLabel[s.proficiency]} proficiency`}
-                      style={
-                        {
-                          ["--prof-fill"]: profFill[s.proficiency],
-                        } as React.CSSProperties
-                      }
-                    />
+                      style={{
+                        fontSize: 13,
+                        color: "var(--ink)",
+                        minWidth: 0,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {s.name}
+                    </span>
+                    <span
+                      title={s.proficiency}
+                      aria-label={`${s.proficiency} proficiency`}
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: 9,
+                        letterSpacing: "0.04em",
+                        color:
+                          s.proficiency === "expert"
+                            ? "var(--accent)"
+                            : "var(--ink-3)",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {profDots[s.proficiency]}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

@@ -150,6 +150,53 @@ export const skillGroups: SkillGroup[] = [
 // CAPABILITY HEADLINES — for the "what I do" section.
 // ─────────────────────────────────────────────────────────────────────────────
 
+// ─────────────────────────────────────────────────────────────────────────────
+// EXPERIENCE TIMELINE — for the Work section
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface ExperienceRow {
+  when: string;
+  role: string;
+  org: string;
+  where: string;
+  bullets: string[];
+}
+
+export const experience: ExperienceRow[] = [
+  {
+    when: "2025 — present",
+    role: "AI & Product Engineer",
+    org: "Yantissimo / Llantísimo",
+    where: "Mexico · Hybrid",
+    bullets: [
+      "Built the customer-facing iOS app, Express backend, and headless Shopify storefront end-to-end — the company's complete digital surface.",
+      "Shipped multi-channel AI sales agent across Telegram + WhatsApp with OpenAI tool calling, scheduled reminders, Backblaze media.",
+      "Stack: Swift 5.9 / SwiftUI, Node.js 20 / Express, PostgreSQL, Shopify Admin & Storefront, OpenAI, Railway + Vercel.",
+    ],
+  },
+  {
+    when: "2025 — present",
+    role: "Independent AI Engineer",
+    org: "AI Lab (open / contract)",
+    where: "Remote",
+    bullets: [
+      "Hybrid RAG platform (DataKnife) — vector store + Supabase RPC with custom SELECT-only SQL safety guards via OpenAI ChatKit.",
+      "Local-first LaTeX editor (Overtree) with Yjs CRDT collaboration and an MCP server exposing 12 tools across 3 transports.",
+      "Self-hosted multi-tenant WhatsApp gateway powering a fleet of internal agents — Baileys + Neon Postgres + Next.js dashboard.",
+    ],
+  },
+  {
+    when: "2024 — 2025",
+    role: "Data Science Student",
+    org: "[ University ]",
+    where: "Mexico",
+    bullets: [
+      "Coursework in machine learning, statistics, and applied AI.",
+      "Independent projects in LLM applications, retrieval systems, and data pipelines.",
+    ],
+  },
+];
+
 export const capabilityPillars = [
   {
     id: "platforms",

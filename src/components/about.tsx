@@ -1,110 +1,126 @@
+import { Reveal } from "./reveal";
+import { SectionHeader, PaperPlaceholder } from "./section-header";
 import { profile } from "@/data/profile";
+
+const QUICK_FACTS: [string, string][] = [
+  ["Based in", profile.location],
+  ["Open to", "Remote / Hybrid · Senior IC"],
+  ["Studying", "Data Science"],
+  ["Speaks", "ES · EN"],
+];
 
 export function About() {
   return (
     <section
       id="about"
-      className="py-24 lg:py-28"
-      aria-labelledby="about-title"
+      style={{
+        padding: "var(--section-y) clamp(20px, 4vw, 40px)",
+        maxWidth: 1180,
+        margin: "0 auto",
+      }}
     >
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <div className="grid lg:grid-cols-[1fr_400px] gap-10 lg:gap-16 items-start">
-          <div>
-            <div className="flex items-center gap-3 mb-8">
-              <div
-                className="h-[2px] w-12"
-                style={{ background: "var(--fg-subtle)" }}
-              />
-              <span
-                className="text-[11px] uppercase tracking-[0.18em]"
-                style={{ color: "var(--fg-subtle)" }}
-              >
-                About
-              </span>
-            </div>
-            <h2
-              id="about-title"
-              className="text-display"
-              style={{ fontSize: "clamp(36px, 5.5vw, 64px)" }}
-            >
-              Leverage over surface area.
-            </h2>
+      <SectionHeader
+        n="01"
+        kicker="About"
+        title={
+          <>
+            A builder of <em>useful</em> things — from native iOS to AI agents.
+          </>
+        }
+      />
+
+      <div
+        className="collapse-mobile"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.4fr)",
+          gap: "clamp(32px, 5vw, 80px)",
+          alignItems: "start",
+        }}
+      >
+        <Reveal>
+          <div style={{ position: "sticky", top: 100 }}>
+            <PaperPlaceholder label="Headshot · 4:5" ratio="4/5" />
             <div
-              className="mt-8 space-y-5 max-w-[680px] text-[16px] lg:text-[17px] leading-[1.7]"
-              style={{ color: "var(--fg)" }}
+              className="kicker"
+              style={{ marginTop: 16, letterSpacing: "0.08em" }}
             >
-              {profile.bio.map((para, i) => (
-                <p
-                  key={i}
-                  className={i === 0 ? "drop-cap" : ""}
-                  style={{ color: i === 0 ? "var(--fg)" : "var(--fg-muted)" }}
-                >
-                  {para}
-                </p>
+              [ portrait placeholder ]
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "var(--gap)",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "clamp(18px, 1.8vw, 22px)",
+                lineHeight: 1.5,
+                color: "var(--ink)",
+                margin: 0,
+                textWrap: "pretty",
+              }}
+            >
+              I build complete platforms — front-end, back-end, mobile, agents,
+              and the infrastructure that ties them together. Native iOS,
+              Next.js, Node.js APIs, real-time systems, and AI-native
+              architectures (RAG, function calling, MCP servers, multi-agent
+              orchestration).
+            </p>
+            <p
+              style={{
+                fontSize: "clamp(16px, 1.4vw, 18px)",
+                lineHeight: 1.65,
+                color: "var(--ink-2)",
+                margin: 0,
+                textWrap: "pretty",
+              }}
+            >
+              My flagship is the Yantissimo platform — a tire and wheel
+              distributor's complete digital stack: native iOS app, Express
+              backend, headless Shopify storefront. I built all three. I move
+              and iterate fast. I prefer leverage over surface area: a single
+              self-hosted gateway over per-agent BSPs, a pure-logic core
+              package over duplicated UI logic, a hand-written iOS APIClient
+              over a third-party SDK.
+            </p>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+                gap: 24,
+                marginTop: 16,
+                paddingTop: 24,
+                borderTop: "1px solid var(--rule)",
+              }}
+            >
+              {QUICK_FACTS.map(([k, v]) => (
+                <div key={k}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 10,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "var(--ink-3)",
+                      marginBottom: 6,
+                    }}
+                  >
+                    {k}
+                  </div>
+                  <div style={{ fontSize: 15, color: "var(--ink)" }}>{v}</div>
+                </div>
               ))}
             </div>
           </div>
-
-          <aside
-            className="surface p-7"
-            style={{ borderRadius: "var(--radius-xl)" }}
-          >
-            <div
-              className="text-[10px] uppercase tracking-[0.18em] mb-4"
-              style={{ color: "var(--fg-subtle)" }}
-            >
-              Contact
-            </div>
-            <div className="space-y-3 text-[14px]">
-              <a
-                href={`mailto:${profile.email}`}
-                className="block transition-colors hover:text-[color:var(--accent)]"
-                style={{ color: "var(--fg)" }}
-              >
-                <div
-                  className="text-[10px] uppercase tracking-[0.14em] mb-1"
-                  style={{ color: "var(--fg-subtle)" }}
-                >
-                  Email
-                </div>
-                <div className="text-mono text-[13px]">{profile.email}</div>
-              </a>
-              <div className="pt-3" style={{ borderTop: "1px solid var(--border)" }}>
-                <div
-                  className="text-[10px] uppercase tracking-[0.14em] mb-1"
-                  style={{ color: "var(--fg-subtle)" }}
-                >
-                  Based in
-                </div>
-                <div style={{ color: "var(--fg)" }}>{profile.location}</div>
-                <div
-                  className="text-[12px] text-mono mt-0.5"
-                  style={{ color: "var(--fg-muted)" }}
-                >
-                  {profile.timezone}
-                </div>
-              </div>
-              <div className="pt-3" style={{ borderTop: "1px solid var(--border)" }}>
-                <div
-                  className="text-[10px] uppercase tracking-[0.14em] mb-1"
-                  style={{ color: "var(--fg-subtle)" }}
-                >
-                  Status
-                </div>
-                <div className="flex items-center gap-2">
-                  <span
-                    className="dot"
-                    aria-hidden
-                    style={{ background: "#10b981" }}
-                  />
-                  <span style={{ color: "var(--fg)" }}>
-                    Open to work &amp; contracts
-                  </span>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,75 +1,91 @@
+import { Reveal } from "./reveal";
+import { SectionHeader } from "./section-header";
 import { tier2, tier3 } from "@/data/projects";
 import { ProjectCard } from "./project-card";
 
-// Tier 2 + Tier 3 displayed as a single "Featured Work" section.
-// Tier 2 cards are full-width; Tier 3 cards are full-width but visually
-// lighter — controlled inside ProjectCard via tier-N CSS class.
+// Tier 2 + Tier 3 — paper case-study grid.
 
 export function FeaturedGrid() {
   return (
     <section
-      id="work"
-      className="py-24 lg:py-28"
-      aria-labelledby="work-title"
+      id="projects"
+      style={{
+        padding: "var(--section-y) clamp(20px, 4vw, 40px)",
+        maxWidth: 1180,
+        margin: "0 auto",
+      }}
     >
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <div className="flex items-center gap-3 mb-8">
-          <div
-            className="h-[2px] w-12"
-            style={{ background: "var(--accent)" }}
-          />
-          <span
-            className="text-[11px] uppercase tracking-[0.18em]"
-            style={{ color: "var(--accent)" }}
-          >
-            Featured work
-          </span>
-        </div>
-        <h2
-          id="work-title"
-          className="text-display max-w-[860px]"
-          style={{ fontSize: "clamp(36px, 5.5vw, 64px)" }}
-        >
-          Nine featured projects beyond the flagship.
-        </h2>
-        <p
-          className="mt-5 max-w-[680px] text-[15px] leading-[1.55]"
-          style={{ color: "var(--fg-muted)" }}
-        >
-          <span className="only-executive">
-            Each one is a real product: shipped, used, and built end-to-end.
-            Toggle Technical for stack and architecture detail.
-          </span>
-          <span className="only-technical">
-            Tap any card's “Architecture &amp; implementation” to expand the
-            technical detail. Stacks are listed at the bottom of each card.
-          </span>
-        </p>
+      <SectionHeader
+        n="05"
+        kicker="Selected work"
+        title="Things I've built recently."
+        subtitle="Each one is a real product: shipped, used, and built end-to-end. Toggle Technical for stack and architecture detail."
+      />
 
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "clamp(28px, 3.5vw, 44px)",
+        }}
+      >
         {/* TIER 2 */}
-        <div
-          className="mt-14 mb-3 text-[11px] uppercase tracking-[0.18em]"
-          style={{ color: "var(--fg-subtle)" }}
-        >
-          Tier 2 — Featured deep
-        </div>
-        <div className="space-y-5">
-          {tier2.map((p) => (
-            <ProjectCard key={p.id} project={p} />
-          ))}
+        <div>
+          <Reveal>
+            <div
+              className="kicker"
+              style={{
+                marginBottom: 16,
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+              }}
+            >
+              <span style={{ color: "var(--accent)" }}>✦</span>
+              Featured deep
+            </div>
+          </Reveal>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+              gap: "var(--gap)",
+            }}
+          >
+            {tier2.map((p, i) => (
+              <ProjectCard key={p.id} project={p} index={i} />
+            ))}
+          </div>
         </div>
 
         {/* TIER 3 */}
-        <div
-          className="mt-16 mb-3 text-[11px] uppercase tracking-[0.18em]"
-          style={{ color: "var(--fg-subtle)" }}
-        >
-          Tier 3 — Featured
-        </div>
-        <div className="space-y-5">
-          {tier3.map((p) => (
-            <ProjectCard key={p.id} project={p} />
-          ))}
+        <div>
+          <Reveal>
+            <div
+              className="kicker"
+              style={{
+                marginBottom: 16,
+                marginTop: 16,
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+              }}
+            >
+              <span style={{ color: "var(--accent)" }}>✦</span>
+              Featured
+            </div>
+          </Reveal>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "var(--gap)",
+            }}
+          >
+            {tier3.map((p, i) => (
+              <ProjectCard key={p.id} project={p} index={i} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

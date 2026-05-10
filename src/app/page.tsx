@@ -1,16 +1,16 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
-import { CapabilityPillars } from "@/components/capability-pillars";
-import { TechMarquee } from "@/components/tech-marquee";
+import { BrandStrip } from "@/components/brand-strip";
+import { About } from "@/components/about";
+import { SkillsMatrix } from "@/components/skills-matrix";
+import { Experience } from "@/components/experience";
 import { YantissimoCaseStudy } from "@/components/yantissimo-case-study";
 import { FeaturedGrid } from "@/components/featured-grid";
 import { Tier4Carousel } from "@/components/tier4-carousel";
-import { SkillsMatrix } from "@/components/skills-matrix";
-import { About } from "@/components/about";
+import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { featuredProjects, tier4 } from "@/data/projects";
 
-// Schema.org collection (machine-readable summary of the whole portfolio)
 function CollectionSchema() {
   const data = {
     "@context": "https://schema.org",
@@ -50,13 +50,14 @@ export default function HomePage() {
       <Nav />
       <main>
         <Hero />
-        <CapabilityPillars />
+        <BrandStrip />
+        <About />
+        <SkillsMatrix />
+        <Experience />
         <YantissimoCaseStudy />
-        <TechMarquee />
         <FeaturedGrid />
         <Tier4Carousel />
-        <SkillsMatrix />
-        <About />
+        <Contact />
       </main>
       <Footer />
       <CollectionSchema />

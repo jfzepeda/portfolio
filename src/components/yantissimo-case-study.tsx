@@ -1,6 +1,8 @@
+import { Reveal } from "./reveal";
+import { SectionHeader, PaperPlaceholder } from "./section-header";
 import { yantissimo } from "@/data/projects";
 
-// Tier-1 hero case study. Detail every product as its own subsection.
+// Tier-1 hero case study, warm-paper style. Wide intro + 3 subproduct rows.
 
 export function YantissimoCaseStudy() {
   const p = yantissimo;
@@ -8,272 +10,465 @@ export function YantissimoCaseStudy() {
   return (
     <section
       id="yantissimo"
-      className="relative py-24 lg:py-32"
-      aria-labelledby="yantissimo-title"
+      style={{
+        padding: "var(--section-y) clamp(20px, 4vw, 40px)",
+        maxWidth: 1180,
+        margin: "0 auto",
+      }}
     >
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        {/* section eyebrow */}
-        <div className="flex items-center gap-3 mb-8">
+      <SectionHeader
+        n="04"
+        kicker="Flagship platform"
+        title={
+          <>
+            Yantissimo. <em>Three products,</em> one platform.
+          </>
+        }
+        subtitle={p.tagline}
+      />
+
+      <div
+        className="collapse-mobile"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1.4fr) minmax(0, 1fr)",
+          gap: "clamp(32px, 5vw, 64px)",
+          alignItems: "start",
+          marginBottom: "clamp(48px, 6vw, 80px)",
+        }}
+      >
+        <Reveal>
           <div
-            className="h-[2px] w-12"
-            style={{ background: "var(--accent)" }}
-          />
-          <span
-            className="text-[11px] uppercase tracking-[0.18em]"
-            style={{ color: "var(--accent)" }}
+            className="only-executive"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "var(--gap)",
+            }}
           >
-            Tier 1 — Hero Platform · {p.recencyLabel}
-          </span>
-        </div>
-
-        {/* HERO */}
-        <div className="grid lg:grid-cols-[1fr_400px] gap-10 lg:gap-16 items-start mb-20">
-          <div>
-            <h2
-              id="yantissimo-title"
-              className="text-display"
-              style={{ fontSize: "clamp(40px, 7vw, 88px)" }}
-            >
-              {p.name}
-            </h2>
             <p
-              className="mt-6 text-[18px] lg:text-[20px] leading-[1.5]"
-              style={{ color: "var(--fg-muted)" }}
+              style={{
+                fontSize: "clamp(17px, 1.6vw, 20px)",
+                lineHeight: 1.55,
+                color: "var(--ink)",
+                margin: 0,
+                textWrap: "pretty",
+              }}
             >
-              {p.tagline}
+              {p.executive.headline}
             </p>
-
-            {/* split copy */}
-            <div className="mt-10">
-              <div className="only-executive">
-                <h3
-                  className="text-[15px] mb-3"
-                  style={{ color: "var(--accent)" }}
+            <p
+              style={{
+                fontSize: 16,
+                lineHeight: 1.65,
+                color: "var(--ink-2)",
+                margin: 0,
+              }}
+            >
+              {p.executive.summary}
+            </p>
+            <ul
+              style={{
+                margin: 0,
+                padding: 0,
+                listStyle: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+              }}
+            >
+              {p.executive.outcomes.map((o, i) => (
+                <li
+                  key={i}
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.55,
+                    color: "var(--ink-2)",
+                    paddingLeft: 18,
+                    position: "relative",
+                  }}
                 >
-                  {p.executive.headline}
-                </h3>
-                <p
-                  className="text-[16px] lg:text-[17px] leading-[1.7] max-w-[680px]"
-                  style={{ color: "var(--fg)" }}
-                >
-                  {p.executive.summary}
-                </p>
-                <ul className="mt-8 space-y-3 max-w-[680px]">
-                  {p.executive.outcomes.map((o, i) => (
-                    <li
-                      key={i}
-                      className="text-[15px] leading-[1.6] flex gap-3"
-                      style={{ color: "var(--fg-muted)" }}
-                    >
-                      <span
-                        aria-hidden
-                        className="mt-[10px] inline-block w-2 h-2 rounded-full flex-shrink-0"
-                        style={{ background: "var(--accent)" }}
-                      />
-                      <span>{o}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="only-technical">
-                <h3
-                  className="text-[15px] mb-3"
-                  style={{ color: "var(--accent)" }}
-                >
-                  {p.technical.headline}
-                </h3>
-                <p
-                  className="text-[16px] lg:text-[17px] leading-[1.7] max-w-[680px]"
-                  style={{ color: "var(--fg)" }}
-                >
-                  {p.technical.summary}
-                </p>
-                <p
-                  className="mt-5 text-[15px] leading-[1.7] max-w-[680px]"
-                  style={{ color: "var(--fg-muted)" }}
-                >
-                  {p.technical.architecture}
-                </p>
-                <ul
-                  className="mt-6 text-[14px] leading-[1.6] space-y-2 max-w-[680px]"
-                  style={{ color: "var(--fg-muted)" }}
-                >
-                  {p.technical.highlights.map((h, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span
-                        aria-hidden
-                        style={{ color: "var(--accent)", flexShrink: 0 }}
-                      >
-                        ›
-                      </span>
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: 11,
+                      width: 8,
+                      height: 1,
+                      background: "var(--accent)",
+                    }}
+                  />
+                  {o}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* right: facts panel */}
+          <div
+            className="only-technical"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "var(--gap)",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "clamp(17px, 1.6vw, 20px)",
+                lineHeight: 1.55,
+                color: "var(--ink)",
+                margin: 0,
+                textWrap: "pretty",
+              }}
+            >
+              {p.technical.headline}
+            </p>
+            <p
+              style={{
+                fontSize: 16,
+                lineHeight: 1.65,
+                color: "var(--ink-2)",
+                margin: 0,
+              }}
+            >
+              {p.technical.summary}
+            </p>
+            <p
+              style={{
+                fontSize: 15,
+                lineHeight: 1.65,
+                color: "var(--ink-2)",
+                margin: 0,
+              }}
+            >
+              {p.technical.architecture}
+            </p>
+            <ul
+              style={{
+                margin: 0,
+                padding: 0,
+                listStyle: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: 6,
+              }}
+            >
+              {p.technical.highlights.map((h, i) => (
+                <li
+                  key={i}
+                  style={{
+                    fontSize: 13.5,
+                    lineHeight: 1.55,
+                    color: "var(--ink-2)",
+                    paddingLeft: 16,
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: 9,
+                      width: 8,
+                      height: 1,
+                      background: "var(--accent)",
+                    }}
+                  />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
           <aside
-            className="surface p-6 lg:p-7 sticky top-24"
-            style={{ borderRadius: "var(--radius-xl)" }}
+            className="paper-card"
+            style={{
+              padding: "clamp(20px, 2vw, 28px)",
+              position: "sticky",
+              top: 100,
+            }}
           >
             <div
-              className="text-[10px] uppercase tracking-[0.18em] mb-4"
-              style={{ color: "var(--fg-subtle)" }}
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 10,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "var(--ink-3)",
+                marginBottom: 14,
+              }}
             >
               At a glance
             </div>
-            <dl className="space-y-3 text-[13px]">
-              <FactRow label="Domain" value={p.domain} />
-              <FactRow label="Status" value={p.status} accent />
-              <FactRow label="Year" value={String(p.year)} mono />
-              <FactRow label="Scale" value={p.scaleSignal} mono small />
-              <FactRow label="Surfaces" value="iOS · Backend · Storefront" />
-              <FactRow label="Users" value={p.users} small />
-            </dl>
-
-            <div className="mt-6 pt-6" style={{ borderTop: "1px solid var(--border)" }}>
+            <dl
+              style={{
+                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                gap: 12,
+                fontSize: 13,
+              }}
+            >
+              {/* Domain / Status / Year / Surfaces — shown in BOTH modes */}
+              {[
+                ["Domain", p.domain],
+                ["Status", p.status],
+                ["Year", String(p.year)],
+                ["Surfaces", "iOS · Backend · Storefront"],
+              ].map(([k, v]) => (
+                <div
+                  key={k}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: 12,
+                    paddingBottom: 8,
+                    borderBottom: "1px solid var(--rule)",
+                  }}
+                >
+                  <dt
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 10,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "var(--ink-3)",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {k}
+                  </dt>
+                  <dd
+                    style={{
+                      margin: 0,
+                      textAlign: "right",
+                      color:
+                        k === "Status" ? "var(--accent)" : "var(--ink)",
+                      fontFamily:
+                        k === "Year" ? "var(--font-mono)" : undefined,
+                      fontSize: k === "Year" ? 11 : 13,
+                    }}
+                  >
+                    {v}
+                  </dd>
+                </div>
+              ))}
+              {/* Scale signal — TECHNICAL ONLY */}
               <div
-                className="text-[10px] uppercase tracking-[0.18em] mb-3"
-                style={{ color: "var(--fg-subtle)" }}
+                className="only-technical"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 12,
+                  paddingBottom: 8,
+                  borderBottom: "1px solid var(--rule)",
+                }}
               >
-                Capabilities
+                <dt
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 10,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    color: "var(--ink-3)",
+                    flexShrink: 0,
+                  }}
+                >
+                  Scale
+                </dt>
+                <dd
+                  style={{
+                    margin: 0,
+                    textAlign: "right",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 11,
+                    color: "var(--ink)",
+                  }}
+                >
+                  {p.scaleSignal}
+                </dd>
               </div>
-              <div className="flex flex-wrap gap-1.5">
-                {p.capabilities.map((c) => (
-                  <span key={c} className="tag">
-                    {c}
-                  </span>
-                ))}
-              </div>
+            </dl>
+            <div
+              style={{
+                marginTop: 14,
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 6,
+              }}
+            >
+              {p.capabilities.slice(0, 8).map((c) => (
+                <span key={c} className="tag tag-accent">
+                  {c}
+                </span>
+              ))}
             </div>
           </aside>
-        </div>
+        </Reveal>
+      </div>
 
-        {/* SUBPRODUCTS */}
-        {p.subproducts && (
-          <div className="mt-16">
-            <div
-              className="text-[11px] uppercase tracking-[0.18em] mb-8"
-              style={{ color: "var(--fg-subtle)" }}
-            >
-              Three products, one platform
-            </div>
-            <div className="space-y-6">
-              {p.subproducts.map((sp, i) => (
+      {/* SUBPRODUCTS */}
+      {p.subproducts && (
+        <div>
+          <div
+            className="kicker"
+            style={{
+              marginBottom: 24,
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+            }}
+          >
+            <span style={{ color: "var(--accent)" }}>✦</span>
+            Three coordinated products
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "clamp(20px, 2vw, 24px)",
+            }}
+          >
+            {p.subproducts.map((sp, i) => (
+              <Reveal key={sp.name} delay={i * 60}>
                 <article
-                  key={sp.name}
-                  className="surface premium-card p-7 lg:p-9 grid lg:grid-cols-[200px_1fr] gap-6 lg:gap-10"
+                  className="paper-card collapse-mobile"
                   style={{
-                    borderRadius: "var(--radius-xl)",
-                    ["--tier-grad" as string]:
-                      i === 0
-                        ? "linear-gradient(135deg, #38bdf8 0%, #6366f1 100%)"
-                        : i === 1
-                          ? "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)"
-                          : "linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)",
+                    display: "grid",
+                    gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.6fr)",
+                    gap: "clamp(20px, 3vw, 40px)",
+                    padding: "clamp(20px, 2vw, 28px)",
+                    alignItems: "start",
                   }}
                 >
                   <div>
+                    <PaperPlaceholder
+                      label={`Product 0${i + 1}`}
+                      ratio="4/3"
+                    />
                     <div
-                      className="text-[10px] uppercase tracking-[0.18em] mb-2"
-                      style={{ color: "var(--fg-subtle)" }}
+                      className="kicker"
+                      style={{ marginTop: 12, fontSize: 10 }}
                     >
-                      Product {i + 1}
+                      {sp.role}
                     </div>
                     <h4
-                      className="text-[22px] lg:text-[26px] leading-[1.05]"
+                      className="text-display"
                       style={{
-                        fontFamily: "var(--font-display)",
-                        letterSpacing: "-0.02em",
-                        color: "var(--fg)",
+                        marginTop: 4,
+                        fontSize: 22,
+                        lineHeight: 1.05,
+                        color: "var(--ink)",
                       }}
                     >
                       {sp.name}
                     </h4>
-                    <p
-                      className="mt-2 text-[12px]"
-                      style={{ color: "var(--fg-muted)" }}
-                    >
-                      {sp.role}
-                    </p>
-                    <p
-                      className="mt-3 text-[11px] text-mono"
-                      style={{ color: "var(--accent)" }}
+                    {/* scale numbers — TECHNICAL ONLY */}
+                    <div
+                      className="only-technical"
+                      style={{
+                        marginTop: 6,
+                        fontFamily: "var(--font-mono)",
+                        fontSize: 10,
+                        color: "var(--accent)",
+                        letterSpacing: "0.06em",
+                      }}
                     >
                       {sp.scale}
-                    </p>
+                    </div>
                   </div>
 
                   <div>
-                    <ul
-                      className="text-[14px] leading-[1.6] space-y-2 mb-5"
-                      style={{ color: "var(--fg-muted)" }}
+                    {/* EXECUTIVE: only the first highlight as a one-line value
+                        prop. No engineering bullets, no stack pills. */}
+                    <p
+                      className="only-executive"
+                      style={{
+                        margin: 0,
+                        fontSize: 15,
+                        lineHeight: 1.6,
+                        color: "var(--ink)",
+                      }}
                     >
-                      {sp.highlights.map((h, hi) => (
-                        <li key={hi} className="flex gap-3">
-                          <span
-                            aria-hidden
-                            style={{ color: "var(--accent)", flexShrink: 0 }}
+                      {sp.highlights[0]}
+                    </p>
+
+                    {/* TECHNICAL: full highlight list + stack pills */}
+                    <div className="only-technical">
+                      <ul
+                        style={{
+                          margin: 0,
+                          padding: 0,
+                          listStyle: "none",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 8,
+                          marginBottom: 16,
+                        }}
+                      >
+                        {sp.highlights.map((h, j) => (
+                          <li
+                            key={j}
+                            style={{
+                              fontSize: 14,
+                              lineHeight: 1.55,
+                              color: "var(--ink-2)",
+                              paddingLeft: 16,
+                              position: "relative",
+                            }}
                           >
-                            ›
+                            <span
+                              aria-hidden
+                              style={{
+                                position: "absolute",
+                                left: 0,
+                                top: 10,
+                                width: 8,
+                                height: 1,
+                                background: "var(--accent)",
+                              }}
+                            />
+                            {h}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div
+                        style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          gap: 6,
+                        }}
+                      >
+                        {sp.stack.map((s) => (
+                          <span
+                            key={s}
+                            style={{
+                              fontFamily: "var(--font-mono)",
+                              fontSize: 11,
+                              padding: "3px 8px",
+                              color: "var(--ink-3)",
+                              border: "1px solid var(--rule)",
+                              borderRadius: 999,
+                            }}
+                          >
+                            {s}
                           </span>
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-1.5">
-                      {sp.stack.map((s) => (
-                        <span key={s} className="tag">
-                          {s}
-                        </span>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </article>
-              ))}
-            </div>
+              </Reveal>
+            ))}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
-  );
-}
-
-function FactRow({
-  label,
-  value,
-  mono,
-  accent,
-  small,
-}: {
-  label: string;
-  value: string;
-  mono?: boolean;
-  accent?: boolean;
-  small?: boolean;
-}) {
-  return (
-    <div className="flex justify-between gap-3 items-baseline">
-      <dt
-        className="text-[10px] uppercase tracking-[0.14em] flex-shrink-0"
-        style={{ color: "var(--fg-subtle)" }}
-      >
-        {label}
-      </dt>
-      <dd
-        className={`text-right ${small ? "text-[12px]" : "text-[13px]"}`}
-        style={{
-          color: accent ? "var(--accent)" : "var(--fg)",
-          fontFamily: mono ? "var(--font-mono)" : undefined,
-          fontSize: mono ? 11 : undefined,
-        }}
-      >
-        {value}
-      </dd>
-    </div>
   );
 }

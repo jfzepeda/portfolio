@@ -2,49 +2,36 @@ import { profile } from "@/data/profile";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const month = new Date().toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
   return (
     <footer
-      className="mt-12 py-12"
-      style={{ borderTop: "1px solid var(--border)" }}
+      style={{
+        padding: "60px clamp(20px, 4vw, 40px) 40px",
+        maxWidth: 1180,
+        margin: "0 auto",
+        borderTop: "1px solid var(--rule)",
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 16,
+        justifyContent: "space-between",
+        alignItems: "center",
+        fontFamily: "var(--font-mono)",
+        fontSize: 11,
+        letterSpacing: "0.1em",
+        textTransform: "uppercase",
+        color: "var(--ink-3)",
+      }}
     >
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10 flex items-end justify-between gap-6 flex-wrap">
-        <div>
-          <div
-            className="text-display text-[40px] lg:text-[56px]"
-            style={{ color: "var(--fg)" }}
-          >
-            {profile.shortName}.
-          </div>
-          <p
-            className="mt-2 text-[12px]"
-            style={{ color: "var(--fg-subtle)" }}
-          >
-            © {year} {profile.name}. Built with Next.js, Tailwind, and intent.
-          </p>
-        </div>
-
-        <nav
-          aria-label="Footer"
-          className="flex flex-wrap gap-x-6 gap-y-2 text-[13px]"
-          style={{ color: "var(--fg-muted)" }}
-        >
-          <a
-            href={`mailto:${profile.email}`}
-            className="hover:text-[color:var(--fg)]"
-          >
-            Email
-          </a>
-          <a href="/llms.txt" className="hover:text-[color:var(--fg)]">
-            llms.txt
-          </a>
-          <a href="/agents.md" className="hover:text-[color:var(--fg)]">
-            agents.md
-          </a>
-          <a href="#top" className="hover:text-[color:var(--fg)]">
-            Back to top
-          </a>
-        </nav>
-      </div>
+      <span>
+        © {year} {profile.name}
+      </span>
+      <span>Designed + built with care · {month}</span>
+      <a href="#top" style={{ color: "var(--ink-3)" }}>
+        ↑ Back to top
+      </a>
     </footer>
   );
 }

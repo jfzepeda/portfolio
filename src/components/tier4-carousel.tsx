@@ -1,120 +1,111 @@
-import { tier4, categoryColors } from "@/data/projects";
+import { Reveal } from "./reveal";
+import { SectionHeader } from "./section-header";
+import { tier4, categoryLabels } from "@/data/projects";
 import type { Tier4Project } from "@/data/projects";
 
-// Compact carousel for ~25+ smaller projects.
-// Horizontal scroll with snap, mini cards, hover reveal.
+// Compact horizontal carousel of all remaining projects.
+// Mono labels, terracotta numerals, monospace stack list.
 
 export function Tier4Carousel() {
   return (
     <section
       id="more"
-      className="py-24 lg:py-28"
-      aria-labelledby="more-title"
+      style={{
+        padding: "var(--section-y) 0",
+        maxWidth: 1400,
+        margin: "0 auto",
+      }}
     >
-      <div className="mx-auto max-w-[1200px]">
-        <div className="px-6 lg:px-10 mb-10 flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className="h-[2px] w-12"
-                style={{ background: "var(--fg-subtle)" }}
-              />
-              <span
-                className="text-[11px] uppercase tracking-[0.18em]"
-                style={{ color: "var(--fg-subtle)" }}
-              >
-                Tier 4 — More work
-              </span>
-            </div>
-            <h2
-              id="more-title"
-              className="text-display"
-              style={{ fontSize: "clamp(32px, 5vw, 56px)" }}
-            >
-              {tier4.length}+ more projects across the lab.
-            </h2>
-            <p
-              className="mt-4 max-w-[640px] text-[15px] leading-[1.55]"
-              style={{ color: "var(--fg-muted)" }}
-            >
-              Internal tools, prototypes, agents, and enterprise pieces. Each
-              one shipped, demo'd, or used. Scroll to scan.
-            </p>
-          </div>
-          <div
-            className="text-[12px] flex items-center gap-2"
-            style={{ color: "var(--fg-subtle)" }}
-          >
-            <span aria-hidden>←</span>
-            <span>scroll</span>
-            <span aria-hidden>→</span>
-          </div>
-        </div>
+      <div style={{ padding: "0 clamp(20px, 4vw, 40px)" }}>
+        <SectionHeader
+          n="06"
+          kicker="More work"
+          title={<>{tier4.length}+ smaller pieces, prototypes, and tools.</>}
+          subtitle="Internal tools, prototypes, agents, and enterprise pieces. Each one shipped, demo'd, or used. Scroll to scan."
+        />
+      </div>
 
+      <Reveal>
         <div
-          className="carousel flex gap-4 px-6 lg:px-10 pb-8 overflow-x-auto"
+          className="carousel"
+          style={{
+            display: "flex",
+            gap: 16,
+            padding: "8px clamp(20px, 4vw, 40px) 24px",
+            overflowX: "auto",
+          }}
           aria-label="More projects"
         >
-          {tier4.map((p) => (
-            <Tier4Card key={p.id} project={p} />
+          {tier4.map((p, i) => (
+            <Tier4Card key={p.id} project={p} index={i} />
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
 
-// Tier-color gradient lookup for the carousel cards.
-const CATEGORY_GRADIENTS: Record<string, string> = {
-  enterprise: "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)",
-  ai: "linear-gradient(135deg, #a78bfa 0%, #6366f1 100%)",
-  web: "linear-gradient(135deg, #fb923c 0%, #f59e0b 100%)",
-  swift: "linear-gradient(135deg, #38bdf8 0%, #6366f1 100%)",
-  automation: "linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)",
-  experimental: "linear-gradient(135deg, #78716c 0%, #44403c 100%)",
-};
-
-function Tier4Card({ project }: { project: Tier4Project }) {
-  const cat = categoryColors[project.category];
-  const grad =
-    CATEGORY_GRADIENTS[project.category] ?? CATEGORY_GRADIENTS.experimental;
+function Tier4Card({ project, index }: { project: Tier4Project; index: number }) {
   return (
     <article
-      className="surface premium-card w-[280px] p-6 flex flex-col gap-4"
+      className="paper-card paper-card-hover"
       style={{
-        borderRadius: "var(--radius-lg)",
-        ["--tier-grad" as string]: grad,
+        width: 290,
+        padding: 22,
+        display: "flex",
+        flexDirection: "column",
+        gap: 14,
+        cursor: "default",
       }}
       itemScope
       itemType="https://schema.org/CreativeWork"
     >
-      <div className="flex items-start justify-between">
-        <span
-          aria-hidden
-          className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-[12px] font-semibold relative overflow-hidden"
-          style={{
-            background: grad,
-            color: "white",
-            fontFamily: "var(--font-mono)",
-          }}
-        >
-          {project.icon}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          fontFamily: "var(--font-mono)",
+          fontSize: 10,
+          letterSpacing: "0.14em",
+          textTransform: "uppercase",
+          color: "var(--ink-3)",
+        }}
+      >
+        <span style={{ color: "var(--accent)" }}>
+          № {String(index + 1).padStart(2, "0")}
         </span>
-        <span
-          className="text-[10px] uppercase tracking-[0.14em]"
-          style={{ color: `var(--fg-subtle)` }}
-          aria-label={`Category ${project.category}`}
-        >
-          {cat}
-        </span>
+        <span>{categoryLabels[project.category]}</span>
+      </div>
+
+      <div
+        aria-hidden
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: 38,
+          height: 38,
+          borderRadius: 8,
+          background: "var(--paper)",
+          border: "1px solid var(--rule)",
+          fontFamily: "var(--font-mono)",
+          fontSize: 12,
+          fontWeight: 500,
+          color: "var(--ink-2)",
+        }}
+      >
+        {project.icon}
       </div>
 
       <div>
         <h3
-          className="text-[17px] leading-[1.2] mb-1.5"
+          className="text-display"
           style={{
-            fontFamily: "var(--font-display)",
-            color: "var(--fg)",
+            fontSize: 20,
+            lineHeight: 1.1,
+            margin: "0 0 6px 0",
+            color: "var(--ink)",
             letterSpacing: "-0.01em",
           }}
           itemProp="name"
@@ -122,8 +113,12 @@ function Tier4Card({ project }: { project: Tier4Project }) {
           {project.name}
         </h3>
         <p
-          className="text-[12.5px] leading-[1.5]"
-          style={{ color: "var(--fg-muted)" }}
+          style={{
+            fontSize: 13,
+            lineHeight: 1.55,
+            color: "var(--ink-2)",
+            margin: 0,
+          }}
           itemProp="description"
         >
           {project.description}
@@ -132,10 +127,16 @@ function Tier4Card({ project }: { project: Tier4Project }) {
 
       {project.stack && (
         <div
-          className="mt-auto pt-3 text-[10px] text-mono leading-[1.5]"
+          className="only-technical"
           style={{
-            borderTop: "1px solid var(--border)",
-            color: "var(--fg-subtle)",
+            marginTop: "auto",
+            paddingTop: 10,
+            borderTop: "1px solid var(--rule)",
+            fontFamily: "var(--font-mono)",
+            fontSize: 10,
+            letterSpacing: "0.04em",
+            color: "var(--ink-3)",
+            lineHeight: 1.5,
           }}
         >
           {project.stack.slice(0, 3).join(" · ")}
@@ -143,7 +144,6 @@ function Tier4Card({ project }: { project: Tier4Project }) {
         </div>
       )}
 
-      {/* hidden tags for SEO */}
       <span className="sr-only">
         {project.stack?.map((s) => (
           <span key={s} itemProp="keywords">
