@@ -1,0 +1,499 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   DESIGN TOKENS — premium dark-first portfolio.
+   Light mode is supported but dark is the default brand experience.
+   ============================================================================ */
+
+@theme {
+  /* ─── COLORS ─── */
+  --color-ink-50:  #fafaf9;
+  --color-ink-100: #f5f5f4;
+  --color-ink-200: #e7e5e4;
+  --color-ink-300: #d6d3d1;
+  --color-ink-400: #a8a29e;
+  --color-ink-500: #78716c;
+  --color-ink-600: #57534e;
+  --color-ink-700: #44403c;
+  --color-ink-800: #292524;
+  --color-ink-900: #1c1917;
+  --color-ink-950: #0c0a09;
+
+  --color-cream-50:  #fdfcfa;
+  --color-cream-100: #faf8f3;
+  --color-cream-200: #f5f1e8;
+
+  --color-amber-glow: #f59e0b;
+  --color-amber-soft: #fbbf24;
+
+  --color-accent: var(--color-amber-glow);
+
+  /* ─── TYPOGRAPHY ─── */
+  --font-display: "Fraunces", "Iowan Old Style", "Apple Garamond", "Baskerville", "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  /* ─── RADIUS ─── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+
+  /* ─── ANIMATION ─── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ============================================================================
+   ROOT — dark default
+   ============================================================================ */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-elevated: #131313;
+  --bg-overlay: rgba(255, 255, 255, 0.02);
+  --bg-card: #111111;
+  --bg-hover: #181818;
+
+  --fg: #f5f5f4;
+  --fg-muted: #a8a29e;
+  --fg-subtle: #78716c;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --accent: var(--color-amber-glow);
+  --accent-soft: rgba(245, 158, 11, 0.16);
+
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #fafaf8;
+  --bg-elevated: #ffffff;
+  --bg-overlay: rgba(0, 0, 0, 0.02);
+  --bg-card: #ffffff;
+  --bg-hover: #f3f3f1;
+
+  --fg: #0c0a09;
+  --fg-muted: #57534e;
+  --fg-subtle: #78716c;
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.18);
+
+  --accent: #b45309;
+  --accent-soft: rgba(180, 83, 9, 0.10);
+
+  color-scheme: light;
+}
+
+/* ============================================================================
+   BASE
+   ============================================================================ */
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv01", "cv02", "cv11";
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image:
+    radial-gradient(1200px 600px at 50% -10%, rgba(245, 158, 11, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 8% 30%, rgba(99, 102, 241, 0.06), transparent 60%),
+    radial-gradient(800px 400px at 92% 70%, rgba(168, 85, 247, 0.05), transparent 60%),
+    radial-gradient(700px 400px at 50% 110%, rgba(16, 185, 129, 0.04), transparent 60%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Filmic grain — barely visible but adds depth and a premium tactile quality. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+main, header, footer { position: relative; z-index: 2; }
+
+:root[data-theme="light"] body {
+  background-image:
+    radial-gradient(1200px 600px at 50% -10%, rgba(245, 158, 11, 0.14), transparent 60%),
+    radial-gradient(900px 500px at 8% 30%, rgba(99, 102, 241, 0.08), transparent 60%),
+    radial-gradient(800px 400px at 92% 70%, rgba(168, 85, 247, 0.07), transparent 60%),
+    radial-gradient(700px 400px at 50% 110%, rgba(16, 185, 129, 0.05), transparent 60%);
+}
+
+:root[data-theme="light"] body::before {
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+/* ============================================================================
+   TYPOGRAPHY HELPERS
+   ============================================================================ */
+
+.text-display {
+  font-family: var(--font-display);
+  font-feature-settings: "ss01", "cv11";
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "calt" 0;
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+.surface {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.surface-hover:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
+}
+
+.divider {
+  border-color: var(--border);
+}
+
+.muted { color: var(--fg-muted); }
+.subtle { color: var(--fg-subtle); }
+.accent-fg { color: var(--accent); }
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  vertical-align: middle;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--fg-muted);
+  background: var(--bg-overlay);
+  transition: all 0.18s var(--ease-out-quart);
+  white-space: nowrap;
+}
+
+.tag:hover {
+  color: var(--fg);
+  border-color: var(--border-strong);
+}
+
+.tag-accent {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+  background: var(--accent-soft);
+}
+
+/* Mode-controlled visibility (Executive vs Technical) */
+[data-mode="executive"] .only-technical { display: none !important; }
+[data-mode="technical"] .only-executive { display: none !important; }
+
+/* Subtle transitions */
+.fade-in {
+  animation: fadeIn 0.6s var(--ease-out-expo);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================================
+   PREMIUM CARD — glass shimmer + tier-colored glow on hover.
+   Used by ProjectCard (Tier 2/3) and Tier4Card.
+   ============================================================================ */
+
+.premium-card {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 0.4s var(--ease-out-expo),
+    border-color 0.4s var(--ease-out-expo);
+}
+
+.premium-card::before {
+  /* Tier-color glow that fades in on hover */
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--tier-grad, linear-gradient(135deg, #f59e0b, #ef4444));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s var(--ease-out-expo);
+  filter: blur(20px);
+}
+
+.premium-card::after {
+  /* Glass shimmer streak that sweeps on hover */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.10) 50%,
+    rgba(255, 255, 255, 0.04) 55%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out-expo), background-position 0.9s var(--ease-out-expo);
+  z-index: 1;
+}
+
+.premium-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.premium-card:hover::before {
+  opacity: 0.18;
+}
+
+.premium-card:hover::after {
+  opacity: 1;
+  background-position: 0 0;
+}
+
+:root[data-theme="light"] .premium-card::after {
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(0, 0, 0, 0.02) 45%,
+    rgba(0, 0, 0, 0.04) 50%,
+    rgba(0, 0, 0, 0.02) 55%,
+    transparent 70%
+  );
+}
+
+/* ============================================================================
+   MARQUEE — infinite horizontal scroll for tech ribbon.
+   Two copies of the same content rendered side-by-side; second copy is
+   aria-hidden because it's a duplicate.
+   ============================================================================ */
+
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 3rem;
+  padding-right: 3rem;
+  animation: marquee 60s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ============================================================================
+   DROP CAP — first-letter flourish for editorial paragraphs.
+   ============================================================================ */
+
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-size: 4em;
+  line-height: 0.85;
+  float: left;
+  margin: 0.05em 0.12em 0 0;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+/* ============================================================================
+   PROFICIENCY BAR — visual indicator for skill level.
+   ============================================================================ */
+
+.prof-bar {
+  display: inline-block;
+  height: 4px;
+  width: 48px;
+  border-radius: 999px;
+  background: var(--bg-overlay);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.prof-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--accent);
+  border-radius: 999px;
+  width: var(--prof-fill, 33%);
+}
+
+/* ============================================================================
+   ANIMATED GRADIENT TIER BAR — top edge of project cards.
+   ============================================================================ */
+
+.tier-bar {
+  background: var(--tier-grad);
+  background-size: 200% 100%;
+  animation: tierShift 8s linear infinite;
+}
+
+@keyframes tierShift {
+  from { background-position: 0 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* ============================================================================
+   REDUCED MOTION — respect user preference.
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none !important; }
+  .tier-bar { animation: none !important; }
+}
+
+/* Accordion details rotation */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary .chevron {
+  transition: transform 0.2s var(--ease-out-quart);
+}
+
+details[open] > summary .chevron {
+  transform: rotate(90deg);
+}
+
+/* Carousel scroll */
+.carousel {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+/* Tier-specific accent gradients (used on hero of each card) */
+.tier-1 { --tier-grad: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%); }
+.tier-2 { --tier-grad: linear-gradient(135deg, #10b981 0%, #06b6d4 100%); }
+.tier-3 { --tier-grad: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%); }
+.tier-4 { --tier-grad: linear-gradient(135deg, #78716c 0%, #44403c 100%); }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--bg-elevated);
+  color: var(--fg);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  z-index: 100;
+}
+
+.skip-link:focus { top: 16px; }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Number formatting */
+.numerals {
+  font-feature-settings: "tnum" 1;
+}

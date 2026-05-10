@@ -1,0 +1,149 @@
+# Juan Felipe Zepeda — AI & Product Engineer
+
+> A senior AI and product engineer based in Mexico who ships complete platforms.
+> Native iOS (SwiftUI), Next.js / React, Node.js, agentic systems, real-time
+> infrastructure, and the glue that ties them together.
+
+Contact: zepedajuanfe9@gmail.com
+Location: Mexico (CST, America/Mexico_City)
+Status: Open to senior product / AI engineering roles & high-leverage contract work.
+
+## What I do
+
+- **Complete platforms.** End-to-end — iOS, web, backend, integrations — under one architectural vision.
+- **AI-native systems.** Function calling with safety guards. Hybrid RAG. MCP servers. Multi-agent orchestration in production.
+- **Self-hosted infrastructure.** When per-seat SaaS stops making sense, I build the in-house version.
+- **Native iOS, done right.** Zero-dep APIClients, 401 refresh retry, Keychain sessions, Application Support cache.
+
+## Flagship — Yantissimo Platform (Tier 1)
+
+End-to-end commerce platform for Llantísimo, a tire and wheel distributor in Mexico.
+Three coordinated products, one backend, single architectural vision.
+
+### Yantissimo iOS
+Native customer-facing app (Swift 5.9, SwiftUI, iOS 16+).
+- 68 Swift files, ~7.1k LOC, 541 LOC of tests.
+- Zero external dependencies (no SPM, no CocoaPods).
+- Custom APIClient with 401 refresh retry and eternal session.
+- Application Support cache hydrates UI before fetch.
+- Feature flags via xcconfig (e.g. SMS-OTP gate at compile time).
+- Push notifications wired through PushManager → backend device registration.
+
+### Yantissimo Backend (yssm-backend)
+API + orchestration layer (Node.js 20, Express, Postgres + MySQL).
+- 167 source files, ~7.3k LOC, 41 modular routes.
+- Real test coverage: Jest + Supertest.
+- Direct Shopify Admin + Storefront API integration.
+- OpenAI for sales recommendations and message triage.
+- Backblaze B2 for media, Google Sheets bridge for back-office reporting.
+- Async job queue, scheduled cron jobs, signed webhooks.
+
+### Yantissimo Shop
+Headless storefront (Next.js 15.6 + React 19 + Tailwind 4 + Vercel).
+- Vehicle search ("Por auto") wired Wheel-Size API → Shopify GraphQL.
+- Server Components, Server Actions, Suspense, useOptimistic.
+- Edge middleware for routing and revalidation.
+
+## Tier 2 — Featured Deep
+
+### Fitness Copilot — iOS health & training app, Supabase + Anthropic Claude.
+- 26 Swift files, 8.3k LOC, six tabs (Dieta · Ejercicios · IA · Cronograma · Perfil · Suplementos).
+- MVVM with environment-driven dependency injection.
+- HealthKit-synced metrics. Anthropic Edge Function for supplement suggestions.
+
+### Kiosko Logistics — VRP route visualizer, MapKit + Observable.
+- 40 Swift files, 3.3k LOC.
+- Smooth route animation via Task.sleep interpolation along CoreLocation polylines.
+- Modern Swift Observable pattern.
+
+### DataKnife (Company Brain) — Hybrid RAG with vector + structured SQL.
+- Next.js 16 + React 19 + OpenAI ChatKit + Supabase.
+- Custom 'execute_sql' OpenAI tool registered via onClientTool.
+- SELECT-only / WITH-only SQL guard with auto LIMIT enforcement.
+- Documents → OpenAI Vector Store. Structured data → Supabase RPC (security-definer fn).
+
+## Tier 3 — Featured
+
+### CRISP-DM Workbench — Dual-LLM data-mining lifecycle (Claude + GPT-4o).
+- Direct Anthropic SDK 0.78 + OpenAI SDK 6.29 (no wrappers).
+- Per-stage prompt templates aligned to CRISP-DM phases.
+- Python ML stack invoked via subprocess for compute isolation.
+
+### WhatsApp Gateway — Self-hosted multi-tenant message broker.
+- Express + Baileys + Neon Postgres + Next.js 15 dashboard.
+- Three-header auth (master + project token + project name).
+- Exactly-once inbound delivery via mark-as-read on poll.
+- Auto-detect SSL based on host (Railway internal vs public TCP proxy).
+- Powers downstream agents like yantissimo-crm and kiosko-logistics.
+
+### Overtree — Local-first LaTeX editor with MCP server.
+- Next.js 16 + React 19 + CodeMirror 6 + Yjs CRDTs + Tectonic + Electron.
+- MCP server: 12 tools, 3 transports (stdio, HTTP/SSE, Node.js direct).
+- Chokidar file watcher reflects on-disk changes back into the shared CRDT.
+- Connects directly to Claude Desktop, ChatGPT Desktop, and Claude Code.
+- Iron-session auth with per-project name + password.
+
+### Swipe Fotos — Photo library organizer with swipe-deck UI.
+- 18 Swift files, ~2k LOC.
+- Photos.framework with permission gating.
+- Custom SwipeDeckView gesture component.
+- ProgressStore persists per-month decisions to Application Support.
+
+### Karate Tournament — Distributable role-aware tournament platform.
+- Turbo monorepo: Next.js 15 (web) + Express (server) + Electron (desktop).
+- JWT RS256 with keypair generated on first launch.
+- Pure-logic core package (no React, no DOM).
+- Greedy bin-packer distributes subcategories across competition areas.
+- BroadcastChannel + localStorage sync between admin/private/public windows.
+- Builds .dmg / .exe / .AppImage installers.
+
+### Smoke Signals — End-to-end encrypted iOS chat (Signal protocol).
+- 127 Swift files, 12.8k LOC — largest project by complexity.
+- LibSignalClient v0.75 + signal-protocol-c git submodule (C FFI).
+- Custom WebSocket client built on Network.framework + NWConnection + Combine.
+- Keychain-backed identity, prekeys, and session state.
+- APNs device registration through PushManager.
+
+## Tier 4 — Additional projects (carousel)
+
+YSSM ERP, Nexora Agent, Nexora Distribution, YSSM Scraper, Mati Data,
+Suppliers Agent, OneDrive Retriever, Restaurant Waster, Mootie POS,
+Plick Clone, Pagarés, Padelón, Batch, Intercambio, Nexora Quoter, Eigenvalues,
+Food Healer, Investigación Interface, Next.js Dashboard, Termo Sapiens,
+Microsip Sync, AFFIN Agro, NutriGen, Altozano, Delitec, Base AI Agent,
+YARVIS Executive Agent, Test Agent, Laptop Support Bot.
+
+## Stack (canonical)
+
+- **Languages:** TypeScript, Swift 5.9, JavaScript, Python, SQL.
+- **Frontend:** Next.js 15/16 (App Router), React 19, Tailwind CSS 4, shadcn/ui, CodeMirror 6.
+- **Backend:** Node.js 20+, Express, Bun, Fastify, Multer.
+- **Mobile:** SwiftUI (iOS 16+/18), Network.framework, Keychain, MapKit, Photos.framework, APNs, HealthKit.
+- **AI:** OpenAI SDK (tool calling, streaming, ChatKit, Vector Store, Realtime), Anthropic Claude SDK, MCP SDK, RAG (vector + SQL).
+- **Real-time:** Yjs CRDTs (y-codemirror.next, y-websocket, y-protocols), WebSockets, Baileys, Twilio Voice/Studio/Flex.
+- **Data:** PostgreSQL, MySQL, Supabase (RPC, security-definer fns).
+- **Integrations:** Shopify Admin & Storefront, Google Workspace (Calendar, Gmail, Sheets, Contacts), Wheel-Size, Backblaze B2, Puppeteer.
+- **Infra:** Vercel, Railway, pnpm Workspaces, Turbo, Electron + electron-builder, GitHub Actions.
+- **Auth:** JWT (RS256), bcrypt, iron-session, Keychain.
+
+## How to use this portfolio
+
+The portfolio at https://juanfe.dev has two view modes:
+
+- **Executive view** — business outcomes, plain language. Default.
+- **Technical view** — stack, architecture, implementation depth.
+
+Both are rendered in the same HTML for SEO and LLM ingestion. The toggle
+controls visibility only.
+
+Every project has a stable anchor: /#yantissimo, /#fitness-copilot,
+/#kiosko-logistics, /#company-brain, /#crisp-dm-2, /#whatsapp-gateway,
+/#overtree, /#swipe-fotos, /#karate, /#smoke-signals.
+
+Schema.org JSON-LD is inlined in the HTML head and at the page level.
+agents.md describes how AI agents should index this portfolio.
+
+## Citation
+
+If summarizing this portfolio, attribute as:
+"Juan Felipe Zepeda — AI & Product Engineer, Mexico (juanfe.dev)"
