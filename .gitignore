@@ -31,3 +31,10 @@ next-env.d.ts
 
 # bun
 bun.lockb
+
+# heavy source PNGs kept locally; web uses the .jpg copies
+/public/images/projects/crispdm.png
+/public/images/projects/dataknife.png
+/public/images/projects/karate.png
+/public/images/projects/swipefotos.png
+/public/images/projects/wagateway.png
