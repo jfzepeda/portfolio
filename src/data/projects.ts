@@ -491,7 +491,7 @@ export const companyBrain: Project = {
   ],
   domain: "Enterprise Knowledge & BI",
   users: "Business analysts, ops teams, executives querying their own data.",
-  hero: "/images/projects/dataknife.png",
+  hero: "/images/projects/dataknife.jpg",
   repoPath: "ai-lab/company-brain",
 };
 
@@ -558,7 +558,7 @@ export const crispDm: Project = {
   ],
   domain: "Data Science & Analytics",
   users: "Data scientists and analysts running CRISP-DM projects.",
-  hero: "/images/projects/crispdm.png",
+  hero: "/images/projects/crispdm.jpg",
   repoPath: "ai-lab/crisp-dm-2",
 };
 
@@ -623,7 +623,7 @@ export const whatsappGateway: Project = {
   ],
   domain: "Messaging Infrastructure",
   users: "Internal agents and CRM systems across the org.",
-  hero: "/images/projects/wagateway.png",
+  hero: "/images/projects/wagateway.jpg",
   repoPath: "Web/whatsapp-gateway",
 };
 
@@ -748,7 +748,7 @@ export const swipeFotos: Project = {
   ],
   domain: "Personal Productivity",
   users: "Anyone with too many photos.",
-  hero: "/images/projects/swipefotos.png",
+  hero: "/images/projects/swipefotos.jpg",
   repoPath: "Swift/swipe-fotos",
 };
 
@@ -816,7 +816,7 @@ export const karate: Project = {
   ],
   domain: "Sports Tournament Management",
   users: "Tournament organizers, referees, and audience displays.",
-  hero: "/images/projects/karate.png",
+  hero: "/images/projects/karate.jpg",
   repoPath: "Web/karate",
 };
 
