@@ -114,9 +114,8 @@ export function Hero() {
                 textWrap: "pretty",
               }}
             >
-              &ldquo;Innovador, con visión, talento y proactivo. Me muevo e itero
-              rápido, sé lo que quiero, domino mi área y lo que no — lo aprendo
-              rápido.&rdquo;
+              &ldquo;Innovation distinguishes between a leader and a
+              follower&rdquo; ~ Steve Jobs.
             </p>
           </div>
         </div>

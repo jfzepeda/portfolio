@@ -77,7 +77,12 @@ export function Tier4Carousel() {
         <SectionHeader
           n="06"
           kicker="More work"
-          title={<>{tier4.length}+ smaller pieces, prototypes, and tools.</>}
+          title={
+            <>
+              {Math.floor(tier4.length / 5) * 5}+ smaller pieces, prototypes,
+              and tools.
+            </>
+          }
           subtitle="Internal tools, prototypes, agents, and enterprise pieces. Each one shipped, demo'd, or used. Scroll to scan."
         />
       </div>
@@ -102,7 +107,13 @@ export function Tier4Carousel() {
   );
 }
 
-function Tier4Card({ project, index }: { project: Tier4Project; index: number }) {
+function Tier4Card({
+  project,
+  index,
+}: {
+  project: Tier4Project;
+  index: number;
+}) {
   return (
     <article
       className="paper-card paper-card-hover"

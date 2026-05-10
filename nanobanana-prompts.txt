@@ -1,0 +1,193 @@
+// =============================================================================
+// NANO BANANA (gemini-2.5-flash-image) — LOGO PROMPTS FOR FEATURED PROJECTS
+// =============================================================================
+// One JSON object per project. Each is a self-contained `generateContent`
+// request body. The prompt describes the project and asks Gemini to design
+// the logo — style decisions are left to the model.
+//
+// USAGE
+// -----
+//   curl -X POST \
+//     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent" \
+//     -H "x-goog-api-key: $GEMINI_API_KEY" \
+//     -H "Content-Type: application/json" \
+//     -d '<request body>'
+//
+// Save response (base64 PNG) to file:
+//   ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > out.png
+// =============================================================================
+
+
+// =============================================================================
+// TIER 1
+// =============================================================================
+
+// 1. yantissimo — Yantissimo Platform
+{
+  "project": "yantissimo",
+  "filename": "yantissimo-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called Yantissimo Platform. It is a custom enterprise ERP built for a tire and wheel distributor in Mexico. It runs the entire business: 24+ modules covering daily audits of technician performance, sales and quotes, wholesale orders, installation scheduling, productivity dashboards, warranties, and live KPIs. It also feeds a native iOS app and a headless Shopify storefront — three customer surfaces, one backend, one source of truth. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// =============================================================================
+// TIER 2
+// =============================================================================
+
+// 2. fitness-copilot — Fitness Copilot
+{
+  "project": "fitness-copilot",
+  "filename": "fitness-copilot-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called Fitness Copilot. It is an iOS app that combines macro tracking, weekly training plans, lab-result reading, and an AI coach in one place. The AI has full context — diet, workouts, labs, supplements — and reasons over it to suggest supplements and training. The app is bilingual and built for athletes who want quick logging and glanceable timelines. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// 3. kiosko-logistics — Kiosko Logistics
+{
+  "project": "kiosko-logistics",
+  "filename": "kiosko-logistics-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called Kiosko Logistics. It is a route-planning dashboard for fleet operators. It animates trucks along their assigned delivery routes on a real map, shows live scoring against custom formulas, and lets operators tune VRP constraints — time windows, capacity, distance weighting — without touching configuration files. It's the visual and tuning surface for an underlying vehicle-routing solver. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// 4. company-brain — DataKnife (Company Brain)
+{
+  "project": "company-brain",
+  "filename": "dataknife-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called DataKnife (also known as Company Brain). It is a single chat surface that answers questions across both unstructured documents — PDFs, contracts, manuals — and structured data — CSVs, Excel, database tables. Documents are vectorized and queried semantically; tabular data is queried via safe SELECT-only SQL. The user just asks a question and the system routes it to the right backend. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// 5. overtree — Overtree
+{
+  "project": "overtree",
+  "filename": "overtree-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called Overtree. It is a local-first LaTeX editor — like Overleaf, but everything lives on your laptop. Files are real folders you can git or back up. Anyone on your network joins the document by URL for real-time multicursor collaboration. Most distinctively, AI clients like Claude Desktop and ChatGPT can connect directly via MCP to read, edit, and compile your LaTeX, with edits appearing live in connected browsers. Powered by the Tectonic compiler. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// =============================================================================
+// TIER 3
+// =============================================================================
+
+// 6. crisp-dm-2 — CRISP-DM Workbench
+{
+  "project": "crisp-dm-2",
+  "filename": "crisp-dm-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called CRISP-DM Workbench. It is an LLM-native workbench for the industry-standard CRISP-DM data-mining lifecycle: Business Understanding → Data Understanding → Data Preparation → Modeling → Evaluation → Deployment. Analysts move through the full iterative cycle with model help at each stage, switching between Claude and GPT-4o per task. A Python pipeline handles preprocessing, modeling, and evaluation outside the LLM. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// 7. whatsapp-gateway — WhatsApp Gateway
+{
+  "project": "whatsapp-gateway",
+  "filename": "whatsapp-gateway-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called WhatsApp Gateway. It is a self-hosted multi-tenant WhatsApp message broker. Instead of paying a per-agent third-party gateway, this is a single self-hosted server that any number of internal projects — CRMs, AI agents, automation flows — can talk to via REST API. Each project gets its own scoped token. Some projects can read replies, others only send. Inbound messages are delivered exactly-once. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// 8. swipe-fotos — Swipe Fotos
+{
+  "project": "swipe-fotos",
+  "filename": "swipe-fotos-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called Swipe Fotos. It is an iOS app that lets you organize your photo library by swiping through it month by month — like Tinder for your camera roll. One photo at a time, two gestures, nothing else. Progress per month is saved so you can stop and resume. Designed to clear out years of photos, fast. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// 9. karate — Karate Tournament
+{
+  "project": "karate",
+  "filename": "karate-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called Karate Tournament. It is a complete offline tournament platform that ships as a single binary. Run a karate tournament without a cloud account: superadmins set up categories, competitors, areas, and bracket seeding from one screen; referees sign in with their assigned area and start scoring; the audience scoreboard updates live in a separate window. Everything works offline, on a laptop, in a gym with no Wi-Fi. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+// 10. smoke-signals — Smoke Signals
+{
+  "project": "smoke-signals",
+  "filename": "smoke-signals-icon.png",
+  "request": {
+    "contents": [{
+      "parts": [{
+        "text": "Design a square 1024x1024 app icon logo for a project called Smoke Signals. It is an end-to-end encrypted iOS chat client built on the Signal protocol — the same cryptography Signal Messenger uses. Messages are encrypted on your device and decrypted on the recipient's device; the server never sees plaintext. The networking stack is built on Apple's own Network.framework with WebSockets, and identity keys live in the iOS Keychain and never leave the device. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+      }]
+    }],
+    "generationConfig": { "responseModalities": ["IMAGE"] }
+  }
+}
+
+
+// =============================================================================
+// QUICK BATCH SCRIPT (zsh) — generate all 10
+// =============================================================================
+//   #!/usr/bin/env zsh
+//   set -euo pipefail
+//   : "${GEMINI_API_KEY:?set GEMINI_API_KEY first}"
+//   OUT=public/images/projects
+//   ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent"
+//
+//   for prompt_json in prompts/*.json; do
+//     name=$(jq -r .filename "$prompt_json")
+//     body=$(jq .request "$prompt_json")
+//     curl -s -X POST "$ENDPOINT" \
+//       -H "x-goog-api-key: $GEMINI_API_KEY" \
+//       -H "Content-Type: application/json" \
+//       -d "$body" \
+//     | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' \
+//     | base64 -d > "$OUT/$name"
+//     echo "wrote $OUT/$name"
+//   done
