@@ -24,7 +24,7 @@ export function YantissimoCaseStudy() {
         kicker="Flagship platform"
         title={
           <>
-            Yantissimo. <em>Three products,</em> one platform.
+            Yantissimo. <em>One platform,</em> every surface.
           </>
         }
         subtitle={p.tagline}
@@ -221,7 +221,7 @@ export function YantissimoCaseStudy() {
                 ["Domain", p.domain],
                 ["Status", p.status],
                 ["Year", String(p.year)],
-                ["Surfaces", "iOS · Backend · Storefront"],
+                ["Surfaces", "ERP · Backend · iOS · Storefront"],
               ].map(([k, v]) => (
                 <div
                   key={k}
@@ -327,7 +327,7 @@ export function YantissimoCaseStudy() {
             }}
           >
             <span style={{ color: "var(--accent)" }}>✦</span>
-            Three coordinated products
+            Four coordinated products
           </div>
 
           <div
@@ -402,19 +402,48 @@ export function YantissimoCaseStudy() {
                   </div>
 
                   <div>
-                    {/* EXECUTIVE: only the first highlight as a one-line value
-                        prop. No engineering bullets, no stack pills. */}
-                    <p
+                    {/* EXECUTIVE: business-oriented bullets. Outcome-led,
+                        jargon-free. Sourced from sp.professionalHighlights,
+                        rendered as a parallel list to the technical view
+                        but a touch larger for executive scanning. */}
+                    <ul
                       className="only-executive"
                       style={{
                         margin: 0,
-                        fontSize: 15,
-                        lineHeight: 1.6,
-                        color: "var(--ink)",
+                        padding: 0,
+                        listStyle: "none",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 10,
                       }}
                     >
-                      {sp.highlights[0]}
-                    </p>
+                      {sp.professionalHighlights.map((h, j) => (
+                        <li
+                          key={j}
+                          style={{
+                            fontSize: 15,
+                            lineHeight: 1.55,
+                            color: "var(--ink)",
+                            paddingLeft: 18,
+                            position: "relative",
+                            textWrap: "pretty",
+                          }}
+                        >
+                          <span
+                            aria-hidden
+                            style={{
+                              position: "absolute",
+                              left: 0,
+                              top: 11,
+                              width: 10,
+                              height: 1,
+                              background: "var(--accent)",
+                            }}
+                          />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
 
                     {/* TECHNICAL: full highlight list + stack pills */}
                     <div className="only-technical">

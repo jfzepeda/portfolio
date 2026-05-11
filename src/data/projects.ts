@@ -21,7 +21,17 @@ export interface Subproduct {
   role: string;
   stack: string[];
   scale: string;
+  /**
+   * Technical / engineering-facing bullets. Renders in the Technical view.
+   * Implementation detail, architecture decisions, dependency callouts.
+   */
   highlights: string[];
+  /**
+   * Business / executive-facing bullets. Renders in the Professional view.
+   * Outcome-led, jargon-free, focused on operational impact and leverage.
+   * Used in place of the older `highlights[0]` one-liner.
+   */
+  professionalHighlights: string[];
 }
 
 export interface Project {
@@ -219,6 +229,14 @@ export const yantissimo: Project = {
         "Drag-and-drop order management via react-dnd.",
         "PR-preview CI via GitHub Actions.",
       ],
+      professionalHighlights: [
+        "Centralized operations — every team works inside one daily-used system instead of a stack of spreadsheets, exports, and chat threads.",
+        "Single source of truth for orders, inventory, audits, pricing, and customers — nothing to reconcile across departments.",
+        "Real-time multi-user collaboration keeps audit, sales, and service teams in sync without phone tag or version conflicts.",
+        "Daily audit workflow with end-of-day soft-block catches errors before they leave the building.",
+        "Quotes, invoices, and reports generated in-app — no third-party paperwork tools or external add-ons.",
+        "Embedded AI assistance keeps staff productive without leaving the platform to switch tools.",
+      ],
     },
     {
       name: "Yantissimo Backend (yssm-backend)",
@@ -246,6 +264,42 @@ export const yantissimo: Project = {
         "OpenAI integration powering sales recommendations and customer message triage.",
         "Async job queue for long-running tasks; cron module for scheduled jobs.",
       ],
+      professionalHighlights: [
+        "One backend powers every customer-facing surface — no parallel systems for the team to keep in sync.",
+        "Automated catalog and stock synchronization with Shopify keeps prices and availability consistent everywhere, in real time.",
+        "Background workflows handle long-running tasks without slowing down the customer experience.",
+        "AI-driven message triage filters routine inbound traffic before it ever reaches a salesperson.",
+        "Test-gated deploys protect daily operations from regressions — broken code never reaches production.",
+        "Built to scale — designed for thousands of concurrent customers across mobile, web, and internal staff.",
+      ],
+    },
+    {
+      name: "Yantissimo Shop",
+      role: "Headless customer-facing storefront",
+      stack: [
+        "Next.js 15.6",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS 4",
+        "Shopify Storefront GraphQL",
+        "Wheel-Size API",
+        "Vercel",
+      ],
+      scale: "~116 source files · server components + edge middleware",
+      highlights: [
+        "Vehicle search ('Por auto') wired through Wheel-Size API into the Shopify catalog — customers find tires by make / model / year.",
+        "React Server Components, Server Actions, Suspense, useOptimistic.",
+        "Edge middleware for routing and revalidation.",
+        "Integrated with the same backend cart, checkout, and customer record as the ERP and iOS client.",
+      ],
+      professionalHighlights: [
+        "Customers find the right tire by vehicle (make / model / year) — no expertise or sales call required.",
+        "24/7 self-service browsing and checkout removes the sales-rep bottleneck and unlocks weekend revenue.",
+        "Shared product catalog with the ERP and iOS app — one price, one description, every channel.",
+        "Server-rendered pages capture organic search traffic without extra SEO tooling or rework.",
+        "Mobile-first storefront optimized for the device customers actually shop from.",
+        "Designed to expand — new vehicle databases or geographic markets plug in cleanly.",
+      ],
     },
     {
       name: "Yantissimo iOS",
@@ -270,25 +324,13 @@ export const yantissimo: Project = {
         "Push notifications wired through PushManager → backend device registration.",
         "Per-build-config backend URLs (Debug → localhost, Release → Railway).",
       ],
-    },
-    {
-      name: "Yantissimo Shop",
-      role: "Headless customer-facing storefront",
-      stack: [
-        "Next.js 15.6",
-        "React 19",
-        "TypeScript",
-        "Tailwind CSS 4",
-        "Shopify Storefront GraphQL",
-        "Wheel-Size API",
-        "Vercel",
-      ],
-      scale: "~116 source files · server components + edge middleware",
-      highlights: [
-        "Vehicle search ('Por auto') wired through Wheel-Size API into the Shopify catalog — customers find tires by make / model / year.",
-        "React Server Components, Server Actions, Suspense, useOptimistic.",
-        "Edge middleware for routing and revalidation.",
-        "Integrated with the same backend cart, checkout, and customer record as the ERP and iOS client.",
+      professionalHighlights: [
+        "Native iOS experience customers expect — fast, polished, and delivered through the App Store / TestFlight.",
+        "Offline-ready — customers can browse vehicles, appointments, and history even with patchy signal.",
+        "Push notifications drive recurring engagement around service reminders and promotions.",
+        "Single account shared with the storefront — one login, every surface.",
+        "Loyalty, reminders, and post-service follow-up build long-term customer lifetime value.",
+        "Built to white-label — same codebase can serve additional distributors with a config change.",
       ],
     },
   ],
@@ -297,7 +339,7 @@ export const yantissimo: Project = {
     "/images/projects/plataforma-y.png",
     "/images/projects/back-y.png",
     "/images/projects/shop-y.png",
-    "/images/projects/shop-y.png",
+    "/images/projects/ios-y.jpeg",
   ],
   repoPath:
     "YSSM/(plataforma)/erp-yssm + YSSM/(yaol)/backend-yssm + YSSM/(yaol)/shop-yaol",
