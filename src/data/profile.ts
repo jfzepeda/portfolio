@@ -31,7 +31,8 @@ export const profile = {
     email: "mailto:zepedajuanfe9@gmail.com",
   },
 
-  availability: "Open to senior product / AI engineering roles & high-leverage contract work.",
+  availability:
+    "Open to senior product / AI engineering roles & high-leverage contract work.",
 
   // Concrete credibility numbers
   credibility: [
@@ -71,7 +72,8 @@ export interface StackGroup {
 export const techStack: StackGroup[] = [
   {
     domain: "Backend",
-    blurb: "Production Express APIs with real test coverage, async jobs, modular middleware.",
+    blurb:
+      "Production Express APIs with real test coverage, async jobs, modular middleware.",
     items: [
       "Node.js 20+",
       "Express",
@@ -80,11 +82,15 @@ export const techStack: StackGroup[] = [
       "Multer",
       "Jest + Supertest",
     ],
-    shippedIn: ["Yantissimo Backend (167 files / 7.3k LOC, 41 routes)", "WhatsApp Gateway"],
+    shippedIn: [
+      "Yantissimo Backend (167 files / 7.3k LOC, 41 routes)",
+      "WhatsApp Gateway",
+    ],
   },
   {
     domain: "Frontend",
-    blurb: "Next.js App Router + React 19 + TypeScript + Tailwind. Server Components, edge middleware.",
+    blurb:
+      "Next.js App Router + React 19 + TypeScript + Tailwind. Server Components, edge middleware.",
     items: [
       "Next.js 15 / 16",
       "React 19",
@@ -94,7 +100,12 @@ export const techStack: StackGroup[] = [
       "CodeMirror 6",
       "Recharts",
     ],
-    shippedIn: ["Yantissimo Shop", "YSSM ERP (450 files)", "Overtree", "DataKnife"],
+    shippedIn: [
+      "Yantissimo Shop",
+      "YSSM ERP (450 files)",
+      "Overtree",
+      "DataKnife",
+    ],
   },
   {
     domain: "Mobile",
@@ -110,11 +121,16 @@ export const techStack: StackGroup[] = [
       "APNs (Push)",
       "C FFI (LibSignal)",
     ],
-    shippedIn: ["Yantissimo iOS (68 files, 0 SPM/Cocoapods)", "Smoke Signals (Signal protocol)", "Fitness Copilot"],
+    shippedIn: [
+      "Yantissimo iOS (68 files, 0 SPM/Cocoapods)",
+      "Smoke Signals (Signal protocol)",
+      "Fitness Copilot",
+    ],
   },
   {
     domain: "AI",
-    blurb: "Direct SDK use (not wrappers). Function calling with safety guards, hybrid RAG, MCP.",
+    blurb:
+      "Direct SDK use (not wrappers). Function calling with safety guards, hybrid RAG, MCP.",
     items: [
       "OpenAI SDK",
       "Anthropic Claude SDK",
@@ -124,7 +140,11 @@ export const techStack: StackGroup[] = [
       "Model Context Protocol (MCP)",
       "Hybrid RAG",
     ],
-    shippedIn: ["DataKnife (vector + SQL hybrid)", "Overtree (12-tool MCP server)", "Nexora Sales Agent"],
+    shippedIn: [
+      "DataKnife (vector + SQL hybrid)",
+      "Overtree (12-tool MCP server)",
+      "Nexora Sales Agent",
+    ],
   },
   {
     domain: "Real-time",
@@ -137,11 +157,16 @@ export const techStack: StackGroup[] = [
       "Baileys (WhatsApp)",
       "Twilio Voice / Studio / Flex",
     ],
-    shippedIn: ["Overtree (LAN multicursor)", "WhatsApp Gateway (multi-tenant)", "Smoke Signals"],
+    shippedIn: [
+      "Overtree (LAN multicursor)",
+      "WhatsApp Gateway (multi-tenant)",
+      "Smoke Signals",
+    ],
   },
   {
     domain: "Cloud / DevOps",
-    blurb: "Vercel + Railway production deploys. CI/CD via GitHub Actions, Electron for desktop.",
+    blurb:
+      "Vercel + Railway production deploys. CI/CD via GitHub Actions, Electron for desktop.",
     items: [
       "Vercel",
       "Railway",
@@ -151,11 +176,16 @@ export const techStack: StackGroup[] = [
       "Electron + electron-builder",
       "Backblaze B2",
     ],
-    shippedIn: ["YSSM ERP (Vercel CI)", "Yantissimo Backend (Railway)", "Karate (.dmg/.exe/.AppImage)"],
+    shippedIn: [
+      "YSSM ERP (Vercel CI)",
+      "Yantissimo Backend (Railway)",
+      "Karate (.dmg/.exe/.AppImage)",
+    ],
   },
   {
     domain: "Data",
-    blurb: "Postgres-first, Supabase RPC for security-definer functions, Shopify GraphQL, schema design.",
+    blurb:
+      "Postgres-first, Supabase RPC for security-definer functions, Shopify GraphQL, schema design.",
     items: [
       "PostgreSQL",
       "MySQL",
@@ -164,11 +194,16 @@ export const techStack: StackGroup[] = [
       "Wheel-Size API",
       "Google Workspace APIs",
     ],
-    shippedIn: ["Yantissimo (PG + MySQL + Shopify)", "DataKnife (Supabase RPC)", "Nexora Agent"],
+    shippedIn: [
+      "Yantissimo (PG + MySQL + Shopify)",
+      "DataKnife (Supabase RPC)",
+      "Nexora Agent",
+    ],
   },
   {
     domain: "Auth & Security",
-    blurb: "JWT RS256 with on-device keypair generation, Keychain on iOS, iron-session on web.",
+    blurb:
+      "JWT RS256 with on-device keypair generation, Keychain on iOS, iron-session on web.",
     items: [
       "JWT (RS256)",
       "bcrypt",
@@ -177,7 +212,11 @@ export const techStack: StackGroup[] = [
       "401 refresh-retry",
       "Signal protocol (Smoke Signals)",
     ],
-    shippedIn: ["Yantissimo iOS", "Karate (RS256 keypair on first launch)", "Smoke Signals"],
+    shippedIn: [
+      "Yantissimo iOS",
+      "Karate (RS256 keypair on first launch)",
+      "Smoke Signals",
+    ],
   },
 ];
 
@@ -188,11 +227,31 @@ export const skillGroups: SkillGroup[] = [
     name: "AI Engineering",
     description: "LLM orchestration, RAG, agents, function-calling, realtime.",
     skills: [
-      { name: "OpenAI SDK", proficiency: "expert", note: "Tool calling, streaming, vector store, ChatKit" },
-      { name: "Anthropic Claude SDK", proficiency: "expert", note: "Direct SDK, not wrappers" },
-      { name: "Model Context Protocol (MCP)", proficiency: "expert", note: "Custom server, 12 tools, 3 transports" },
-      { name: "RAG (Hybrid)", proficiency: "strong", note: "Vector + structured SQL, function-call routing" },
-      { name: "OpenAI Realtime API", proficiency: "strong", note: "WebRTC, voice agents, multi-modal" },
+      {
+        name: "OpenAI SDK",
+        proficiency: "expert",
+        note: "Tool calling, streaming, vector store, ChatKit",
+      },
+      {
+        name: "Anthropic Claude SDK",
+        proficiency: "expert",
+        note: "Direct SDK, not wrappers",
+      },
+      {
+        name: "Model Context Protocol (MCP)",
+        proficiency: "expert",
+        note: "Custom server, 12 tools, 3 transports",
+      },
+      {
+        name: "RAG (Hybrid)",
+        proficiency: "strong",
+        note: "Vector + structured SQL, function-call routing",
+      },
+      {
+        name: "OpenAI Realtime API",
+        proficiency: "strong",
+        note: "WebRTC, voice agents, multi-modal",
+      },
       { name: "Multi-agent orchestration", proficiency: "strong" },
       { name: "Prompt engineering", proficiency: "expert" },
     ],
@@ -201,12 +260,20 @@ export const skillGroups: SkillGroup[] = [
     name: "Frontend",
     description: "Modern React, Next.js App Router, design systems.",
     skills: [
-      { name: "Next.js 15 / 16", proficiency: "expert", note: "App Router, Server Components, Server Actions" },
+      {
+        name: "Next.js 15 / 16",
+        proficiency: "expert",
+        note: "App Router, Server Components, Server Actions",
+      },
       { name: "React 19", proficiency: "expert" },
       { name: "TypeScript", proficiency: "expert" },
       { name: "Tailwind CSS 4", proficiency: "expert" },
       { name: "shadcn/ui & Radix", proficiency: "strong" },
-      { name: "CodeMirror 6", proficiency: "strong", note: "stex / LaTeX, custom extensions" },
+      {
+        name: "CodeMirror 6",
+        proficiency: "strong",
+        note: "stex / LaTeX, custom extensions",
+      },
       { name: "Recharts / Chart.js", proficiency: "strong" },
     ],
   },
@@ -215,7 +282,11 @@ export const skillGroups: SkillGroup[] = [
     description: "Express APIs, Postgres, auth, async jobs.",
     skills: [
       { name: "Node.js 20+", proficiency: "expert" },
-      { name: "Express", proficiency: "expert", note: "41-route production APIs" },
+      {
+        name: "Express",
+        proficiency: "expert",
+        note: "41-route production APIs",
+      },
       { name: "PostgreSQL", proficiency: "expert" },
       { name: "MySQL", proficiency: "strong" },
       { name: "JWT (RS256)", proficiency: "strong" },
@@ -235,14 +306,22 @@ export const skillGroups: SkillGroup[] = [
       { name: "Photos.framework", proficiency: "strong" },
       { name: "APNs (Push)", proficiency: "strong" },
       { name: "Modern Observable / MVVM", proficiency: "expert" },
-      { name: "LibSignalClient (FFI)", proficiency: "working", note: "C FFI, signal-protocol-c submodule" },
+      {
+        name: "LibSignalClient (FFI)",
+        proficiency: "working",
+        note: "C FFI, signal-protocol-c submodule",
+      },
     ],
   },
   {
     name: "Real-time & Collaboration",
     description: "CRDTs, WebSockets, multiplayer.",
     skills: [
-      { name: "Yjs (CRDTs)", proficiency: "expert", note: "y-codemirror.next, y-websocket, y-protocols" },
+      {
+        name: "Yjs (CRDTs)",
+        proficiency: "expert",
+        note: "y-codemirror.next, y-websocket, y-protocols",
+      },
       { name: "WebSockets (ws)", proficiency: "strong" },
       { name: "Baileys (WhatsApp)", proficiency: "expert" },
       { name: "Twilio Voice / Studio / Flex", proficiency: "strong" },
@@ -254,7 +333,11 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "Vercel", proficiency: "expert" },
       { name: "Railway", proficiency: "expert" },
-      { name: "Supabase", proficiency: "strong", note: "Auth, RPC, security definer functions" },
+      {
+        name: "Supabase",
+        proficiency: "strong",
+        note: "Auth, RPC, security definer functions",
+      },
       { name: "pnpm Workspaces / Turbo", proficiency: "strong" },
       { name: "Electron + electron-builder", proficiency: "strong" },
       { name: "GitHub Actions", proficiency: "strong" },
@@ -266,7 +349,11 @@ export const skillGroups: SkillGroup[] = [
     description: "Shopify, Google Workspace, Puppeteer, scrapers.",
     skills: [
       { name: "Shopify Admin & Storefront APIs", proficiency: "expert" },
-      { name: "Google Workspace APIs", proficiency: "strong", note: "Calendar, Gmail, Sheets, Contacts" },
+      {
+        name: "Google Workspace APIs",
+        proficiency: "strong",
+        note: "Calendar, Gmail, Sheets, Contacts",
+      },
       { name: "Wheel-Size API", proficiency: "strong" },
       { name: "Puppeteer", proficiency: "strong" },
       { name: "Cheerio + p-limit", proficiency: "strong" },
@@ -294,7 +381,7 @@ export const experience: ExperienceRow[] = [
   {
     when: "2025 — present",
     role: "AI & Product Engineer",
-    org: "Yantissimo / Llantísimo",
+    org: "Yantissimo / Yantissimo",
     where: "Mexico · Hybrid",
     bullets: [
       "Built the customer-facing iOS app, Express backend, and headless Shopify storefront end-to-end — the company's complete digital surface.",

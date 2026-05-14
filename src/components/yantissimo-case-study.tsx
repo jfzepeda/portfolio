@@ -549,24 +549,24 @@ export function YantissimoCaseStudy() {
           >
             <BeforeAfterColumn
               kind="before"
-              title="Antes — operación manual"
+              title="Before — manual operations"
               points={[
-                "Atención al cliente atada a horario laboral por WhatsApp.",
-                "Sin app — los clientes no podían ver vehículos, citas ni estatus.",
-                "Cotizaciones y reservas hechas a mano, en hojas y mensajes.",
-                "Catálogo y precios solo en cabeza del equipo de ventas.",
-                "Pagos coordinados manualmente, sin link directo.",
+                "Customer support tied to business hours on WhatsApp.",
+                "No app — customers couldn't see vehicles, appointments, or status.",
+                "Quotes and bookings done by hand, in spreadsheets and messages.",
+                "Catalog and pricing lived only in the sales team's heads.",
+                "Payments coordinated manually, with no direct link.",
               ]}
             />
             <BeforeAfterColumn
               kind="after"
-              title="Hoy — plataforma operando 24/7"
+              title="Today — platform running 24/7"
               points={[
-                "Clientes se autoatienden 24/7: ven, cotizan, agendan y pagan.",
-                "App iOS nativa con sesión eterna y push de recordatorios.",
-                "Storefront público con búsqueda por auto (marca/modelo/año).",
-                "Catálogo único en Shopify, sincronizado en los tres frentes.",
-                "Agente IA en WhatsApp / Telegram filtra y atiende sin parar.",
+                "Customers self-serve 24/7: they browse, quote, book, and pay.",
+                "Native iOS app with an eternal session and push reminders.",
+                "Public storefront with vehicle search (make/model/year).",
+                "Single Shopify catalog, synced across all three surfaces.",
+                "AI agent on WhatsApp / Telegram triages and responds nonstop.",
               ]}
             />
           </div>
@@ -773,7 +773,7 @@ private func refreshOnce() async -> Bool {
                 "Customers self-serve the full quote → payment → appointment loop without a sales rep on the line.",
                 "iOS app opens with content even before the first network call — Application Support cache hydrates the views on launch.",
                 "Backend test suite (Jest + Supertest) gates merges on Railway via a small CI script; no test, no deploy.",
-                "Storefront 'Por auto' search resolves vehicle → tire-size → in-stock SKUs in <300 ms thanks to a thin GraphQL projection over Shopify.",
+                "Storefront 'By vehicle' search resolves car → tire-size → in-stock SKUs in <300 ms thanks to a thin GraphQL projection over Shopify.",
                 "Nexora agent handles routine inbound on Telegram + WhatsApp 24/7, escalating to humans only when the conversation enters a configured trigger set.",
               ].map((r, i) => (
                 <li
@@ -928,7 +928,7 @@ function BeforeAfterColumn({ kind, title, points }: BeforeAfterColumnProps) {
           fontSize: 10,
         }}
       >
-        {kind === "before" ? "→ Antes" : "→ Hoy"}
+        {kind === "before" ? "→ Before" : "→ Today"}
       </div>
       <h4
         className="text-display"

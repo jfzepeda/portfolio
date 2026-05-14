@@ -79,7 +79,7 @@ export interface Project {
 // ─────────────────────────────────────────────────────────────────────────────
 // TIER 1 — HERO: YANTISSIMO PLATFORM (a.k.a. ERP YSSM)
 //
-// The operational backbone of Llantísimo / YSSM — a multi-module enterprise
+// The operational backbone of Yantissimo / YSSM — a multi-module enterprise
 // ERP plus the satellite Express backend and headless Shopify storefront
 // it powers. Every internal team and every customer-facing surface runs
 // through this stack.
@@ -104,7 +104,7 @@ export const yantissimo: Project = {
     headline:
       "The operational backbone of an entire automotive distribution business.",
     summary:
-      "Yantissimo Platform is the custom enterprise ERP I built for Llantísimo, a tire and wheel distributor in Mexico — and the satellite backend and storefront it feeds. The platform runs daily operations: parsing Microsip exports for next-day audits, computing technician and salesperson productivity, generating quotes and invoices, scheduling installations, managing wholesale and retail orders, tracking warranties, and surfacing live KPIs. The whole organization works inside it.",
+      "Yantissimo Platform is the custom enterprise ERP I built for Yantissimo, a tire and wheel distributor in Mexico — and the satellite backend and storefront it feeds. The platform runs daily operations: parsing Microsip exports for next-day audits, computing technician and salesperson productivity, generating quotes and invoices, scheduling installations, managing wholesale and retail orders, tracking warranties, and surfacing live KPIs. The whole organization works inside it.",
     outcomes: [
       "Replaces a stack of spreadsheets, Microsip exports, and ad-hoc tools with one daily-used operational system.",
       "Daily audit module reads Microsip data, validates technician/vendor performance, lets admins reassign labor (MO) and justify exceptions — with a soft-block before end-of-day close.",
@@ -120,7 +120,7 @@ export const yantissimo: Project = {
     summary:
       "Production four-surface platform. The ERP is a Next.js 16 (App Router + Turbopack) app with route groups for protected staff, client portals, and public surfaces, plus 24+ feature modules ranging from auditoría (Microsip parser + KPI engine + reassignment workflow) to suite (sales / quotes / payments / invoices), mayoreo (wholesale), calendarios, equipo, garantías, and an embedded AI agent panel. The Express backend is the API the ERP, the iOS client, and the storefront all call into. The iOS client is hand-written SwiftUI with zero external dependencies. The storefront is a headless-Shopify Next.js front-end with vehicle-search wired through Wheel-Size API.",
     architecture:
-      "ERP YSSM (plataforma): Next.js 16.0 App Router with Turbopack, route groups for (protected)/(clientes)/(public)/api, Material UI + HeroUI + custom Tailwind 4 design tokens, FullCalendar + react-big-calendar + react-date-range for scheduling, Recharts for KPIs, react-dnd for drag-and-drop, Socket.io for real-time collaboration, jspdf + jspdf-autotable for in-app PDF generation, xlsx for Excel exports/imports, libphonenumber-js for phone normalization, bcrypt for auth. The auditoría module ships its own pure-function calc layer (lib/excel/parseAuditoria.js, lib/calc/reasigMO.js), state via AuditoriaContext with patchSession persistence, and a 60-test suite under tests/auditoria/ run via node --import register. Backend (yssm-backend) is Express + Postgres + MySQL with 41 modular routes, Shopify Admin/Storefront SDKs, OpenAI, Backblaze B2, Google Sheets, Puppeteer, and Jest + Supertest tests. Storefront extends Vercel's Next.js Commerce template with a custom 'Por auto' flow.",
+      "ERP YSSM (platform): Next.js 16.0 App Router with Turbopack, route groups for (protected)/(clientes)/(public)/api, Material UI + HeroUI + custom Tailwind 4 design tokens, FullCalendar + react-big-calendar + react-date-range for scheduling, Recharts for KPIs, react-dnd for drag-and-drop, Socket.io for real-time collaboration, jspdf + jspdf-autotable for in-app PDF generation, xlsx for Excel exports/imports, libphonenumber-js for phone normalization, bcrypt for auth. The auditoría module ships its own pure-function calc layer (lib/excel/parseAuditoria.js, lib/calc/reasigMO.js), state via AuditoriaContext with patchSession persistence, and a 60-test suite under tests/auditoria/ run via node --import register. Backend (yssm-backend) is Express + Postgres + MySQL with 41 modular routes, Shopify Admin/Storefront SDKs, OpenAI, Backblaze B2, Google Sheets, Puppeteer, and Jest + Supertest tests. Storefront extends Vercel's Next.js Commerce template with a custom 'Por auto' flow.",
     highlights: [
       "447 source files in the ERP alone; 24+ feature modules under (protected)/ — auditoría, ventas, suite, mayoreo, ordenes, cotizaciones, calendario, equipo, dashboard, agent, claude, campanas, configuracion, garantias, inventario, reports, ramps, seguimiento, todo, snapshots, administracion, myr, plus a (clientes) portal.",
       "Real-time multi-user collaboration via socket.io-client across panels.",
@@ -199,7 +199,7 @@ export const yantissimo: Project = {
     "Internal staff across audit, sales, service, and admin teams; wholesale clients via portal; retail customers via the iOS app and the storefront.",
   subproducts: [
     {
-      name: "Plataforma Yantissimo (ERP YSSM)",
+      name: "Yantissimo Platform (ERP YSSM)",
       role: "Operational ERP — daily-used backbone of the business",
       stack: [
         "Next.js 16",
@@ -318,7 +318,7 @@ export const yantissimo: Project = {
       highlights: [
         "Zero external dependencies — no SPM packages, no CocoaPods.",
         "Custom APIClient with one-shot 401 refresh retry and 'eternal session' so customers never get logged out at the worst moment.",
-        "10+ feature modules: Onboarding, Home, Profile, Club, Convenios, Promotions, Reminders, Visits, Quotes, Postchecks.",
+        "10+ feature modules: Onboarding, Home, Profile, Club, Partner Benefits, Promotions, Reminders, Visits, Quotes, Postchecks.",
         "Application Support cache hydrates UI before the network call — the app opens with content even offline.",
         "Feature flags (e.g. SMS-OTP gate) controlled at compile time via xcconfig.",
         "Push notifications wired through PushManager → backend device registration.",
@@ -381,7 +381,7 @@ export const fitnessCopilot: Project = {
     architecture:
       "FitnessApp bootstraps AuthService via @StateObject. Repository is injected via a custom EnvironmentKey (\\.repository) so views can swap between live and mock implementations cleanly. Theme tokens (Tokens / F / CardStyle) are abstracted away from views. NEXT_STEPS roadmap details HealthKit observable wiring, supplement RLS policies, and the Claude Edge Function contract.",
     highlights: [
-      "Six-tab SwiftUI layout: Dieta · Ejercicios · IA · Cronograma · Perfil · Suplementos.",
+      "Six-tab SwiftUI layout: Diet · Exercises · AI · Schedule · Profile · Supplements.",
       "MVVM with environment-driven dependency injection (\\.repository) for testable views.",
       "Theme tokens abstracted into Tokens / F / CardStyle — runtime-switchable card visual style.",
       "Supabase backend with HealthKit-synced metrics (daily_energy, exercise_minutes, HRV, weight).",
@@ -1062,7 +1062,7 @@ export const tier4: Tier4Project[] = [
   },
   {
     id: "pagares",
-    name: "Pagarés",
+    name: "Promissory Notes",
     category: "web",
     icon: "PG",
     description: "Promissory-note management web app.",
@@ -1125,7 +1125,7 @@ export const tier4: Tier4Project[] = [
   },
   {
     id: "investigacion-interface",
-    name: "Investigación Interface",
+    name: "Research Interface",
     category: "experimental",
     icon: "II",
     description: "Research-interface prototype for a UX study.",

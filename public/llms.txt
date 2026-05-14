@@ -17,11 +17,11 @@ Status: Open to senior product / AI engineering roles & high-leverage contract w
 
 ## Flagship — Yantissimo Platform / ERP YSSM (Tier 1)
 
-The operational backbone of Llantísimo / YSSM, a tire and wheel distributor in Mexico.
+The operational backbone of Yantissimo / YSSM, a tire and wheel distributor in Mexico.
 A custom enterprise ERP plus the Express backend, native iOS app, and headless Shopify
 storefront it feeds — four coordinated surfaces, one Postgres, one team using it daily.
 
-### Plataforma Yantissimo (ERP YSSM) — the operational ERP
+### Yantissimo Platform (ERP YSSM) — the operational ERP
 Internal Next.js 16 application used daily by every team in the business.
 - Next.js 16 (App Router + Turbopack), React 18, Tailwind 4, Material UI + HeroUI.
 - 447 source files; 24+ feature modules under (protected)/.
@@ -58,7 +58,7 @@ Hand-written Swift 5.9 / SwiftUI client (iOS 16+) — zero external dependencies
 - 68 Swift files, ~7.1k LOC, 541 LOC of tests.
 - Custom APIClient with one-shot 401 refresh retry and "eternal session".
 - Application Support cache hydrates UI before fetch — opens with content offline.
-- 10+ feature modules: Onboarding, Home, Profile, Club, Convenios, Promotions,
+- 10+ feature modules: Onboarding, Home, Profile, Club, Partner Benefits, Promotions,
   Reminders, Visits, Quotes, Postchecks.
 - Feature flags via xcconfig (e.g. SMS-OTP gate at compile time).
 - APNs push notifications wired through PushManager → backend device registration.
@@ -75,7 +75,7 @@ Customer-facing Next.js 15.6 + React 19 + Tailwind 4 storefront on Vercel.
 ## Tier 2 — Featured Deep
 
 ### Fitness Copilot — iOS health & training app, Supabase + Anthropic Claude.
-- 26 Swift files, 8.3k LOC, six tabs (Dieta · Ejercicios · IA · Cronograma · Perfil · Suplementos).
+- 26 Swift files, 8.3k LOC, six tabs (Diet · Exercises · AI · Schedule · Profile · Supplements).
 - MVVM with environment-driven dependency injection.
 - HealthKit-synced metrics. Anthropic Edge Function for supplement suggestions.
 
@@ -136,8 +136,8 @@ Customer-facing Next.js 15.6 + React 19 + Tailwind 4 storefront on Vercel.
 
 Nexora Agent, Nexora Distribution, YSSM Scraper, Mati Data,
 Suppliers Agent, OneDrive Retriever, Restaurant Waster, Mootie POS,
-Plick Clone, Pagarés, Padelón, Batch, Intercambio, Nexora Quoter, Eigenvalues,
-Food Healer, Investigación Interface, Next.js Dashboard, Termo Sapiens,
+Plick Clone, Promissory Notes, Padelón, Batch, Intercambio, Nexora Quoter, Eigenvalues,
+Food Healer, Research Interface, Next.js Dashboard, Termo Sapiens,
 Microsip Sync, AFFIN Agro, NutriGen, Altozano, Delitec, Base AI Agent,
 YARVIS Executive Agent, Test Agent, Laptop Support Bot.
 

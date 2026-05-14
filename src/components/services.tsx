@@ -23,7 +23,7 @@ const SERVICES: Service[] = [
       "Payment links and appointment scheduling",
       "Admin dashboards for the back-office team",
     ],
-    example: "Yantissimo · Llantísimo storefront",
+    example: "Yantissimo · Yantissimo storefront",
   },
   {
     n: "02",
