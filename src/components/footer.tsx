@@ -1,8 +1,16 @@
-import { profile } from "@/data/profile";
+"use client";
+
+import { useProfile, useT, bi } from "@/lib/i18n";
 
 export function Footer() {
+  const t = useT();
+  const profile = useProfile();
   const year = new Date().getFullYear();
-  const month = new Date().toLocaleDateString("en-US", {
+  const monthEn = new Date().toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+  const monthEs = new Date().toLocaleDateString("es-MX", {
     month: "short",
     year: "numeric",
   });
@@ -28,9 +36,12 @@ export function Footer() {
       <span>
         © {year} {profile.name}
       </span>
-      <span>Designed + built with care · {month}</span>
+      <span>
+        {t(bi("Designed + built with care", "Diseñado + construido con cariño"))} ·{" "}
+        {t(bi(monthEn, monthEs))}
+      </span>
       <a href="#top" style={{ color: "var(--ink-3)" }}>
-        ↑ Back to top
+        ↑ {t(bi("Back to top", "Volver arriba"))}
       </a>
     </footer>
   );

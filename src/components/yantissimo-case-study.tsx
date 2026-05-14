@@ -1,14 +1,17 @@
+"use client";
+
 import { Reveal } from "./reveal";
 import { SectionHeader, PaperPlaceholder } from "./section-header";
 import { ArchitectureDiagram } from "./architecture-diagram";
 import { CodeSnippet } from "./code-snippet";
-import { yantissimo } from "@/data/projects";
+import { useYantissimo, useT, bi } from "@/lib/i18n";
 
 // Tier-1 hero case study, warm-paper style. Wide intro + 3 subproduct rows
 // + (Tech) full case-study breakdown + (Pro) before/after value table.
 
 export function YantissimoCaseStudy() {
-  const p = yantissimo;
+  const t = useT();
+  const p = useYantissimo();
 
   return (
     <section
@@ -21,10 +24,12 @@ export function YantissimoCaseStudy() {
     >
       <SectionHeader
         n="04"
-        kicker="Flagship platform"
+        kicker={t(bi("Flagship platform", "Plataforma insignia"))}
         title={
           <>
-            Yantissimo. <em>One platform,</em> every surface.
+            Yantissimo.{" "}
+            <em>{t(bi("One platform,", "Una plataforma,"))}</em>{" "}
+            {t(bi("every surface.", "cada superficie."))}
           </>
         }
         subtitle={p.tagline}
@@ -205,7 +210,7 @@ export function YantissimoCaseStudy() {
                 marginBottom: 14,
               }}
             >
-              At a glance
+              {t(bi("At a glance", "De un vistazo"))}
             </div>
             <dl
               style={{
@@ -217,14 +222,20 @@ export function YantissimoCaseStudy() {
               }}
             >
               {/* Domain / Status / Year / Surfaces — shown in BOTH modes */}
-              {[
-                ["Domain", p.domain],
-                ["Status", p.status],
-                ["Year", String(p.year)],
-                ["Surfaces", "ERP · Backend · iOS · Storefront"],
-              ].map(([k, v]) => (
+              {(
+                [
+                  { id: "domain", label: t(bi("Domain", "Dominio")), value: p.domain },
+                  { id: "status", label: t(bi("Status", "Estado")), value: p.status },
+                  { id: "year", label: t(bi("Year", "Año")), value: String(p.year) },
+                  {
+                    id: "surfaces",
+                    label: t(bi("Surfaces", "Superficies")),
+                    value: "ERP · Backend · iOS · Storefront",
+                  },
+                ] as const
+              ).map(({ id, label, value }) => (
                 <div
-                  key={k}
+                  key={id}
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -243,20 +254,20 @@ export function YantissimoCaseStudy() {
                       flexShrink: 0,
                     }}
                   >
-                    {k}
+                    {label}
                   </dt>
                   <dd
                     style={{
                       margin: 0,
                       textAlign: "right",
                       color:
-                        k === "Status" ? "var(--accent)" : "var(--ink)",
+                        id === "status" ? "var(--accent)" : "var(--ink)",
                       fontFamily:
-                        k === "Year" ? "var(--font-mono)" : undefined,
-                      fontSize: k === "Year" ? 11 : 13,
+                        id === "year" ? "var(--font-mono)" : undefined,
+                      fontSize: id === "year" ? 11 : 13,
                     }}
                   >
-                    {v}
+                    {value}
                   </dd>
                 </div>
               ))}
@@ -281,7 +292,7 @@ export function YantissimoCaseStudy() {
                     flexShrink: 0,
                   }}
                 >
-                  Scale
+                  {t(bi("Scale", "Escala"))}
                 </dt>
                 <dd
                   style={{
@@ -327,7 +338,7 @@ export function YantissimoCaseStudy() {
             }}
           >
             <span style={{ color: "var(--accent)" }}>✦</span>
-            Four coordinated products
+            {t(bi("Four coordinated products", "Cuatro productos coordinados"))}
           </div>
 
           <div
@@ -533,7 +544,12 @@ export function YantissimoCaseStudy() {
             }}
           >
             <span style={{ color: "var(--accent)" }}>✦</span>
-            Before vs after — the operational impact
+            {t(
+              bi(
+                "Before vs after — the operational impact",
+                "Antes vs después — el impacto operativo",
+              ),
+            )}
           </div>
         </Reveal>
 
@@ -549,24 +565,74 @@ export function YantissimoCaseStudy() {
           >
             <BeforeAfterColumn
               kind="before"
-              title="Before — manual operations"
+              title={t(bi("Before — manual operations", "Antes — operación manual"))}
               points={[
-                "Customer support tied to business hours on WhatsApp.",
-                "No app — customers couldn't see vehicles, appointments, or status.",
-                "Quotes and bookings done by hand, in spreadsheets and messages.",
-                "Catalog and pricing lived only in the sales team's heads.",
-                "Payments coordinated manually, with no direct link.",
+                t(
+                  bi(
+                    "Customer support tied to business hours on WhatsApp.",
+                    "Atención al cliente atada a horario laboral por WhatsApp.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "No app — customers couldn't see vehicles, appointments, or status.",
+                    "Sin app — los clientes no podían ver vehículos, citas ni estatus.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Quotes and bookings done by hand, in spreadsheets and messages.",
+                    "Cotizaciones y reservas hechas a mano, en hojas y mensajes.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Catalog and pricing lived only in the sales team's heads.",
+                    "Catálogo y precios solo en cabeza del equipo de ventas.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Payments coordinated manually, with no direct link.",
+                    "Pagos coordinados manualmente, sin link directo.",
+                  ),
+                ),
               ]}
             />
             <BeforeAfterColumn
               kind="after"
-              title="Today — platform running 24/7"
+              title={t(bi("Today — platform running 24/7", "Hoy — plataforma operando 24/7"))}
               points={[
-                "Customers self-serve 24/7: they browse, quote, book, and pay.",
-                "Native iOS app with an eternal session and push reminders.",
-                "Public storefront with vehicle search (make/model/year).",
-                "Single Shopify catalog, synced across all three surfaces.",
-                "AI agent on WhatsApp / Telegram triages and responds nonstop.",
+                t(
+                  bi(
+                    "Customers self-serve 24/7: they browse, quote, book, and pay.",
+                    "Clientes se autoatienden 24/7: ven, cotizan, agendan y pagan.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Native iOS app with an eternal session and push reminders.",
+                    "App iOS nativa con sesión eterna y push de recordatorios.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Public storefront with vehicle search (make/model/year).",
+                    "Storefront público con búsqueda por auto (marca/modelo/año).",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Single Shopify catalog, synced across all three surfaces.",
+                    "Catálogo único en Shopify, sincronizado en los tres frentes.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "AI agent on WhatsApp / Telegram triages and responds nonstop.",
+                    "Agente IA en WhatsApp / Telegram filtra y atiende sin parar.",
+                  ),
+                ),
               ]}
             />
           </div>
@@ -589,23 +655,26 @@ export function YantissimoCaseStudy() {
             }}
           >
             <span style={{ color: "var(--accent)" }}>✦</span>
-            Case study — engineering depth
+            {t(
+              bi(
+                "Case study — engineering depth",
+                "Caso de estudio — profundidad técnica",
+              ),
+            )}
           </div>
         </Reveal>
 
         <CaseStudyBlock
           n="A"
-          title="Problem"
+          title={t(bi("Problem", "Problema"))}
           body={
             <>
-              The distributor had a real catalog, real customers on WhatsApp,
-              and zero coordinated digital surface. Sales lived in the heads
-              of three people; pricing changes lived in a spreadsheet;
-              appointments were booked verbally. Building a unified front-end
-              wasn't enough — the system had to integrate with the existing
-              Shopify catalog, persist a session graph for thousands of
-              customers, and stay reliable enough that an iOS client could
-              cache it and open offline.
+              {t(
+                bi(
+                  "The distributor had a real catalog, real customers on WhatsApp, and zero coordinated digital surface. Sales lived in the heads of three people; pricing changes lived in a spreadsheet; appointments were booked verbally. Building a unified front-end wasn't enough — the system had to integrate with the existing Shopify catalog, persist a session graph for thousands of customers, and stay reliable enough that an iOS client could cache it and open offline.",
+                  "El distribuidor tenía un catálogo real, clientes reales en WhatsApp y cero superficie digital coordinada. Las ventas vivían en la cabeza de tres personas; los cambios de precio vivían en una hoja de cálculo; las citas se reservaban verbalmente. Construir un front-end unificado no era suficiente — el sistema tenía que integrarse con el catálogo Shopify existente, persistir un grafo de sesiones para miles de clientes y mantenerse confiable lo suficiente para que un cliente iOS pudiera cachearlo y abrir offline.",
+                ),
+              )}
             </>
           }
         />
@@ -614,7 +683,7 @@ export function YantissimoCaseStudy() {
 
         <CaseStudyBlock
           n="B"
-          title="Tradeoffs"
+          title={t(bi("Tradeoffs", "Tradeoffs"))}
           body={
             <ul
               style={{
@@ -628,24 +697,59 @@ export function YantissimoCaseStudy() {
             >
               {[
                 [
-                  "Express over Nest/Fastify",
-                  "I traded a heavier framework's structure for surgical control over middleware and route composition. With 41 routes and a real test suite, the trade has paid off in audit speed.",
+                  t(bi("Express over Nest/Fastify", "Express en lugar de Nest/Fastify")),
+                  t(
+                    bi(
+                      "I traded a heavier framework's structure for surgical control over middleware and route composition. With 41 routes and a real test suite, the trade has paid off in audit speed.",
+                      "Cambié la estructura de un framework más pesado por control quirúrgico sobre el middleware y la composición de rutas. Con 41 rutas y una suite de pruebas real, el intercambio ha valido la pena en velocidad de auditoría.",
+                    ),
+                  ),
                 ],
                 [
-                  "Zero-dep iOS APIClient",
-                  "Skipped Alamofire/Moya so I owned the 401 refresh-retry semantics, the cache hydration order, and the eternal-session contract. Worth the extra ~300 LOC.",
+                  t(bi("Zero-dep iOS APIClient", "APIClient iOS cero-dependencias")),
+                  t(
+                    bi(
+                      "Skipped Alamofire/Moya so I owned the 401 refresh-retry semantics, the cache hydration order, and the eternal-session contract. Worth the extra ~300 LOC.",
+                      "Salté Alamofire/Moya para ser dueño de la semántica de refresh-retry en 401, el orden de hidratación de caché y el contrato de sesión eterna. Vale los ~300 LOC extras.",
+                    ),
+                  ),
                 ],
                 [
-                  "Postgres + MySQL coexisting",
-                  "Postgres for the new transactional layer; MySQL kept for legacy ETL while we migrate. Cheaper than a big-bang and recoverable per-table.",
+                  t(bi("Postgres + MySQL coexisting", "Postgres + MySQL coexistiendo")),
+                  t(
+                    bi(
+                      "Postgres for the new transactional layer; MySQL kept for legacy ETL while we migrate. Cheaper than a big-bang and recoverable per-table.",
+                      "Postgres para la nueva capa transaccional; MySQL se mantiene para el ETL legacy mientras migramos. Más barato que un big-bang y recuperable por tabla.",
+                    ),
+                  ),
                 ],
                 [
-                  "Headless Shopify, not custom checkout",
-                  "Shopify is the source of truth for catalog/checkout — building those from scratch would've been a year of compliance work. Storefront API + custom search wins instead.",
+                  t(
+                    bi(
+                      "Headless Shopify, not custom checkout",
+                      "Shopify headless, no checkout custom",
+                    ),
+                  ),
+                  t(
+                    bi(
+                      "Shopify is the source of truth for catalog/checkout — building those from scratch would've been a year of compliance work. Storefront API + custom search wins instead.",
+                      "Shopify es la fuente de verdad para catálogo/checkout — construirlos desde cero hubiera sido un año de trabajo de cumplimiento. Storefront API + búsqueda custom gana en cambio.",
+                    ),
+                  ),
                 ],
                 [
-                  "OpenAI tools with explicit budget",
-                  "The Nexora agent uses OpenAI tool calling, but every conversation has hard turn + cost ceilings. Cheaper than fine-tuning and easier to iterate.",
+                  t(
+                    bi(
+                      "OpenAI tools with explicit budget",
+                      "Herramientas OpenAI con presupuesto explícito",
+                    ),
+                  ),
+                  t(
+                    bi(
+                      "The Nexora agent uses OpenAI tool calling, but every conversation has hard turn + cost ceilings. Cheaper than fine-tuning and easier to iterate.",
+                      "El agente Nexora usa tool calling de OpenAI, pero cada conversación tiene techos duros de turnos + costo. Más barato que fine-tuning y más fácil de iterar.",
+                    ),
+                  ),
                 ],
               ].map(([k, v]) => (
                 <li
@@ -681,7 +785,7 @@ export function YantissimoCaseStudy() {
 
         <CaseStudyBlock
           n="C"
-          title="Implementation snippets"
+          title={t(bi("Implementation snippets", "Snippets de implementación"))}
           body={
             <>
               <p
@@ -692,9 +796,12 @@ export function YantissimoCaseStudy() {
                   color: "var(--ink-2)",
                 }}
               >
-                Two of the highest-leverage decisions in code. Both are
-                simplified for legibility — the actual implementations have
-                additional logging, retries, and instrumentation.
+                {t(
+                  bi(
+                    "Two of the highest-leverage decisions in code. Both are simplified for legibility — the actual implementations have additional logging, retries, and instrumentation.",
+                    "Dos de las decisiones de mayor apalancamiento en código. Ambas están simplificadas para legibilidad — las implementaciones reales tienen logging, retries e instrumentación adicionales.",
+                  ),
+                )}
               </p>
 
               <CodeSnippet
@@ -757,7 +864,7 @@ private func refreshOnce() async -> Bool {
 
         <CaseStudyBlock
           n="D"
-          title="Results"
+          title={t(bi("Results", "Resultados"))}
           body={
             <ul
               style={{
@@ -770,11 +877,36 @@ private func refreshOnce() async -> Bool {
               }}
             >
               {[
-                "Customers self-serve the full quote → payment → appointment loop without a sales rep on the line.",
-                "iOS app opens with content even before the first network call — Application Support cache hydrates the views on launch.",
-                "Backend test suite (Jest + Supertest) gates merges on Railway via a small CI script; no test, no deploy.",
-                "Storefront 'By vehicle' search resolves car → tire-size → in-stock SKUs in <300 ms thanks to a thin GraphQL projection over Shopify.",
-                "Nexora agent handles routine inbound on Telegram + WhatsApp 24/7, escalating to humans only when the conversation enters a configured trigger set.",
+                t(
+                  bi(
+                    "Customers self-serve the full quote → payment → appointment loop without a sales rep on the line.",
+                    "Los clientes se autoatienden el ciclo completo cotización → pago → cita sin un vendedor en la línea.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "iOS app opens with content even before the first network call — Application Support cache hydrates the views on launch.",
+                    "La app iOS abre con contenido incluso antes de la primera llamada de red — el caché de Application Support hidrata las vistas al lanzar.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Backend test suite (Jest + Supertest) gates merges on Railway via a small CI script; no test, no deploy.",
+                    "La suite de pruebas del backend (Jest + Supertest) hace gate de los merges en Railway vía un script CI pequeño; sin pruebas, no hay deploy.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Storefront 'By vehicle' search resolves car → tire-size → in-stock SKUs in <300 ms thanks to a thin GraphQL projection over Shopify.",
+                    "La búsqueda 'Por auto' del storefront resuelve auto → medida de llanta → SKUs en stock en <300 ms gracias a una proyección GraphQL ligera sobre Shopify.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Nexora agent handles routine inbound on Telegram + WhatsApp 24/7, escalating to humans only when the conversation enters a configured trigger set.",
+                    "El agente Nexora maneja entrantes rutinarios en Telegram + WhatsApp 24/7, escalando a humanos solo cuando la conversación entra en un set configurado de triggers.",
+                  ),
+                ),
               ].map((r, i) => (
                 <li
                   key={i}
@@ -806,7 +938,7 @@ private func refreshOnce() async -> Bool {
 
         <CaseStudyBlock
           n="E"
-          title="Learnings"
+          title={t(bi("Learnings", "Aprendizajes"))}
           body={
             <ul
               style={{
@@ -819,11 +951,36 @@ private func refreshOnce() async -> Bool {
               }}
             >
               {[
-                "Owning the network layer end-to-end on iOS paid back instantly — every bug after launch has been a 5-minute breakpoint, not a third-party SDK detective hunt.",
-                "A modest test suite at the API boundary catches more regressions than fine-grained unit tests of business logic. Boundary-first.",
-                "Shopify's webhook contract is more reliable than its REST poll path — webhook-driven sync + idempotency keys removed an entire class of inventory drift.",
-                "OpenAI tool calling beats prompt-only RAG when the answer needs to mutate state. The agent that books a service is more useful than the one that describes it.",
-                "When the operations team can edit a JSON file, they don't need a feature request. Admin panel JSON editor saved at least a sprint.",
+                t(
+                  bi(
+                    "Owning the network layer end-to-end on iOS paid back instantly — every bug after launch has been a 5-minute breakpoint, not a third-party SDK detective hunt.",
+                    "Ser dueño de la capa de red de extremo a extremo en iOS rindió frutos instantáneamente — cada bug post-lanzamiento ha sido un breakpoint de 5 minutos, no una cacería detectivesca por un SDK de terceros.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "A modest test suite at the API boundary catches more regressions than fine-grained unit tests of business logic. Boundary-first.",
+                    "Una suite de pruebas modesta en el límite de la API atrapa más regresiones que pruebas unitarias finas de lógica de negocio. Primero el límite.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "Shopify's webhook contract is more reliable than its REST poll path — webhook-driven sync + idempotency keys removed an entire class of inventory drift.",
+                    "El contrato de webhooks de Shopify es más confiable que su ruta de poll REST — el sync impulsado por webhook + idempotency keys eliminó toda una clase de drift de inventario.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "OpenAI tool calling beats prompt-only RAG when the answer needs to mutate state. The agent that books a service is more useful than the one that describes it.",
+                    "El tool calling de OpenAI le gana al RAG-solo-prompt cuando la respuesta necesita mutar estado. El agente que reserva un servicio es más útil que el que lo describe.",
+                  ),
+                ),
+                t(
+                  bi(
+                    "When the operations team can edit a JSON file, they don't need a feature request. Admin panel JSON editor saved at least a sprint.",
+                    "Cuando el equipo de operaciones puede editar un archivo JSON, no necesita un feature request. El editor de JSON del panel admin ahorró al menos un sprint.",
+                  ),
+                ),
               ].map((r, i) => (
                 <li
                   key={i}
@@ -909,6 +1066,7 @@ interface BeforeAfterColumnProps {
 
 function BeforeAfterColumn({ kind, title, points }: BeforeAfterColumnProps) {
   const isAfter = kind === "after";
+  const t = useT();
   return (
     <div
       style={{
@@ -928,7 +1086,9 @@ function BeforeAfterColumn({ kind, title, points }: BeforeAfterColumnProps) {
           fontSize: 10,
         }}
       >
-        {kind === "before" ? "→ Before" : "→ Today"}
+        {kind === "before"
+          ? `→ ${t(bi("Before", "Antes"))}`
+          : `→ ${t(bi("Today", "Hoy"))}`}
       </div>
       <h4
         className="text-display"

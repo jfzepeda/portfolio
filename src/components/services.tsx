@@ -1,81 +1,137 @@
+"use client";
+
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
-
-// Pro-mode-only Services section. Concrete deliverables, plain language,
-// no jargon. Each service lists what the client actually gets.
+import { useT, bi, type L } from "@/lib/i18n";
 
 interface Service {
   n: string;
-  title: string;
-  outcome: string;
-  deliverables: string[];
+  title: L<string>;
+  outcome: L<string>;
+  deliverables: L<string>[];
   example: string;
 }
 
 const SERVICES: Service[] = [
   {
     n: "01",
-    title: "Web & E-commerce",
-    outcome:
+    title: bi("Web & E-commerce", "Web y E-commerce"),
+    outcome: bi(
       "Storefronts and web platforms that sell, schedule, and run the operation.",
+      "Storefronts y plataformas web que venden, agendan y operan el negocio.",
+    ),
     deliverables: [
-      "Headless storefront with custom search and checkout",
-      "Payment links and appointment scheduling",
-      "Admin dashboards for the back-office team",
+      bi(
+        "Headless storefront with custom search and checkout",
+        "Storefront headless con búsqueda y checkout custom",
+      ),
+      bi(
+        "Payment links and appointment scheduling",
+        "Links de pago y agenda de citas",
+      ),
+      bi(
+        "Admin dashboards for the back-office team",
+        "Dashboards administrativos para el equipo de back-office",
+      ),
     ],
     example: "Yantissimo · Yantissimo storefront",
   },
   {
     n: "02",
-    title: "Mobile Apps (iOS)",
-    outcome:
+    title: bi("Mobile Apps (iOS)", "Apps Móviles (iOS)"),
+    outcome: bi(
       "Native iOS apps that work offline, send push, and feel like the platform — not a wrapped website.",
+      "Apps iOS nativas que funcionan offline, envían push y se sienten como la plataforma — no como un sitio web envuelto.",
+    ),
     deliverables: [
-      "Customer-facing iOS app on TestFlight or the App Store",
-      "Offline cache, push notifications, eternal session login",
-      "Backend integration tested end-to-end",
+      bi(
+        "Customer-facing iOS app on TestFlight or the App Store",
+        "App iOS de cara al cliente en TestFlight o la App Store",
+      ),
+      bi(
+        "Offline cache, push notifications, eternal session login",
+        "Caché offline, push notifications, sesión eterna",
+      ),
+      bi(
+        "Backend integration tested end-to-end",
+        "Integración con backend probada de extremo a extremo",
+      ),
     ],
     example: "Yantissimo iOS",
   },
   {
     n: "03",
-    title: "AI Automation",
-    outcome:
+    title: bi("AI Automation", "Automatización con IA"),
+    outcome: bi(
       "AI that does real work — not a chatbot demo. Document classification, sales follow-up, smart scheduling.",
+      "IA que hace trabajo real — no un demo de chatbot. Clasificación de documentos, seguimiento de ventas, agendado inteligente.",
+    ),
     deliverables: [
-      "Automated message triage and reply across WhatsApp / Telegram",
-      "Knowledge base that answers across documents and spreadsheets",
-      "Recommendation and routing engines tied to your real catalog",
+      bi(
+        "Automated message triage and reply across WhatsApp / Telegram",
+        "Triage y respuesta automatizada de mensajes en WhatsApp / Telegram",
+      ),
+      bi(
+        "Knowledge base that answers across documents and spreadsheets",
+        "Base de conocimiento que responde sobre documentos y hojas de cálculo",
+      ),
+      bi(
+        "Recommendation and routing engines tied to your real catalog",
+        "Motores de recomendación y routing conectados a tu catálogo real",
+      ),
     ],
     example: "Nexora Sales Agent · DataKnife",
   },
   {
     n: "04",
-    title: "Enterprise Integrations",
-    outcome:
+    title: bi("Enterprise Integrations", "Integraciones Empresariales"),
+    outcome: bi(
       "I connect the tools you already pay for so they stop being silos.",
+      "Conecto las herramientas por las que ya pagas para que dejen de ser silos.",
+    ),
     deliverables: [
-      "WhatsApp, Telegram, Email, and voice flows under one roof",
-      "Shopify, payment, and accounting integrations",
-      "Google Workspace + ERP bridges with audit logs",
+      bi(
+        "WhatsApp, Telegram, Email, and voice flows under one roof",
+        "Flujos de WhatsApp, Telegram, Email y voz bajo un solo techo",
+      ),
+      bi(
+        "Shopify, payment, and accounting integrations",
+        "Integraciones con Shopify, pagos y contabilidad",
+      ),
+      bi(
+        "Google Workspace + ERP bridges with audit logs",
+        "Puentes Google Workspace + ERP con logs de auditoría",
+      ),
     ],
     example: "WhatsApp Gateway · Shopify · Google Sheets bridge",
   },
   {
     n: "05",
-    title: "Internal Systems",
-    outcome:
+    title: bi("Internal Systems", "Sistemas Internos"),
+    outcome: bi(
       "ERPs, dashboards, and tooling tailored to how your team actually works.",
+      "ERPs, dashboards y herramientas hechas a la medida de cómo realmente trabaja tu equipo.",
+    ),
     deliverables: [
-      "Order management, inventory, scheduling, and reporting",
-      "Role-based access for ops, sales, and admin",
-      "Real-time collaboration where it matters",
+      bi(
+        "Order management, inventory, scheduling, and reporting",
+        "Gestión de órdenes, inventario, agendas y reportería",
+      ),
+      bi(
+        "Role-based access for ops, sales, and admin",
+        "Acceso por rol para operaciones, ventas y administración",
+      ),
+      bi(
+        "Real-time collaboration where it matters",
+        "Colaboración en tiempo real donde importa",
+      ),
     ],
     example: "YSSM ERP",
   },
 ];
 
 export function Services() {
+  const t = useT();
   return (
     <section
       id="services"
@@ -88,13 +144,26 @@ export function Services() {
     >
       <SectionHeader
         n="02"
-        kicker="What I deliver"
+        kicker={t(bi("What I deliver", "Lo que entrego"))}
         title={
           <>
-            Five services. <em>Each one ships to production.</em>
+            {t(bi("Five services. ", "Cinco servicios. "))}
+            <em>
+              {t(
+                bi(
+                  "Each one ships to production.",
+                  "Cada uno llega a producción.",
+                ),
+              )}
+            </em>
           </>
         }
-        subtitle="Plain deliverables, real recent examples. No jargon, no demos that never see customers."
+        subtitle={t(
+          bi(
+            "Plain deliverables, real recent examples. No jargon, no demos that never see customers.",
+            "Entregables claros, ejemplos recientes reales. Sin jerga, sin demos que nunca ven clientes.",
+          ),
+        )}
       />
 
       <div
@@ -149,7 +218,7 @@ export function Services() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                {s.title}
+                {t(s.title)}
               </h3>
               <p
                 style={{
@@ -159,7 +228,7 @@ export function Services() {
                   margin: 0,
                 }}
               >
-                {s.outcome}
+                {t(s.outcome)}
               </p>
 
               <ul
@@ -195,7 +264,7 @@ export function Services() {
                         background: "var(--accent)",
                       }}
                     />
-                    {d}
+                    {t(d)}
                   </li>
                 ))}
               </ul>
@@ -212,7 +281,7 @@ export function Services() {
                 }}
               >
                 <span className="kicker" style={{ fontSize: 10 }}>
-                  Recent example
+                  {t(bi("Recent example", "Ejemplo reciente"))}
                 </span>
                 <span
                   style={{

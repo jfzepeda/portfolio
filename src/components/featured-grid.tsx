@@ -1,11 +1,14 @@
+"use client";
+
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
-import { tier2, tier3 } from "@/data/projects";
+import { useTier2, useTier3, useT, bi } from "@/lib/i18n";
 import { ProjectCard } from "./project-card";
 
-// Tier 2 + Tier 3 — paper case-study grid.
-
 export function FeaturedGrid() {
+  const t = useT();
+  const tier2 = useTier2();
+  const tier3 = useTier3();
   return (
     <section
       id="projects"
@@ -17,9 +20,19 @@ export function FeaturedGrid() {
     >
       <SectionHeader
         n="05"
-        kicker="Selected work"
-        title="Things I've built recently."
-        subtitle="Each one is a real product: shipped, used, and built end-to-end. Toggle Technical for stack and architecture detail."
+        kicker={t(bi("Selected work", "Trabajo seleccionado"))}
+        title={t(
+          bi(
+            "Things I've built recently.",
+            "Cosas que he construido recientemente.",
+          ),
+        )}
+        subtitle={t(
+          bi(
+            "Each one is a real product: shipped, used, and built end-to-end. Toggle Technical for stack and architecture detail.",
+            "Cada uno es un producto real: entregado, usado y construido de extremo a extremo. Activa Technical para detalle de stack y arquitectura.",
+          ),
+        )}
       />
 
       <div
@@ -29,7 +42,6 @@ export function FeaturedGrid() {
           gap: "clamp(28px, 3.5vw, 44px)",
         }}
       >
-        {/* TIER 2 */}
         <div>
           <Reveal>
             <div
@@ -42,7 +54,7 @@ export function FeaturedGrid() {
               }}
             >
               <span style={{ color: "var(--accent)" }}>✦</span>
-              Featured deep
+              {t(bi("Featured deep", "Destacados a profundidad"))}
             </div>
           </Reveal>
           <div
@@ -58,7 +70,6 @@ export function FeaturedGrid() {
           </div>
         </div>
 
-        {/* TIER 3 */}
         <div>
           <Reveal>
             <div
@@ -72,7 +83,7 @@ export function FeaturedGrid() {
               }}
             >
               <span style={{ color: "var(--accent)" }}>✦</span>
-              Featured
+              {t(bi("Featured", "Destacados"))}
             </div>
           </Reveal>
           <div

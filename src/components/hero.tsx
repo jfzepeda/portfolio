@@ -1,7 +1,11 @@
+"use client";
+
 import { Reveal } from "./reveal";
-import { profile } from "@/data/profile";
+import { useProfile, useT, bi } from "@/lib/i18n";
 
 export function Hero() {
+  const t = useT();
+  const profile = useProfile();
   return (
     <section
       id="top"
@@ -43,7 +47,12 @@ export function Hero() {
               animation: "pulse 2.4s ease-in-out infinite",
             }}
           />
-          Available for collaborations · 2026
+          {t(
+            bi(
+              "Available for collaborations · 2026",
+              "Disponible para colaboraciones · 2026",
+            ),
+          )}
         </div>
       </Reveal>
 
@@ -78,21 +87,36 @@ export function Hero() {
         >
           <div style={{ flex: "0 0 auto", minWidth: 220 }}>
             <div className="kicker" style={{ marginBottom: 10 }}>
-              Role
+              {t(bi("Role", "Rol"))}
             </div>
             <div
               className="only-executive"
               style={{ fontSize: 18, color: "var(--ink)", lineHeight: 1.4 }}
             >
-              AI &amp; product engineer
+              {t(
+                bi(
+                  "AI & product engineer",
+                  "Ingeniero de IA y producto",
+                ),
+              )}
               <br />
-              shipping complete platforms
+              {t(
+                bi(
+                  "shipping complete platforms",
+                  "que entrega plataformas completas",
+                ),
+              )}
             </div>
             <div
               className="only-technical"
               style={{ fontSize: 18, color: "var(--ink)", lineHeight: 1.4 }}
             >
-              AI &amp; product engineer
+              {t(
+                bi(
+                  "AI & product engineer",
+                  "Ingeniero de IA y producto",
+                ),
+              )}
               <br />
               Next.js · SwiftUI · Node · MCP
             </div>
@@ -100,7 +124,7 @@ export function Hero() {
 
           <div style={{ flex: "1 1 380px", maxWidth: 640 }}>
             <div className="kicker" style={{ marginBottom: 10 }}>
-              En sus propias palabras
+              {t(bi("In their own words", "En sus propias palabras"))}
             </div>
             <p
               style={{
@@ -114,8 +138,12 @@ export function Hero() {
                 textWrap: "pretty",
               }}
             >
-              &ldquo;Innovation distinguishes between a leader and a
-              follower&rdquo; ~ Steve Jobs.
+              {t(
+                bi(
+                  "“Innovation distinguishes between a leader and a follower” ~ Steve Jobs.",
+                  "“La innovación distingue a un líder de un seguidor” ~ Steve Jobs.",
+                ),
+              )}
             </p>
           </div>
         </div>
@@ -137,7 +165,7 @@ export function Hero() {
             gap: 10,
           }}
         >
-          <span>Scroll</span>
+          <span>{t(bi("Scroll", "Desliza"))}</span>
           <span
             aria-hidden
             style={{ width: 32, height: 1, background: "var(--ink-3)" }}

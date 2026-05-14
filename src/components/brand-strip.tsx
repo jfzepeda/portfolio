@@ -1,3 +1,7 @@
+"use client";
+
+import { useT, bi } from "@/lib/i18n";
+
 // Brand-recognition strip — well-known brands of the stack I work in.
 // Uses CSS mask-image with Simple Icons CDN so brand silhouettes can be
 // colored via background-color (ink color, terracotta on hover).
@@ -31,12 +35,13 @@ const BRANDS: Brand[] = [
 ];
 
 export function BrandStrip() {
+  const t = useT();
   // Render twice for seamless infinite-scroll marquee
   const doubled = [...BRANDS, ...BRANDS];
 
   return (
     <section
-      aria-label="Working brands and platforms"
+      aria-label={t(bi("Working brands and platforms", "Marcas y plataformas con las que trabajo"))}
       style={{
         padding: "clamp(28px, 4vw, 48px) 0",
         borderTop: "1px solid var(--rule)",
@@ -69,10 +74,10 @@ export function BrandStrip() {
               background: "var(--accent)",
             }}
           />
-          Tools &amp; platforms I work with
+          {t(bi("Tools & platforms I work with", "Herramientas y plataformas con las que trabajo"))}
         </div>
         <div className="kicker" aria-hidden>
-          ← scroll →
+          ← {t(bi("scroll", "desliza"))} →
         </div>
       </div>
 

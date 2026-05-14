@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Reveal } from "./reveal";
 import { PaperPlaceholder } from "./section-header";
+import { useT, bi } from "@/lib/i18n";
 import type { Project } from "@/data/projects";
 
 // Warm-paper case-study card. Striped placeholder slot + tag/metric row +
@@ -16,12 +17,13 @@ interface Props {
 
 export function ProjectCard({ project, index = 0 }: Props) {
   const [hover, setHover] = useState(false);
+  const t = useT();
   const metric =
     project.tier === 1
-      ? "Flagship · 3 surfaces"
+      ? t(bi("Flagship · 3 surfaces", "Insignia · 3 superficies"))
       : project.tier === 2
-        ? "Featured · deep"
-        : "Featured";
+        ? t(bi("Featured · deep", "Destacado · a profundidad"))
+        : t(bi("Featured", "Destacado"));
 
   return (
     <Reveal delay={index * 60}>
@@ -215,7 +217,7 @@ export function ProjectCard({ project, index = 0 }: Props) {
               <span className="chevron" aria-hidden>
                 ›
               </span>
-              <span>Architecture</span>
+              <span>{t(bi("Architecture", "Arquitectura"))}</span>
             </summary>
             <p
               style={{

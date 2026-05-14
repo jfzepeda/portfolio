@@ -1,6 +1,8 @@
+"use client";
+
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
-import { tier4, categoryLabels } from "@/data/projects";
+import { useTier4, useCategoryLabels, useT, bi } from "@/lib/i18n";
 import type { Tier4Project, Category } from "@/data/projects";
 
 function CategoryGlyph({ category }: { category: Category }) {
@@ -60,10 +62,10 @@ function CategoryGlyph({ category }: { category: Category }) {
   }
 }
 
-// Compact horizontal carousel of all remaining projects.
-// Mono labels, terracotta numerals, monospace stack list.
-
 export function Tier4Carousel() {
+  const t = useT();
+  const tier4 = useTier4();
+  const categoryLabels = useCategoryLabels();
   return (
     <section
       id="more"
@@ -76,14 +78,24 @@ export function Tier4Carousel() {
       <div style={{ padding: "0 clamp(20px, 4vw, 40px)" }}>
         <SectionHeader
           n="06"
-          kicker="More work"
+          kicker={t(bi("More work", "Más trabajo"))}
           title={
             <>
-              {Math.floor(tier4.length / 5) * 5}+ smaller pieces, prototypes,
-              and tools.
+              {Math.floor(tier4.length / 5) * 5}
+              {t(
+                bi(
+                  "+ smaller pieces, prototypes, and tools.",
+                  "+ piezas pequeñas, prototipos y herramientas.",
+                ),
+              )}
             </>
           }
-          subtitle="Internal tools, prototypes, agents, and enterprise pieces. Each one shipped, demo'd, or used. Scroll to scan."
+          subtitle={t(
+            bi(
+              "Internal tools, prototypes, agents, and enterprise pieces. Each one shipped, demo'd, or used. Scroll to scan.",
+              "Herramientas internas, prototipos, agentes y piezas empresariales. Cada uno entregado, demostrado o usado. Desliza para escanear.",
+            ),
+          )}
         />
       </div>
 
@@ -96,10 +108,15 @@ export function Tier4Carousel() {
             padding: "8px clamp(20px, 4vw, 40px) 24px",
             overflowX: "auto",
           }}
-          aria-label="More projects"
+          aria-label={t(bi("More projects", "Más proyectos"))}
         >
           {tier4.map((p, i) => (
-            <Tier4Card key={p.id} project={p} index={i} />
+            <Tier4Card
+              key={p.id}
+              project={p}
+              index={i}
+              categoryLabel={categoryLabels[p.category]}
+            />
           ))}
         </div>
       </Reveal>
@@ -110,9 +127,11 @@ export function Tier4Carousel() {
 function Tier4Card({
   project,
   index,
+  categoryLabel,
 }: {
   project: Tier4Project;
   index: number;
+  categoryLabel: string;
 }) {
   return (
     <article
@@ -143,7 +162,7 @@ function Tier4Card({
         <span style={{ color: "var(--accent)" }}>
           № {String(index + 1).padStart(2, "0")}
         </span>
-        <span>{categoryLabels[project.category]}</span>
+        <span>{categoryLabel}</span>
       </div>
 
       <div

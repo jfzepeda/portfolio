@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
-import { profile } from "@/data/profile";
+import { useProfile, useT, bi } from "@/lib/i18n";
 
 interface FormState {
   name: string;
@@ -13,13 +13,9 @@ interface FormState {
 type Errors = Partial<Record<keyof FormState, string>>;
 type Status = "idle" | "sending" | "sent";
 
-const LINKS: [string, string, string][] = [
-  ["Email", profile.email, `mailto:${profile.email}`],
-  ["GitHub", "github.com/juanfelipe", profile.social.github],
-  ["LinkedIn", "linkedin.com/in/juanfelipe", profile.social.linkedin],
-];
-
 export function Contact() {
+  const t = useT();
+  const profile = useProfile();
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -28,12 +24,21 @@ export function Contact() {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
 
+  const LINKS: [string, string, string][] = [
+    [t(bi("Email", "Correo")), profile.email, `mailto:${profile.email}`],
+    ["GitHub", "github.com/juanfelipe", profile.social.github],
+    ["LinkedIn", "linkedin.com/in/juanfelipe", profile.social.linkedin],
+  ];
+
   function submit(e: React.FormEvent) {
     e.preventDefault();
     const next: Errors = {};
-    if (!form.name.trim()) next.name = "required";
-    if (!/^\S+@\S+\.\S+$/.test(form.email)) next.email = "valid email please";
-    if (form.message.trim().length < 8) next.message = "say a bit more";
+    if (!form.name.trim())
+      next.name = t(bi("required", "requerido"));
+    if (!/^\S+@\S+\.\S+$/.test(form.email))
+      next.email = t(bi("valid email please", "correo válido por favor"));
+    if (form.message.trim().length < 8)
+      next.message = t(bi("say a bit more", "di un poco más"));
     setErrors(next);
     if (Object.keys(next).length) return;
     setStatus("sending");
@@ -51,10 +56,12 @@ export function Contact() {
     >
       <SectionHeader
         n="07"
-        kicker="Contact"
+        kicker={t(bi("Contact", "Contacto"))}
         title={
           <>
-            Let&rsquo;s <em>build</em> something.
+            {t(bi("Let’s ", "Construyamos "))}
+            <em>{t(bi("build", "algo"))}</em>
+            {t(bi(" something.", " juntos."))}
           </>
         }
       />
@@ -81,7 +88,12 @@ export function Contact() {
                 margin: 0,
               }}
             >
-              Hiring, collaborating, or just curious? I read everything.
+              {t(
+                bi(
+                  "Hiring, collaborating, or just curious? I read everything.",
+                  "¿Contratando, colaborando o solo con curiosidad? Leo todo.",
+                ),
+              )}
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {LINKS.map(([k, v, href]) => (
@@ -141,14 +153,14 @@ export function Contact() {
             >
               <Field
                 k="name"
-                label="Name"
+                label={t(bi("Name", "Nombre"))}
                 form={form}
                 setForm={setForm}
                 errors={errors}
               />
               <Field
                 k="email"
-                label="Email"
+                label={t(bi("Email", "Correo"))}
                 type="email"
                 form={form}
                 setForm={setForm}
@@ -157,7 +169,7 @@ export function Contact() {
             </div>
             <Field
               k="message"
-              label="Message"
+              label={t(bi("Message", "Mensaje"))}
               multi
               form={form}
               setForm={setForm}
@@ -182,9 +194,11 @@ export function Contact() {
                 alignSelf: "flex-start",
               }}
             >
-              {status === "idle" && "Send message →"}
-              {status === "sending" && "Sending…"}
-              {status === "sent" && "Sent ✓ I'll be in touch"}
+              {status === "idle" &&
+                t(bi("Send message →", "Enviar mensaje →"))}
+              {status === "sending" && t(bi("Sending…", "Enviando…"))}
+              {status === "sent" &&
+                t(bi("Sent ✓ I'll be in touch", "Enviado ✓ Te contactaré"))}
             </button>
           </form>
         </Reveal>

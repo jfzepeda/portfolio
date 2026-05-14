@@ -1,63 +1,87 @@
+"use client";
+
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
-
-// Pro-mode-only Process section — 6 numbered steps showing how a project
-// actually moves from first conversation to live system. Lowers risk
-// perception for non-technical buyers.
+import { useT, bi, type L } from "@/lib/i18n";
 
 interface Step {
   n: string;
-  title: string;
-  blurb: string;
-  artifact: string; // what the client receives at this stage
+  title: L<string>;
+  blurb: L<string>;
+  artifact: L<string>;
 }
 
 const STEPS: Step[] = [
   {
     n: "01",
-    title: "Analysis",
-    blurb:
+    title: bi("Analysis", "Análisis"),
+    blurb: bi(
       "A long call about the real problem: who lives with it, what it costs today, what happens if it isn't solved. I map processes and data before talking about technology.",
-    artifact: "Written diagnosis · 1–3 days",
+      "Una llamada larga sobre el problema real: quién lo vive, qué cuesta hoy, qué pasa si no se resuelve. Mapeo procesos y datos antes de hablar de tecnología.",
+    ),
+    artifact: bi(
+      "Written diagnosis · 1–3 days",
+      "Diagnóstico escrito · 1–3 días",
+    ),
   },
   {
     n: "02",
-    title: "Proposal",
-    blurb:
+    title: bi("Proposal", "Propuesta"),
+    blurb: bi(
       "Scope, deliverables, milestones, and a fixed price. No surprises mid-project. If something grows, it gets renegotiated explicitly.",
-    artifact: "Proposal + milestone plan",
+      "Alcance, entregables, hitos y precio cerrado. Sin sorpresas a mitad del proyecto. Si algo crece, se renegocia explícitamente.",
+    ),
+    artifact: bi("Proposal + milestone plan", "Propuesta + plan de hitos"),
   },
   {
     n: "03",
-    title: "Development",
-    blurb:
+    title: bi("Development", "Desarrollo"),
+    blurb: bi(
       "I iterate in short sprints, showing real progress in every one. Your team watches the system grow; no black boxes.",
-    artifact: "Access to a test build from week 1",
+      "Itero en sprints cortos, mostrando avances reales en cada uno. Tu equipo ve el sistema crecer; nada de cajas negras.",
+    ),
+    artifact: bi(
+      "Access to a test build from week 1",
+      "Acceso a versión de pruebas desde la semana 1",
+    ),
   },
   {
     n: "04",
-    title: "Testing",
-    blurb:
+    title: bi("Testing", "Pruebas"),
+    blurb: bi(
       "Tests with real data, edge cases, and the flows your operation runs daily. When something breaks, it has to break here — not in production.",
-    artifact: "Test report + fixes",
+      "Pruebas con datos reales, casos límite, y los flujos que tu operación ejecuta a diario. Cuando algo se rompe, tiene que romperse aquí — no en producción.",
+    ),
+    artifact: bi("Test report + fixes", "Reporte de pruebas + ajustes"),
   },
   {
     n: "05",
-    title: "Deployment",
-    blurb:
+    title: bi("Deployment", "Despliegue"),
+    blurb: bi(
       "Controlled rollout with rollback ready. I hand over operations documentation and a live walkthrough with your team.",
-    artifact: "System in production + documentation",
+      "Salida controlada con rollback listo. Te entrego la documentación de operación y un walkthrough en vivo con tu equipo.",
+    ),
+    artifact: bi(
+      "System in production + documentation",
+      "Sistema en producción + documentación",
+    ),
   },
   {
     n: "06",
-    title: "Support",
-    blurb:
+    title: bi("Support", "Soporte"),
+    blurb: bi(
       "Post-launch support with an agreed SLA. Fast resolution, prioritized improvements, and monthly reports if you need them.",
-    artifact: "SLA + direct communication channel",
+      "Acompañamiento posterior con SLA acordado. Resolución rápida, mejoras priorizadas, y reportes mensuales si los necesitas.",
+    ),
+    artifact: bi(
+      "SLA + direct communication channel",
+      "SLA + canal directo de comunicación",
+    ),
   },
 ];
 
 export function Process() {
+  const t = useT();
   return (
     <section
       id="process"
@@ -70,9 +94,19 @@ export function Process() {
     >
       <SectionHeader
         n="03"
-        kicker="How I work"
-        title="Six steps from first call to live system."
-        subtitle="No surprises, no black boxes. Every milestone ships a concrete deliverable."
+        kicker={t(bi("How I work", "Cómo trabajo"))}
+        title={t(
+          bi(
+            "Six steps from first call to live system.",
+            "Seis pasos desde la primera llamada hasta el sistema en vivo.",
+          ),
+        )}
+        subtitle={t(
+          bi(
+            "No surprises, no black boxes. Every milestone ships a concrete deliverable.",
+            "Sin sorpresas, sin cajas negras. Cada hito tiene un entregable concreto.",
+          ),
+        )}
       />
 
       <div
@@ -114,7 +148,8 @@ export function Process() {
                   {s.n}
                 </span>
                 <span aria-hidden className="kicker" style={{ fontSize: 10 }}>
-                  Step {i + 1} of {STEPS.length}
+                  {t(bi("Step", "Paso"))} {i + 1} {t(bi("of", "de"))}{" "}
+                  {STEPS.length}
                 </span>
               </div>
               <h3
@@ -127,7 +162,7 @@ export function Process() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                {s.title}
+                {t(s.title)}
               </h3>
               <p
                 style={{
@@ -137,7 +172,7 @@ export function Process() {
                   margin: 0,
                 }}
               >
-                {s.blurb}
+                {t(s.blurb)}
               </p>
               <div
                 style={{
@@ -150,7 +185,7 @@ export function Process() {
                   letterSpacing: "0.04em",
                 }}
               >
-                ↳ {s.artifact}
+                ↳ {t(s.artifact)}
               </div>
             </article>
           </Reveal>

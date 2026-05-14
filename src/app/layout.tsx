@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { ModeScript } from "@/components/mode-script";
+import { LangScript } from "@/components/lang-script";
+import { LangProvider } from "@/lib/i18n";
+import { SkipLink } from "@/components/skip-link";
 import { profile } from "@/data/profile";
 import "./globals.css";
 
@@ -110,6 +113,7 @@ export default function RootLayout({
         />
         <link rel="stylesheet" href={FONTS_HREF} />
         <ModeScript />
+        <LangScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
@@ -123,10 +127,10 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body>
-        <a href="#top" className="skip-link">
-          Skip to content
-        </a>
-        {children}
+        <LangProvider>
+          <SkipLink />
+          {children}
+        </LangProvider>
       </body>
     </html>
   );

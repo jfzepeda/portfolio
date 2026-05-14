@@ -1,8 +1,12 @@
+"use client";
+
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
-import { experience } from "@/data/profile";
+import { useExperience, useT, bi } from "@/lib/i18n";
 
 export function Experience() {
+  const t = useT();
+  const experience = useExperience();
   return (
     <section
       id="experience"
@@ -12,7 +16,11 @@ export function Experience() {
         margin: "0 auto",
       }}
     >
-      <SectionHeader n="03" kicker="Work" title="Where I've shipped." />
+      <SectionHeader
+        n="03"
+        kicker={t(bi("Work", "Experiencia"))}
+        title={t(bi("Where I've shipped.", "Donde he entregado."))}
+      />
 
       <div style={{ display: "flex", flexDirection: "column" }}>
         {experience.map((row, i) => (
@@ -80,7 +88,6 @@ export function Experience() {
                   }}
                 >
                   {row.bullets.map((b, j) => {
-                    // Hide bullets that lead with "Stack:" in Executive.
                     const isTech = /^stack[:.]/i.test(b.trim());
                     return (
                       <li

@@ -1,13 +1,12 @@
+"use client";
+
 import { Reveal } from "./reveal";
 import { SectionHeader } from "./section-header";
-import { techStack } from "@/data/profile";
-
-// Tech-mode-only categorized stack. Domain-based (Backend / Frontend /
-// Mobile / AI / Real-time / Cloud / Data / Auth) with a "shipped in"
-// production-credit line per group. No proficiency dots, no skill bars —
-// recruiters want concrete deployments, not self-reported levels.
+import { useTechStack, useT, bi } from "@/lib/i18n";
 
 export function SkillsMatrix() {
+  const t = useT();
+  const techStack = useTechStack();
   return (
     <section
       id="skills"
@@ -20,9 +19,19 @@ export function SkillsMatrix() {
     >
       <SectionHeader
         n="02"
-        kicker="Tech stack"
-        title="What I work with — by domain, with proof of production."
-        subtitle="No skill bars. Each group lists where it's shipped, in production, today."
+        kicker={t(bi("Tech stack", "Stack técnico"))}
+        title={t(
+          bi(
+            "What I work with — by domain, with proof of production.",
+            "Con lo que trabajo — por dominio, con prueba de producción.",
+          ),
+        )}
+        subtitle={t(
+          bi(
+            "No skill bars. Each group lists where it's shipped, in production, today.",
+            "Sin barras de habilidad. Cada grupo lista dónde se ha desplegado, en producción, hoy.",
+          ),
+        )}
       />
 
       <div
@@ -94,7 +103,6 @@ export function SkillsMatrix() {
                 {g.blurb}
               </p>
 
-              {/* tag cloud — monospace */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                 {g.items.map((s) => (
                   <span
@@ -114,7 +122,6 @@ export function SkillsMatrix() {
                 ))}
               </div>
 
-              {/* production credit */}
               <div
                 style={{
                   marginTop: "auto",
@@ -126,7 +133,7 @@ export function SkillsMatrix() {
                   className="kicker"
                   style={{ fontSize: 9.5, marginBottom: 6 }}
                 >
-                  Shipped in
+                  {t(bi("Shipped in", "Desplegado en"))}
                 </div>
                 <ul
                   style={{

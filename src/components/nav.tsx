@@ -1,33 +1,37 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLang, useT, bi } from "@/lib/i18n";
 
 type Mode = "executive" | "technical";
 
 // Nav adapts to view mode — Pro sees Services/Process, Tech sees Skills/Work.
 // Keeping About / Projects / More / Contact in both, since those exist in
 // both flows.
-const PRO_LINKS: [string, string][] = [
-  ["About", "about"],
-  ["Services", "services"],
-  ["Process", "process"],
-  ["Projects", "projects"],
-  ["More", "more"],
-  ["Contact", "contact"],
-];
-const TECH_LINKS: [string, string][] = [
-  ["About", "about"],
-  ["Stack", "skills"],
-  ["Work", "experience"],
-  ["Projects", "projects"],
-  ["More", "more"],
-  ["Contact", "contact"],
-];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mode, setMode] = useState<Mode>("executive");
   const [mounted, setMounted] = useState(false);
+  const { lang, setLang } = useLang();
+  const t = useT();
+
+  const PRO_LINKS: [string, string][] = [
+    [t(bi("About", "Sobre mí")), "about"],
+    [t(bi("Services", "Servicios")), "services"],
+    [t(bi("Process", "Proceso")), "process"],
+    [t(bi("Projects", "Proyectos")), "projects"],
+    [t(bi("More", "Más")), "more"],
+    [t(bi("Contact", "Contacto")), "contact"],
+  ];
+  const TECH_LINKS: [string, string][] = [
+    [t(bi("About", "Sobre mí")), "about"],
+    [t(bi("Stack", "Stack")), "skills"],
+    [t(bi("Work", "Experiencia")), "experience"],
+    [t(bi("Projects", "Proyectos")), "projects"],
+    [t(bi("More", "Más")), "more"],
+    [t(bi("Contact", "Contacto")), "contact"],
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -141,10 +145,69 @@ export function Nav() {
             ),
           )}
 
+          {/* EN ↔ ES language toggle */}
+          <div
+            role="radiogroup"
+            aria-label={t(bi("Language", "Idioma"))}
+            suppressHydrationWarning
+            style={{
+              position: "relative",
+              display: "inline-flex",
+              padding: 2,
+              borderRadius: 999,
+              background: "var(--paper-3)",
+              border: "1px solid var(--rule)",
+              userSelect: "none",
+              marginLeft: 6,
+            }}
+          >
+            <span
+              aria-hidden
+              style={{
+                position: "absolute",
+                top: 2,
+                bottom: 2,
+                left: lang === "es" ? "calc(2px + 50%)" : "2px",
+                width: "calc(50% - 2px)",
+                background: "var(--ink)",
+                borderRadius: 999,
+                transition: "left 180ms cubic-bezier(.3,.7,.4,1)",
+              }}
+            />
+            {(["en", "es"] as const).map((l) => {
+              const active = lang === l;
+              return (
+                <button
+                  key={l}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
+                  onClick={() => setLang(l)}
+                  style={{
+                    position: "relative",
+                    zIndex: 1,
+                    border: 0,
+                    background: "transparent",
+                    color: active ? "var(--paper)" : "var(--ink-2)",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 10.5,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    padding: "6px 12px",
+                    cursor: "pointer",
+                    fontWeight: active ? 500 : 400,
+                  }}
+                >
+                  {l.toUpperCase()}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Executive ↔ Technical mode toggle */}
           <div
             role="radiogroup"
-            aria-label="View mode"
+            aria-label={t(bi("View mode", "Modo de vista"))}
             suppressHydrationWarning
             style={{
               position: "relative",

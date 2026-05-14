@@ -1,15 +1,23 @@
+"use client";
+
 import { Reveal } from "./reveal";
 import { SectionHeader, PaperPlaceholder } from "./section-header";
-import { profile } from "@/data/profile";
-
-const QUICK_FACTS: [string, string][] = [
-  ["Based in", profile.location],
-  ["Open to", "Remote / Hybrid · Senior IC"],
-  ["Studying", "Data Science"],
-  ["Speaks", "ES · EN"],
-];
+import { useProfile, useT, bi } from "@/lib/i18n";
 
 export function About() {
+  const t = useT();
+  const profile = useProfile();
+
+  const QUICK_FACTS: [string, string][] = [
+    [t(bi("Based in", "Basado en")), profile.location],
+    [
+      t(bi("Open to", "Abierto a")),
+      t(bi("Remote / Hybrid · Senior IC", "Remoto / Híbrido · Senior IC")),
+    ],
+    [t(bi("Studying", "Estudiando")), t(bi("Data Science", "Ciencia de Datos"))],
+    [t(bi("Speaks", "Habla")), "ES · EN"],
+  ];
+
   return (
     <section
       id="about"
@@ -21,10 +29,17 @@ export function About() {
     >
       <SectionHeader
         n="01"
-        kicker="About"
+        kicker={t(bi("About", "Sobre mí"))}
         title={
           <>
-            A builder of <em>useful</em> things — from native iOS to AI agents.
+            {t(bi("A builder of ", "Un constructor de cosas "))}
+            <em>{t(bi("useful", "útiles"))}</em>
+            {t(
+              bi(
+                " things — from native iOS to AI agents.",
+                " — desde iOS nativo hasta agentes de IA.",
+              ),
+            )}
           </>
         }
       />
@@ -41,7 +56,7 @@ export function About() {
         <Reveal>
           <div style={{ position: "sticky", top: 100 }}>
             <PaperPlaceholder
-              label="Headshot · 4:5"
+              label={t(bi("Headshot · 4:5", "Retrato · 4:5"))}
               ratio="4/5"
               src="/images/projects/about-pic.jpeg"
             />
@@ -49,7 +64,7 @@ export function About() {
               className="kicker"
               style={{ marginTop: 16, letterSpacing: "0.08em" }}
             >
-              [ portrait placeholder ]
+              [ {t(bi("portrait placeholder", "placeholder de retrato"))} ]
             </div>
           </div>
         </Reveal>
@@ -71,11 +86,7 @@ export function About() {
                 textWrap: "pretty",
               }}
             >
-              I build complete platforms — front-end, back-end, mobile, agents,
-              and the infrastructure that ties them together. Native iOS,
-              Next.js, Node.js APIs, real-time systems, and AI-native
-              architectures (RAG, function calling, MCP servers, multi-agent
-              orchestration).
+              {profile.bio[0]}
             </p>
             <p
               style={{
@@ -86,13 +97,7 @@ export function About() {
                 textWrap: "pretty",
               }}
             >
-              My flagship is the Yantissimo platform — a tire and wheel
-              distributor's complete digital stack: native iOS app, Express
-              backend, headless Shopify storefront. I built all three. I move
-              and iterate fast. I prefer leverage over surface area: a single
-              self-hosted gateway over per-agent BSPs, a pure-logic core
-              package over duplicated UI logic, a hand-written iOS APIClient
-              over a third-party SDK.
+              {profile.bio[1]}
             </p>
 
             <div
