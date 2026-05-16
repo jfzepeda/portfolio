@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Yantissimo Shop — live demo</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f1efe8;
+        --ink: #14201a;
+        --ink-2: #2f4438;
+        --rule: #cbd0c0;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+      .frame-host {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .banner {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 16px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--rule);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+      .banner .label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--ink-2);
+      }
+      .banner .label strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .banner .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: oklch(0.50 0.13 155);
+        flex: 0 0 auto;
+      }
+      .banner a {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 1px;
+      }
+      .banner a:hover {
+        border-bottom-color: var(--ink);
+      }
+      iframe {
+        flex: 1 1 auto;
+        width: 100%;
+        border: 0;
+        display: block;
+        background: #fff;
+      }
+      .fallback {
+        position: absolute;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 32px;
+      }
+      .fallback p { max-width: 480px; }
+      @media (max-width: 540px) {
+        .banner { font-size: 12px; padding: 8px 12px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame-host">
+      <div class="banner">
+        <span class="label">
+          <span class="dot" aria-hidden="true"></span>
+          <span><strong>Yantissimo Shop</strong> &middot; live demo &middot; embedded view of the real public catalog</span>
+        </span>
+        <a href="https://yantissimo.com/search?kind=gama&amp;value=alta" target="_blank" rel="noopener noreferrer">Open in new tab &nearr;</a>
+      </div>
+      <iframe
+        src="https://yantissimo.com/search?kind=gama&amp;value=alta"
+        title="Yantissimo Shop catalog"
+        loading="eager"
+        referrerpolicy="no-referrer-when-downgrade"
+        allow="clipboard-write; fullscreen"
+      ></iframe>
+      <div class="fallback" id="fallback">
+        <div>
+          <p>The catalog couldn't be embedded in this page.</p>
+          <p><a href="https://yantissimo.com/search?kind=gama&amp;value=alta" target="_blank" rel="noopener noreferrer">Open it directly &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
