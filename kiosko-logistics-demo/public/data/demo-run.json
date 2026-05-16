@@ -1,0 +1,4674 @@
+{
+  "run_id": "demo-run-0001",
+  "algorithm": "demo-sunburst",
+  "result": {
+    "algorithm": "demo-sunburst",
+    "runtime_sec": 0.0,
+    "kpis": {
+      "total_km": 2286.38,
+      "total_costo": 29722.96,
+      "total_min": 5040,
+      "n_rutas": 8,
+      "n_restocks": 0,
+      "ocupacion_promedio": 0.91,
+      "n_excede_8h": 3,
+      "porc_excede_8h": 37.5
+    },
+    "routes": [
+      {
+        "route_id": "R01",
+        "truck_id": "T-01",
+        "day": "lun",
+        "sequence": [
+          {
+            "store_id": "DEMO-0266",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0264",
+            "demanda_cajas": 15
+          },
+          {
+            "store_id": "DEMO-0262",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0267",
+            "demanda_cajas": 38
+          },
+          {
+            "store_id": "DEMO-0263",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0269",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0268",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0253",
+            "demanda_cajas": 11
+          },
+          {
+            "store_id": "DEMO-0261",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0260",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0254",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0255",
+            "demanda_cajas": 9
+          },
+          {
+            "store_id": "DEMO-0265",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0256",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0258",
+            "demanda_cajas": 38
+          },
+          {
+            "store_id": "DEMO-0257",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0247",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0248",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0249",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0250",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0252",
+            "demanda_cajas": 40
+          },
+          {
+            "store_id": "DEMO-0251",
+            "demanda_cajas": 35
+          },
+          {
+            "store_id": "DEMO-0240",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0241",
+            "demanda_cajas": 38
+          },
+          {
+            "store_id": "DEMO-0242",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0246",
+            "demanda_cajas": 23
+          },
+          {
+            "store_id": "DEMO-0243",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0245",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0235",
+            "demanda_cajas": 32
+          },
+          {
+            "store_id": "DEMO-0244",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0233",
+            "demanda_cajas": 11
+          },
+          {
+            "store_id": "DEMO-0234",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0236",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0237",
+            "demanda_cajas": 34
+          },
+          {
+            "store_id": "DEMO-0322",
+            "demanda_cajas": 29
+          }
+        ],
+        "restocks": 0,
+        "total_km": 209.73,
+        "total_min": 500,
+        "total_cajas": 877,
+        "total_costo": 2726.44,
+        "excede_8h": true,
+        "tiene_restock": false
+      },
+      {
+        "route_id": "R02",
+        "truck_id": "T-02",
+        "day": "lun",
+        "sequence": [
+          {
+            "store_id": "DEMO-0297",
+            "demanda_cajas": 9
+          },
+          {
+            "store_id": "DEMO-0296",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0298",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0282",
+            "demanda_cajas": 27
+          },
+          {
+            "store_id": "DEMO-0295",
+            "demanda_cajas": 15
+          },
+          {
+            "store_id": "DEMO-0290",
+            "demanda_cajas": 10
+          },
+          {
+            "store_id": "DEMO-0300",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0304",
+            "demanda_cajas": 11
+          },
+          {
+            "store_id": "DEMO-0283",
+            "demanda_cajas": 16
+          },
+          {
+            "store_id": "DEMO-0305",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0294",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0291",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0299",
+            "demanda_cajas": 13
+          },
+          {
+            "store_id": "DEMO-0293",
+            "demanda_cajas": 24
+          },
+          {
+            "store_id": "DEMO-0303",
+            "demanda_cajas": 36
+          },
+          {
+            "store_id": "DEMO-0302",
+            "demanda_cajas": 16
+          },
+          {
+            "store_id": "DEMO-0292",
+            "demanda_cajas": 28
+          },
+          {
+            "store_id": "DEMO-0301",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0284",
+            "demanda_cajas": 29
+          },
+          {
+            "store_id": "DEMO-0311",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0310",
+            "demanda_cajas": 40
+          },
+          {
+            "store_id": "DEMO-0288",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0287",
+            "demanda_cajas": 25
+          },
+          {
+            "store_id": "DEMO-0319",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0317",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0318",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0320",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0285",
+            "demanda_cajas": 23
+          },
+          {
+            "store_id": "DEMO-0321",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0286",
+            "demanda_cajas": 27
+          },
+          {
+            "store_id": "DEMO-0272",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0273",
+            "demanda_cajas": 40
+          },
+          {
+            "store_id": "DEMO-0274",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0275",
+            "demanda_cajas": 40
+          },
+          {
+            "store_id": "DEMO-0276",
+            "demanda_cajas": 24
+          }
+        ],
+        "restocks": 0,
+        "total_km": 172.91,
+        "total_min": 436,
+        "total_cajas": 920,
+        "total_costo": 2247.81,
+        "excede_8h": false,
+        "tiene_restock": false
+      },
+      {
+        "route_id": "R03",
+        "truck_id": "T-03",
+        "day": "lun",
+        "sequence": [
+          {
+            "store_id": "DEMO-0380",
+            "demanda_cajas": 25
+          },
+          {
+            "store_id": "DEMO-0390",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0391",
+            "demanda_cajas": 13
+          },
+          {
+            "store_id": "DEMO-0393",
+            "demanda_cajas": 13
+          },
+          {
+            "store_id": "DEMO-0392",
+            "demanda_cajas": 9
+          },
+          {
+            "store_id": "DEMO-0378",
+            "demanda_cajas": 32
+          },
+          {
+            "store_id": "DEMO-0381",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0376",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0361",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0377",
+            "demanda_cajas": 34
+          },
+          {
+            "store_id": "DEMO-0370",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0362",
+            "demanda_cajas": 10
+          },
+          {
+            "store_id": "DEMO-0369",
+            "demanda_cajas": 38
+          },
+          {
+            "store_id": "DEMO-0368",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0367",
+            "demanda_cajas": 10
+          },
+          {
+            "store_id": "DEMO-0373",
+            "demanda_cajas": 15
+          },
+          {
+            "store_id": "DEMO-0363",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0371",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0372",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0341",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0340",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0351",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0366",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0360",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0364",
+            "demanda_cajas": 17
+          },
+          {
+            "store_id": "DEMO-0359",
+            "demanda_cajas": 13
+          },
+          {
+            "store_id": "DEMO-0365",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0343",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0357",
+            "demanda_cajas": 11
+          },
+          {
+            "store_id": "DEMO-0358",
+            "demanda_cajas": 9
+          },
+          {
+            "store_id": "DEMO-0353",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0352",
+            "demanda_cajas": 9
+          },
+          {
+            "store_id": "DEMO-0354",
+            "demanda_cajas": 23
+          },
+          {
+            "store_id": "DEMO-0355",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0356",
+            "demanda_cajas": 14
+          }
+        ],
+        "restocks": 0,
+        "total_km": 135.15,
+        "total_min": 372,
+        "total_cajas": 711,
+        "total_costo": 1756.99,
+        "excede_8h": false,
+        "tiene_restock": false
+      },
+      {
+        "route_id": "R04",
+        "truck_id": "T-04",
+        "day": "lun",
+        "sequence": [
+          {
+            "store_id": "DEMO-0078",
+            "demanda_cajas": 10
+          },
+          {
+            "store_id": "DEMO-0079",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0077",
+            "demanda_cajas": 17
+          },
+          {
+            "store_id": "DEMO-0080",
+            "demanda_cajas": 24
+          },
+          {
+            "store_id": "DEMO-0081",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0075",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0074",
+            "demanda_cajas": 32
+          },
+          {
+            "store_id": "DEMO-0076",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0073",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0095",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0099",
+            "demanda_cajas": 27
+          },
+          {
+            "store_id": "DEMO-0119",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0117",
+            "demanda_cajas": 35
+          },
+          {
+            "store_id": "DEMO-0088",
+            "demanda_cajas": 15
+          },
+          {
+            "store_id": "DEMO-0118",
+            "demanda_cajas": 10
+          },
+          {
+            "store_id": "DEMO-0120",
+            "demanda_cajas": 17
+          },
+          {
+            "store_id": "DEMO-0070",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0121",
+            "demanda_cajas": 28
+          },
+          {
+            "store_id": "DEMO-0069",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0062",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0145",
+            "demanda_cajas": 28
+          },
+          {
+            "store_id": "DEMO-0065",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0063",
+            "demanda_cajas": 25
+          },
+          {
+            "store_id": "DEMO-0064",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0146",
+            "demanda_cajas": 32
+          },
+          {
+            "store_id": "DEMO-0068",
+            "demanda_cajas": 40
+          },
+          {
+            "store_id": "DEMO-0395",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0396",
+            "demanda_cajas": 23
+          },
+          {
+            "store_id": "DEMO-0339",
+            "demanda_cajas": 28
+          },
+          {
+            "store_id": "DEMO-0338",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0337",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0336",
+            "demanda_cajas": 16
+          },
+          {
+            "store_id": "DEMO-0335",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0334",
+            "demanda_cajas": 25
+          },
+          {
+            "store_id": "DEMO-0333",
+            "demanda_cajas": 16
+          }
+        ],
+        "restocks": 0,
+        "total_km": 176.91,
+        "total_min": 443,
+        "total_cajas": 794,
+        "total_costo": 2299.86,
+        "excede_8h": false,
+        "tiene_restock": false
+      },
+      {
+        "route_id": "R05",
+        "truck_id": "T-05",
+        "day": "lun",
+        "sequence": [
+          {
+            "store_id": "DEMO-0032",
+            "demanda_cajas": 16
+          },
+          {
+            "store_id": "DEMO-0029",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0037",
+            "demanda_cajas": 16
+          },
+          {
+            "store_id": "DEMO-0028",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0087",
+            "demanda_cajas": 34
+          },
+          {
+            "store_id": "DEMO-0093",
+            "demanda_cajas": 36
+          },
+          {
+            "store_id": "DEMO-0091",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0090",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0092",
+            "demanda_cajas": 34
+          },
+          {
+            "store_id": "DEMO-0101",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0100",
+            "demanda_cajas": 22
+          },
+          {
+            "store_id": "DEMO-0113",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0112",
+            "demanda_cajas": 32
+          },
+          {
+            "store_id": "DEMO-0110",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0109",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0105",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0108",
+            "demanda_cajas": 23
+          },
+          {
+            "store_id": "DEMO-0107",
+            "demanda_cajas": 35
+          },
+          {
+            "store_id": "DEMO-0140",
+            "demanda_cajas": 34
+          },
+          {
+            "store_id": "DEMO-0135",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0139",
+            "demanda_cajas": 27
+          },
+          {
+            "store_id": "DEMO-0138",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0137",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0136",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0144",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0128",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0132",
+            "demanda_cajas": 13
+          },
+          {
+            "store_id": "DEMO-0129",
+            "demanda_cajas": 27
+          },
+          {
+            "store_id": "DEMO-0055",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0061",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0130",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0056",
+            "demanda_cajas": 36
+          },
+          {
+            "store_id": "DEMO-0148",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0131",
+            "demanda_cajas": 11
+          },
+          {
+            "store_id": "DEMO-0071",
+            "demanda_cajas": 23
+          }
+        ],
+        "restocks": 0,
+        "total_km": 103.0,
+        "total_min": 317,
+        "total_cajas": 860,
+        "total_costo": 1338.96,
+        "excede_8h": false,
+        "tiene_restock": false
+      },
+      {
+        "route_id": "R06",
+        "truck_id": "T-06",
+        "day": "lun",
+        "sequence": [
+          {
+            "store_id": "DEMO-0034",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0033",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0039",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0040",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0041",
+            "demanda_cajas": 17
+          },
+          {
+            "store_id": "DEMO-0042",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0084",
+            "demanda_cajas": 29
+          },
+          {
+            "store_id": "DEMO-0083",
+            "demanda_cajas": 35
+          },
+          {
+            "store_id": "DEMO-0122",
+            "demanda_cajas": 27
+          },
+          {
+            "store_id": "DEMO-0054",
+            "demanda_cajas": 27
+          },
+          {
+            "store_id": "DEMO-0043",
+            "demanda_cajas": 23
+          },
+          {
+            "store_id": "DEMO-0053",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0123",
+            "demanda_cajas": 32
+          },
+          {
+            "store_id": "DEMO-0022",
+            "demanda_cajas": 32
+          },
+          {
+            "store_id": "DEMO-0044",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0052",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0103",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0051",
+            "demanda_cajas": 29
+          },
+          {
+            "store_id": "DEMO-0050",
+            "demanda_cajas": 28
+          },
+          {
+            "store_id": "DEMO-0046",
+            "demanda_cajas": 29
+          },
+          {
+            "store_id": "DEMO-0047",
+            "demanda_cajas": 13
+          },
+          {
+            "store_id": "DEMO-0049",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0048",
+            "demanda_cajas": 40
+          },
+          {
+            "store_id": "DEMO-0013",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0012",
+            "demanda_cajas": 25
+          },
+          {
+            "store_id": "DEMO-0014",
+            "demanda_cajas": 16
+          },
+          {
+            "store_id": "DEMO-0015",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0021",
+            "demanda_cajas": 22
+          },
+          {
+            "store_id": "DEMO-0016",
+            "demanda_cajas": 24
+          },
+          {
+            "store_id": "DEMO-0020",
+            "demanda_cajas": 32
+          },
+          {
+            "store_id": "DEMO-0019",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0017",
+            "demanda_cajas": 36
+          },
+          {
+            "store_id": "DEMO-0059",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0060",
+            "demanda_cajas": 9
+          },
+          {
+            "store_id": "DEMO-0072",
+            "demanda_cajas": 25
+          }
+        ],
+        "restocks": 0,
+        "total_km": 129.08,
+        "total_min": 361,
+        "total_cajas": 899,
+        "total_costo": 1678.05,
+        "excede_8h": false,
+        "tiene_restock": false
+      },
+      {
+        "route_id": "R07",
+        "truck_id": "T-07",
+        "day": "lun",
+        "sequence": [
+          {
+            "store_id": "DEMO-0025",
+            "demanda_cajas": 38
+          },
+          {
+            "store_id": "DEMO-0127",
+            "demanda_cajas": 35
+          },
+          {
+            "store_id": "DEMO-0026",
+            "demanda_cajas": 34
+          },
+          {
+            "store_id": "DEMO-0125",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0126",
+            "demanda_cajas": 34
+          },
+          {
+            "store_id": "DEMO-0007",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0008",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0009",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0010",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0162",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0195",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0177",
+            "demanda_cajas": 8
+          },
+          {
+            "store_id": "DEMO-0196",
+            "demanda_cajas": 35
+          },
+          {
+            "store_id": "DEMO-0149",
+            "demanda_cajas": 9
+          },
+          {
+            "store_id": "DEMO-0151",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0208",
+            "demanda_cajas": 35
+          },
+          {
+            "store_id": "DEMO-0197",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0200",
+            "demanda_cajas": 38
+          },
+          {
+            "store_id": "DEMO-0150",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0199",
+            "demanda_cajas": 36
+          },
+          {
+            "store_id": "DEMO-0198",
+            "demanda_cajas": 9
+          },
+          {
+            "store_id": "DEMO-0201",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0205",
+            "demanda_cajas": 15
+          },
+          {
+            "store_id": "DEMO-0207",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0206",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0212",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0155",
+            "demanda_cajas": 22
+          },
+          {
+            "store_id": "DEMO-0163",
+            "demanda_cajas": 25
+          },
+          {
+            "store_id": "DEMO-0156",
+            "demanda_cajas": 36
+          },
+          {
+            "store_id": "DEMO-0164",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0158",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0157",
+            "demanda_cajas": 21
+          },
+          {
+            "store_id": "DEMO-0159",
+            "demanda_cajas": 20
+          },
+          {
+            "store_id": "DEMO-0161",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0160",
+            "demanda_cajas": 22
+          }
+        ],
+        "restocks": 0,
+        "total_km": 348.85,
+        "total_min": 738,
+        "total_cajas": 896,
+        "total_costo": 4535.03,
+        "excede_8h": true,
+        "tiene_restock": false
+      },
+      {
+        "route_id": "R08",
+        "truck_id": "T-08",
+        "day": "lun",
+        "sequence": [
+          {
+            "store_id": "DEMO-0165",
+            "demanda_cajas": 10
+          },
+          {
+            "store_id": "DEMO-0166",
+            "demanda_cajas": 25
+          },
+          {
+            "store_id": "DEMO-0224",
+            "demanda_cajas": 18
+          },
+          {
+            "store_id": "DEMO-0214",
+            "demanda_cajas": 16
+          },
+          {
+            "store_id": "DEMO-0187",
+            "demanda_cajas": 39
+          },
+          {
+            "store_id": "DEMO-0188",
+            "demanda_cajas": 19
+          },
+          {
+            "store_id": "DEMO-0190",
+            "demanda_cajas": 38
+          },
+          {
+            "store_id": "DEMO-0230",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0231",
+            "demanda_cajas": 28
+          },
+          {
+            "store_id": "DEMO-0178",
+            "demanda_cajas": 24
+          },
+          {
+            "store_id": "DEMO-0167",
+            "demanda_cajas": 35
+          },
+          {
+            "store_id": "DEMO-0229",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0172",
+            "demanda_cajas": 30
+          },
+          {
+            "store_id": "DEMO-0227",
+            "demanda_cajas": 25
+          },
+          {
+            "store_id": "DEMO-0228",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0225",
+            "demanda_cajas": 36
+          },
+          {
+            "store_id": "DEMO-0219",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0217",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0218",
+            "demanda_cajas": 24
+          },
+          {
+            "store_id": "DEMO-0216",
+            "demanda_cajas": 10
+          },
+          {
+            "store_id": "DEMO-0226",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0173",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0220",
+            "demanda_cajas": 10
+          },
+          {
+            "store_id": "DEMO-0221",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0215",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0176",
+            "demanda_cajas": 22
+          },
+          {
+            "store_id": "DEMO-0175",
+            "demanda_cajas": 37
+          },
+          {
+            "store_id": "DEMO-0222",
+            "demanda_cajas": 24
+          },
+          {
+            "store_id": "DEMO-0179",
+            "demanda_cajas": 31
+          },
+          {
+            "store_id": "DEMO-0180",
+            "demanda_cajas": 36
+          },
+          {
+            "store_id": "DEMO-0223",
+            "demanda_cajas": 14
+          },
+          {
+            "store_id": "DEMO-0181",
+            "demanda_cajas": 12
+          },
+          {
+            "store_id": "DEMO-0182",
+            "demanda_cajas": 33
+          },
+          {
+            "store_id": "DEMO-0184",
+            "demanda_cajas": 26
+          },
+          {
+            "store_id": "DEMO-0183",
+            "demanda_cajas": 30
+          }
+        ],
+        "restocks": 0,
+        "total_km": 1010.76,
+        "total_min": 1873,
+        "total_cajas": 899,
+        "total_costo": 13139.82,
+        "excede_8h": true,
+        "tiene_restock": false
+      }
+    ],
+    "unrouted": [],
+    "legacy_vrp_output": {
+      "rutas": [
+        {
+          "ruta_id": "R01",
+          "cedis": "CEDIS-DEMO",
+          "tiendas": [
+            {
+              "id_tienda": "DEMO-0266",
+              "lat": 19.133922,
+              "lng": -104.325706,
+              "nombre": "DEMO-0266 Residencial La Higuera",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 39,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0264",
+              "lat": 19.149441,
+              "lng": -104.336308,
+              "nombre": "DEMO-0264 Los Altos",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 15,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0262",
+              "lat": 19.144618,
+              "lng": -104.336247,
+              "nombre": "DEMO-0262 La Floresta",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0267",
+              "lat": 19.131775,
+              "lng": -104.333393,
+              "nombre": "DEMO-0267 Santa Carolina",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 38,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0263",
+              "lat": 19.170917,
+              "lng": -104.346348,
+              "nombre": "DEMO-0263 Terraplena",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 21,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0269",
+              "lat": 19.129639,
+              "lng": -104.333892,
+              "nombre": "DEMO-0269 Mar Del Sur",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 33,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0268",
+              "lat": 19.131548,
+              "lng": -104.337204,
+              "nombre": "DEMO-0268 Camelinas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 21,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0253",
+              "lat": 19.126207,
+              "lng": -104.339011,
+              "nombre": "DEMO-0253 Nautilus",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 11,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0261",
+              "lat": 19.133319,
+              "lng": -104.341924,
+              "nombre": "DEMO-0261 Las Rosas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 8,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0260",
+              "lat": 19.132763,
+              "lng": -104.342852,
+              "nombre": "DEMO-0260 Gas Parotas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 37,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0254",
+              "lat": 19.124599,
+              "lng": -104.344246,
+              "nombre": "DEMO-0254 Esmeralda",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 8,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0255",
+              "lat": 19.127363,
+              "lng": -104.345925,
+              "nombre": "DEMO-0255 Paseo Del Mar",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 9,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0265",
+              "lat": 19.138043,
+              "lng": -104.350942,
+              "nombre": "DEMO-0265 Vista Del Mar",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 14,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0256",
+              "lat": 19.130933,
+              "lng": -104.349461,
+              "nombre": "DEMO-0256 Gonzalez Lugo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 31,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0258",
+              "lat": 19.122813,
+              "lng": -104.353143,
+              "nombre": "DEMO-0258 Allende",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 38,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0257",
+              "lat": 19.124409,
+              "lng": -104.358316,
+              "nombre": "DEMO-0257 Pedro Nuñez",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 21,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0247",
+              "lat": 19.120417,
+              "lng": -104.357762,
+              "nombre": "DEMO-0247 Gas Santiago",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0248",
+              "lat": 19.120134,
+              "lng": -104.363458,
+              "nombre": "DEMO-0248 Gas Olas Altas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0249",
+              "lat": 19.119053,
+              "lng": -104.389298,
+              "nombre": "DEMO-0249 Miramar",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 30,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0250",
+              "lat": 19.139747,
+              "lng": -104.432567,
+              "nombre": "DEMO-0250 Gas La Central",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0252",
+              "lat": 19.238267,
+              "lng": -104.556,
+              "nombre": "DEMO-0252 Marabasco Cihuatlan",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 40,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0251",
+              "lat": 19.236114,
+              "lng": -104.560799,
+              "nombre": "DEMO-0251 Cihuatlan Ocampo",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 35,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0240",
+              "lat": 19.235756,
+              "lng": -104.564992,
+              "nombre": "DEMO-0240 Cihuatlan",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 26,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0241",
+              "lat": 19.240506,
+              "lng": -104.569078,
+              "nombre": "DEMO-0241 Barragan Cihuatlan",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 38,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0242",
+              "lat": 19.224627,
+              "lng": -104.643182,
+              "nombre": "DEMO-0242 El Aguacate",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 20,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0246",
+              "lat": 19.210094,
+              "lng": -104.68005,
+              "nombre": "DEMO-0246 Nueva España",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 23,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0243",
+              "lat": 19.229343,
+              "lng": -104.683518,
+              "nombre": "DEMO-0243 Jaluco",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 30,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0245",
+              "lat": 19.206852,
+              "lng": -104.684134,
+              "nombre": "DEMO-0245 Barra",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 19,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0235",
+              "lat": 19.220261,
+              "lng": -104.694957,
+              "nombre": "DEMO-0235 Vicente Guerrero",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 32,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0244",
+              "lat": 19.228933,
+              "lng": -104.697296,
+              "nombre": "DEMO-0244 Gas San Patricio",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 21,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0233",
+              "lat": 19.225375,
+              "lng": -104.700742,
+              "nombre": "DEMO-0233 Villa Obregón",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 11,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0234",
+              "lat": 19.2227,
+              "lng": -104.700557,
+              "nombre": "DEMO-0234 Laguna Del Tule",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 37,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0236",
+              "lat": 19.226927,
+              "lng": -104.706315,
+              "nombre": "DEMO-0236 Melaque",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 19,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0237",
+              "lat": 19.224293,
+              "lng": -104.707714,
+              "nombre": "DEMO-0237 Central Melaque",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 34,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0322",
+              "lat": 19.244129,
+              "lng": -104.717643,
+              "nombre": "DEMO-0322 Emiliano Zapata",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 29,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            }
+          ]
+        },
+        {
+          "ruta_id": "R02",
+          "cedis": "CEDIS-DEMO",
+          "tiendas": [
+            {
+              "id_tienda": "DEMO-0297",
+              "lat": 19.124438,
+              "lng": -104.26383,
+              "nombre": "DEMO-0297 Jalipa",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 9,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0296",
+              "lat": 19.109862,
+              "lng": -104.261255,
+              "nombre": "DEMO-0296 Patios",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 14,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0298",
+              "lat": 19.120128,
+              "lng": -104.268763,
+              "nombre": "DEMO-0298 Lazaro Cardenas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0282",
+              "lat": 19.072392,
+              "lng": -104.280747,
+              "nombre": "DEMO-0282 Las Vias",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 27,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0295",
+              "lat": 19.08015,
+              "lng": -104.285237,
+              "nombre": "DEMO-0295 Ballena",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 15,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0290",
+              "lat": 19.074073,
+              "lng": -104.282395,
+              "nombre": "DEMO-0290 Tapeixtles",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 10,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0300",
+              "lat": 19.097225,
+              "lng": -104.295298,
+              "nombre": "DEMO-0300 Residencial Gaviotas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 20,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0304",
+              "lat": 19.09137,
+              "lng": -104.292712,
+              "nombre": "DEMO-0304 Reforma",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 11,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0283",
+              "lat": 19.074048,
+              "lng": -104.283692,
+              "nombre": "DEMO-0283 Gas La Iguana",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 16,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0305",
+              "lat": 19.089137,
+              "lng": -104.292102,
+              "nombre": "DEMO-0305 Central Manzanillo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 31,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0294",
+              "lat": 19.078975,
+              "lng": -104.287037,
+              "nombre": "DEMO-0294 Pez Vela",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0291",
+              "lat": 19.071662,
+              "lng": -104.283341,
+              "nombre": "DEMO-0291 Heliodoro Trujillo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 31,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0299",
+              "lat": 19.086297,
+              "lng": -104.292848,
+              "nombre": "DEMO-0299 Auditorio",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 13,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0293",
+              "lat": 19.068482,
+              "lng": -104.285327,
+              "nombre": "DEMO-0293 Independencia",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 24,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0303",
+              "lat": 19.09303,
+              "lng": -104.29954,
+              "nombre": "DEMO-0303 La Pesquera",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 36,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0302",
+              "lat": 19.091846,
+              "lng": -104.300055,
+              "nombre": "DEMO-0302 Barrio 1",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 16,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0292",
+              "lat": 19.066664,
+              "lng": -104.286616,
+              "nombre": "DEMO-0292 Gas Puerto",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 28,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0301",
+              "lat": 19.092409,
+              "lng": -104.301041,
+              "nombre": "DEMO-0301 Gas Primavera",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 31,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0284",
+              "lat": 19.05103,
+              "lng": -104.277808,
+              "nombre": "DEMO-0284 Las Torres Manzanillo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 29,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0311",
+              "lat": 19.095532,
+              "lng": -104.302881,
+              "nombre": "DEMO-0311 Gas Garzas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 30,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0310",
+              "lat": 19.104263,
+              "lng": -104.309053,
+              "nombre": "DEMO-0310 Fimaga",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 40,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0288",
+              "lat": 19.061105,
+              "lng": -104.287775,
+              "nombre": "DEMO-0288 16 De Septiembre",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 37,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0287",
+              "lat": 19.057614,
+              "lng": -104.290959,
+              "nombre": "DEMO-0287 Las Joyas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 25,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0319",
+              "lat": 19.085106,
+              "lng": -104.307166,
+              "nombre": "DEMO-0319 Las Brisas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0317",
+              "lat": 19.081864,
+              "lng": -104.307103,
+              "nombre": "DEMO-0317 Playa Azul",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 37,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0318",
+              "lat": 19.073465,
+              "lng": -104.303434,
+              "nombre": "DEMO-0318 Javier Mata",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 39,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0320",
+              "lat": 19.093407,
+              "lng": -104.316629,
+              "nombre": "DEMO-0320 Unidad Deportiva",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 33,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0285",
+              "lat": 19.058912,
+              "lng": -104.302462,
+              "nombre": "DEMO-0285 Teniente Azueta",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 23,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0321",
+              "lat": 19.098362,
+              "lng": -104.323635,
+              "nombre": "DEMO-0321 Marbella",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 31,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0286",
+              "lat": 19.056451,
+              "lng": -104.304348,
+              "nombre": "DEMO-0286 San Pedrito",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 27,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0272",
+              "lat": 19.051295,
+              "lng": -104.310122,
+              "nombre": "DEMO-0272 Jesus Alcaraz",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 39,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0273",
+              "lat": 19.053274,
+              "lng": -104.312797,
+              "nombre": "DEMO-0273 Malecon",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 40,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0274",
+              "lat": 19.051266,
+              "lng": -104.317294,
+              "nombre": "DEMO-0274 Mercado Centro",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 31,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0275",
+              "lat": 19.047884,
+              "lng": -104.318385,
+              "nombre": "DEMO-0275 Club De Leones",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 40,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0276",
+              "lat": 19.04523,
+              "lng": -104.32158,
+              "nombre": "DEMO-0276 Leona Vicario",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 24,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            }
+          ]
+        },
+        {
+          "ruta_id": "R03",
+          "cedis": "CEDIS-DEMO",
+          "tiendas": [
+            {
+              "id_tienda": "DEMO-0380",
+              "lat": 18.95039,
+              "lng": -103.947296,
+              "nombre": "DEMO-0380 Crucero Periquillos",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 25,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0390",
+              "lat": 18.944193,
+              "lng": -103.902654,
+              "nombre": "DEMO-0390 Crucero Tecoman",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 20,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0391",
+              "lat": 18.94433,
+              "lng": -103.922646,
+              "nombre": "DEMO-0391 Bayardo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 13,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0393",
+              "lat": 18.940405,
+              "lng": -103.89407,
+              "nombre": "DEMO-0393 Gas Limonero",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 13,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0392",
+              "lat": 18.935632,
+              "lng": -103.884907,
+              "nombre": "DEMO-0392 Bosques De San Antonio",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 9,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0378",
+              "lat": 18.932366,
+              "lng": -103.877849,
+              "nombre": "DEMO-0378 Valle Las Palmas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 32,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0381",
+              "lat": 18.937185,
+              "lng": -103.953758,
+              "nombre": "DEMO-0381 Panteon Armeria",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 14,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0376",
+              "lat": 18.927671,
+              "lng": -103.868604,
+              "nombre": "DEMO-0376 Real Del Bosque",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0361",
+              "lat": 18.927377,
+              "lng": -103.884431,
+              "nombre": "DEMO-0361 Ejercito Nacional",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 8,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0377",
+              "lat": 18.926547,
+              "lng": -103.87233,
+              "nombre": "DEMO-0377 Valle Querido",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 34,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0370",
+              "lat": 18.92499,
+              "lng": -103.88052,
+              "nombre": "DEMO-0370 Polideportivo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 33,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0362",
+              "lat": 18.923276,
+              "lng": -103.884601,
+              "nombre": "DEMO-0362 Union",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 10,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0369",
+              "lat": 18.922973,
+              "lng": -103.894593,
+              "nombre": "DEMO-0369 De La Juventud",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 38,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0368",
+              "lat": 18.922611,
+              "lng": -103.889365,
+              "nombre": "DEMO-0368 Palma Real",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0367",
+              "lat": 18.920432,
+              "lng": -103.889266,
+              "nombre": "DEMO-0367 Carlos De La Madrid",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 10,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0373",
+              "lat": 18.919109,
+              "lng": -103.877558,
+              "nombre": "DEMO-0373 Emiliano Zapata",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 15,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0363",
+              "lat": 18.919091,
+              "lng": -103.883008,
+              "nombre": "DEMO-0363 Pedro Torres",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0371",
+              "lat": 18.915457,
+              "lng": -103.876159,
+              "nombre": "DEMO-0371 Triangulito",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 21,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0372",
+              "lat": 18.91496,
+              "lng": -103.879391,
+              "nombre": "DEMO-0372 El Mercadito",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 21,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0341",
+              "lat": 18.914535,
+              "lng": -103.866211,
+              "nombre": "DEMO-0341 Juan Oseguera",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 39,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0340",
+              "lat": 18.912926,
+              "lng": -103.870246,
+              "nombre": "DEMO-0340 Reforma",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0351",
+              "lat": 18.912677,
+              "lng": -103.877201,
+              "nombre": "DEMO-0351 Imss Tecoman",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 21,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0366",
+              "lat": 18.912214,
+              "lng": -103.890042,
+              "nombre": "DEMO-0366 Simon Bolivar",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 37,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0360",
+              "lat": 18.910084,
+              "lng": -103.875402,
+              "nombre": "DEMO-0360 20 De Noviembre",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0364",
+              "lat": 18.909264,
+              "lng": -103.885461,
+              "nombre": "DEMO-0364 Indeco",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 17,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0359",
+              "lat": 18.908823,
+              "lng": -103.87246,
+              "nombre": "DEMO-0359 Niños Heroes",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 13,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0365",
+              "lat": 18.908443,
+              "lng": -103.888372,
+              "nombre": "DEMO-0365 Rio Grijalva",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 31,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0343",
+              "lat": 18.908442,
+              "lng": -103.86566,
+              "nombre": "DEMO-0343 Revolucion",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 33,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0357",
+              "lat": 18.907461,
+              "lng": -103.873351,
+              "nombre": "DEMO-0357 Pipila",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 11,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0358",
+              "lat": 18.907319,
+              "lng": -103.873119,
+              "nombre": "DEMO-0358 Quintana Roo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 9,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0353",
+              "lat": 18.906587,
+              "lng": -103.882351,
+              "nombre": "DEMO-0353 Hospital Tecoman",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 37,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0352",
+              "lat": 18.905985,
+              "lng": -103.877182,
+              "nombre": "DEMO-0352 Gas Valle Nuevo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 9,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0354",
+              "lat": 18.902062,
+              "lng": -103.89063,
+              "nombre": "DEMO-0354 Rio Balsas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 23,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0355",
+              "lat": 18.899131,
+              "lng": -103.882048,
+              "nombre": "DEMO-0355 Villas Del Rey",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 8,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0356",
+              "lat": 18.896925,
+              "lng": -103.876364,
+              "nombre": "DEMO-0356 De Los Maestros",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 14,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            }
+          ]
+        },
+        {
+          "ruta_id": "R04",
+          "cedis": "CEDIS-DEMO",
+          "tiendas": [
+            {
+              "id_tienda": "DEMO-0078",
+              "lat": 19.214859,
+              "lng": -103.80436,
+              "nombre": "DEMO-0078 Gas Coqui 2",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 10,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0079",
+              "lat": 19.21154,
+              "lng": -103.807377,
+              "nombre": "DEMO-0079 Valle De Las Huertas",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 39,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0077",
+              "lat": 19.214722,
+              "lng": -103.803762,
+              "nombre": "DEMO-0077 Gas Coquimatlan",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 17,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0080",
+              "lat": 19.201383,
+              "lng": -103.809044,
+              "nombre": "DEMO-0080 Aguilar Coqui",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 24,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0081",
+              "lat": 19.195314,
+              "lng": -103.812404,
+              "nombre": "DEMO-0081 Los Amiales",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 21,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0075",
+              "lat": 19.242714,
+              "lng": -103.770894,
+              "nombre": "DEMO-0075 Valle Del Sol",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 12,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0074",
+              "lat": 19.243036,
+              "lng": -103.76631,
+              "nombre": "DEMO-0074 Tabachines",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 32,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0076",
+              "lat": 19.234021,
+              "lng": -103.767958,
+              "nombre": "DEMO-0076 Rancho De Villa",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 12,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0073",
+              "lat": 19.238322,
+              "lng": -103.761225,
+              "nombre": "DEMO-0073 Rancho Blanco",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 21,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0095",
+              "lat": 19.240589,
+              "lng": -103.756724,
+              "nombre": "DEMO-0095 Gas Real Don Juan",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 8,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0099",
+              "lat": 19.236549,
+              "lng": -103.75094,
+              "nombre": "DEMO-0099 Prados Del Sur",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 27,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0119",
+              "lat": 19.233462,
+              "lng": -103.744223,
+              "nombre": "DEMO-0119 Campus Albarrada",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 33,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0117",
+              "lat": 19.230763,
+              "lng": -103.738826,
+              "nombre": "DEMO-0117 Estadio Colima",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 35,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0088",
+              "lat": 19.228805,
+              "lng": -103.734315,
+              "nombre": "DEMO-0088 Tivoli",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 15,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0118",
+              "lat": 19.223216,
+              "lng": -103.735611,
+              "nombre": "DEMO-0118 Bosques Del Sur",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 10,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0120",
+              "lat": 19.212857,
+              "lng": -103.739833,
+              "nombre": "DEMO-0120 Gas Sauces",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 17,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0070",
+              "lat": 19.209666,
+              "lng": -103.741411,
+              "nombre": "DEMO-0070 Gas Cortes",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 20,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0121",
+              "lat": 19.192369,
+              "lng": -103.748969,
+              "nombre": "DEMO-0121 Loma De Juarez",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 28,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0069",
+              "lat": 19.221521,
+              "lng": -103.728369,
+              "nombre": "DEMO-0069 Hospital De Cancerologia",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 14,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0062",
+              "lat": 19.230409,
+              "lng": -103.723255,
+              "nombre": "DEMO-0062 Rey Coliman",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0145",
+              "lat": 19.228855,
+              "lng": -103.718208,
+              "nombre": "DEMO-0145 Campesino",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 28,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0065",
+              "lat": 19.211966,
+              "lng": -103.721764,
+              "nombre": "DEMO-0065 Cumbre",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0063",
+              "lat": 19.226413,
+              "lng": -103.712973,
+              "nombre": "DEMO-0063 Francisco Villa",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 25,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0064",
+              "lat": 19.223284,
+              "lng": -103.711379,
+              "nombre": "DEMO-0064 Gas Libramiento",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 31,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0146",
+              "lat": 19.22709,
+              "lng": -103.704525,
+              "nombre": "DEMO-0146 Acapulco",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 32,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0068",
+              "lat": 19.222953,
+              "lng": -103.694683,
+              "nombre": "DEMO-0068 Gustavo Vazquez",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 40,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0395",
+              "lat": 19.000226,
+              "lng": -103.739163,
+              "nombre": "DEMO-0395 Ixtlahuacan",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 12,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0396",
+              "lat": 18.998134,
+              "lng": -103.734428,
+              "nombre": "DEMO-0396 Gas Ixtlahuacan",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 23,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0339",
+              "lat": 18.754593,
+              "lng": -103.664557,
+              "nombre": "DEMO-0339 Salida Al Camalote",
+              "zona": "MICHOACAN",
+              "municipio": "MICHOACAN",
+              "estado": "MICHOACAN",
+              "demanda_cajas": 28,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0338",
+              "lat": 18.750064,
+              "lng": -103.669094,
+              "nombre": "DEMO-0338 Coahuayana Viejo",
+              "zona": "MICHOACAN",
+              "municipio": "MICHOACAN",
+              "estado": "MICHOACAN",
+              "demanda_cajas": 20,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0337",
+              "lat": 18.704524,
+              "lng": -103.660811,
+              "nombre": "DEMO-0337 Santiago Tapia",
+              "zona": "MICHOACAN",
+              "municipio": "MICHOACAN",
+              "estado": "MICHOACAN",
+              "demanda_cajas": 20,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0336",
+              "lat": 18.697237,
+              "lng": -103.665645,
+              "nombre": "DEMO-0336 Gas Coahuayana",
+              "zona": "MICHOACAN",
+              "municipio": "MICHOACAN",
+              "estado": "MICHOACAN",
+              "demanda_cajas": 16,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0335",
+              "lat": 18.689067,
+              "lng": -103.662012,
+              "nombre": "DEMO-0335 El Ranchito",
+              "zona": "MICHOACAN",
+              "municipio": "MICHOACAN",
+              "estado": "MICHOACAN",
+              "demanda_cajas": 39,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0334",
+              "lat": 18.685238,
+              "lng": -103.666027,
+              "nombre": "DEMO-0334 Constitucion",
+              "zona": "MICHOACAN",
+              "municipio": "MICHOACAN",
+              "estado": "MICHOACAN",
+              "demanda_cajas": 25,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0333",
+              "lat": 18.674543,
+              "lng": -103.680863,
+              "nombre": "DEMO-0333 Gas Ticuiz",
+              "zona": "MICHOACAN",
+              "municipio": "MICHOACAN",
+              "estado": "MICHOACAN",
+              "demanda_cajas": 16,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            }
+          ]
+        },
+        {
+          "ruta_id": "R05",
+          "cedis": "CEDIS-DEMO",
+          "tiendas": [
+            {
+              "id_tienda": "DEMO-0032",
+              "lat": 19.261984,
+              "lng": -103.774045,
+              "nombre": "DEMO-0032 La Reserva",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 16,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0029",
+              "lat": 19.263295,
+              "lng": -103.766372,
+              "nombre": "DEMO-0029 Tulipanes",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0037",
+              "lat": 19.261537,
+              "lng": -103.76312,
+              "nombre": "DEMO-0037 Lapislazuli",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 16,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0028",
+              "lat": 19.2601,
+              "lng": -103.761153,
+              "nombre": "DEMO-0028 Agua Marina",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 39,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0087",
+              "lat": 19.256126,
+              "lng": -103.753759,
+              "nombre": "DEMO-0087 Pablo Silva",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 34,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0093",
+              "lat": 19.255425,
+              "lng": -103.748712,
+              "nombre": "DEMO-0093 Ramon Serrano",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 36,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0091",
+              "lat": 19.251638,
+              "lng": -103.746967,
+              "nombre": "DEMO-0091 Jose D. Ruiz",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 33,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0090",
+              "lat": 19.249312,
+              "lng": -103.745721,
+              "nombre": "DEMO-0090 Benito Juarez",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 30,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0092",
+              "lat": 19.253217,
+              "lng": -103.741676,
+              "nombre": "DEMO-0092 Cristobal Colon",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 34,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0101",
+              "lat": 19.260241,
+              "lng": -103.732193,
+              "nombre": "DEMO-0101 Manuel Alvarez",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 12,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0100",
+              "lat": 19.256056,
+              "lng": -103.726281,
+              "nombre": "DEMO-0100 Los Maestros",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 22,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0113",
+              "lat": 19.248733,
+              "lng": -103.72662,
+              "nombre": "DEMO-0113 Centro Medico",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0112",
+              "lat": 19.24383,
+              "lng": -103.727763,
+              "nombre": "DEMO-0112 Catedral Colima",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 32,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0110",
+              "lat": 19.241584,
+              "lng": -103.723527,
+              "nombre": "DEMO-0110 Filomeno Medina",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0109",
+              "lat": 19.251379,
+              "lng": -103.720762,
+              "nombre": "DEMO-0109 San Fernando",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 14,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0105",
+              "lat": 19.257019,
+              "lng": -103.717709,
+              "nombre": "DEMO-0105 Genoveva Sanchez",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 20,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0108",
+              "lat": 19.254608,
+              "lng": -103.717882,
+              "nombre": "DEMO-0108 Lomas Vista Hermosa",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 23,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0107",
+              "lat": 19.256068,
+              "lng": -103.717423,
+              "nombre": "DEMO-0107 Gas Sevilla",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 35,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0140",
+              "lat": 19.253951,
+              "lng": -103.711752,
+              "nombre": "DEMO-0140 Ignacio Sandoval",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 34,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0135",
+              "lat": 19.245307,
+              "lng": -103.712743,
+              "nombre": "DEMO-0135 Glorieta Del Dif",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0139",
+              "lat": 19.251393,
+              "lng": -103.71049,
+              "nombre": "DEMO-0139 Sevilla",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 27,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0138",
+              "lat": 19.251095,
+              "lng": -103.710435,
+              "nombre": "DEMO-0138 Jesus Ponce",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 8,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0137",
+              "lat": 19.245082,
+              "lng": -103.710408,
+              "nombre": "DEMO-0137 Panteon Colima",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 33,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0136",
+              "lat": 19.243478,
+              "lng": -103.710616,
+              "nombre": "DEMO-0136 Insurgentes",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 39,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0144",
+              "lat": 19.250247,
+              "lng": -103.702738,
+              "nombre": "DEMO-0144 Camino Real",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 30,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0128",
+              "lat": 19.242821,
+              "lng": -103.698622,
+              "nombre": "DEMO-0128 Gonzalo De Sandoval",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 8,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0132",
+              "lat": 19.236407,
+              "lng": -103.698946,
+              "nombre": "DEMO-0132 Angeles",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 13,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0129",
+              "lat": 19.240917,
+              "lng": -103.696338,
+              "nombre": "DEMO-0129 Navarro",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 27,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0055",
+              "lat": 19.244731,
+              "lng": -103.690932,
+              "nombre": "DEMO-0055 Las Torres",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0061",
+              "lat": 19.253568,
+              "lng": -103.688748,
+              "nombre": "DEMO-0061 Gas Ejercito Nacional",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0130",
+              "lat": 19.239338,
+              "lng": -103.691132,
+              "nombre": "DEMO-0130 Jardines De La Estancia",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 30,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0056",
+              "lat": 19.250167,
+              "lng": -103.686554,
+              "nombre": "DEMO-0056 Glorieta Las Torres",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 36,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0148",
+              "lat": 19.234225,
+              "lng": -103.685562,
+              "nombre": "DEMO-0148 Gas La Estancia",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0131",
+              "lat": 19.241413,
+              "lng": -103.682962,
+              "nombre": "DEMO-0131 Villas Del Jazmin",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 11,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0071",
+              "lat": 19.210357,
+              "lng": -103.463022,
+              "nombre": "DEMO-0071 Gas Relicario",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 23,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            }
+          ]
+        },
+        {
+          "ruta_id": "R06",
+          "cedis": "CEDIS-DEMO",
+          "tiendas": [
+            {
+              "id_tienda": "DEMO-0034",
+              "lat": 19.283237,
+              "lng": -103.780221,
+              "nombre": "DEMO-0034 Vista Volcanes",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0033",
+              "lat": 19.275063,
+              "lng": -103.779947,
+              "nombre": "DEMO-0033 Palo Alto",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 37,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0039",
+              "lat": 19.278004,
+              "lng": -103.76374,
+              "nombre": "DEMO-0039 La Comarca",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 20,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0040",
+              "lat": 19.284059,
+              "lng": -103.760582,
+              "nombre": "DEMO-0040 La Villita",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 19,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0041",
+              "lat": 19.279044,
+              "lng": -103.757609,
+              "nombre": "DEMO-0041 Natura",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 17,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0042",
+              "lat": 19.27315,
+              "lng": -103.751646,
+              "nombre": "DEMO-0042 Gas Cruz De Mina",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0084",
+              "lat": 19.271282,
+              "lng": -103.74758,
+              "nombre": "DEMO-0084 Gas Diamante",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 29,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0083",
+              "lat": 19.271438,
+              "lng": -103.746871,
+              "nombre": "DEMO-0083 Merced Cabrera",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 35,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0122",
+              "lat": 19.287079,
+              "lng": -103.745985,
+              "nombre": "DEMO-0122 Colinas Del Rey",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 27,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0054",
+              "lat": 19.283835,
+              "lng": -103.744569,
+              "nombre": "DEMO-0054 Mega Palenque",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 27,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0043",
+              "lat": 19.273632,
+              "lng": -103.740305,
+              "nombre": "DEMO-0043 Diosa Del Agua",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 23,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0053",
+              "lat": 19.280674,
+              "lng": -103.738432,
+              "nombre": "DEMO-0053 Real Bugambilias",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 37,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0123",
+              "lat": 19.28961,
+              "lng": -103.738452,
+              "nombre": "DEMO-0123 Linda Vista",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 32,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0022",
+              "lat": 19.284045,
+              "lng": -103.736323,
+              "nombre": "DEMO-0022 Villa Izcalli",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 32,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0044",
+              "lat": 19.272038,
+              "lng": -103.735111,
+              "nombre": "DEMO-0044 Maria Ahumada",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 18,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0052",
+              "lat": 19.288468,
+              "lng": -103.734311,
+              "nombre": "DEMO-0052 Loma Hermosa",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 30,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0103",
+              "lat": 19.270745,
+              "lng": -103.733566,
+              "nombre": "DEMO-0103 Frontera",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0051",
+              "lat": 19.280451,
+              "lng": -103.73228,
+              "nombre": "DEMO-0051 Ayuntamiento",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 29,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0050",
+              "lat": 19.28289,
+              "lng": -103.732254,
+              "nombre": "DEMO-0050 Bugambilias",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 28,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0046",
+              "lat": 19.278766,
+              "lng": -103.729912,
+              "nombre": "DEMO-0046 Arboledas De Carmen",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 29,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0047",
+              "lat": 19.282547,
+              "lng": -103.728182,
+              "nombre": "DEMO-0047 Ex Hacienda",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 13,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0049",
+              "lat": 19.28708,
+              "lng": -103.72677,
+              "nombre": "DEMO-0049 Prolongacion Hidalgo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 33,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0048",
+              "lat": 19.285576,
+              "lng": -103.724974,
+              "nombre": "DEMO-0048 Real De Cana",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 40,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0013",
+              "lat": 19.277896,
+              "lng": -103.723455,
+              "nombre": "DEMO-0013 Gas Tercer Anillo",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 14,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0012",
+              "lat": 19.270991,
+              "lng": -103.716605,
+              "nombre": "DEMO-0012 Residencial Esmeralda",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 25,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0014",
+              "lat": 19.279167,
+              "lng": -103.713138,
+              "nombre": "DEMO-0014 Colegio Ingles",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 16,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0015",
+              "lat": 19.288572,
+              "lng": -103.708159,
+              "nombre": "DEMO-0015 Romanza",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 8,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0021",
+              "lat": 19.269177,
+              "lng": -103.707497,
+              "nombre": "DEMO-0021 Los Olivos",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 22,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0016",
+              "lat": 19.284504,
+              "lng": -103.706552,
+              "nombre": "DEMO-0016 Albaterra",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 24,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0020",
+              "lat": 19.275104,
+              "lng": -103.702748,
+              "nombre": "DEMO-0020 Residencial Victoria",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 32,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0019",
+              "lat": 19.26868,
+              "lng": -103.702342,
+              "nombre": "DEMO-0019 Gas Gasoprim",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 37,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0017",
+              "lat": 19.288908,
+              "lng": -103.700858,
+              "nombre": "DEMO-0017 Punta Norte",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 36,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0059",
+              "lat": 19.268364,
+              "lng": -103.674808,
+              "nombre": "DEMO-0059 Gas Trapiche",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0060",
+              "lat": 19.277585,
+              "lng": -103.66335,
+              "nombre": "DEMO-0060 Trapiche Zapata",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 9,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0072",
+              "lat": 19.253195,
+              "lng": -103.381171,
+              "nombre": "DEMO-0072 Libertad Pihuamo",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 25,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            }
+          ]
+        },
+        {
+          "ruta_id": "R07",
+          "cedis": "CEDIS-DEMO",
+          "tiendas": [
+            {
+              "id_tienda": "DEMO-0025",
+              "lat": 19.321051,
+              "lng": -103.758374,
+              "nombre": "DEMO-0025 Comala",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 38,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0127",
+              "lat": 19.329087,
+              "lng": -103.760589,
+              "nombre": "DEMO-0127 La Trinidad",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 35,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0026",
+              "lat": 19.329567,
+              "lng": -103.753567,
+              "nombre": "DEMO-0026 Unidad Deportiva Comala",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 34,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0125",
+              "lat": 19.378074,
+              "lng": -103.716014,
+              "nombre": "DEMO-0125 Suchitlan",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 14,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0126",
+              "lat": 19.409503,
+              "lng": -103.696407,
+              "nombre": "DEMO-0126 Cofradia De Suchitlan",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 34,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0007",
+              "lat": 19.388075,
+              "lng": -103.575206,
+              "nombre": "DEMO-0007 Queseria",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 26,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0008",
+              "lat": 19.386329,
+              "lng": -103.569155,
+              "nombre": "DEMO-0008 Gas Queseria",
+              "zona": "COLIMA",
+              "municipio": "COLIMA",
+              "estado": "COLIMA",
+              "demanda_cajas": 12,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0009",
+              "lat": 19.404691,
+              "lng": -103.541468,
+              "nombre": "DEMO-0009 Gas Tonila",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 12,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0010",
+              "lat": 19.444028,
+              "lng": -103.505749,
+              "nombre": "DEMO-0010 San Marcos",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 18,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0162",
+              "lat": 19.53036,
+              "lng": -103.420547,
+              "nombre": "DEMO-0162 Gas 4 Caminos",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 39,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0195",
+              "lat": 19.629977,
+              "lng": -103.464889,
+              "nombre": "DEMO-0195 Gas Carco Zapotiltic",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 33,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0177",
+              "lat": 19.667539,
+              "lng": -103.485123,
+              "nombre": "DEMO-0177 Tec Guzman",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 8,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0196",
+              "lat": 19.639423,
+              "lng": -103.444207,
+              "nombre": "DEMO-0196 Gas Huescalapa",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 35,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0149",
+              "lat": 19.555457,
+              "lng": -103.378441,
+              "nombre": "DEMO-0149 Tuxpan Obregon",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 9,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0151",
+              "lat": 19.551239,
+              "lng": -103.374722,
+              "nombre": "DEMO-0151 Manuel M Dieguez",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 39,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0208",
+              "lat": 19.676063,
+              "lng": -103.47688,
+              "nombre": "DEMO-0208 Tecnologico",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 35,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0197",
+              "lat": 19.632468,
+              "lng": -103.430579,
+              "nombre": "DEMO-0197 Gas Zapotiltic",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 33,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0200",
+              "lat": 19.622953,
+              "lng": -103.421212,
+              "nombre": "DEMO-0200 Quintana Roo",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 38,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0150",
+              "lat": 19.559312,
+              "lng": -103.372312,
+              "nombre": "DEMO-0150 Tuxpan",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 31,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0199",
+              "lat": 19.627989,
+              "lng": -103.422523,
+              "nombre": "DEMO-0199 Zapotiltic Hidalgo",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 36,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0198",
+              "lat": 19.630065,
+              "lng": -103.422801,
+              "nombre": "DEMO-0198 Zapotiltic",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 9,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0201",
+              "lat": 19.623039,
+              "lng": -103.414474,
+              "nombre": "DEMO-0201 Zapotiltic Bustamante",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 14,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0205",
+              "lat": 19.685229,
+              "lng": -103.470696,
+              "nombre": "DEMO-0205 Alberto Cardenas",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 15,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0207",
+              "lat": 19.683013,
+              "lng": -103.462138,
+              "nombre": "DEMO-0207 Serafin Vazquez",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 37,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0206",
+              "lat": 19.691614,
+              "lng": -103.458887,
+              "nombre": "DEMO-0206 Obispo",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 21,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0212",
+              "lat": 19.701975,
+              "lng": -103.451962,
+              "nombre": "DEMO-0212 Las Peñas",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 12,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0155",
+              "lat": 19.687584,
+              "lng": -103.335985,
+              "nombre": "DEMO-0155 Vista Hermosa",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 22,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0163",
+              "lat": 19.685915,
+              "lng": -103.292378,
+              "nombre": "DEMO-0163 Gas Soyatlan",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 25,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0156",
+              "lat": 19.674421,
+              "lng": -103.257006,
+              "nombre": "DEMO-0156 Cuauhtemoc Tamazula",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 36,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0164",
+              "lat": 19.67426,
+              "lng": -103.25234,
+              "nombre": "DEMO-0164 Tamazula Centro",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 19,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0158",
+              "lat": 19.691005,
+              "lng": -103.241593,
+              "nombre": "DEMO-0158 Obrera",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 31,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0157",
+              "lat": 19.689586,
+              "lng": -103.240037,
+              "nombre": "DEMO-0157 Coca Cola Tamazula",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 21,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0159",
+              "lat": 19.7531,
+              "lng": -103.1774,
+              "nombre": "DEMO-0159 Contla",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 20,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0161",
+              "lat": 19.988198,
+              "lng": -103.022015,
+              "nombre": "DEMO-0161 San Jose Centro",
+              "zona": "MICHOACAN",
+              "municipio": "MICHOACAN",
+              "estado": "MICHOACAN",
+              "demanda_cajas": 33,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0160",
+              "lat": 19.93616,
+              "lng": -102.950145,
+              "nombre": "DEMO-0160 Valle De Juarez",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 22,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            }
+          ]
+        },
+        {
+          "ruta_id": "R08",
+          "cedis": "CEDIS-DEMO",
+          "tiendas": [
+            {
+              "id_tienda": "DEMO-0165",
+              "lat": 19.682752,
+              "lng": -103.800221,
+              "nombre": "DEMO-0165 Gas San Gabriel",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 10,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0166",
+              "lat": 19.778897,
+              "lng": -103.975164,
+              "nombre": "DEMO-0166 Gas Tonaya",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 25,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0224",
+              "lat": 19.70233,
+              "lng": -103.491996,
+              "nombre": "DEMO-0224 Gas Aeropuerto",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 18,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0214",
+              "lat": 19.728091,
+              "lng": -103.509545,
+              "nombre": "DEMO-0214 Gas Carco Guzman",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 16,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0187",
+              "lat": 19.709627,
+              "lng": -103.475984,
+              "nombre": "DEMO-0187 Panteon Hidalgo",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 39,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0188",
+              "lat": 19.713222,
+              "lng": -103.476062,
+              "nombre": "DEMO-0188 Camichines",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 19,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0190",
+              "lat": 19.721615,
+              "lng": -103.466983,
+              "nombre": "DEMO-0190 Pintores",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 38,
+              "frecuencia": "mar-jue",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0230",
+              "lat": 19.732046,
+              "lng": -103.459721,
+              "nombre": "DEMO-0230 Fraccionamiento Las Garzas",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 30,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0231",
+              "lat": 19.731885,
+              "lng": -103.456385,
+              "nombre": "DEMO-0231 Fracionamiento Las Lomas",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 28,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0178",
+              "lat": 19.804655,
+              "lng": -104.205875,
+              "nombre": "DEMO-0178 Glorieta El Grullo",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 24,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0167",
+              "lat": 19.799482,
+              "lng": -104.221603,
+              "nombre": "DEMO-0167 Circunvalacion Poniente",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 35,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0229",
+              "lat": 19.781241,
+              "lng": -103.476395,
+              "nombre": "DEMO-0229 Gas Gomez Farias",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 33,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0172",
+              "lat": 19.769406,
+              "lng": -104.297484,
+              "nombre": "DEMO-0172 Gas El Mentidero",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 30,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0227",
+              "lat": 19.795106,
+              "lng": -103.480611,
+              "nombre": "DEMO-0227 Gomez Farias",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 25,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0228",
+              "lat": 19.793253,
+              "lng": -103.471193,
+              "nombre": "DEMO-0228 Vicente Guerrero",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 12,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0225",
+              "lat": 19.815811,
+              "lng": -103.48951,
+              "nombre": "DEMO-0225 Gas San Andres",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 36,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0219",
+              "lat": 19.875801,
+              "lng": -103.602488,
+              "nombre": "DEMO-0219 Santa Ines",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 33,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0217",
+              "lat": 19.880227,
+              "lng": -103.589536,
+              "nombre": "DEMO-0217 Central Sayula",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 12,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0218",
+              "lat": 19.884571,
+              "lng": -103.596472,
+              "nombre": "DEMO-0218 San Sebastian Sayula",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 24,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0216",
+              "lat": 19.881057,
+              "lng": -103.583741,
+              "nombre": "DEMO-0216 Sayula",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 10,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0226",
+              "lat": 19.8188,
+              "lng": -103.469393,
+              "nombre": "DEMO-0226 San Andres Centro",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 26,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0173",
+              "lat": 19.76852,
+              "lng": -104.354041,
+              "nombre": "DEMO-0173 Hospital Autlan",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 37,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0220",
+              "lat": 19.935297,
+              "lng": -103.752456,
+              "nombre": "DEMO-0220 Gas Tapalpa",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 10,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0221",
+              "lat": 19.942588,
+              "lng": -103.772029,
+              "nombre": "DEMO-0221 Camino A San Gabriel",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 31,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0215",
+              "lat": 19.875138,
+              "lng": -103.544006,
+              "nombre": "DEMO-0215 Usmajac",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 33,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0176",
+              "lat": 19.785972,
+              "lng": -104.363404,
+              "nombre": "DEMO-0176 Clemente Amaya_",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 22,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0175",
+              "lat": 19.788724,
+              "lng": -104.370557,
+              "nombre": "DEMO-0175 Capaya",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 37,
+              "frecuencia": "diaria",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0222",
+              "lat": 19.960063,
+              "lng": -103.711999,
+              "nombre": "DEMO-0222 Crucero La Frontera",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 24,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0179",
+              "lat": 20.011207,
+              "lng": -103.595413,
+              "nombre": "DEMO-0179 Amacueca",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 31,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0180",
+              "lat": 20.072544,
+              "lng": -103.550454,
+              "nombre": "DEMO-0180 Techaluta",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 36,
+              "frecuencia": "mar-jue",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0223",
+              "lat": 20.128098,
+              "lng": -103.721909,
+              "nombre": "DEMO-0223 Gas Atemajac",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 14,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "B"
+            },
+            {
+              "id_tienda": "DEMO-0181",
+              "lat": 20.22113,
+              "lng": -103.57633,
+              "nombre": "DEMO-0181 Abasolo",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 12,
+              "frecuencia": "mar-jue",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0182",
+              "lat": 20.227825,
+              "lng": -103.568608,
+              "nombre": "DEMO-0182 Aquiles Serdán",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 33,
+              "frecuencia": "diaria",
+              "clasificacion": "A"
+            },
+            {
+              "id_tienda": "DEMO-0184",
+              "lat": 20.23106,
+              "lng": -103.578895,
+              "nombre": "DEMO-0184 Zacoalco",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 26,
+              "frecuencia": "diaria",
+              "clasificacion": "C"
+            },
+            {
+              "id_tienda": "DEMO-0183",
+              "lat": 20.22975,
+              "lng": -103.572769,
+              "nombre": "DEMO-0183 Arista",
+              "zona": "JALISCO",
+              "municipio": "JALISCO",
+              "estado": "JALISCO",
+              "demanda_cajas": 30,
+              "frecuencia": "lunes-mier-vier",
+              "clasificacion": "C"
+            }
+          ]
+        }
+      ],
+      "cedis": [
+        {
+          "nombre": "CEDIS-DEMO",
+          "lat": 19.279141,
+          "lng": -103.878532,
+          "la": 19.279141,
+          "ln": -103.878532
+        }
+      ]
+    }
+  }
+}

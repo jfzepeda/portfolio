@@ -1,0 +1,172 @@
+/* ============================================================
+   Design tokens — dark default, light override
+   Portados desde algoritmos/viz/compare_html.py
+   ============================================================ */
+:root,
+:root[data-theme="dark"] {
+  --bg-base:        #08080F;
+  --bg-elevated:    #11131C;
+  --bg-overlay:     #1A1D2A;
+  --glass-bg:       rgba(255, 255, 255, 0.04);
+  --glass-border:   rgba(255, 255, 255, 0.08);
+  --glass-strong:   rgba(255, 255, 255, 0.10);
+  --text-primary:   #F5F5F7;
+  --text-secondary: #C2C7D0;
+  --text-muted:     #8A92A6;
+  --text-subtle:    #5C637A;
+  --accent:         #FF6B1A;
+  --accent-2:       #FF8A3D;
+  --accent-soft:    rgba(255, 107, 26, 0.12);
+  --cyan:           #38BDF8;
+  --success:        #10B981;
+  --warning:        #F59E0B;
+  --error:          #EF4444;
+  --grad-orange:    linear-gradient(135deg, #FF6B1A, #FF8A3D);
+  --grad-cool:      linear-gradient(135deg, #0EA5E9, #A78BFA);
+  --shadow-1:       0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2:       0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-glow:    0 0 0 1px rgba(255, 107, 26, 0.5), 0 0 32px rgba(255, 107, 26, 0.18);
+  --map-tiles:      "dark";
+  color-scheme:     dark;
+}
+
+:root[data-theme="light"] {
+  --bg-base:        #F4F5F8;
+  --bg-elevated:    #FFFFFF;
+  --bg-overlay:     #FAFBFC;
+  --glass-bg:       rgba(255, 255, 255, 0.72);
+  --glass-border:   rgba(15, 23, 42, 0.08);
+  --glass-strong:   rgba(255, 255, 255, 0.92);
+  --text-primary:   #0F172A;
+  --text-secondary: #1E293B;
+  --text-muted:     #475569;
+  --text-subtle:    #64748B;
+  --accent:         #E45A00;
+  --accent-2:       #FF7A29;
+  --accent-soft:    rgba(228, 90, 0, 0.10);
+  --cyan:           #0284C7;
+  --success:        #059669;
+  --warning:        #D97706;
+  --error:          #DC2626;
+  --grad-orange:    linear-gradient(135deg, #E45A00, #FF7A29);
+  --grad-cool:      linear-gradient(135deg, #0284C7, #7C3AED);
+  --shadow-1:       0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-2:       0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-glow:    0 0 0 1px rgba(228, 90, 0, 0.3), 0 0 24px rgba(228, 90, 0, 0.10);
+  --map-tiles:      "light";
+  color-scheme:     light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.35s ease, color 0.2s ease;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(255, 107, 26, 0.08), transparent 60%),
+    radial-gradient(900px 500px at 0% 100%, rgba(56, 189, 248, 0.06), transparent 60%),
+    var(--bg-base);
+}
+
+:root[data-theme="light"] body {
+  background:
+    radial-gradient(1000px 500px at 90% -10%, rgba(228, 90, 0, 0.07), transparent 60%),
+    radial-gradient(800px 400px at -10% 100%, rgba(2, 132, 199, 0.05), transparent 60%),
+    var(--bg-base);
+}
+
+#__next {
+  height: 100%;
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbar styling — adapts to theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-strong) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-strong);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-subtle);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+/* Fundido top/bottom para listas largas — aplicar con className="scroll-fade" */
+.scroll-fade {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 12px,
+    #000 calc(100% - 12px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 12px,
+    #000 calc(100% - 12px),
+    transparent 100%
+  );
+}
+
+/* Selection color */
+::selection {
+  background: var(--accent-soft);
+  color: var(--text-primary);
+}
+
+/* Focus rings accesibles */
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Honor reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
