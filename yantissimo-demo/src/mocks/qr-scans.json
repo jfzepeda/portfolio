@@ -1,0 +1,8 @@
+{
+  "scans": [
+    { "id": "scan-1", "code": "QR-CENTRO-001", "scannedAt": "2026-05-15T09:14:00", "sucursal": "Centro" },
+    { "id": "scan-2", "code": "QR-NORTE-005", "scannedAt": "2026-05-15T10:42:00", "sucursal": "Norte" },
+    { "id": "scan-3", "code": "QR-SUR-012", "scannedAt": "2026-05-15T13:28:00", "sucursal": "Sur" }
+  ],
+  "total": 3
+}

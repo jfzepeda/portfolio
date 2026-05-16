@@ -1,0 +1,8 @@
+export const MOCK_USER = Object.freeze({
+  id: "demo-user-1",
+  name: "Demo Visitor",
+  username: "demo",
+  role: 100,
+  status: "active",
+  email: "demo@yantissimo.demo",
+});

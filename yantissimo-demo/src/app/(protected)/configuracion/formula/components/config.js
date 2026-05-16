@@ -1,0 +1,80 @@
+// ------------------- Catálogos -------------------
+export const catalogs = [
+  {
+    key: "rangos",
+    label: "Rangos",
+    endpoint: "rangos",
+    idField: "id",
+    columns: [
+      { field: "desc_contado", label: "Contado" },
+      { field: "desc_6msi", label: "6 MSI" },
+      { field: "desc_12msi", label: "12 MSI" },
+      { field: "desc_convenio", label: "Convenio" },
+      { field: "inc_dist_ctdo", label: "Dist Contado" },
+      { field: "inc_dist_cred", label: "Dist Crédito" },
+      { field: "desc_ctdo_prov", label: "Ctdo Prov" },
+      { field: "desc_conv_prov", label: "Conv Prov" },
+    ],
+  },
+  {
+    key: "rangos-cai",
+    label: "Rangos CAI",
+    endpoint: "rangos-cai",
+    idField: "id",
+    columns: [
+      { field: "min_cost", label: "Min" },
+      { field: "max_cost", label: "Max" },
+      { field: "inc_dist_ctdo", label: "Cont Dist " },
+      { field: "desc_volumen10", label: "Cont Vol" },
+      { field: "desc_contado", label: "Cont Pub" },
+      { field: "inc_dist_cred", label: "Créd Dist" },
+      { field: "desc_vol10_cred", label: "Créd Vol" },
+      { field: "desc_credito", label: "Créo Pub" },
+      // { field: "desc_ctdo_prov", label: "Ctdo Prov" },
+    ],
+  },
+  {
+    key: "montaje",
+    label: "Montajes",
+    endpoint: "montaje",
+    idField: "rin",
+    columns: [
+      { field: "rin", label: "Rin" },
+      { field: "valor", label: "Valor" },
+      { field: "valor_dist", label: "Valor Dist" },
+    ],
+  },
+  {
+    key: "promos",
+    label: "Promos",
+    endpoint: "promos",
+    idField: "id",
+    columns: [
+      { field: "priority", label: "Prioridad" },
+      { field: "conditions", label: "Condiciones" },
+      { field: "rines", label: "Rines" },
+    ],
+  },
+  {
+    key: "promos2",
+    label: "Promos SKU",
+    endpoint: "promos",
+    idField: "id",
+    columns: [
+      { field: "priority", label: "Prioridad" },
+      { field: "conditions", label: "Condiciones" },
+      { field: "rines", label: "Rines" },
+    ],
+  },
+  {
+    key: "incrementos",
+    label: "Incrementos",
+    endpoint: "incrementos",
+    idField: "id",
+    columns: [
+      { field: "priority", label: "Prioridad" },
+      { field: "conditions", label: "Condiciones" },
+      { field: "incremento", label: "Incremento" },
+    ],
+  },
+];

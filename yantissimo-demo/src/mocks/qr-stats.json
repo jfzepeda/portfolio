@@ -1,0 +1,10 @@
+{
+  "totalScans": 1842,
+  "uniqueCodes": 312,
+  "last7Days": [142, 168, 195, 203, 178, 221, 256],
+  "topSucursales": [
+    { "sucursal": "Centro", "scans": 782 },
+    { "sucursal": "Norte", "scans": 596 },
+    { "sucursal": "Sur", "scans": 464 }
+  ]
+}

@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solicitud de Garantía — Yantissimo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --rojo: #cb4532;
+        --rojo-dark: #a8361f;
+        --rojo-light: #f9e0db;
+        --amarillo: #f5c336;
+        --amarillo-light: #fef8e3;
+        --gris-osc: #414243;
+        --gris-med: #6b6c6d;
+        --gris-claro: #f0f0f0;
+        --gris-bg: #f5f5f5;
+        --blanco: #ffffff;
+        --texto: #2a2a2a;
+        --texto-sec: #5a5a5a;
+        --borde: #e0e0e0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--gris-bg);
+        color: var(--texto);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      /* ── HEADER ── */
+      .header {
+        background: var(--gris-osc);
+        color: white;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 32px;
+      }
+      .header-logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .header-logo-wrap svg {
+        height: 38px;
+        width: auto;
+      }
+      /* Force logo colors on dark bg */
+      .header-logo-wrap .cls-1 {
+        fill: #ffffff !important;
+      }
+      .header-logo-wrap .cls-2 {
+        fill: #f5c336 !important;
+      }
+      .header-logo-wrap .cls-3 {
+        fill: #cb4532 !important;
+      }
+      .header-divider {
+        width: 1px;
+        height: 38px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .header-tagline {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.6;
+      }
+      .header-tagline strong {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 12px;
+      }
+      .header-right {
+        text-align: right;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .folio-input-wrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 6px;
+      }
+      .folio-input-wrap label {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.8);
+        white-space: nowrap;
+      }
+      .folio-input-wrap input {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        padding: 4px 10px;
+        color: white;
+        font-size: 12px;
+        font-family: "DM Mono", monospace;
+        width: 150px;
+        font-weight: 500;
+      }
+      .folio-input-wrap input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      /* Accent stripe */
+      .header-stripe {
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--rojo) 0%,
+          var(--rojo) 50%,
+          var(--amarillo) 50%,
+          var(--amarillo) 100%
+        );
+      }
+
+      /* ── MAIN ── */
+      .main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 24px 20px 40px;
+      }
+
+      /* ── SECTION ── */
+      .section {
+        background: white;
+        border-radius: 12px;
+        border: 1px solid var(--borde);
+        margin-bottom: 16px;
+        overflow: hidden;
+      }
+      .sec-head {
+        background: var(--gris-osc);
+        color: white;
+        padding: 8px 16px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sec-num {
+        background: var(--amarillo);
+        color: var(--gris-osc);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .sec-body {
+        padding: 16px;
+      }
+
+      /* ── FIELDS ── */
+      .grid {
+        display: grid;
+        gap: 12px;
+      }
+      .g2 {
+        grid-template-columns: 1fr 1fr;
+      }
+      .g3 {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .g4 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+      .g14 {
+        grid-template-columns: 1fr 4fr;
+      }
+
+      .field label {
+        display: block;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--texto-sec);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 5px;
+      }
+      .field input,
+      .field select,
+      .field textarea {
+        width: 100%;
+        border: 1px solid var(--borde);
+        border-radius: 8px;
+        padding: 8px 11px;
+        font-size: 13px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--texto);
+        background: var(--blanco);
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: var(--rojo);
+        box-shadow: 0 0 0 3px rgba(203, 69, 50, 0.12);
+      }
+      .field textarea {
+        resize: vertical;
+        min-height: 72px;
+      }
+
+      /* ── PRODUCT TABLE ── */
+      .prod-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+      }
+      .prod-table th {
+        background: var(--rojo);
+        color: white;
+        padding: 8px 10px;
+        text-align: left;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .prod-table th:first-child {
+        border-radius: 8px 0 0 0;
+      }
+      .prod-table th:last-child {
+        border-radius: 0 8px 0 0;
+      }
+      .prod-table td {
+        border-bottom: 1px solid var(--borde);
+        padding: 2px;
+      }
+      .prod-table tr:last-child td {
+        border-bottom: none;
+      }
+      .prod-table tr:nth-child(even) td {
+        background: #fafbfc;
+      }
+      .prod-table td input {
+        border: none;
+        background: transparent;
+        width: 100%;
+        padding: 7px 10px;
+        font-size: 12px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--texto);
+      }
+      .prod-table td input:focus {
+        outline: 2px solid var(--rojo);
+        border-radius: 6px;
+        background: #fef5f3;
+      }
+
+      /* ── EVIDENCE ── */
+      .ev-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .ev-slot {
+        border: 2px dashed var(--borde);
+        border-radius: 10px;
+        aspect-ratio: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: border-color 0.2s, background 0.2s;
+        position: relative;
+        overflow: hidden;
+        background: var(--gris-bg);
+      }
+      .ev-slot:hover {
+        border-color: var(--rojo);
+        background: #fef5f3;
+      }
+      .ev-slot.filled {
+        border-style: solid;
+        border-color: var(--rojo);
+      }
+      .ev-slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
+      }
+      .ev-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s;
+        border-radius: 8px;
+      }
+      .ev-slot:hover .ev-overlay {
+        opacity: 1;
+      }
+      .ev-icon {
+        font-size: 22px;
+        margin-bottom: 5px;
+      }
+      .ev-txt {
+        font-size: 11px;
+        color: var(--texto-sec);
+        text-align: center;
+        line-height: 1.4;
+      }
+      .ev-del {
+        background: var(--rojo);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+      }
+      .ev-filename {
+        font-size: 10px;
+        color: white;
+        margin-bottom: 6px;
+        padding: 0 8px;
+        text-align: center;
+        word-break: break-all;
+      }
+      .ev-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .btn-add-ev {
+        border: 1px solid var(--borde);
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 12px;
+        background: white;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        color: var(--texto);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 500;
+        transition: border-color 0.15s, color 0.15s;
+      }
+      .btn-add-ev:hover {
+        border-color: var(--rojo);
+        color: var(--rojo);
+      }
+      .ev-counter {
+        font-size: 11px;
+        color: var(--texto-sec);
+      }
+
+      /* ── CHECKLIST ── */
+      .check-item {
+        display: grid;
+        grid-template-columns: 200px auto 1fr;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        border: 1px solid var(--borde);
+        border-radius: 8px;
+        margin-bottom: 8px;
+        background: var(--gris-bg);
+      }
+      .check-label {
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .check-radios {
+        display: flex;
+        gap: 12px;
+      }
+      .radio-opt {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+        color: var(--texto-sec);
+        cursor: pointer;
+      }
+      .radio-opt input[type="radio"] {
+        accent-color: var(--rojo);
+        width: 14px;
+        height: 14px;
+      }
+      .check-obs {
+        border: 1px solid var(--borde);
+        border-radius: 7px;
+        padding: 7px 10px;
+        font-size: 12px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--texto);
+        background: white;
+        width: 100%;
+      }
+      .check-obs:focus {
+        outline: none;
+        border-color: var(--rojo);
+      }
+
+      .alerta {
+        background: var(--rojo-light);
+        border: 1px solid #e8a09a;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 12px;
+        color: #7b241c;
+        font-weight: 500;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 4px;
+        border-left: 4px solid var(--rojo);
+      }
+
+      /* ── DICTAMEN TABLE ── */
+      .dic-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+      }
+      .dic-table th {
+        background: var(--gris-osc);
+        color: white;
+        padding: 8px 10px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .dic-table th:first-child {
+        text-align: left;
+        border-radius: 8px 0 0 0;
+      }
+      .dic-table th:last-child {
+        border-radius: 0 8px 0 0;
+      }
+      .dic-table td {
+        border: 1px solid var(--borde);
+        padding: 8px 10px;
+        vertical-align: middle;
+        text-align: center;
+      }
+      .dic-table td:first-child {
+        text-align: left;
+        font-size: 12px;
+        color: var(--texto-sec);
+      }
+      .dic-table tr:nth-child(even) td {
+        background: #fafbfc;
+      }
+      .dic-table input[type="radio"] {
+        accent-color: var(--rojo);
+        width: 15px;
+        height: 15px;
+      }
+      .dic-table input[type="number"],
+      .dic-table input[type="text"] {
+        border: 1px solid var(--borde);
+        border-radius: 6px;
+        padding: 5px 8px;
+        font-size: 12px;
+        font-family: "DM Mono", monospace;
+        width: 100%;
+        text-align: center;
+        background: white;
+      }
+      .dic-table input:focus {
+        outline: none;
+        border-color: var(--rojo);
+      }
+      .dic-table .auto-field {
+        background: var(--gris-claro);
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+        color: var(--texto-sec);
+        font-weight: 500;
+        border-radius: 6px;
+        padding: 5px 8px;
+        border: 1px solid var(--borde);
+        width: 100%;
+      }
+
+      /* ── LEGAL ── */
+      .legal-list {
+        list-style: none;
+      }
+      .legal-list li {
+        padding: 8px 12px;
+        border-left: 3px solid var(--amarillo);
+        margin-bottom: 6px;
+        background: var(--amarillo-light);
+        border-radius: 0 8px 8px 0;
+        font-size: 12px;
+        color: var(--texto-sec);
+      }
+      .legal-list li strong {
+        color: var(--texto);
+      }
+
+      /* ── FIRMAS ── */
+      .firma-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 14px;
+      }
+      .firma-card {
+        border: 1px solid var(--borde);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .firma-head {
+        background: var(--gris-med);
+        color: white;
+        padding: 7px 12px;
+        font-size: 10px;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+      }
+      .firma-head.rojo {
+        background: var(--rojo);
+      }
+      .firma-space {
+        height: 70px;
+        border-bottom: 1px solid var(--borde);
+        background: #fafbfc;
+      }
+      .firma-name-input {
+        padding: 6px 10px;
+        border: none;
+        border-top: 1px solid var(--borde);
+        width: 100%;
+        font-size: 11px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--texto-sec);
+        text-align: center;
+        background: white;
+      }
+      .firma-name-input:focus {
+        outline: none;
+        background: #fff8f7;
+      }
+
+      /* ── BOTTOM BAR ── */
+      .bottom-bar {
+        background: white;
+        border: 1px solid var(--borde);
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 8px;
+        border-top: 3px solid var(--amarillo);
+      }
+      .bottom-note {
+        font-size: 11px;
+        color: var(--texto-sec);
+        line-height: 1.5;
+        max-width: 500px;
+      }
+      .btn-print {
+        background: var(--rojo);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 11px 28px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        transition: background 0.15s;
+      }
+      .btn-print:hover {
+        background: var(--rojo-dark);
+      }
+
+      .btn-email {
+        background: var(--gris-osc);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 11px 22px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        transition: background 0.15s;
+      }
+      .btn-email:hover {
+        background: #2a2a2a;
+      }
+
+      /* Modal */
+      .modal-bg {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 999;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-bg.open {
+        display: flex;
+      }
+      .modal {
+        background: white;
+        border-radius: 14px;
+        padding: 28px 28px 24px;
+        width: 440px;
+        max-width: 95vw;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        position: relative;
+      }
+      .modal-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .modal-sub {
+        font-size: 12px;
+        color: var(--texto-sec);
+        margin-bottom: 18px;
+      }
+      .modal-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--texto-sec);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .modal-input {
+        width: 100%;
+        border: 1px solid var(--borde);
+        border-radius: 8px;
+        padding: 9px 12px;
+        font-size: 13px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--texto);
+        margin-bottom: 14px;
+      }
+      .modal-input:focus {
+        outline: none;
+        border-color: var(--rojo);
+        box-shadow: 0 0 0 3px rgba(203, 69, 50, 0.12);
+      }
+      .modal-dest {
+        background: var(--gris-claro);
+        border-radius: 8px;
+        padding: 9px 12px;
+        font-size: 12px;
+        color: var(--texto-sec);
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .modal-dest strong {
+        color: var(--texto);
+      }
+      .modal-note {
+        background: var(--amarillo-light);
+        border: 1px solid #f0d060;
+        border-radius: 8px;
+        padding: 9px 12px;
+        font-size: 11px;
+        color: #7a6000;
+        margin-bottom: 18px;
+        line-height: 1.5;
+      }
+      .modal-btns {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+      .modal-cancel {
+        border: 1px solid var(--borde);
+        background: white;
+        border-radius: 8px;
+        padding: 9px 18px;
+        font-size: 13px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        color: var(--texto-sec);
+      }
+      .modal-send {
+        background: var(--rojo);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 9px 22px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: background 0.15s;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .modal-send:hover {
+        background: var(--rojo-dark);
+      }
+      .modal-close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        color: var(--texto-sec);
+        line-height: 1;
+      }
+      .dic-badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+      }
+      .dic-badge.procede {
+        background: #d5f5e3;
+        color: #1e8449;
+      }
+      .dic-badge.imp {
+        background: var(--rojo-light);
+        color: #7b241c;
+      }
+      .dic-badge.parcial {
+        background: #fef9e7;
+        color: #b7950b;
+      }
+
+      /* ── PRINT ── */
+      @media print {
+        body {
+          background: white;
+          font-size: 11px;
+        }
+        .main {
+          padding: 0;
+          max-width: 100%;
+        }
+        .section {
+          box-shadow: none;
+          border: 1px solid #ccc;
+          break-inside: avoid;
+        }
+        .bottom-bar .btn-print {
+          display: none;
+        }
+        .btn-add-ev {
+          display: none;
+        }
+        .ev-slot .ev-overlay {
+          display: none;
+        }
+        .header {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        @page {
+          margin: 10mm;
+          size: A4;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-top">
+        <div class="header-logo-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.07 30.37">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #ffffff;
+                }
+                .cls-2 {
+                  fill: #f5c336;
+                }
+                .cls-3 {
+                  fill: #cb4532;
+                }
+              </style>
+            </defs>
+            <g>
+              <g>
+                <rect class="cls-1" x="0.04" width="137.08" height="1.57" />
+                <path
+                  class="cls-1"
+                  d="M91.59,8.71l-1,1.83A27.53,27.53,0,0,0,86.13,8.8a9.65,9.65,0,0,0-3.76.28,2,2,0,0,0-1.53,2.1c0,1.1.79,1.46,1.63,1.68,2,.51,3.93.94,5.89,1.42,2.64.64,3.86,2,3.92,4.36a4.7,4.7,0,0,1-3.79,4.93,12.39,12.39,0,0,1-9.4-.82,1.36,1.36,0,0,0-1.57.08C74.1,25,67.77,24.35,64.88,21.59l1.11-2a11.12,11.12,0,0,0,6.18,2,12.45,12.45,0,0,0,3-.48,2.14,2.14,0,0,0,1.59-2.2c0-1.13-.75-1.57-1.66-1.81-2.13-.57-4.31-1-6.43-1.65a4.18,4.18,0,0,1-2.7-6.26,5.54,5.54,0,0,1,2.52-2.26,10,10,0,0,1,8.79.53l-.82,2c-1.66-.27-3.23-.62-4.83-.74a4.68,4.68,0,0,0-2.1.58c-1.12.51-2,1.68-.47,3.08a2.64,2.64,0,0,0,.94.56,37.58,37.58,0,0,0,4,.94c.81.19,1.63.33,2.42.56a4.69,4.69,0,0,1,3.27,4.77,1.34,1.34,0,0,0,1,1.5,10.25,10.25,0,0,0,6.39.65,4.15,4.15,0,0,0,1.28-.54,1.85,1.85,0,0,0,1-2.18,2.67,2.67,0,0,0-1.43-1.45c-1.8-.6-3.67-1-5.52-1.46-.37-.1-.75-.19-1.12-.3a3.94,3.94,0,0,1-3.14-3.49,4.59,4.59,0,0,1,2.4-4.79C83.68,5.33,88.52,6,91.59,8.71Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M137.11,28.61c.19,1.67.19,1.63-1.42,1.63-44.63,0-89.27.28-133.9,0-1.89,0-1.91.13-1.7-1.63Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M108.11,24.44l-6.65-9.81-.22.07v9H98.5V6l9.61,13.89L117.7,6V23.73h-2.59V14.64l-.29-.09C112.63,17.79,110.43,21,108.11,24.44Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M127.83,6.06A9,9,0,0,1,137,15a9.13,9.13,0,1,1-9.13-8.93Zm6.32,9.1a6.31,6.31,0,1,0-6.35,6.3A6.42,6.42,0,0,0,134.15,15.16Z"
+                />
+                <rect
+                  class="cls-1"
+                  x="93.74"
+                  y="6.45"
+                  width="2.65"
+                  height="17.32"
+                />
+                <rect
+                  class="cls-1"
+                  x="60.82"
+                  y="10.52"
+                  width="2.67"
+                  height="13.24"
+                />
+                <path
+                  class="cls-2"
+                  d="M100.88,6.36a1.37,1.37,0,0,1,1-.22q6.18,0,12.36,0c.34,0,.77-.15,1,.16s-.18.63-.36.9q-3.09,4.56-6.21,9.11c-.2.3-.4.84-.88.14C105.52,13.08,103.21,9.75,100.88,6.36Z"
+                />
+                <path
+                  class="cls-2"
+                  d="M22,14.3c1.55,2.77,3,5.39,4.49,8,.38.66.08.82-.51.82H17.82c-.44,0-.84-.07-.51-.65C18.84,19.8,20.38,17.13,22,14.3Z"
+                />
+                <polygon
+                  class="cls-3"
+                  points="60.99 8.83 63.49 8.83 63.49 6.4 60.99 8.83"
+                />
+                <path
+                  class="cls-1"
+                  d="M7.18,16.18.73,5.74H4.16l4.51,7.35,4.54-7.35h3.43L10.16,16.18v8h-3Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M55.29,8.81v15h-3v-15H47.79V6.34l13.94.06L59.3,8.81Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M43.65,6.45v12L29.44,5.77V18.5l-.25.07L22,5.74C20,9.19,18.13,12.58,16.24,15.93l-4.71,8.2H15l4.5-8.67c.8-1.43,1.62-2.87,2.43-4.35.33.54.54.86.73,1.19,2,3.54,6.44,11.83,6.44,11.83H32.4c0-4.05-.14-8.24-.14-12.38l14,12.51V6.45Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M138.91,27.26A2.58,2.58,0,1,1,141,25.12,2.57,2.57,0,0,1,138.91,27.26Zm0-4.55a2.05,2.05,0,1,0,1.61,1.61A2.05,2.05,0,0,0,138.9,22.71Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M138.07,25v1h-.7V23.31h0c.47,0,.93,0,1.4,0l.13,0a.63.63,0,0,1,.54.57.68.68,0,0,1-.41.78l0,0a1.52,1.52,0,0,1,.3.32c.18.3.33.62.51.95-.26,0-.49,0-.72,0,0,0-.05,0-.07-.07-.1-.21-.2-.43-.31-.64A.51.51,0,0,0,138.07,25Zm0-1.19v.71a3.89,3.89,0,0,0,.49,0c.15,0,.21-.15.2-.35s-.07-.27-.22-.29S138.24,23.82,138.07,23.81Z"
+                />
+              </g>
+            </g>
+          </svg>
+          <div class="header-divider"></div>
+          <div class="header-tagline">
+            <strong>Solicitud de Garantía</strong><br />
+            AV TECNOLÓGICO #3 &nbsp;•&nbsp; CP 28978 &nbsp;•&nbsp; VILLA DE
+            ÁLVAREZ, COLIMA
+          </div>
+        </div>
+        <div class="header-right">
+          <div id="fecha-display"></div>
+          <div class="folio-input-wrap">
+            <label>FOLIO:</label>
+            <input type="text" id="folio-inp" placeholder="Ej. CEDIS-0059" />
+          </div>
+        </div>
+      </div>
+      <div class="header-stripe"></div>
+    </div>
+
+    <div class="main">
+      <!-- 1. DATOS DEL CLIENTE -->
+      <div class="section">
+        <div class="sec-head">
+          <span class="sec-num">1</span> Datos del cliente
+        </div>
+        <div class="sec-body">
+          <div class="grid g4" style="margin-bottom: 12px">
+            <div class="field">
+              <label>No. cliente</label><input type="text" placeholder="—" />
+            </div>
+            <div class="field">
+              <label>Nombre del cliente</label
+              ><input type="text" placeholder="Nombre completo" />
+            </div>
+            <div class="field">
+              <label>Teléfono</label
+              ><input type="tel" placeholder="+52 312 ..." />
+            </div>
+            <div class="field">
+              <label>Vendedor</label
+              ><input type="text" placeholder="Nombre del asesor" />
+            </div>
+          </div>
+          <div class="grid g4">
+            <div class="field">
+              <label>Sucursal</label>
+              <select>
+                <option value="">— Seleccionar —</option>
+                <option>Niños Héroes (Colima)</option>
+                <option>Constitución (Colima)</option>
+                <option>Colinas del Rey (Villa de Álvarez)</option>
+                <option>Benito Juárez (Villa de Álvarez)</option>
+                <option>Tecnológico (Villa de Álvarez)</option>
+                <option>Blvd. (Manzanillo)</option>
+                <option>CEDIS</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>No. factura</label
+              ><input type="text" placeholder="13002" />
+            </div>
+            <div class="field">
+              <label>Fecha de factura</label><input type="date" />
+            </div>
+            <div class="field">
+              <label>Precio facturado s/IVA</label
+              ><input type="number" placeholder="0.00" step="0.01" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. DATOS DEL PRODUCTO -->
+      <div class="section">
+        <div class="sec-head">
+          <span class="sec-num">2</span> Datos del producto
+        </div>
+        <div class="sec-body" style="padding: 0 0 0 0">
+          <table class="prod-table">
+            <thead>
+              <tr>
+                <th style="width: 13%">Marca</th>
+                <th style="width: 13%">Modelo</th>
+                <th style="width: 13%">Medida</th>
+                <th style="width: 20%"># Serie / DOT</th>
+                <th style="width: 10%">Remanente</th>
+                <th style="width: 13%">Precio s/IVA</th>
+                <th>Descripción del daño</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" placeholder="OVATION" /></td>
+                <td><input type="text" /></td>
+                <td><input type="text" placeholder="185/65R14" /></td>
+                <td>
+                  <input
+                    type="text"
+                    style="font-family: 'DM Mono', monospace; font-size: 11px"
+                  />
+                </td>
+                <td><input type="text" /></td>
+                <td><input type="number" step="0.01" placeholder="0.00" /></td>
+                <td><input type="text" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td>
+                  <input
+                    type="text"
+                    style="font-family: 'DM Mono', monospace; font-size: 11px"
+                  />
+                </td>
+                <td><input type="text" /></td>
+                <td><input type="number" step="0.01" placeholder="0.00" /></td>
+                <td><input type="text" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td>
+                  <input
+                    type="text"
+                    style="font-family: 'DM Mono', monospace; font-size: 11px"
+                  />
+                </td>
+                <td><input type="text" /></td>
+                <td><input type="number" step="0.01" placeholder="0.00" /></td>
+                <td><input type="text" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3. EVIDENCIA FOTOGRÁFICA -->
+      <div class="section">
+        <div class="sec-head">
+          <span class="sec-num">3</span> Evidencia fotográfica
+        </div>
+        <div class="sec-body">
+          <div class="ev-grid" id="ev-grid"></div>
+          <div class="ev-actions">
+            <button class="btn-add-ev" onclick="addSlot()">
+              <span>+</span> Agregar espacio
+            </button>
+            <span class="ev-counter" id="ev-counter">0 archivos adjuntos</span>
+          </div>
+          <input
+            type="file"
+            id="file-inp"
+            accept="image/*"
+            multiple
+            style="display: none"
+            onchange="handleFiles(this)"
+          />
+        </div>
+      </div>
+
+      <!-- 4. DOCUMENTACIÓN -->
+      <div class="section">
+        <div class="sec-head">
+          <span class="sec-num">4</span> Documentación y requisitos
+        </div>
+        <div class="sec-body">
+          <div class="check-item">
+            <span class="check-label">Llanta física en sucursal</span>
+            <div class="check-radios">
+              <label class="radio-opt"
+                ><input type="radio" name="llanta" value="si" /> Sí</label
+              >
+              <label class="radio-opt"
+                ><input type="radio" name="llanta" value="no" /> No</label
+              >
+            </div>
+            <input class="check-obs" placeholder="Observaciones..." />
+          </div>
+          <div class="check-item">
+            <span class="check-label">Corte físico de llanta</span>
+            <div class="check-radios">
+              <label class="radio-opt"
+                ><input type="radio" name="corte" value="si" /> Sí</label
+              >
+              <label class="radio-opt"
+                ><input type="radio" name="corte" value="no" /> No</label
+              >
+            </div>
+            <input class="check-obs" placeholder="Observaciones..." />
+          </div>
+          <div class="check-item">
+            <span class="check-label">Foto / video del daño (10 seg)</span>
+            <div class="check-radios">
+              <label class="radio-opt"
+                ><input type="radio" name="foto" value="si" /> Sí</label
+              >
+              <label class="radio-opt"
+                ><input type="radio" name="foto" value="no" /> No</label
+              >
+            </div>
+            <input class="check-obs" placeholder="Observaciones..." />
+          </div>
+          <div class="alerta">
+            <span style="font-size: 15px; flex-shrink: 0">⚠</span>
+            No se elaborará nota de crédito si no se cuentan con los cortes o
+            llantas físicamente.
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. DICTAMEN -->
+      <div class="section">
+        <div class="sec-head">
+          <span class="sec-num">5</span> Resultado del dictamen
+          <span
+            style="
+              font-weight: 400;
+              opacity: 0.7;
+              font-size: 10px;
+              margin-left: 6px;
+            "
+            >— llenado por el ajustador</span
+          >
+        </div>
+        <div class="sec-body" style="padding: 0">
+          <table class="dic-table">
+            <thead>
+              <tr>
+                <th style="width: 40%; text-align: left; padding-left: 14px">
+                  Descripción
+                </th>
+                <th style="width: 8%">Procede SÍ</th>
+                <th style="width: 8%">Procede NO</th>
+                <th style="width: 12%">% a acreditar</th>
+                <th style="width: 14%">$ a acreditar</th>
+                <th style="width: 9%">IVA (16%)</th>
+                <th style="width: 11%">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding-left: 14px">
+                  Ajustable 100% – valor factura por daño en almacenaje o
+                  similar
+                </td>
+                <td><input type="radio" name="d1" value="si" /></td>
+                <td><input type="radio" name="d1" value="no" /></td>
+                <td><input type="text" placeholder="100%" /></td>
+                <td>
+                  <input
+                    type="number"
+                    step="0.01"
+                    placeholder="0.00"
+                    id="d1a"
+                    oninput="calcRow(1)"
+                  />
+                </td>
+                <td>
+                  <input class="auto-field" id="d1iva" readonly value="$0.00" />
+                </td>
+                <td>
+                  <input class="auto-field" id="d1tot" readonly value="$0.00" />
+                </td>
+              </tr>
+              <tr>
+                <td style="padding-left: 14px">
+                  Ajustable parcial – defecto de fabricación confirmado
+                </td>
+                <td><input type="radio" name="d2" value="si" /></td>
+                <td><input type="radio" name="d2" value="no" /></td>
+                <td><input type="text" placeholder="0%" /></td>
+                <td>
+                  <input
+                    type="number"
+                    step="0.01"
+                    placeholder="0.00"
+                    id="d2a"
+                    oninput="calcRow(2)"
+                  />
+                </td>
+                <td>
+                  <input class="auto-field" id="d2iva" readonly value="$0.00" />
+                </td>
+                <td>
+                  <input class="auto-field" id="d2tot" readonly value="$0.00" />
+                </td>
+              </tr>
+              <tr>
+                <td style="padding-left: 14px">
+                  Improcedente – daño externo / instalación / manejo
+                </td>
+                <td><input type="radio" name="d3" value="si" /></td>
+                <td><input type="radio" name="d3" value="no" /></td>
+                <td><input type="text" placeholder="—" /></td>
+                <td>
+                  <input
+                    type="number"
+                    step="0.01"
+                    placeholder="0.00"
+                    id="d3a"
+                    oninput="calcRow(3)"
+                  />
+                </td>
+                <td>
+                  <input class="auto-field" id="d3iva" readonly value="$0.00" />
+                </td>
+                <td>
+                  <input class="auto-field" id="d3tot" readonly value="$0.00" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 6. ANÁLISIS NARRATIVO -->
+      <div class="section">
+        <div class="sec-head">
+          <span class="sec-num">6</span> Análisis y dictamen narrativo
+        </div>
+        <div class="sec-body">
+          <div class="grid g2" style="margin-bottom: 12px">
+            <div class="field">
+              <label>Del análisis / causas probables</label>
+              <textarea
+                placeholder="Describir el análisis técnico y causas probables del daño..."
+              ></textarea>
+            </div>
+            <div class="field">
+              <label>Dictamen</label>
+              <select style="margin-bottom: 8px">
+                <option value="">— Seleccionar dictamen —</option>
+                <option>PROCEDE</option>
+                <option>IMPROCEDENTE</option>
+                <option>PROCEDE PARCIALMENTE</option>
+              </select>
+              <textarea placeholder="Comentario del ajustador..."></textarea>
+            </div>
+          </div>
+          <div class="grid g2">
+            <div class="field">
+              <label>Nombre del ajustador</label
+              ><input type="text" placeholder="Samuel A. Contreras Duarte" />
+            </div>
+            <div class="field">
+              <label>Lugar y fecha de expedición</label
+              ><input type="text" placeholder="Colima, Colima" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. BASE LEGAL -->
+      <div class="section">
+        <div class="sec-head"><span class="sec-num">7</span> Base legal</div>
+        <div class="sec-body">
+          <ul class="legal-list">
+            <li>
+              <strong>I.</strong> &nbsp; Arts. 32, 33 y 34 – Ley Federal de
+              Protección al Consumidor
+            </li>
+            <li>
+              <strong>II.</strong> &nbsp;Art. IV – Acuerdo sobre Bases Mínimas
+              de Pólizas de Garantía (D.O.F. mayo 4, 1976)
+            </li>
+            <li><strong>III.</strong> Garantía del Fabricante</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 8. FIRMAS -->
+      <div class="section">
+        <div class="sec-head">
+          <span class="sec-num">8</span> Firmas y validación
+        </div>
+        <div class="sec-body">
+          <div class="firma-grid">
+            <div class="firma-card">
+              <div class="firma-head">Asesor de ventas</div>
+              <div class="firma-space"></div>
+              <input
+                class="firma-name-input"
+                type="text"
+                placeholder="Nombre completo"
+              />
+            </div>
+            <div class="firma-card">
+              <div class="firma-head">Ajustador</div>
+              <div class="firma-space"></div>
+              <input
+                class="firma-name-input"
+                type="text"
+                placeholder="Nombre completo"
+              />
+            </div>
+            <div class="firma-card">
+              <div class="firma-head rojo">Gerente / Autorización</div>
+              <div class="firma-space"></div>
+              <input
+                class="firma-name-input"
+                type="text"
+                placeholder="Nombre completo"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM -->
+      <div class="bottom-bar">
+        <div class="bottom-note">
+          <strong
+            >La garantía cubre únicamente defectos de fabricación y/o mano de
+            obra.</strong
+          ><br />
+          YANTISSIMO S.A. DE C.V. &nbsp;•&nbsp; AV TECNOLÓGICO #3, VILLA DE
+          ÁLVAREZ, COLIMA
+        </div>
+        <div style="display: flex; gap: 10px; flex-shrink: 0">
+          <button class="btn-email" onclick="abrirModal()">
+            ✉ Enviar por correo
+          </button>
+          <button class="btn-print" onclick="window.print()">
+            🖨 Imprimir / PDF
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL CORREO -->
+    <div class="modal-bg" id="modal-bg" onclick="cerrarModalFuera(event)">
+      <div class="modal">
+        <button class="modal-close" onclick="cerrarModal()">✕</button>
+        <div class="modal-title">✉ Enviar solicitud por correo</div>
+        <div class="modal-sub">
+          Se abrirá tu cliente de correo con el resumen de la garantía listo
+          para enviar.
+        </div>
+
+        <label class="modal-label">Tu nombre / Sucursal</label>
+        <input
+          class="modal-input"
+          type="text"
+          id="m-nombre"
+          placeholder="Ej. María G. — Sucursal Tecnológico"
+        />
+
+        <label class="modal-label">Destinatario</label>
+        <div class="modal-dest">
+          <span>📧</span>
+          <span><strong>asesor.yantissimo@gmail.com</strong></span>
+        </div>
+
+        <div class="modal-note">
+          ⚠ Las fotos adjuntas
+          <strong>no se pueden incluir automáticamente</strong> por correo.
+          Después de enviar el resumen, adjunta las imágenes de evidencia
+          manualmente desde tu cliente de correo.
+        </div>
+
+        <div class="modal-btns">
+          <button class="modal-cancel" onclick="cerrarModal()">Cancelar</button>
+          <button class="modal-send" onclick="enviarCorreo()">
+            ✉ Abrir correo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Fecha
+      const meses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre",
+      ];
+      const hoy = new Date();
+      document.getElementById("fecha-display").textContent =
+        hoy.getDate() +
+        " de " +
+        meses[hoy.getMonth()] +
+        " de " +
+        hoy.getFullYear();
+
+      // Evidencia
+      let imgs = [];
+      let slots = 5;
+
+      function renderGrid() {
+        const g = document.getElementById("ev-grid");
+        g.innerHTML = "";
+        imgs.forEach((img, i) => {
+          const d = document.createElement("div");
+          d.className = "ev-slot filled";
+          d.innerHTML = `<img src="${img.url}" alt="${img.name}">
+        <div class="ev-overlay">
+          <div class="ev-filename">${img.name}</div>
+          <button class="ev-del" onclick="removeImg(${i},event)">✕</button>
+        </div>`;
+          g.appendChild(d);
+        });
+        for (let j = imgs.length; j < slots; j++) {
+          const d = document.createElement("div");
+          d.className = "ev-slot";
+          d.innerHTML = `<div class="ev-icon">📷</div><div class="ev-txt">Toca para adjuntar foto</div>`;
+          d.onclick = () => document.getElementById("file-inp").click();
+          g.appendChild(d);
+        }
+        document.getElementById("ev-counter").textContent =
+          imgs.length +
+          " archivo" +
+          (imgs.length !== 1 ? "s" : "") +
+          " adjunto" +
+          (imgs.length !== 1 ? "s" : "");
+      }
+
+      function addSlot() {
+        slots++;
+        renderGrid();
+      }
+
+      function handleFiles(inp) {
+        Array.from(inp.files).forEach((f) => {
+          const r = new FileReader();
+          r.onload = (e) => {
+            imgs.push({ url: e.target.result, name: f.name });
+            if (imgs.length >= slots) slots = imgs.length + 1;
+            renderGrid();
+          };
+          r.readAsDataURL(f);
+        });
+        inp.value = "";
+      }
+
+      function removeImg(i, e) {
+        e.stopPropagation();
+        imgs.splice(i, 1);
+        renderGrid();
+      }
+
+      renderGrid();
+
+      // Cálculo dictamen
+      function calcRow(n) {
+        const val =
+          parseFloat(document.getElementById("d" + n + "a").value) || 0;
+        const iva = val * 0.16;
+        document.getElementById("d" + n + "iva").value = "$" + iva.toFixed(2);
+        document.getElementById("d" + n + "tot").value =
+          "$" + (val + iva).toFixed(2);
+      }
+
+      // ── Modal correo ──────────────────────────────────────────────
+      function abrirModal() {
+        document.getElementById("modal-bg").classList.add("open");
+      }
+      function cerrarModal() {
+        document.getElementById("modal-bg").classList.remove("open");
+      }
+      function cerrarModalFuera(e) {
+        if (e.target === document.getElementById("modal-bg")) cerrarModal();
+      }
+
+      function val(sel) {
+        const el = document.querySelector(sel);
+        return el ? (el.value || "").trim() : "";
+      }
+
+      function enviarCorreo() {
+        const remitente = document.getElementById("m-nombre").value.trim();
+        const folio =
+          document.getElementById("folio-inp").value.trim() || "SIN FOLIO";
+
+        // Recolectar datos del formulario
+        const inputs = document.querySelectorAll(
+          "input:not([type=radio]):not([type=file]), select, textarea"
+        );
+        const campos = {};
+        inputs.forEach((el) => {
+          if (el.id && el.value) campos[el.id] = el.value;
+        });
+
+        // Tabla de producto — filas
+        const filasProd = [];
+        document.querySelectorAll(".prod-table tbody tr").forEach((tr, i) => {
+          const celdas = Array.from(tr.querySelectorAll("input")).map((x) =>
+            x.value.trim()
+          );
+          if (celdas.some((c) => c)) {
+            filasProd.push(
+              `  Llanta ${i + 1}: ${celdas.filter(Boolean).join(" | ")}`
+            );
+          }
+        });
+
+        // Checklist
+        const llanta = document.querySelector('input[name="llanta"]:checked');
+        const corte = document.querySelector('input[name="corte"]:checked');
+        const foto = document.querySelector('input[name="foto"]:checked');
+
+        // Dictamen radios
+        const d1 = document.querySelector('input[name="d1"]:checked');
+        const d2 = document.querySelector('input[name="d2"]:checked');
+        const d3 = document.querySelector('input[name="d3"]:checked');
+
+        // Totales
+        const tot1 = document.getElementById("d1tot")?.value || "$0.00";
+        const tot2 = document.getElementById("d2tot")?.value || "$0.00";
+        const tot3 = document.getElementById("d3tot")?.value || "$0.00";
+
+        // Selectores de datos cliente
+        const allInputs = document.querySelectorAll(
+          ".sec-body input, .sec-body select, .sec-body textarea"
+        );
+        const secData = Array.from(allInputs)
+          .map((el) => el.value?.trim())
+          .filter(Boolean);
+
+        const fecha =
+          document.getElementById("fecha-display")?.textContent || "";
+
+        const cuerpo = `SOLICITUD DE GARANTÍA — YANTISSIMO S.A. DE C.V.
+${"=".repeat(50)}
+Folio: ${folio}
+Fecha: ${fecha}
+Enviado por: ${remitente || "—"}
+
+DATOS DEL CLIENTE
+─────────────────────────────────────────────
+No. Cliente : ${
+          document.querySelectorAll(".sec-body .grid input")[0]?.value || "—"
+        }
+Nombre      : ${
+          document.querySelectorAll(".sec-body .grid input")[1]?.value || "—"
+        }
+Teléfono    : ${
+          document.querySelectorAll(".sec-body .grid input")[2]?.value || "—"
+        }
+Vendedor    : ${
+          document.querySelectorAll(".sec-body .grid input")[3]?.value || "—"
+        }
+Sucursal    : ${document.querySelector(".sec-body select")?.value || "—"}
+No. Factura : ${
+          document.querySelectorAll(".sec-body .grid input")[5]?.value || "—"
+        }
+Fecha Fact. : ${
+          document.querySelectorAll(".sec-body .grid input")[6]?.value || "—"
+        }
+Precio s/IVA: ${
+          document.querySelectorAll(".sec-body .grid input")[7]?.value || "—"
+        }
+
+PRODUCTO(S)
+─────────────────────────────────────────────
+${filasProd.length ? filasProd.join("\n") : "  (sin datos de producto)"}
+
+DOCUMENTACIÓN
+─────────────────────────────────────────────
+Llanta física   : ${llanta ? llanta.value.toUpperCase() : "No indicado"}
+Corte físico    : ${corte ? corte.value.toUpperCase() : "No indicado"}
+Foto/Video daño : ${foto ? foto.value.toUpperCase() : "No indicado"}
+
+DICTAMEN
+─────────────────────────────────────────────
+Ajustable 100%  : ${d1 ? d1.value.toUpperCase() : "—"}  Total: ${tot1}
+Ajustable parcial: ${d2 ? d2.value.toUpperCase() : "—"}  Total: ${tot2}
+Improcedente    : ${d3 ? d3.value.toUpperCase() : "—"}  Total: ${tot3}
+
+EVIDENCIA FOTOGRÁFICA
+─────────────────────────────────────────────
+Archivos adjuntos: ${imgs.length} foto(s)
+${
+  imgs.map((img, i) => `  • Foto ${i + 1}: ${img.name}`).join("\n") ||
+  "  (ninguna)"
+}
+⚠ Adjunta las imágenes manualmente a este correo.
+
+─────────────────────────────────────────────
+YANTISSIMO S.A. DE C.V.
+AV TECNOLÓGICO #3 • CP 28978 • VILLA DE ÁLVAREZ, COLIMA
+`;
+
+        const asunto = encodeURIComponent(
+          `Garantía ${folio} — ${
+            document.querySelectorAll(".sec-body .grid input")[1]?.value ||
+            "Cliente"
+          }`
+        );
+        const body = encodeURIComponent(cuerpo);
+        const mailto = `mailto:asesor.yantissimo@gmail.com?subject=${asunto}&body=${body}`;
+
+        window.location.href = mailto;
+        setTimeout(cerrarModal, 800);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "items": [
+    { "sku": "LLN-225-65-17", "name": "Llanta 225/65 R17 Michelin Primacy", "stock": 42, "price": 3850.00, "sucursal": "Centro" },
+    { "sku": "LLN-205-55-16", "name": "Llanta 205/55 R16 Bridgestone Turanza", "stock": 28, "price": 2990.00, "sucursal": "Centro" },
+    { "sku": "LLN-265-70-16", "name": "Llanta 265/70 R16 Goodyear Wrangler", "stock": 15, "price": 4520.00, "sucursal": "Norte" },
+    { "sku": "RIN-17-AL-5H", "name": "Rin 17\" Aluminio 5 birlos", "stock": 8, "price": 5400.00, "sucursal": "Norte" },
+    { "sku": "ACE-5W30-4L", "name": "Aceite Mobil 1 5W-30 4L", "stock": 67, "price": 890.00, "sucursal": "Centro" },
+    { "sku": "BAT-12V-75AH", "name": "Batería LTH 12V 75Ah", "stock": 19, "price": 2790.00, "sucursal": "Sur" },
+    { "sku": "FRE-DEL-DSC", "name": "Balatas delanteras disco", "stock": 33, "price": 720.00, "sucursal": "Centro" },
+    { "sku": "FIL-AIRE-K&N", "name": "Filtro de aire K&N alto flujo", "stock": 12, "price": 1240.00, "sucursal": "Norte" },
+    { "sku": "AMO-DEL-MNRO", "name": "Amortiguador delantero Monroe", "stock": 21, "price": 1890.00, "sucursal": "Sur" },
+    { "sku": "LLN-195-65-15", "name": "Llanta 195/65 R15 Continental", "stock": 38, "price": 2450.00, "sucursal": "Centro" }
+  ],
+  "total": 10
+}

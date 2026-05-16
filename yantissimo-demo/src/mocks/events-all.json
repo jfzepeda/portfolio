@@ -1,0 +1,10 @@
+{
+  "events": [
+    { "id": "ev-1", "title": "Cita - Cambio de aceite (Toyota Corolla)", "start": "2026-05-16T10:00:00", "end": "2026-05-16T11:00:00", "sucursal": "Centro", "client": "Juan Pérez", "type": "service" },
+    { "id": "ev-2", "title": "Cita - Alineación y balanceo (Nissan Versa)", "start": "2026-05-16T11:30:00", "end": "2026-05-16T12:30:00", "sucursal": "Centro", "client": "María González", "type": "service" },
+    { "id": "ev-3", "title": "Cita - Diagnóstico motor (Ford F-150)", "start": "2026-05-16T14:00:00", "end": "2026-05-16T15:30:00", "sucursal": "Norte", "client": "Roberto Silva", "type": "service" },
+    { "id": "ev-4", "title": "Cita - Cambio de llantas 4x (Honda CR-V)", "start": "2026-05-17T09:00:00", "end": "2026-05-17T10:30:00", "sucursal": "Sur", "client": "Laura Mendoza", "type": "service" },
+    { "id": "ev-5", "title": "Cita - Revisión frenos (VW Jetta)", "start": "2026-05-17T16:00:00", "end": "2026-05-17T17:00:00", "sucursal": "Centro", "client": "Carlos Ruiz", "type": "service" }
+  ],
+  "total": 5
+}

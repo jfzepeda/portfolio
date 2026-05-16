@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "id": "INV-2026-001", "client": "Distribuidora Norte SA", "total": 48250.00, "currency": "MXN", "status": "paid", "issuedAt": "2026-05-02", "dueAt": "2026-05-16" },
+    { "id": "INV-2026-002", "client": "Llantas y Rines del Bajío", "total": 132900.00, "currency": "MXN", "status": "pending", "issuedAt": "2026-05-07", "dueAt": "2026-05-21" },
+    { "id": "INV-2026-003", "client": "AutoCenter Pacífico", "total": 18420.50, "currency": "MXN", "status": "overdue", "issuedAt": "2026-04-20", "dueAt": "2026-05-04" },
+    { "id": "INV-2026-004", "client": "Servicios Express Monterrey", "total": 76340.00, "currency": "MXN", "status": "paid", "issuedAt": "2026-05-12", "dueAt": "2026-05-26" },
+    { "id": "INV-2026-005", "client": "Refaccionaria Central", "total": 22115.75, "currency": "MXN", "status": "pending", "issuedAt": "2026-05-14", "dueAt": "2026-05-28" }
+  ],
+  "total": 5
+}

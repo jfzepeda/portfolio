@@ -1,0 +1,15 @@
+{
+  "kpis": {
+    "ventasMes": 1842500.00,
+    "ventasMesAnterior": 1670300.00,
+    "ticketPromedio": 4280.50,
+    "clientesActivos": 348,
+    "tasaConversion": 0.62
+  },
+  "topClientes": [
+    { "name": "Distribuidora Norte SA", "total": 248750.00, "orders": 18 },
+    { "name": "Llantas y Rines del Bajío", "total": 187320.00, "orders": 14 },
+    { "name": "AutoCenter Pacífico", "total": 142100.00, "orders": 22 },
+    { "name": "Servicios Express Monterrey", "total": 98540.00, "orders": 11 }
+  ]
+}
