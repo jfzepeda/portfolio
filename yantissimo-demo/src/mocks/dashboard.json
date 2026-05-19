@@ -1,0 +1,107 @@
+{
+  "kpis": {
+    "ventasMTD": 1842500.00,
+    "ventasLastMonth": 1670300.00,
+    "ventasYTD": 8420600.00,
+    "ventasYearGoal": 22000000.00,
+    "ventasYearGoalProgress": 0.383,
+    "ordenesMTD": 247,
+    "ordenesLastMonth": 276,
+    "ticketPromedio": 7459.51,
+    "clientesActivos": 348,
+    "clientesNuevosMTD": 42,
+    "margenBruto": 0.34,
+    "margenBrutoLastMonth": 0.32,
+    "cuentasPorCobrar": 1284750.00,
+    "cuentasVencidas": 142800.00,
+    "cuentasVencidasShare": 0.111,
+    "rampaUtilization": 0.39,
+    "rampaUtilizationLastWeek": 0.42,
+    "nps": 78,
+    "npsLastMonth": 74,
+    "churnRate": 0.04
+  },
+  "salesByMonth": [
+    { "month": "2025-06", "ventas": 1248300.00, "ordenes": 218, "ticket": 5725.23, "margen": 0.31 },
+    { "month": "2025-07", "ventas": 1382400.00, "ordenes": 234, "ticket": 5907.69, "margen": 0.32 },
+    { "month": "2025-08", "ventas": 1494200.00, "ordenes": 246, "ticket": 6074.80, "margen": 0.33 },
+    { "month": "2025-09", "ventas": 1318700.00, "ordenes": 228, "ticket": 5783.77, "margen": 0.31 },
+    { "month": "2025-10", "ventas": 1428900.00, "ordenes": 252, "ticket": 5670.24, "margen": 0.32 },
+    { "month": "2025-11", "ventas": 1632100.00, "ordenes": 268, "ticket": 6090.30, "margen": 0.33 },
+    { "month": "2025-12", "ventas": 1894800.00, "ordenes": 298, "ticket": 6358.39, "margen": 0.35 },
+    { "month": "2026-01", "ventas": 1542700.00, "ordenes": 258, "ticket": 5979.46, "margen": 0.33 },
+    { "month": "2026-02", "ventas": 1418300.00, "ordenes": 232, "ticket": 6112.50, "margen": 0.32 },
+    { "month": "2026-03", "ventas": 1581200.00, "ordenes": 264, "ticket": 5989.39, "margen": 0.33 },
+    { "month": "2026-04", "ventas": 1670300.00, "ordenes": 276, "ticket": 6051.81, "margen": 0.34 },
+    { "month": "2026-05", "ventas": 1842500.00, "ordenes": 247, "ticket": 7459.51, "margen": 0.34 }
+  ],
+  "salesBySucursal": [
+    { "sucursal": "MAN",    "ventas": 884240.00, "ordenes": 112, "ticket": 7894.99, "share": 0.480, "trend": "+12%" },
+    { "sucursal": "TEC",    "ventas": 286120.00, "ordenes": 38,  "ticket": 7529.47, "share": 0.155, "trend": "+8%"  },
+    { "sucursal": "BJZ",    "ventas": 184260.00, "ordenes": 24,  "ticket": 7677.50, "share": 0.100, "trend": "+5%"  },
+    { "sucursal": "CON",    "ventas": 142180.00, "ordenes": 22,  "ticket": 6462.73, "share": 0.077, "trend": "+3%"  },
+    { "sucursal": "NHS",    "ventas":  98420.00, "ordenes": 18,  "ticket": 5467.78, "share": 0.053, "trend": "-2%"  },
+    { "sucursal": "REY",    "ventas":  84140.00, "ordenes": 14,  "ticket": 6010.00, "share": 0.046, "trend": "+1%"  },
+    { "sucursal": "MYR",    "ventas":  98400.00, "ordenes": 10,  "ticket": 9840.00, "share": 0.053, "trend": "+18%" },
+    { "sucursal": "MYRCOL", "ventas":  44280.00, "ordenes": 6,   "ticket": 7380.00, "share": 0.024, "trend": "+9%"  },
+    { "sucursal": "MYRMZO", "ventas":  20460.00, "ordenes": 3,   "ticket": 6820.00, "share": 0.011, "trend": "+4%"  }
+  ],
+  "topServices": [
+    { "service": "Montaje llanta R16-R17",          "linea": "MONTAJE",     "count": 184, "revenue": 27600.00 },
+    { "service": "Alineación 4 ruedas computarizada","linea": "ALINEACION", "count": 142, "revenue": 75260.00 },
+    { "service": "Balanceo 4 ruedas (paquete)",     "linea": "BALANCEO",    "count": 138, "revenue": 35880.00 },
+    { "service": "Rotación 4 llantas",              "linea": "ROTACION",    "count": 96,  "revenue": 21120.00 },
+    { "service": "Reparación con hongo vulcanizado","linea": "REPARACION",  "count": 84,  "revenue": 21840.00 },
+    { "service": "Diagnóstico de motor (escáner)",  "linea": "DIAGNOSTICO", "count": 62,  "revenue": 29760.00 },
+    { "service": "Inspección pre-viaje",            "linea": "REVISION",    "count": 58,  "revenue": 10440.00 },
+    { "service": "Check Yantissimo Club",           "linea": "REVISION",    "count": 48,  "revenue": 0       }
+  ],
+  "topProducts": [
+    { "sku": "MIC-225-65R17", "name": "Michelin Primacy 4S 225/65R17",        "units": 124, "revenue": 477400.00, "share": 0.092 },
+    { "sku": "MIC-275-65R18", "name": "Michelin Defender LTX 275/65R18",     "units": 92,  "revenue": 550160.00, "share": 0.106 },
+    { "sku": "YSM-195-65R15", "name": "Yantissimo Eco 195/65R15",            "units": 188, "revenue": 261320.00, "share": 0.050 },
+    { "sku": "MIC-195-65R15", "name": "Michelin Energy XM2+ 195/65R15",      "units": 96,  "revenue": 235200.00, "share": 0.045 },
+    { "sku": "BRD-205-55R16", "name": "Bridgestone Turanza T005 205/55R16",  "units": 84,  "revenue": 251160.00, "share": 0.048 },
+    { "sku": "GDY-265-70R16", "name": "Goodyear Wrangler All-Terrain 265/70R16","units": 64, "revenue": 278400.00, "share": 0.054 },
+    { "sku": "MIC-265-70R16", "name": "Michelin LTX A/T2 265/70R16",         "units": 56,  "revenue": 253120.00, "share": 0.049 },
+    { "sku": "YSM-205-55R16", "name": "Yantissimo Eco 205/55R16",            "units": 152, "revenue": 240160.00, "share": 0.046 },
+    { "sku": "MIC-205-55R16", "name": "Michelin Pilot Sport 4 205/55R16",    "units": 48,  "revenue": 143520.00, "share": 0.028 },
+    { "sku": "CON-205-55R16", "name": "Continental PremiumContact 6 205/55R16","units": 44, "revenue": 119680.00, "share": 0.023 }
+  ],
+  "conversionFunnel": [
+    { "stage": "Visitas/Scans QR", "count": 1842, "rate": 1.000 },
+    { "stage": "Cotizaciones",     "count": 247,  "rate": 0.134 },
+    { "stage": "Confirmadas",      "count": 178,  "rate": 0.097 },
+    { "stage": "Pagadas",          "count": 142,  "rate": 0.077 },
+    { "stage": "Facturadas",       "count": 142,  "rate": 0.077 }
+  ],
+  "technicianProductivity": [
+    { "technician": "Iván Trujillo",     "sucursal": "MAN", "appointmentsCompleted": 142, "hoursWorked": 168, "efficiency": 0.92, "averageRating": 4.8 },
+    { "technician": "Bruno Cervantes",   "sucursal": "TEC", "appointmentsCompleted": 84,  "hoursWorked": 164, "efficiency": 0.88, "averageRating": 4.7 },
+    { "technician": "Noé Figueroa",      "sucursal": "CON", "appointmentsCompleted": 62,  "hoursWorked": 160, "efficiency": 0.81, "averageRating": 4.6 },
+    { "technician": "Esteban Calderón",  "sucursal": "NHS", "appointmentsCompleted": 48,  "hoursWorked": 156, "efficiency": 0.79, "averageRating": 4.5 },
+    { "technician": "Adriana Solís",     "sucursal": "BJZ", "appointmentsCompleted": 56,  "hoursWorked": 160, "efficiency": 0.83, "averageRating": 4.7 }
+  ],
+  "sellerLeaderboard": [
+    { "seller": "Lucía Hernández",   "sucursal": "MAN", "ventas": 894500.00, "ordenes": 18,  "ticket": 49694.44 },
+    { "seller": "Mariano Esquivel",  "sucursal": "MAN", "ventas": 412800.00, "ordenes": 14,  "ticket": 29485.71 },
+    { "seller": "Itzel Bañuelos",    "sucursal": "MAN", "ventas": 312840.00, "ordenes": 78,  "ticket": 4010.77  },
+    { "seller": "Daniela Robles",    "sucursal": "MAN", "ventas": 198400.00, "ordenes": 9,   "ticket": 22044.44 },
+    { "seller": "Héctor Ramírez",    "sucursal": "TEC", "ventas": 142880.00, "ordenes": 42,  "ticket": 3401.90  },
+    { "seller": "Adriana Solís",     "sucursal": "BJZ", "ventas": 124680.00, "ordenes": 28,  "ticket": 4452.86  },
+    { "seller": "Pablo Castañeda",   "sucursal": "CON", "ventas":  98420.00, "ordenes": 22,  "ticket": 4473.64  },
+    { "seller": "Saúl Beltrán",      "sucursal": "REY", "ventas":  78640.00, "ordenes": 16,  "ticket": 4915.00  },
+    { "seller": "Karina Espinoza",   "sucursal": "NHS", "ventas":  64280.00, "ordenes": 14,  "ticket": 4591.43  },
+    { "seller": "Rodrigo Linares",   "sucursal": "MYR", "ventas": 156400.00, "ordenes": 8,   "ticket": 19550.00 }
+  ],
+  "inventory": {
+    "totalSKUs": 120,
+    "totalUnits": 3168,
+    "valueAtCost": 4892480.00,
+    "valueAtRetail": 7180520.00,
+    "lowStockItems": 14,
+    "outOfStockItems": 0,
+    "obsoleteItems": 3,
+    "stockTurnoverMonths": 2.4
+  }
+}

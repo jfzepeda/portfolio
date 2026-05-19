@@ -1,0 +1,70 @@
+{
+  "layout": {
+    "MAN":    { "rampas": ["Rampa A", "Rampa B", "Rampa C", "Rampa D", "Rampa E", "Rampa F"],                                 "tipo": "rampa_estandar" },
+    "TEC":    { "rampas": ["2Postes A", "2Postes B", "2Postes C", "2Postes D", "Tijera A", "Tijera B", "Alineadora A"],        "tipo": "mixto" },
+    "BJZ":    { "rampas": ["Rampa A", "Rampa B", "Alineadora A"],                                                              "tipo": "mixto" },
+    "CON":    { "rampas": ["2Postes A", "2Postes B", "2Postes C", "Tijera A", "Tijera B", "Alineadora A"],                     "tipo": "mixto" },
+    "NHS":    { "rampas": ["2Postes A", "2Postes B", "Tijera A", "Alineadora A"],                                              "tipo": "mixto" },
+    "REY":    { "rampas": ["2Postes A", "2Postes B", "2Postes C", "Tijera A", "Alineadora A"],                                 "tipo": "mixto" },
+    "YAOL":   { "rampas": ["Rampa virtual"],                                                                                    "tipo": "virtual" },
+    "MYR":    { "rampas": ["Anden 1", "Anden 2"],                                                                               "tipo": "mayoreo" },
+    "MYRCOL": { "rampas": ["Anden 1"],                                                                                          "tipo": "mayoreo" },
+    "MYRMZO": { "rampas": ["Anden 1"],                                                                                          "tipo": "mayoreo" }
+  },
+  "schedule": [
+    { "id": "blk-001", "sucursal": "MAN", "rampa": "Rampa A",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-16T09:00:00", "end_at": "2026-05-16T10:00:00", "appointment_id": "ev-001", "customer": "Juan Pérez Ramírez",       "status": "confirmed" },
+    { "id": "blk-002", "sucursal": "MAN", "rampa": "Alineadora A", "technician": "Iván Trujillo",    "service_clave": "ALINEACION",  "start_at": "2026-05-16T10:00:00", "end_at": "2026-05-16T11:30:00", "appointment_id": "ev-002", "customer": "María González Mendoza",   "status": "confirmed" },
+    { "id": "blk-003", "sucursal": "MAN", "rampa": "Rampa B",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-16T12:00:00", "end_at": "2026-05-16T13:30:00", "appointment_id": "ev-004", "customer": "Laura Mendoza Castillo",   "status": "in_progress" },
+    { "id": "blk-004", "sucursal": "MAN", "rampa": "Rampa C",      "technician": "Iván Trujillo",    "service_clave": "DIAGNOSTICO", "start_at": "2026-05-16T13:00:00", "end_at": "2026-05-16T14:00:00", "appointment_id": "ev-005", "customer": "Carlos Ruiz Pacheco",      "status": "confirmed" },
+    { "id": "blk-005", "sucursal": "MAN", "rampa": "Alineadora A", "technician": "Iván Trujillo",    "service_clave": "ALINEACION",  "start_at": "2026-05-16T16:00:00", "end_at": "2026-05-16T17:00:00", "appointment_id": "ev-008", "customer": "Andrés Méndez Quintero",    "status": "confirmed" },
+
+    { "id": "blk-006", "sucursal": "TEC", "rampa": "2Postes A",    "technician": "Bruno Cervantes",   "service_clave": "DIAGNOSTICO", "start_at": "2026-05-16T11:00:00", "end_at": "2026-05-16T12:30:00", "appointment_id": "ev-003", "customer": "Roberto Silva Hernández",  "status": "confirmed" },
+    { "id": "blk-007", "sucursal": "TEC", "rampa": "Tijera A",     "technician": "Bruno Cervantes",   "service_clave": "ROTACION",   "start_at": "2026-05-16T14:00:00", "end_at": "2026-05-16T14:45:00", "appointment_id": "ev-006", "customer": "Diego Sandoval Olmos",     "status": "confirmed" },
+    { "id": "blk-008", "sucursal": "TEC", "rampa": "2Postes B",    "technician": "Bruno Cervantes",   "service_clave": "MONTAJE",     "start_at": "2026-05-17T08:30:00", "end_at": "2026-05-17T09:30:00", "appointment_id": "ev-009", "customer": "Sergio Aceves Bañuelos",   "status": "confirmed" },
+    { "id": "blk-009", "sucursal": "TEC", "rampa": "Alineadora A", "technician": "Bruno Cervantes",   "service_clave": "ALINEACION",  "start_at": "2026-05-17T14:00:00", "end_at": "2026-05-17T15:30:00", "appointment_id": "ev-015", "customer": "Alfonso Robledo Salinas",   "status": "confirmed" },
+    { "id": "blk-010", "sucursal": "TEC", "rampa": "2Postes C",    "technician": "Bruno Cervantes",   "service_clave": "SUSPENSION",  "start_at": "2026-05-20T14:00:00", "end_at": "2026-05-20T16:00:00", "appointment_id": "ev-033", "customer": "Mariano Esquivel Ortiz",    "status": "confirmed" },
+
+    { "id": "blk-011", "sucursal": "BJZ", "rampa": "Rampa A",      "technician": "Adriana Solís",    "service_clave": "REVISION",    "start_at": "2026-05-17T13:00:00", "end_at": "2026-05-17T13:30:00", "appointment_id": "ev-014", "customer": "Pilar Anguiano Rentería",  "status": "confirmed" },
+    { "id": "blk-012", "sucursal": "BJZ", "rampa": "Alineadora A", "technician": "Adriana Solís",    "service_clave": "ALINEACION",  "start_at": "2026-05-19T14:30:00", "end_at": "2026-05-19T16:00:00", "appointment_id": "ev-029", "customer": "Hortencia Ruelas García",   "status": "confirmed" },
+    { "id": "blk-013", "sucursal": "BJZ", "rampa": "Alineadora A", "technician": "Adriana Solís",    "service_clave": "ALINEACION",  "start_at": "2026-05-22T09:00:00", "end_at": "2026-05-22T09:45:00", "appointment_id": "ev-037", "customer": "Diana Cárdenas Velasco",   "status": "confirmed" },
+
+    { "id": "blk-014", "sucursal": "CON", "rampa": "2Postes B",    "technician": "Noé Figueroa",     "service_clave": "SUSPENSION",  "start_at": "2026-05-16T15:00:00", "end_at": "2026-05-16T16:30:00", "appointment_id": "ev-007", "customer": "Patricia Robles Vargas",   "status": "confirmed" },
+    { "id": "blk-015", "sucursal": "CON", "rampa": "2Postes B",    "technician": "Noé Figueroa",     "service_clave": "SUSPENSION",  "start_at": "2026-05-18T10:00:00", "end_at": "2026-05-18T12:00:00", "appointment_id": "ev-019", "customer": "Ulises Bermúdez Sánchez",  "status": "confirmed" },
+
+    { "id": "blk-016", "sucursal": "NHS", "rampa": "2Postes A",    "technician": "Esteban Calderón", "service_clave": "DIAGNOSTICO", "start_at": "2026-05-17T10:00:00", "end_at": "2026-05-17T11:30:00", "appointment_id": "ev-011", "customer": "Fernando Hidalgo Tapia",    "status": "confirmed" },
+    { "id": "blk-017", "sucursal": "NHS", "rampa": "Rampa A",      "technician": "Esteban Calderón", "service_clave": "REPARACION",  "start_at": "2026-05-19T10:30:00", "end_at": "2026-05-19T11:15:00", "appointment_id": "ev-026", "customer": "Lorena Vásquez Trejo",     "status": "confirmed" },
+
+    { "id": "blk-018", "sucursal": "REY", "rampa": "Rampa A",      "technician": "Saúl Beltrán",     "service_clave": "BALANCEO",    "start_at": "2026-05-18T11:00:00", "end_at": "2026-05-18T12:00:00", "appointment_id": "ev-020", "customer": "Cristina Ledesma Carrillo","status": "confirmed" },
+    { "id": "blk-019", "sucursal": "REY", "rampa": "Rampa A",      "technician": "Saúl Beltrán",     "service_clave": "DIAGNOSTICO", "start_at": "2026-05-21T09:00:00", "end_at": "2026-05-21T09:45:00", "appointment_id": "ev-034", "customer": "Ricardo Anguiano Pacheco", "status": "confirmed" },
+
+    { "id": "blk-020", "sucursal": "MAN", "rampa": "Rampa B",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-18T08:00:00", "end_at": "2026-05-18T10:00:00", "appointment_id": "ev-017", "customer": "Distribuidora Norte SA",   "status": "confirmed" },
+    { "id": "blk-021", "sucursal": "MAN", "rampa": "Rampa C",      "technician": "Iván Trujillo",    "service_clave": "BALANCEO",    "start_at": "2026-05-18T09:00:00", "end_at": "2026-05-18T10:00:00", "appointment_id": "ev-018", "customer": "Gabriela Salazar Quintanar","status": "confirmed" },
+    { "id": "blk-022", "sucursal": "MAN", "rampa": "Rampa B",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-18T13:00:00", "end_at": "2026-05-18T14:30:00", "appointment_id": "ev-021", "customer": "Transportes Águila SA",    "status": "confirmed" },
+    { "id": "blk-023", "sucursal": "MAN", "rampa": "Rampa C",      "technician": "Iván Trujillo",    "service_clave": "REVISION",    "start_at": "2026-05-18T14:00:00", "end_at": "2026-05-18T15:00:00", "appointment_id": "ev-022", "customer": "Iván Sotomayor Padilla",   "status": "confirmed" },
+    { "id": "blk-024", "sucursal": "MAN", "rampa": "Alineadora A", "technician": "Iván Trujillo",    "service_clave": "ALINEACION",  "start_at": "2026-05-18T15:30:00", "end_at": "2026-05-18T17:00:00", "appointment_id": "ev-023", "customer": "Brenda Carrillo Núñez",     "status": "confirmed" },
+    { "id": "blk-025", "sucursal": "MAN", "rampa": "Rampa A",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-19T09:30:00", "end_at": "2026-05-19T10:30:00", "appointment_id": "ev-025", "customer": "Mauricio Beltrán Ovalle",  "status": "confirmed" },
+    { "id": "blk-026", "sucursal": "MAN", "rampa": "Rampa B",      "technician": "Iván Trujillo",    "service_clave": "REVISION",    "start_at": "2026-05-19T11:30:00", "end_at": "2026-05-19T12:30:00", "appointment_id": "ev-027", "customer": "Joaquín Robledo Sanmiguel","status": "confirmed" },
+    { "id": "blk-027", "sucursal": "MAN", "rampa": "Rampa C",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-19T13:00:00", "end_at": "2026-05-19T14:30:00", "appointment_id": "ev-028", "customer": "Adriana Manríquez Olmos",   "status": "confirmed" },
+    { "id": "blk-028", "sucursal": "MAN", "rampa": "Rampa B",      "technician": "Iván Trujillo",    "service_clave": "REVISION",    "start_at": "2026-05-20T08:00:00", "end_at": "2026-05-20T12:00:00", "appointment_id": "ev-030", "customer": "Coca-Cola FEMSA Flota",    "status": "confirmed" },
+    { "id": "blk-029", "sucursal": "MAN", "rampa": "Rampa A",      "technician": "Iván Trujillo",    "service_clave": "ROTACION",   "start_at": "2026-05-20T13:00:00", "end_at": "2026-05-20T13:30:00", "appointment_id": "ev-032", "customer": "Carolina Méndez Cervantes","status": "confirmed" },
+    { "id": "blk-030", "sucursal": "MAN", "rampa": "Alineadora A", "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-21T10:00:00", "end_at": "2026-05-21T12:00:00", "appointment_id": "ev-035", "customer": "Pemex Logística Manzanillo","status": "confirmed" },
+    { "id": "blk-031", "sucursal": "MAN", "rampa": "Rampa A",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-22T11:00:00", "end_at": "2026-05-22T12:00:00", "appointment_id": "ev-038", "customer": "Federico Olvera Reséndiz", "status": "confirmed" },
+    { "id": "blk-032", "sucursal": "MAN", "rampa": "Rampa C",      "technician": "Iván Trujillo",    "service_clave": "REVISION",    "start_at": "2026-05-22T14:00:00", "end_at": "2026-05-22T14:30:00", "appointment_id": "ev-039", "customer": "Yolanda Cisneros Aguayo",  "status": "confirmed" },
+    { "id": "blk-033", "sucursal": "MAN", "rampa": "Rampa B",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-23T10:00:00", "end_at": "2026-05-23T11:30:00", "appointment_id": "ev-040", "customer": "Servicios Express Monterrey","status": "confirmed" },
+    { "id": "blk-034", "sucursal": "MAN", "rampa": "Rampa A",      "technician": "Iván Trujillo",    "service_clave": "MONTAJE",     "start_at": "2026-05-16T08:00:00", "end_at": "2026-05-16T09:00:00", "appointment_id": null,     "customer": "Bloqueado — mantenimiento",  "status": "blocked" },
+    { "id": "blk-035", "sucursal": "MAN", "rampa": "Rampa D",      "technician": null,                "service_clave": null,          "start_at": "2026-05-16T00:00:00", "end_at": "2026-05-16T23:59:59", "appointment_id": null,     "customer": "Rampa fuera de servicio",     "status": "out_of_service" },
+    { "id": "blk-036", "sucursal": "MAN", "rampa": "Rampa A",      "technician": "Iván Trujillo",    "service_clave": "REVISION",    "start_at": "2026-05-16T08:51:33", "end_at": "2026-05-16T11:30:00", "appointment_id": null,     "customer": "Andrea Cárdenas (walk-in)",  "status": "walk_in" },
+    { "id": "blk-037", "sucursal": "TEC", "rampa": "Tijera B",     "technician": null,                "service_clave": null,          "start_at": "2026-05-16T00:00:00", "end_at": "2026-05-16T23:59:59", "appointment_id": null,     "customer": "Rampa fuera de servicio",     "status": "out_of_service" },
+    { "id": "blk-038", "sucursal": "MYR", "rampa": "Anden 1",      "technician": "Rodrigo Linares",  "service_clave": "REVISION",    "start_at": "2026-05-21T13:00:00", "end_at": "2026-05-21T14:00:00", "appointment_id": "ev-036", "customer": "Llantera del Pacífico",     "status": "confirmed" },
+    { "id": "blk-039", "sucursal": "MYR", "rampa": "Anden 2",      "technician": "Rodrigo Linares",  "service_clave": "REVISION",    "start_at": "2026-05-22T13:00:00", "end_at": "2026-05-22T14:00:00", "appointment_id": null,     "customer": "Mayoreo — descarga camión",   "status": "confirmed" },
+    { "id": "blk-040", "sucursal": "MYRCOL","rampa": "Anden 1",   "technician": "Verónica Galindo", "service_clave": "REVISION",    "start_at": "2026-05-18T09:00:00", "end_at": "2026-05-18T10:30:00", "appointment_id": null,     "customer": "Auditoría mensual",           "status": "confirmed" }
+  ],
+  "summary": {
+    "totalRampas": 33,
+    "rampasActivas": 31,
+    "outOfService": 2,
+    "occupiedToday": 12,
+    "freeToday": 19,
+    "utilizationToday": 0.39
+  }
+}

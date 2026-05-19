@@ -1,0 +1,36 @@
+{
+  "items": [
+    { "id": 6001, "customer_id": 2001, "vehicle_id": 5001, "service_type": "Cambio de aceite",     "last_service_date": "2026-01-16", "next_service_date": "2026-07-16", "interval_days": 180, "status": "ok",      "progress_percent": 67, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6002, "customer_id": 2001, "vehicle_id": 5001, "service_type": "Rotación de llantas", "last_service_date": "2026-03-22", "next_service_date": "2026-09-22", "interval_days": 180, "status": "ok",      "progress_percent": 32, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6003, "customer_id": 2002, "vehicle_id": 5002, "service_type": "Cambio de aceite",     "last_service_date": "2025-12-04", "next_service_date": "2026-06-04", "interval_days": 180, "status": "soon",    "progress_percent": 90, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6004, "customer_id": 2003, "vehicle_id": 5003, "service_type": "Alineación",          "last_service_date": "2026-01-18", "next_service_date": "2027-01-18", "interval_days": 365, "status": "ok",      "progress_percent": 32, "reminder_enabled": true,  "sucursal": "TEC" },
+    { "id": 6005, "customer_id": 2003, "vehicle_id": 5003, "service_type": "Cambio de aceite",     "last_service_date": "2025-11-22", "next_service_date": "2026-05-22", "interval_days": 180, "status": "due",     "progress_percent": 100,"reminder_enabled": true,  "sucursal": "TEC" },
+    { "id": 6006, "customer_id": 2004, "vehicle_id": 5004, "service_type": "Rotación de llantas", "last_service_date": "2026-01-12", "next_service_date": "2026-07-12", "interval_days": 180, "status": "ok",      "progress_percent": 68, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6007, "customer_id": 2005, "vehicle_id": 5005, "service_type": "Cambio de balatas",   "last_service_date": "2025-08-10", "next_service_date": "2026-08-10", "interval_days": 365, "status": "ok",      "progress_percent": 76, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6008, "customer_id": 2007, "vehicle_id": 5007, "service_type": "Cambio de aceite",     "last_service_date": "2025-11-05", "next_service_date": "2026-05-05", "interval_days": 180, "status": "expired", "progress_percent": 100,"reminder_enabled": true,  "sucursal": "CON" },
+    { "id": 6009, "customer_id": 2009, "vehicle_id": 5009, "service_type": "Alineación",          "last_service_date": "2026-01-30", "next_service_date": "2027-01-30", "interval_days": 365, "status": "ok",      "progress_percent": 30, "reminder_enabled": true,  "sucursal": "TEC" },
+    { "id": 6010, "customer_id": 2009, "vehicle_id": 5009, "service_type": "Cambio de aceite",     "last_service_date": "2026-02-15", "next_service_date": "2026-08-15", "interval_days": 180, "status": "ok",      "progress_percent": 52, "reminder_enabled": true,  "sucursal": "TEC" },
+    { "id": 6011, "customer_id": 2012, "vehicle_id": 5012, "service_type": "Cambio de aceite",     "last_service_date": "2025-12-02", "next_service_date": "2026-06-02", "interval_days": 180, "status": "soon",    "progress_percent": 92, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6012, "customer_id": 2012, "vehicle_id": 5012, "service_type": "Inspección 25 puntos", "last_service_date": "2025-12-02", "next_service_date": "2026-06-02", "interval_days": 180, "status": "soon",    "progress_percent": 92, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6013, "customer_id": 2014, "vehicle_id": 5014, "service_type": "Rotación de llantas", "last_service_date": "2025-12-14", "next_service_date": "2026-06-14", "interval_days": 180, "status": "soon",    "progress_percent": 86, "reminder_enabled": true,  "sucursal": "BJZ" },
+    { "id": 6014, "customer_id": 2017, "vehicle_id": 5017, "service_type": "Cambio de aceite",     "last_service_date": "2026-03-15", "next_service_date": "2026-09-15", "interval_days": 180, "status": "ok",      "progress_percent": 36, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6015, "customer_id": 2018, "vehicle_id": 5018, "service_type": "Cambio amortiguadores","last_service_date": "2024-08-10", "next_service_date": "2026-08-10", "interval_days": 730, "status": "ok",      "progress_percent": 88, "reminder_enabled": true,  "sucursal": "CON" },
+    { "id": 6016, "customer_id": 2020, "vehicle_id": 5020, "service_type": "Cambio de aceite",     "last_service_date": "2026-02-05", "next_service_date": "2026-08-05", "interval_days": 180, "status": "ok",      "progress_percent": 56, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6017, "customer_id": 2021, "vehicle_id": 5021, "service_type": "Rotación de llantas", "last_service_date": "2026-02-18", "next_service_date": "2026-08-18", "interval_days": 180, "status": "ok",      "progress_percent": 49, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6018, "customer_id": 2023, "vehicle_id": 5023, "service_type": "Cambio de aceite",     "last_service_date": "2025-09-22", "next_service_date": "2026-03-22", "interval_days": 180, "status": "expired", "progress_percent": 100,"reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6019, "customer_id": 2025, "vehicle_id": 5025, "service_type": "Inspección 25 puntos", "last_service_date": "2026-03-18", "next_service_date": "2026-09-18", "interval_days": 180, "status": "ok",      "progress_percent": 34, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6020, "customer_id": 2026, "vehicle_id": 5026, "service_type": "Cambio de aceite",     "last_service_date": "2026-04-01", "next_service_date": "2026-10-01", "interval_days": 180, "status": "ok",      "progress_percent": 25, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6021, "customer_id": 2028, "vehicle_id": 5028, "service_type": "Rotación de llantas", "last_service_date": "2026-04-12", "next_service_date": "2026-10-12", "interval_days": 180, "status": "ok",      "progress_percent": 19, "reminder_enabled": true,  "sucursal": "MAN" },
+    { "id": 6022, "customer_id": 2030, "vehicle_id": 5030, "service_type": "Cambio de aceite",     "last_service_date": "2025-10-22", "next_service_date": "2026-04-22", "interval_days": 180, "status": "expired", "progress_percent": 100,"reminder_enabled": true,  "sucursal": "TEC" },
+    { "id": 6023, "customer_id": 2031, "vehicle_id": 5031, "service_type": "Cambio de aceite",     "last_service_date": "2025-12-08", "next_service_date": "2026-06-08", "interval_days": 180, "status": "soon",    "progress_percent": 88, "reminder_enabled": true,  "sucursal": "BJZ" },
+    { "id": 6024, "customer_id": 2032, "vehicle_id": 5032, "service_type": "Alineación",          "last_service_date": "2026-02-28", "next_service_date": "2027-02-28", "interval_days": 365, "status": "ok",      "progress_percent": 22, "reminder_enabled": true,  "sucursal": "REY" },
+    { "id": 6025, "customer_id": 2034, "vehicle_id": null,  "service_type": "Cambio de aceite",     "last_service_date": "2025-11-14", "next_service_date": "2026-05-14", "interval_days": 180, "status": "due",     "progress_percent": 100,"reminder_enabled": true,  "sucursal": "NHS" }
+  ],
+  "total": 25,
+  "summary": {
+    "ok": 16,
+    "soon": 4,
+    "due": 2,
+    "expired": 3
+  }
+}

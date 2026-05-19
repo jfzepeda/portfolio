@@ -1,10 +1,40 @@
 {
   "totalScans": 1842,
   "uniqueCodes": 312,
+  "uniqueUsers": 1124,
+  "conversionRate": 0.27,
+  "avgScansPerDay": 263,
   "last7Days": [142, 168, 195, 203, 178, 221, 256],
+  "byDay": [
+    { "date": "2026-05-10", "scans": 142 },
+    { "date": "2026-05-11", "scans": 168 },
+    { "date": "2026-05-12", "scans": 195 },
+    { "date": "2026-05-13", "scans": 203 },
+    { "date": "2026-05-14", "scans": 178 },
+    { "date": "2026-05-15", "scans": 221 },
+    { "date": "2026-05-16", "scans": 256 }
+  ],
+  "byCampaign": [
+    { "campaign": "Cambio_Aceite_Mayo", "scans": 584, "conversions": 142, "rate": 0.243 },
+    { "campaign": "Alineacion_Free",    "scans": 412, "conversions": 89,  "rate": 0.216 },
+    { "campaign": "Club_Yantissimo",    "scans": 386, "conversions": 124, "rate": 0.321 },
+    { "campaign": "Convenio_FEMSA",     "scans": 248, "conversions": 78,  "rate": 0.315 },
+    { "campaign": "Mayoreo_Promo",      "scans": 142, "conversions": 22,  "rate": 0.155 },
+    { "campaign": "Garantia_Michelin",  "scans": 70,  "conversions": 12,  "rate": 0.171 }
+  ],
   "topSucursales": [
-    { "sucursal": "Centro", "scans": 782 },
-    { "sucursal": "Norte", "scans": 596 },
-    { "sucursal": "Sur", "scans": 464 }
+    { "sucursal": "MAN",    "scans": 782, "share": 0.425 },
+    { "sucursal": "TEC",    "scans": 286, "share": 0.155 },
+    { "sucursal": "BJZ",    "scans": 198, "share": 0.107 },
+    { "sucursal": "CON",    "scans": 178, "share": 0.097 },
+    { "sucursal": "NHS",    "scans": 142, "share": 0.077 },
+    { "sucursal": "REY",    "scans": 124, "share": 0.067 },
+    { "sucursal": "MYRCOL", "scans": 78,  "share": 0.042 },
+    { "sucursal": "MYR",    "scans": 54,  "share": 0.029 }
+  ],
+  "byDevice": [
+    { "device": "android", "scans": 1124, "share": 0.610 },
+    { "device": "ios",     "scans": 698,  "share": 0.379 },
+    { "device": "other",   "scans": 20,   "share": 0.011 }
   ]
 }

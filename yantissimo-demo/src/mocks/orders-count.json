@@ -2,5 +2,46 @@
   "total": 247,
   "pending": 18,
   "completed": 213,
-  "cancelled": 16
+  "cancelled": 16,
+  "byStatus": [
+    { "type": "quote",       "count": 12 },
+    { "type": "cartdraft",   "count": 8 },
+    { "type": "sentorder",   "count": 6 },
+    { "type": "counteroffer","count": 4 },
+    { "type": "confirmed",   "count": 28 },
+    { "type": "invoiced",    "count": 142 },
+    { "type": "ondelivery",  "count": 9 },
+    { "type": "delivered",   "count": 34 },
+    { "type": "archived",    "count": 4 }
+  ],
+  "bySucursal": [
+    { "sucursal": "MAN",    "count": 112 },
+    { "sucursal": "TEC",    "count": 38 },
+    { "sucursal": "BJZ",    "count": 24 },
+    { "sucursal": "CON",    "count": 22 },
+    { "sucursal": "NHS",    "count": 18 },
+    { "sucursal": "REY",    "count": 14 },
+    { "sucursal": "MYR",    "count": 10 },
+    { "sucursal": "MYRCOL", "count": 6 },
+    { "sucursal": "MYRMZO", "count": 3 }
+  ],
+  "byChannel": [
+    { "channel": "walk-in",  "count": 124 },
+    { "channel": "phone",    "count": 52 },
+    { "channel": "shopify",  "count": 38 },
+    { "channel": "web",      "count": 22 },
+    { "channel": "referral", "count": 8 },
+    { "channel": "social",   "count": 3 }
+  ],
+  "last7Days": [
+    { "date": "2026-05-10", "count": 18 },
+    { "date": "2026-05-11", "count": 22 },
+    { "date": "2026-05-12", "count": 27 },
+    { "date": "2026-05-13", "count": 31 },
+    { "date": "2026-05-14", "count": 24 },
+    { "date": "2026-05-15", "count": 29 },
+    { "date": "2026-05-16", "count": 33 }
+  ],
+  "revenueMTD": 1842500.00,
+  "revenueLastMonth": 1670300.00
 }

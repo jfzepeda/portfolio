@@ -1,0 +1,49 @@
+{
+  "lines": ["MONTAJE", "ALINEACION", "BALANCEO", "ROTACION", "REPARACION", "REVISION", "DIAGNOSTICO", "SUSPENSION"],
+  "services": {
+    "MONTAJE": [
+      { "id": 817, "nombre": "Montaje llanta R13-R15",          "linea": "MONTAJE",     "precio": 120,  "descuento": 0,    "is_mo": true,  "margen": 0.85 },
+      { "id": 818, "nombre": "Montaje llanta R16-R17",          "linea": "MONTAJE",     "precio": 150,  "descuento": 0,    "is_mo": true,  "margen": 0.85 },
+      { "id": 819, "nombre": "Montaje llanta R18-R19",          "linea": "MONTAJE",     "precio": 180,  "descuento": 0,    "is_mo": true,  "margen": 0.85 },
+      { "id": 820, "nombre": "Montaje llanta R20+",             "linea": "MONTAJE",     "precio": 240,  "descuento": 0,    "is_mo": true,  "margen": 0.85 },
+      { "id": 821, "nombre": "Montaje llanta camión 4 lonas",   "linea": "MONTAJE",     "precio": 320,  "descuento": 0,    "is_mo": true,  "margen": 0.80 }
+    ],
+    "ALINEACION": [
+      { "id": 830, "nombre": "Alineación 2 ruedas",             "linea": "ALINEACION",  "precio": 380,  "descuento": 0,    "is_mo": true,  "margen": 0.90 },
+      { "id": 831, "nombre": "Alineación 4 ruedas computarizada","linea": "ALINEACION", "precio": 580,  "descuento": 50,   "is_mo": true,  "margen": 0.90 },
+      { "id": 832, "nombre": "Alineación camioneta 4x4",        "linea": "ALINEACION",  "precio": 780,  "descuento": 0,    "is_mo": true,  "margen": 0.88 }
+    ],
+    "BALANCEO": [
+      { "id": 840, "nombre": "Balanceo dinámico por rueda",     "linea": "BALANCEO",    "precio": 95,   "descuento": 0,    "is_mo": true,  "margen": 0.92 },
+      { "id": 841, "nombre": "Balanceo 4 ruedas (paquete)",     "linea": "BALANCEO",    "precio": 320,  "descuento": 60,   "is_mo": true,  "margen": 0.92 },
+      { "id": 842, "nombre": "Balanceo fino con láser",         "linea": "BALANCEO",    "precio": 480,  "descuento": 0,    "is_mo": true,  "margen": 0.90 }
+    ],
+    "ROTACION": [
+      { "id": 850, "nombre": "Rotación 4 llantas",              "linea": "ROTACION",    "precio": 220,  "descuento": 0,    "is_mo": true,  "margen": 0.95 },
+      { "id": 851, "nombre": "Rotación con revisión de presión","linea": "ROTACION",    "precio": 280,  "descuento": 30,   "is_mo": true,  "margen": 0.95 }
+    ],
+    "REPARACION": [
+      { "id": 860, "nombre": "Reparación de pinchadura (parche)","linea": "REPARACION", "precio": 180,  "descuento": 0,    "is_mo": true,  "margen": 0.80 },
+      { "id": 861, "nombre": "Reparación con hongo vulcanizado","linea": "REPARACION",  "precio": 260,  "descuento": 0,    "is_mo": true,  "margen": 0.78 },
+      { "id": 862, "nombre": "Reparación de costado",           "linea": "REPARACION",  "precio": 420,  "descuento": 0,    "is_mo": true,  "margen": 0.70 },
+      { "id": 863, "nombre": "Cambio de válvula",               "linea": "REPARACION",  "precio": 60,   "descuento": 0,    "is_mo": true,  "margen": 0.85 }
+    ],
+    "REVISION": [
+      { "id": 870, "nombre": "Revisión de presión y profundidad","linea": "REVISION",   "precio": 0,    "descuento": 0,    "is_mo": true,  "margen": 1.00 },
+      { "id": 871, "nombre": "Inspección pre-viaje",            "linea": "REVISION",    "precio": 180,  "descuento": 180,  "is_mo": true,  "margen": 1.00 },
+      { "id": 872, "nombre": "Check Yantissimo Club",           "linea": "REVISION",    "precio": 250,  "descuento": 250,  "is_mo": true,  "margen": 1.00 }
+    ],
+    "DIAGNOSTICO": [
+      { "id": 880, "nombre": "Diagnóstico de motor (escáner)",  "linea": "DIAGNOSTICO", "precio": 480,  "descuento": 0,    "is_mo": true,  "margen": 0.85 },
+      { "id": 881, "nombre": "Diagnóstico de frenos",           "linea": "DIAGNOSTICO", "precio": 320,  "descuento": 0,    "is_mo": true,  "margen": 0.85 },
+      { "id": 882, "nombre": "Diagnóstico de suspensión",       "linea": "DIAGNOSTICO", "precio": 380,  "descuento": 0,    "is_mo": true,  "margen": 0.85 }
+    ],
+    "SUSPENSION": [
+      { "id": 890, "nombre": "Cambio de amortiguador delantero","linea": "SUSPENSION",  "precio": 850,  "descuento": 0,    "is_mo": true,  "margen": 0.65 },
+      { "id": 891, "nombre": "Cambio de amortiguador trasero",  "linea": "SUSPENSION",  "precio": 750,  "descuento": 0,    "is_mo": true,  "margen": 0.65 },
+      { "id": 892, "nombre": "Cambio de bujes y horquillas",    "linea": "SUSPENSION",  "precio": 1200, "descuento": 100,  "is_mo": true,  "margen": 0.60 },
+      { "id": 893, "nombre": "Ajuste de cárcamo",               "linea": "SUSPENSION",  "precio": 420,  "descuento": 0,    "is_mo": true,  "margen": 0.80 }
+    ]
+  },
+  "total": 30
+}

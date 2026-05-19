@@ -1,0 +1,24 @@
+{
+  "sessions": [
+    { "id": "MAN_2026-05-16", "sucursal": "MAN", "fecha": "2026-05-16", "auditor": "Lucía Hernández Pacheco", "started_at": "2026-05-16T07:30:00", "ended_at": null,                    "status": "in_progress", "resultado": { "scanned": 248, "expected": 380, "matched": 232, "missing": 16, "extra": 16, "discrepancy_value": 28420.00 } },
+    { "id": "MAN_2026-05-12", "sucursal": "MAN", "fecha": "2026-05-12", "auditor": "Lucía Hernández Pacheco", "started_at": "2026-05-12T07:30:00", "ended_at": "2026-05-12T11:42:00", "status": "completed",   "resultado": { "scanned": 378, "expected": 380, "matched": 376, "missing": 2,  "extra": 2,  "discrepancy_value": 4280.00 } },
+    { "id": "TEC_2026-05-10", "sucursal": "TEC", "fecha": "2026-05-10", "auditor": "Gerardo Mendoza Salas",   "started_at": "2026-05-10T08:00:00", "ended_at": "2026-05-10T10:14:00", "status": "completed",   "resultado": { "scanned": 142, "expected": 145, "matched": 140, "missing": 5,  "extra": 2,  "discrepancy_value": 8950.00 } },
+    { "id": "BJZ_2026-05-08", "sucursal": "BJZ", "fecha": "2026-05-08", "auditor": "Adriana Solís Vargas",   "started_at": "2026-05-08T08:30:00", "ended_at": "2026-05-08T10:48:00", "status": "completed",   "resultado": { "scanned": 124, "expected": 126, "matched": 124, "missing": 2,  "extra": 0,  "discrepancy_value": 3640.00 } },
+    { "id": "CON_2026-05-05", "sucursal": "CON", "fecha": "2026-05-05", "auditor": "Pablo Castañeda Rentería","started_at": "2026-05-05T08:00:00", "ended_at": "2026-05-05T10:22:00", "status": "completed",   "resultado": { "scanned": 98,  "expected": 102, "matched": 96,  "missing": 6,  "extra": 2,  "discrepancy_value": 12180.00 } },
+    { "id": "NHS_2026-05-02", "sucursal": "NHS", "fecha": "2026-05-02", "auditor": "Karina Espinoza Maldonado","started_at": "2026-05-02T08:30:00","ended_at": "2026-05-02T10:08:00", "status": "completed",   "resultado": { "scanned": 84,  "expected": 84,  "matched": 84,  "missing": 0,  "extra": 0,  "discrepancy_value": 0 } },
+    { "id": "REY_2026-04-28", "sucursal": "REY", "fecha": "2026-04-28", "auditor": "Saúl Beltrán Quintero",   "started_at": "2026-04-28T08:00:00", "ended_at": "2026-04-28T09:42:00", "status": "completed",   "resultado": { "scanned": 72,  "expected": 75,  "matched": 70,  "missing": 5,  "extra": 2,  "discrepancy_value": 6840.00 } },
+    { "id": "MYR_2026-04-25", "sucursal": "MYR", "fecha": "2026-04-25", "auditor": "Rodrigo Linares Cabral",  "started_at": "2026-04-25T08:30:00", "ended_at": "2026-04-25T13:18:00", "status": "completed",   "resultado": { "scanned": 412, "expected": 418, "matched": 408, "missing": 10, "extra": 4,  "discrepancy_value": 18900.00 } }
+  ],
+  "total": 8,
+  "michelinCatalog": {
+    "total": 1184,
+    "byCategoria": {
+      "Premium":  584,
+      "Estandar": 420,
+      "Economica": 180
+    },
+    "byRin": {
+      "14": 84, "15": 142, "16": 248, "17": 312, "18": 198, "19": 124, "20": 76
+    }
+  }
+}

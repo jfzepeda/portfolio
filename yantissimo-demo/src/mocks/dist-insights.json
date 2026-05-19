@@ -2,14 +2,59 @@
   "kpis": {
     "ventasMes": 1842500.00,
     "ventasMesAnterior": 1670300.00,
+    "ventasYTD": 8420600.00,
     "ticketPromedio": 4280.50,
     "clientesActivos": 348,
-    "tasaConversion": 0.62
+    "clientesNuevosMes": 42,
+    "tasaConversion": 0.62,
+    "tasaRetencion": 0.78,
+    "margenBruto": 0.34,
+    "cuentasPorCobrar": 1284750.00,
+    "cuentasVencidas": 142800.00
   },
   "topClientes": [
-    { "name": "Distribuidora Norte SA", "total": 248750.00, "orders": 18 },
-    { "name": "Llantas y Rines del Bajío", "total": 187320.00, "orders": 14 },
-    { "name": "AutoCenter Pacífico", "total": 142100.00, "orders": 22 },
-    { "name": "Servicios Express Monterrey", "total": 98540.00, "orders": 11 }
+    { "name": "Pemex Logística Manzanillo",       "rfc": "PML930812MA0", "total": 611000.00, "orders": 8,  "lastPurchase": "2026-05-15" },
+    { "name": "GE Mexico Corporate Fleet",        "rfc": "GME810512BX7", "total": 374200.00, "orders": 4,  "lastPurchase": "2026-04-26" },
+    { "name": "Coca-Cola FEMSA Flota Colima",     "rfc": "KOF980512X88", "total": 645500.00, "orders": 6,  "lastPurchase": "2026-04-22" },
+    { "name": "Cementos Apasco Manzanillo",       "rfc": "CAM911008N81", "total": 422100.00, "orders": 7,  "lastPurchase": "2026-04-30" },
+    { "name": "Distribuidora Norte SA de CV",     "rfc": "DNO980312AB1", "total": 273510.00, "orders": 18, "lastPurchase": "2026-05-16" },
+    { "name": "Transportes Águila SA de CV",      "rfc": "TAG891210L22", "total": 403450.00, "orders": 12, "lastPurchase": "2026-05-03" },
+    { "name": "Puerto de Manzanillo (API)",       "rfc": "API930515HM9", "total": 522300.00, "orders": 3,  "lastPurchase": "2026-04-15" },
+    { "name": "Llantas y Rines del Bajío SA",     "rfc": "LRB011018C72", "total": 222300.00, "orders": 14, "lastPurchase": "2026-05-07" },
+    { "name": "Gobierno del Estado de Colima",    "rfc": "GEC820317YR1", "total": 192400.00, "orders": 5,  "lastPurchase": "2026-05-06" },
+    { "name": "Universidad de Colima",            "rfc": "UCO760915ER0", "total": 184600.00, "orders": 11, "lastPurchase": "2026-04-29" },
+    { "name": "Liverpool Distribución",           "rfc": "LDI921116P11", "total": 156700.00, "orders": 4,  "lastPurchase": "2026-05-04" },
+    { "name": "Ternium Servicios",                "rfc": "TER010818LL2", "total": 184500.00, "orders": 6,  "lastPurchase": "2026-05-06" },
+    { "name": "AutoCenter Pacífico",              "rfc": "ACP150402H45", "total": 142100.00, "orders": 22, "lastPurchase": "2026-04-24" },
+    { "name": "Refaccionaria Central de Colima",  "rfc": "RCC0908118T3", "total": 98540.00,  "orders": 9,  "lastPurchase": "2026-05-14" },
+    { "name": "Servicios Express Monterrey",      "rfc": "SEM050714JJ8", "total": 117620.00, "orders": 8,  "lastPurchase": "2026-05-12" }
+  ],
+  "monthlyTrend": [
+    { "month": "2025-06", "ventas": 1248300.00, "ordenes": 218, "ticket": 5725.23 },
+    { "month": "2025-07", "ventas": 1382400.00, "ordenes": 234, "ticket": 5907.69 },
+    { "month": "2025-08", "ventas": 1494200.00, "ordenes": 246, "ticket": 6074.80 },
+    { "month": "2025-09", "ventas": 1318700.00, "ordenes": 228, "ticket": 5783.77 },
+    { "month": "2025-10", "ventas": 1428900.00, "ordenes": 252, "ticket": 5670.24 },
+    { "month": "2025-11", "ventas": 1632100.00, "ordenes": 268, "ticket": 6090.30 },
+    { "month": "2025-12", "ventas": 1894800.00, "ordenes": 298, "ticket": 6358.39 },
+    { "month": "2026-01", "ventas": 1542700.00, "ordenes": 258, "ticket": 5979.46 },
+    { "month": "2026-02", "ventas": 1418300.00, "ordenes": 232, "ticket": 6112.50 },
+    { "month": "2026-03", "ventas": 1581200.00, "ordenes": 264, "ticket": 5989.39 },
+    { "month": "2026-04", "ventas": 1670300.00, "ordenes": 276, "ticket": 6051.81 },
+    { "month": "2026-05", "ventas": 1842500.00, "ordenes": 247, "ticket": 7459.51 }
+  ],
+  "byCategoria": [
+    { "categoria": "Premium",   "ventas": 824180.00, "share": 0.448 },
+    { "categoria": "Estandar",  "ventas": 612800.00, "share": 0.333 },
+    { "categoria": "Economica", "ventas": 248500.00, "share": 0.135 },
+    { "categoria": "Servicio",  "ventas": 157020.00, "share": 0.085 }
+  ],
+  "byChannel": [
+    { "channel": "walk-in",  "ventas": 824300.00, "share": 0.447 },
+    { "channel": "phone",    "ventas": 312800.00, "share": 0.170 },
+    { "channel": "shopify",  "ventas": 286400.00, "share": 0.155 },
+    { "channel": "web",      "ventas": 184600.00, "share": 0.100 },
+    { "channel": "referral", "ventas": 162100.00, "share": 0.088 },
+    { "channel": "social",   "ventas": 72300.00,  "share": 0.039 }
   ]
 }

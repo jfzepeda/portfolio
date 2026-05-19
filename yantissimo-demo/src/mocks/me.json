@@ -1,8 +1,23 @@
 {
-  "id": "demo-user-1",
-  "name": "Demo Visitor",
-  "username": "demo",
-  "role": 100,
+  "id": 12,
+  "name": "Juan Felipe Zepeda",
+  "username": "jzepeda",
+  "role": 30,
+  "roleName": "ADMIN",
   "status": "active",
-  "email": "demo@yantissimo.demo"
+  "email": "jzepeda@yantissimo.com",
+  "sucursal": "MAN",
+  "permissions": [
+    "invoices.read", "invoices.create", "invoices.cancel",
+    "quotes.read", "quotes.create", "quotes.confirm",
+    "orders.read", "orders.update", "orders.deliver",
+    "inventory.read", "inventory.adjust",
+    "customers.read", "customers.create", "customers.update",
+    "users.read", "users.manage",
+    "agreements.read", "agreements.manage",
+    "reports.read", "reports.export",
+    "agent.access"
+  ],
+  "lastLoginAt": "2026-05-16T08:42:11.000Z",
+  "createdAt": "2024-02-04T16:20:00.000Z"
 }
