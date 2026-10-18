@@ -321,6 +321,59 @@ export function YantissimoCaseStudy() {
                 </span>
               ))}
             </div>
+            <div
+              style={{
+                marginTop: 18,
+                paddingTop: 14,
+                borderTop: "1px solid var(--rule)",
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+              }}
+            >
+              <div
+                className="kicker"
+                style={{ fontSize: 10, color: "var(--ink-3)" }}
+              >
+                {t(bi("Live demos", "Demos en vivo"))}
+              </div>
+              <a
+                href="https://yantissimo-demo.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11,
+                  letterSpacing: "0.1em",
+                  color: "var(--accent)",
+                  textDecoration: "none",
+                }}
+              >
+                <span aria-hidden>↗</span>
+                {t(bi("ERP demo", "Demo del ERP"))}
+              </a>
+              <a
+                href="https://yantissimo-shop-demo.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11,
+                  letterSpacing: "0.1em",
+                  color: "var(--accent)",
+                  textDecoration: "none",
+                }}
+              >
+                <span aria-hidden>↗</span>
+                {t(bi("Storefront demo", "Demo del storefront"))}
+              </a>
+            </div>
           </aside>
         </Reveal>
       </div>

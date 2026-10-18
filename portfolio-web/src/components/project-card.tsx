@@ -308,6 +308,35 @@ export function ProjectCard({ project, index = 0 }: Props) {
           )}
         </div>
 
+        {/* live demo link — only when a public Vercel deploy exists */}
+        {project.demoUrl && (
+          <div style={{ paddingTop: 14 }}>
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              itemProp="url"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                fontFamily: "var(--font-mono)",
+                fontSize: 11,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--accent)",
+                textDecoration: "none",
+                padding: "6px 10px",
+                border: "1px solid var(--accent)",
+                borderRadius: 999,
+              }}
+            >
+              <span aria-hidden>↗</span>
+              {t(bi("View live demo", "Ver demo en vivo"))}
+            </a>
+          </div>
+        )}
+
         {/* sr-only schema.org keywords */}
         <span className="sr-only">
           {project.stack.map((s) => (

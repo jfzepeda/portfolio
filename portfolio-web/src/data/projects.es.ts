@@ -263,6 +263,7 @@ export const yantissimo: Project = {
   ],
   repoPath:
     "YSSM/(plataforma)/erp-yssm + YSSM/(yaol)/backend-yssm + YSSM/(yaol)/shop-yaol",
+  demoUrl: "https://yantissimo-demo.vercel.app",
 };
 
 export const fitnessCopilot: Project = {
@@ -389,6 +390,7 @@ export const kioskoLogistics: Project = {
   users: "Operadores de flota, planificadores de rutas y analistas logísticos.",
   hero: "/images/projects/kiosko-icon.png",
   repoPath: "TEC/kiosko",
+  demoUrl: "https://kiosko-logistics-demo.vercel.app",
 };
 
 export const companyBrain: Project = {
@@ -456,6 +458,7 @@ export const companyBrain: Project = {
     "Analistas de negocio, equipos de operaciones y ejecutivos consultando sus propios datos.",
   hero: "/images/projects/dataknife.jpg",
   repoPath: "ai-lab/company-brain",
+  demoUrl: "https://dataknife-demo.vercel.app",
 };
 
 export const crispDm: Project = {
@@ -520,6 +523,7 @@ export const crispDm: Project = {
   users: "Científicos de datos y analistas ejecutando proyectos CRISP-DM.",
   hero: "/images/projects/crispdm.jpg",
   repoPath: "ai-lab/crisp-dm-2",
+  demoUrl: "https://crispdm-demo.vercel.app",
 };
 
 export const whatsappGateway: Project = {
@@ -779,6 +783,7 @@ export const karate: Project = {
   users: "Organizadores de torneo, árbitros y displays de audiencia.",
   hero: "/images/projects/karate.jpg",
   repoPath: "Web/karate",
+  demoUrl: "https://karate-demo.vercel.app",
 };
 
 export const smokeSignals: Project = {

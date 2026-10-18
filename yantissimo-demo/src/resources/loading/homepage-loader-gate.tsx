@@ -36,10 +36,9 @@ export default function HomepageLoaderGate({
   cookieName = DEFAULT_COOKIE_NAME,
   cookieMaxAgeSeconds = DEFAULT_COOKIE_MAX_AGE_SECONDS,
 }: HomepageLoaderGateProps) {
-  const [shouldShowLoader, setShouldShowLoader] = useState<boolean | null>(() => {
-    if (typeof document === "undefined") return null;
-    return !hasCookie(cookieName);
-  });
+  // Start false on both server and client to avoid React hydration mismatch
+  // (#418). The loader then upgrades on mount based on the cookie.
+  const [shouldShowLoader, setShouldShowLoader] = useState<boolean>(false);
 
   useEffect(() => {
     setShouldShowLoader(!hasCookie(cookieName));
@@ -49,10 +48,6 @@ export default function HomepageLoaderGate({
     setCookie(cookieName, new Date().toISOString(), cookieMaxAgeSeconds);
     setShouldShowLoader(false);
   }, [cookieMaxAgeSeconds, cookieName]);
-
-  if (shouldShowLoader === null) {
-    return <div style={{ visibility: "hidden" }}>{children}</div>;
-  }
 
   if (!shouldShowLoader) {
     return <>{children}</>;

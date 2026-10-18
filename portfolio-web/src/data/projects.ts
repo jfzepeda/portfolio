@@ -74,6 +74,7 @@ export interface Project {
   screenshots?: string[]; // paths under /public
   hero?: string; // hero image path
   repoPath?: string; // original local path for provenance
+  demoUrl?: string; // public live-demo URL (Vercel deploy)
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -343,6 +344,7 @@ export const yantissimo: Project = {
   ],
   repoPath:
     "YSSM/(plataforma)/erp-yssm + YSSM/(yaol)/backend-yssm + YSSM/(yaol)/shop-yaol",
+  demoUrl: "https://yantissimo-demo.vercel.app",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -472,6 +474,7 @@ export const kioskoLogistics: Project = {
   users: "Fleet operators, route planners, and logistics analysts.",
   hero: "/images/projects/kiosko-icon.png",
   repoPath: "TEC/kiosko",
+  demoUrl: "https://kiosko-logistics-demo.vercel.app",
 };
 
 export const companyBrain: Project = {
@@ -538,6 +541,7 @@ export const companyBrain: Project = {
   users: "Business analysts, ops teams, executives querying their own data.",
   hero: "/images/projects/dataknife.jpg",
   repoPath: "ai-lab/company-brain",
+  demoUrl: "https://dataknife-demo.vercel.app",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -605,6 +609,7 @@ export const crispDm: Project = {
   users: "Data scientists and analysts running CRISP-DM projects.",
   hero: "/images/projects/crispdm.jpg",
   repoPath: "ai-lab/crisp-dm-2",
+  demoUrl: "https://crispdm-demo.vercel.app",
 };
 
 export const whatsappGateway: Project = {
@@ -863,6 +868,7 @@ export const karate: Project = {
   users: "Tournament organizers, referees, and audience displays.",
   hero: "/images/projects/karate.jpg",
   repoPath: "Web/karate",
+  demoUrl: "https://karate-demo.vercel.app",
 };
 
 export const smokeSignals: Project = {

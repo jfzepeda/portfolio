@@ -21,6 +21,10 @@ The operational backbone of Yantissimo / YSSM, a tire and wheel distributor in M
 A custom enterprise ERP plus the Express backend, native iOS app, and headless Shopify
 storefront it feeds — four coordinated surfaces, one Postgres, one team using it daily.
 
+Live demos:
+- ERP: https://yantissimo-demo.vercel.app
+- Storefront: https://yantissimo-shop-demo.vercel.app
+
 ### Yantissimo Platform (ERP YSSM) — the operational ERP
 Internal Next.js 16 application used daily by every team in the business.
 - Next.js 16 (App Router + Turbopack), React 18, Tailwind 4, Material UI + HeroUI.
@@ -80,11 +84,13 @@ Customer-facing Next.js 15.6 + React 19 + Tailwind 4 storefront on Vercel.
 - HealthKit-synced metrics. Anthropic Edge Function for supplement suggestions.
 
 ### Kiosko Logistics — VRP route visualizer, MapKit + Observable.
+- Live demo: https://kiosko-logistics-demo.vercel.app
 - 40 Swift files, 3.3k LOC.
 - Smooth route animation via Task.sleep interpolation along CoreLocation polylines.
 - Modern Swift Observable pattern.
 
 ### DataKnife (Company Brain) — Hybrid RAG with vector + structured SQL.
+- Live demo: https://dataknife-demo.vercel.app
 - Next.js 16 + React 19 + OpenAI ChatKit + Supabase.
 - Custom 'execute_sql' OpenAI tool registered via onClientTool.
 - SELECT-only / WITH-only SQL guard with auto LIMIT enforcement.
@@ -93,6 +99,7 @@ Customer-facing Next.js 15.6 + React 19 + Tailwind 4 storefront on Vercel.
 ## Tier 3 — Featured
 
 ### CRISP-DM Workbench — Dual-LLM data-mining lifecycle (Claude + GPT-4o).
+- Live demo: https://crispdm-demo.vercel.app
 - Direct Anthropic SDK 0.78 + OpenAI SDK 6.29 (no wrappers).
 - Per-stage prompt templates aligned to CRISP-DM phases.
 - Python ML stack invoked via subprocess for compute isolation.
@@ -118,6 +125,7 @@ Customer-facing Next.js 15.6 + React 19 + Tailwind 4 storefront on Vercel.
 - ProgressStore persists per-month decisions to Application Support.
 
 ### Karate Tournament — Distributable role-aware tournament platform.
+- Live demo (web export only — admin / server features require the desktop binary): https://karate-demo.vercel.app
 - Turbo monorepo: Next.js 15 (web) + Express (server) + Electron (desktop).
 - JWT RS256 with keypair generated on first launch.
 - Pure-logic core package (no React, no DOM).
