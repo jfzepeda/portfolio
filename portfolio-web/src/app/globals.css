@@ -628,6 +628,25 @@ footer {
 
 .hero {
   justify-content: center;
+  isolation: isolate;
+}
+/* Full-bleed wave of dots behind the hero, faded at the edges. */
+.dotted-surface {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 60%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 60%, transparent);
+}
+.dotted-surface canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .hero-grid {
   display: grid;
@@ -1521,11 +1540,14 @@ footer {
     transform: translateY(24px) scale(0.97);
   }
 }
-.gdialog-close {
+.gdialog-top {
   position: sticky;
   float: right;
   top: 0;
   z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: -6px -6px 0 12px;
 }
 .dlg-head {
@@ -1572,7 +1594,7 @@ footer {
   position: relative;
   padding-left: 18px;
   margin-top: 9px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--fg-2);
 }
 .bullets li::before {
@@ -1699,16 +1721,6 @@ footer {
   .dlg-body .subs {
     grid-template-columns: 1fr;
   }
-  .dlg-body .caps {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .dlg-body .cap {
-    min-height: 108px;
-    justify-content: space-between;
-  }
-  .dlg-body .cap-t {
-    font-size: 18px;
-  }
 }
 /* all panels share one grid cell, so the dialog is as tall as the tallest tab */
 .dlg-body .tabs {
@@ -1720,48 +1732,25 @@ footer {
   grid-row: 2;
   grid-column: 1;
 }
+.dlg-body .tabpanel > div,
+.dlg-body .tabpanel > ul {
+  flex: none;
+}
+.dlg-body .tabpanel > div > * {
+  flex: none;
+}
 .dlg-body .tabpanel[data-inactive] {
   visibility: hidden;
 }
-.caps {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-}
-.cap {
+.bullets li.cap {
   display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding: 14px 16px 16px;
-  border-radius: 16px;
-  border: 1px solid var(--glass-border);
-  background: var(--glass);
-  transition:
-    border-color 0.2s,
-    background 0.2s;
-}
-.cap:hover {
-  border-color: var(--glass-border-hi);
-}
-.cap-n {
-  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font: 500 11px var(--font-mono);
-  letter-spacing: 0.1em;
-  color: var(--fg-3);
+  justify-content: space-between;
+  gap: 12px;
 }
-.cap-n::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--cat, var(--accent));
-}
-.cap-t {
-  font: 600 16px / 1.25 var(--font-display);
-  letter-spacing: -0.01em;
-  color: var(--fg);
+.cap svg {
+  flex: none;
+  color: var(--cat, var(--accent));
 }
 .dlg-foot {
   display: flex;

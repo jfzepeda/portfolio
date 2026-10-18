@@ -15,10 +15,12 @@ export function openDialog(id: string) {
 export function GlassDialog({
   id,
   wide,
+  action,
   children,
 }: {
   id: string;
   wide?: boolean;
+  action?: React.ReactNode;
   children: React.ReactNode;
 }) {
   const t = useT();
@@ -34,14 +36,17 @@ export function GlassDialog({
       }}
     >
       <div className="gdialog-panel glass">
-        <button
-          type="button"
-          className="icon-btn gdialog-close"
-          aria-label={t(bi("Close", "Cerrar"))}
-          onClick={() => ref.current?.close()}
-        >
-          <Icon name="close" />
-        </button>
+        <div className="gdialog-top">
+          {action}
+          <button
+            type="button"
+            className="icon-btn gdialog-close"
+            aria-label={t(bi("Close", "Cerrar"))}
+            onClick={() => ref.current?.close()}
+          >
+            <Icon name="close" />
+          </button>
+        </div>
         {children}
       </div>
     </dialog>

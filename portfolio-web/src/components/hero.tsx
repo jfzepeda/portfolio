@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Screen } from "./screen";
 import { Expand } from "./expand";
 import { Icon } from "./icons";
+import { DottedSurface } from "./dotted-surface";
 import { useProfile, useT, bi } from "@/lib/i18n";
 import { layer } from "@/lib/layer";
 
@@ -32,6 +33,7 @@ export function Hero() {
 
   return (
     <Screen id="top" className="hero" label="Hero">
+      <DottedSurface />
       <div className="hero-grid">
         <div>
           <p className="status glass layer" style={layer(0)}>
@@ -91,10 +93,22 @@ export function Hero() {
       </div>
 
       <div className="marquee-wrap layer" style={layer(6)}>
-        <div className="brand-marquee" aria-label={t(bi("Tools and platforms I work with", "Herramientas y plataformas con las que trabajo"))}>
+        <div
+          className="brand-marquee"
+          aria-label={t(
+            bi(
+              "Tools and platforms I work with",
+              "Herramientas y plataformas con las que trabajo",
+            ),
+          )}
+        >
           <div className="brand-marquee-track">
             {doubled.map(([label, slug], i) => (
-              <div key={`${slug}-${i}`} className="brand-cell" aria-hidden={i >= BRANDS.length || undefined}>
+              <div
+                key={`${slug}-${i}`}
+                className="brand-cell"
+                aria-hidden={i >= BRANDS.length || undefined}
+              >
                 <span
                   className="brand-mark"
                   style={{

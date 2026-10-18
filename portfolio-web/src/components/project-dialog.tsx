@@ -26,7 +26,18 @@ export function ProjectDialog({
   const shots = p.screenshots && p.screenshots.length > 1 ? p.screenshots : p.hero ? [p.hero] : [];
 
   return (
-    <GlassDialog id={id} wide>
+    <GlassDialog
+      id={id}
+      wide
+      action={
+        p.demoUrl && (
+          <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            {t(bi("Live demo", "Demo en vivo"))}
+            <Icon name="arrow-up-right" className="arr-up arr" />
+          </a>
+        )
+      }
+    >
       <div className="dlg-head" data-cat={p.category}>
         <span className="card-icon" aria-hidden>
           {p.icon}
@@ -145,36 +156,28 @@ export function ProjectDialog({
             ),
             panel: (
               <>
-                <ul className="caps only-executive">
-                  {p.capabilities.map((c, i) => (
+                <ul className="bullets only-executive">
+                  {p.capabilities.map((c) => (
                     <li key={c} className="cap">
-                      <span className="cap-n">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="cap-t">{c}</span>
+                      {c}
+                      <Icon name="check" size={14} />
                     </li>
                   ))}
                 </ul>
-                <div className="chips only-technical">
+                <ul className="bullets only-technical">
                   {p.stack.map((s) => (
-                    <span key={s} className="chip">
+                    <li key={s} className="cap">
                       {s}
-                    </span>
+                      <Icon name="check" size={14} />
+                    </li>
                   ))}
-                </div>
+                </ul>
               </>
             ),
           },
         ]}
       />
       </div>
-
-      {p.demoUrl && (
-        <div className="dlg-foot">
-          <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            {t(bi("Live demo", "Demo en vivo"))}
-            <Icon name="arrow-up-right" className="arr-up arr" />
-          </a>
-        </div>
-      )}
     </GlassDialog>
   );
 }
