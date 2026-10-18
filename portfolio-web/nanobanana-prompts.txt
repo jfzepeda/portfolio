@@ -40,14 +40,14 @@
 // TIER 2
 // =============================================================================
 
-// 2. fitness-copilot — Fitness Copilot
+// 2. fitness-copilot — Vydas
 {
   "project": "fitness-copilot",
   "filename": "fitness-copilot-icon.png",
   "request": {
     "contents": [{
       "parts": [{
-        "text": "Design a square 1024x1024 app icon logo for a project called Fitness Copilot. It is an iOS app that combines macro tracking, weekly training plans, lab-result reading, and an AI coach in one place. The AI has full context — diet, workouts, labs, supplements — and reasons over it to suggest supplements and training. The app is bilingual and built for athletes who want quick logging and glanceable timelines. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
+        "text": "Design a square 1024x1024 app icon logo for a project called Vydas. It is an iOS app that combines macro tracking, weekly training plans, lab-result reading, and an AI coach in one place. The AI has full context — diet, workouts, labs, supplements — and reasons over it to suggest supplements and training. The app is bilingual and built for athletes who want quick logging and glanceable timelines. Design the logo around this project in a professional, flat, clean style. Off-white background, no gradients, neutral overall palette — color is allowed on the shapes themselves. No text, no letters."
       }]
     }],
     "generationConfig": { "responseModalities": ["IMAGE"] }

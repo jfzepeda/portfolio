@@ -1,0 +1,11 @@
+# Yantissimo — IA flotante, tabla original conservada
+
+Herramienta: image_gen integrada.
+
+Use case: precise-object-edit
+Edit target: the supplied ORIGINAL Yantissimo ecosystem illustration, whose ERP screen contains charts, calendar and a gray table. Preserve that entire screen EXACTLY.
+User correction: AI must be an additional FLOATING PHYSICAL OBJECT in front of the screen, NOT content embedded in or replacing the screen. The original table was correct and must remain intact behind the new object.
+Change: Add one elegant small-to-medium sculptural 3D AI copilot/chatbot module floating in the foreground, just to the right of the large black tire and in front of the lower-right desktop screen/table region, above the existing invoice sheets. It must have visible independent depth, thickness, rounded edges, separation from the monitor, and a soft shadow demonstrating it floats outside the display.
+Design this new object as a luminous frosted lavender speech bubble, angled subtly toward the viewer, with a simple pearl-white four-point AI sparkle and three tiny white conversational dots. Beside and slightly below it, add three miniature floating connected tool tokens (database cylinder, document, silver wrench), connected to the speech bubble by delicate lavender translucent glass strands. Together these form ONE compact cohesive floating AI/MCP assistant cluster. Lavender and soft icy blue materials, restrained glow, premium soft 3D matching existing glass ribbons. The cluster should be clearly readable as a distinct extra ecosystem object, without dominating the tire or devices. Keep it in the lower-right central zone, not on top of the calendar or charts.
+Critical invariants: do not change ANY pixel content or design of the ERP screen: original gray tabular rows and colored status dots stay present, with only natural partial occlusion by the new floating foreground object. Do NOT turn this into an inset screen panel. Keep original tire, silver wheel, storefront at left, mobile device at right, backend cylinder at top, ERP chart/calendar/table, warehouse, invoices, shield, workshop car, glass connections, background, overall camera, square framing and lighting unchanged.
+No words, letters, numbers, logos, watermark, annotation circle, or humanoid robot. Output one clean finished illustration.

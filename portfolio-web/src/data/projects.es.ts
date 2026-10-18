@@ -6,6 +6,7 @@ import type { Project, Tier4Project, Category } from "./projects";
 
 export const yantissimo: Project = {
   id: "yantissimo",
+  thumbnail: "/images/projects/thumbnails-3d/yantissimo.webp",
   slug: "yantissimo",
   name: "Plataforma Yantissimo",
   tagline:
@@ -268,8 +269,9 @@ export const yantissimo: Project = {
 
 export const fitnessCopilot: Project = {
   id: "fitness-copilot",
+  thumbnail: "/images/projects/thumbnails-3d/fitness-copilot.webp",
   slug: "fitness-copilot",
-  name: "Fitness Copilot",
+  name: "Vydas",
   tagline:
     "Compañero de fitness, nutrición y entrenamiento asistido por IA para iOS, respaldado por Supabase + Claude.",
   tier: 2,
@@ -279,12 +281,13 @@ export const fitnessCopilot: Project = {
   recencyLabel: "May 2026",
   icon: "F",
   accent: "emerald",
-  scaleSignal: "26 archivos Swift · 8.3k LOC · 6 pestañas · Supabase + Claude Edge",
+  scaleSignal:
+    "26 archivos Swift · 8.3k LOC · 6 pestañas · Supabase + Claude Edge",
   executive: {
     headline:
       "Un coach personal de IA para dieta, entrenamiento y recuperación.",
     summary:
-      "Fitness Copilot es una app iOS que combina seguimiento de macros, planes semanales de entrenamiento, lectura de resultados de laboratorio y un coach IA en un solo lugar. La app está lista para bilingüe (actualmente en español) y diseñada en torno a cómo los atletas realmente usan su teléfono — registro rápido, líneas de tiempo de un vistazo y conversaciones IA con contexto real de tus metas, alergias y laboratorios recientes.",
+      "Vydas es una app iOS que combina seguimiento de macros, planes semanales de entrenamiento, lectura de resultados de laboratorio y un coach IA en un solo lugar. La app está lista para bilingüe (actualmente en español) y diseñada en torno a cómo los atletas realmente usan su teléfono — registro rápido, líneas de tiempo de un vistazo y conversaciones IA con contexto real de tus metas, alergias y laboratorios recientes.",
     outcomes: [
       "Todo tu contexto de fitness — dieta, entrenamientos, laboratorios, suplementos — vive en un solo lugar donde la IA puede razonar sobre él.",
       "Vista de timeline diaria muestra qué sigue sin forzar al usuario a navegar menús.",
@@ -331,6 +334,7 @@ export const fitnessCopilot: Project = {
 
 export const kioskoLogistics: Project = {
   id: "kiosko-logistics",
+  thumbnail: "/images/projects/thumbnails-3d/kiosko-logistics.webp",
   slug: "kiosko-logistics",
   name: "Kiosko Logistics",
   tagline:
@@ -342,7 +346,8 @@ export const kioskoLogistics: Project = {
   recencyLabel: "May 2026",
   icon: "K",
   accent: "sky",
-  scaleSignal: "Next.js 15 + suite VRP en Python · ~400 tiendas · demo de 8 rutas",
+  scaleSignal:
+    "Next.js 15 + suite VRP en Python · ~400 tiendas · demo de 8 rutas",
   executive: {
     headline:
       "Stack VRP completo — solver, visualizador y lab de experimentos — para una red de distribución de tiendas de conveniencia.",
@@ -395,6 +400,7 @@ export const kioskoLogistics: Project = {
 
 export const companyBrain: Project = {
   id: "company-brain",
+  thumbnail: "/images/projects/thumbnails-3d/company-brain.webp",
   slug: "company-brain",
   name: "DataKnife (Cerebro Corporativo)",
   tagline:
@@ -419,8 +425,7 @@ export const companyBrain: Project = {
     ],
   },
   technical: {
-    headline:
-      "Ingesta dual + tool call SQL custom con guardas de seguridad.",
+    headline: "Ingesta dual + tool call SQL custom con guardas de seguridad.",
     summary:
       "Los documentos se suben, clasifican y empujan a un OpenAI Vector Store listo para retrieval de ChatKit. Los archivos estructurados (CSV/Excel) llegan a un RPC de Supabase. La función custom sql-tool valida que cada query sea SELECT-only o WITH ... SELECT, inyecta LIMIT a la fuerza cuando falta, y ejecuta vía supabase.rpc contra una función Postgres security-definer.",
     architecture:
@@ -463,6 +468,7 @@ export const companyBrain: Project = {
 
 export const crispDm: Project = {
   id: "crisp-dm-2",
+  thumbnail: "/images/projects/thumbnails-3d/crisp-dm.webp",
   slug: "crisp-dm-2",
   name: "Workbench CRISP-DM",
   tagline:
@@ -476,8 +482,7 @@ export const crispDm: Project = {
   accent: "fuchsia",
   scaleSignal: "Next.js 16 · Anthropic + OpenAI · pipeline ML en Python",
   executive: {
-    headline:
-      "Un workbench LLM-native para el ciclo de datos CRISP-DM.",
+    headline: "Un workbench LLM-native para el ciclo de datos CRISP-DM.",
     summary:
       "CRISP-DM es el proceso estándar de la industria para proyectos de minería de datos (Entendimiento del Negocio → Entendimiento de Datos → Preparación → Modelado → Evaluación → Despliegue). Este workbench le da a un analista ayuda asistida por LLM en cada etapa, alternando entre Claude 3.5 y GPT-4o según la tarea.",
     outcomes: [
@@ -528,6 +533,7 @@ export const crispDm: Project = {
 
 export const whatsappGateway: Project = {
   id: "whatsapp-gateway",
+  thumbnail: "/images/projects/thumbnails-3d/whatsapp-gateway.webp",
   slug: "whatsapp-gateway",
   name: "WhatsApp Gateway",
   tagline:
@@ -593,6 +599,7 @@ export const whatsappGateway: Project = {
 
 export const overtree: Project = {
   id: "overtree",
+  thumbnail: "/images/projects/thumbnails-3d/overtree.webp",
   slug: "overtree",
   name: "Overtree",
   tagline:
@@ -655,13 +662,15 @@ export const overtree: Project = {
     "App de Escritorio",
   ],
   domain: "Herramientas para Devs / Escritura",
-  users: "Investigadores, estudiantes y escritores que quieren LaTeX local con IA.",
+  users:
+    "Investigadores, estudiantes y escritores que quieren LaTeX local con IA.",
   hero: "/images/projects/overtree-logo.png",
   repoPath: "Web/overtree",
 };
 
 export const swipeFotos: Project = {
   id: "swipe-fotos",
+  thumbnail: "/images/projects/thumbnails-3d/swipe-fotos.webp",
   slug: "swipe-fotos",
   name: "Swipe Fotos",
   tagline:
@@ -675,8 +684,7 @@ export const swipeFotos: Project = {
   accent: "rose",
   scaleSignal: "18 archivos Swift · ~2k LOC · MVVM + Photos.framework",
   executive: {
-    headline:
-      "Tinder para tu rollo de cámara — limpia años de fotos, rápido.",
+    headline: "Tinder para tu rollo de cámara — limpia años de fotos, rápido.",
     summary:
       "Swipe Fotos te permite organizar tu biblioteca de fotos haciendo swipe mes por mes. El progreso se guarda, así puedes pausar y reanudar. La UI es intencionalmente mínima — una foto a la vez, dos gestos, nada más.",
     outcomes: [
@@ -719,6 +727,7 @@ export const swipeFotos: Project = {
 
 export const karate: Project = {
   id: "karate",
+  thumbnail: "/images/projects/thumbnails-3d/karate.webp",
   slug: "karate",
   name: "Torneo de Karate",
   tagline:
@@ -788,6 +797,7 @@ export const karate: Project = {
 
 export const smokeSignals: Project = {
   id: "smoke-signals",
+  thumbnail: "/images/projects/thumbnails-3d/smoke-signals.webp",
   slug: "smoke-signals",
   name: "Smoke Signals",
   tagline:
@@ -975,7 +985,8 @@ export const tier4: Tier4Project[] = [
     name: "Padelón",
     category: "web",
     icon: "PD",
-    description: "Sitio estático tipo evento/landing con estructura multipágina.",
+    description:
+      "Sitio estático tipo evento/landing con estructura multipágina.",
     stack: ["HTML5", "CSS"],
     year: 2026,
   },
@@ -1002,7 +1013,8 @@ export const tier4: Tier4Project[] = [
     name: "Cotizador Nexora",
     category: "web",
     icon: "CN",
-    description: "UI constructora de cotizaciones para el pipeline de ventas Nexora.",
+    description:
+      "UI constructora de cotizaciones para el pipeline de ventas Nexora.",
     stack: ["Web"],
     year: 2025,
   },
@@ -1075,7 +1087,8 @@ export const tier4: Tier4Project[] = [
     name: "NutriGen",
     category: "swift",
     icon: "NG",
-    description: "Prototipo iOS de tracker nutricional con UI de cotizaciones/agente.",
+    description:
+      "Prototipo iOS de tracker nutricional con UI de cotizaciones/agente.",
     stack: ["SwiftUI", "Keychain"],
     year: 2025,
   },
@@ -1094,7 +1107,8 @@ export const tier4: Tier4Project[] = [
     name: "Delitec",
     category: "swift",
     icon: "DL",
-    description: "Prototipo iOS de delivery de comida / órdenes de restaurante.",
+    description:
+      "Prototipo iOS de delivery de comida / órdenes de restaurante.",
     stack: ["SwiftUI", "MVVM"],
     year: 2025,
   },
@@ -1133,7 +1147,8 @@ export const tier4: Tier4Project[] = [
     name: "Bot de Soporte para Laptops",
     category: "automation",
     icon: "LS",
-    description: "Flujo de soporte por WhatsApp construido sobre bot-whatsapp / Baileys.",
+    description:
+      "Flujo de soporte por WhatsApp construido sobre bot-whatsapp / Baileys.",
     stack: ["Node.js", "Baileys", "bot-whatsapp"],
     year: 2026,
   },

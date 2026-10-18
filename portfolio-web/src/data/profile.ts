@@ -124,7 +124,7 @@ export const techStack: StackGroup[] = [
     shippedIn: [
       "Yantissimo iOS (68 files, 0 SPM/Cocoapods)",
       "Smoke Signals (Signal protocol)",
-      "Fitness Copilot",
+      "Vydas",
     ],
   },
   {
@@ -439,6 +439,6 @@ export const capabilityPillars = [
     title: "Native iOS, Done Right",
     description:
       "Zero-dependency APIClient with 401 refresh retry. Application Support cache hydration. Keychain-backed sessions. Network.framework over WebSocket. MVVM with environment-driven dependency injection.",
-    examples: ["Yantissimo iOS", "Smoke Signals", "Fitness Copilot"],
+    examples: ["Yantissimo iOS", "Smoke Signals", "Vydas"],
   },
 ];

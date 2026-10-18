@@ -73,6 +73,7 @@ export interface Project {
   subproducts?: Subproduct[];
   screenshots?: string[]; // paths under /public
   hero?: string; // hero image path
+  thumbnail?: string; // featured card illustration
   repoPath?: string; // original local path for provenance
   demoUrl?: string; // public live-demo URL (Vercel deploy)
 }
@@ -88,6 +89,7 @@ export interface Project {
 
 export const yantissimo: Project = {
   id: "yantissimo",
+  thumbnail: "/images/projects/thumbnails-3d/yantissimo.webp",
   slug: "yantissimo",
   name: "Yantissimo Platform",
   tagline:
@@ -353,8 +355,9 @@ export const yantissimo: Project = {
 
 export const fitnessCopilot: Project = {
   id: "fitness-copilot",
+  thumbnail: "/images/projects/thumbnails-3d/fitness-copilot.webp",
   slug: "fitness-copilot",
-  name: "Fitness Copilot",
+  name: "Vydas",
   tagline:
     "AI-assisted fitness, nutrition, and training companion for iOS, backed by Supabase + Claude.",
   tier: 2,
@@ -368,7 +371,7 @@ export const fitnessCopilot: Project = {
   executive: {
     headline: "A personal AI coach for diet, training, and recovery.",
     summary:
-      "Fitness Copilot is an iOS app that combines macro tracking, weekly training plans, lab-result reading, and an AI coach in one place. The app is bilingual-ready (currently Spanish) and designed around how athletes actually use their phone — quick logging, glanceable timelines, and AI conversations that have real context about your goals, allergies, and recent labs.",
+      "Vydas is an iOS app that combines macro tracking, weekly training plans, lab-result reading, and an AI coach in one place. The app is bilingual-ready (currently Spanish) and designed around how athletes actually use their phone — quick logging, glanceable timelines, and AI conversations that have real context about your goals, allergies, and recent labs.",
     outcomes: [
       "All your fitness context — diet, workouts, labs, supplements — lives in one place the AI can reason over.",
       "Daily timeline view shows what's next without forcing the user to navigate menus.",
@@ -415,6 +418,7 @@ export const fitnessCopilot: Project = {
 
 export const kioskoLogistics: Project = {
   id: "kiosko-logistics",
+  thumbnail: "/images/projects/thumbnails-3d/kiosko-logistics.webp",
   slug: "kiosko-logistics",
   name: "Kiosko Logistics",
   tagline:
@@ -426,7 +430,8 @@ export const kioskoLogistics: Project = {
   recencyLabel: "May 2026",
   icon: "K",
   accent: "sky",
-  scaleSignal: "Next.js 15 + Python VRP suite · ~400 stores · 8-route bundled demo",
+  scaleSignal:
+    "Next.js 15 + Python VRP suite · ~400 stores · 8-route bundled demo",
   executive: {
     headline:
       "Full VRP stack — solver, visualizer, and experiment lab — for a convenience-store distribution network.",
@@ -479,6 +484,7 @@ export const kioskoLogistics: Project = {
 
 export const companyBrain: Project = {
   id: "company-brain",
+  thumbnail: "/images/projects/thumbnails-3d/company-brain.webp",
   slug: "company-brain",
   name: "DataKnife (Company Brain)",
   tagline:
@@ -550,6 +556,7 @@ export const companyBrain: Project = {
 
 export const crispDm: Project = {
   id: "crisp-dm-2",
+  thumbnail: "/images/projects/thumbnails-3d/crisp-dm.webp",
   slug: "crisp-dm-2",
   name: "CRISP-DM Workbench",
   tagline:
@@ -614,6 +621,7 @@ export const crispDm: Project = {
 
 export const whatsappGateway: Project = {
   id: "whatsapp-gateway",
+  thumbnail: "/images/projects/thumbnails-3d/whatsapp-gateway.webp",
   slug: "whatsapp-gateway",
   name: "WhatsApp Gateway",
   tagline:
@@ -679,6 +687,7 @@ export const whatsappGateway: Project = {
 
 export const overtree: Project = {
   id: "overtree",
+  thumbnail: "/images/projects/thumbnails-3d/overtree.webp",
   slug: "overtree",
   name: "Overtree",
   tagline:
@@ -748,6 +757,7 @@ export const overtree: Project = {
 
 export const swipeFotos: Project = {
   id: "swipe-fotos",
+  thumbnail: "/images/projects/thumbnails-3d/swipe-fotos.webp",
   slug: "swipe-fotos",
   name: "Swipe Fotos",
   tagline:
@@ -804,6 +814,7 @@ export const swipeFotos: Project = {
 
 export const karate: Project = {
   id: "karate",
+  thumbnail: "/images/projects/thumbnails-3d/karate.webp",
   slug: "karate",
   name: "Karate Tournament",
   tagline:
@@ -873,6 +884,7 @@ export const karate: Project = {
 
 export const smokeSignals: Project = {
   id: "smoke-signals",
+  thumbnail: "/images/projects/thumbnails-3d/smoke-signals.webp",
   slug: "smoke-signals",
   name: "Smoke Signals",
   tagline:

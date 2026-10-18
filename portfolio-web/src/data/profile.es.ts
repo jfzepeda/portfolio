@@ -2,11 +2,7 @@
 // PROFILE DATA — Spanish version. Mirrors the structure of profile.ts.
 // =============================================================================
 
-import type {
-  StackGroup,
-  SkillGroup,
-  ExperienceRow,
-} from "./profile";
+import type { StackGroup, SkillGroup, ExperienceRow } from "./profile";
 
 export const profile = {
   name: "Juan Felipe Zepeda",
@@ -101,7 +97,7 @@ export const techStack: StackGroup[] = [
     shippedIn: [
       "Yantissimo iOS (68 archivos, 0 SPM/Cocoapods)",
       "Smoke Signals (protocolo Signal)",
-      "Fitness Copilot",
+      "Vydas",
     ],
   },
   {
@@ -378,11 +374,7 @@ export const capabilityPillars = [
     title: "Plataformas Completas",
     description:
       "Entrego productos de punta a punta — iOS, web, backend, integraciones — bajo una sola visión arquitectónica. Yantissimo opera tres superficies coordinadas; Karate se distribuye como un binario único de Electron; el gateway de WhatsApp alimenta una flota entera de agentes internos.",
-    examples: [
-      "Plataforma Yantissimo",
-      "Torneo de Karate",
-      "WhatsApp Gateway",
-    ],
+    examples: ["Plataforma Yantissimo", "Torneo de Karate", "WhatsApp Gateway"],
   },
   {
     id: "ai",
@@ -403,6 +395,6 @@ export const capabilityPillars = [
     title: "iOS Nativo Bien Hecho",
     description:
       "APIClient cero-dependencias con reintento 401. Hidratación desde Application Support. Sesiones respaldadas por Keychain. Network.framework sobre WebSocket. MVVM con inyección de dependencias por environment.",
-    examples: ["Yantissimo iOS", "Smoke Signals", "Fitness Copilot"],
+    examples: ["Yantissimo iOS", "Smoke Signals", "Vydas"],
   },
 ];

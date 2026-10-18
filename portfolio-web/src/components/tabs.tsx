@@ -13,9 +13,14 @@ export interface TabItem {
 export function Tabs({
   idBase,
   items,
+  stacked,
 }: {
   idBase: string;
   items: TabItem[];
+  // Keep inactive panels laid out (invisible + inert) so the container is as
+  // tall as the tallest one. `hidden` can't do this: Tailwind's preflight
+  // forces display:none on it from a CSS layer that wins over any override.
+  stacked?: boolean;
 }) {
   const [active, setActive] = useState(items[0].id);
   const refs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -59,7 +64,9 @@ export function Tabs({
           role="tabpanel"
           id={`${idBase}-panel-${it.id}`}
           aria-labelledby={`${idBase}-tab-${it.id}`}
-          hidden={active !== it.id}
+          hidden={stacked ? undefined : active !== it.id}
+          inert={stacked && active !== it.id}
+          data-inactive={stacked && active !== it.id ? "" : undefined}
           className="tabpanel"
         >
           {it.panel}

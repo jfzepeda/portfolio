@@ -78,7 +78,7 @@ Customer-facing Next.js 15.6 + React 19 + Tailwind 4 storefront on Vercel.
 
 ## Tier 2 — Featured Deep
 
-### Fitness Copilot — iOS health & training app, Supabase + Anthropic Claude.
+### Vydas — iOS health & training app, Supabase + Anthropic Claude.
 - 26 Swift files, 8.3k LOC, six tabs (Diet · Exercises · AI · Schedule · Profile · Supplements).
 - MVVM with environment-driven dependency injection.
 - HealthKit-synced metrics. Anthropic Edge Function for supplement suggestions.

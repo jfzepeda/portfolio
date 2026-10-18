@@ -58,9 +58,19 @@ export function Work() {
               style={layer(1 + i * 0.6)}
               data-cat={p.category}
             >
-              {feature && p.hero && (
+              {feature && !p.thumbnail && p.hero && (
                 <div className="card-media" aria-hidden>
                   <Image src={p.hero} alt="" fill sizes="(max-width: 1000px) 100vw, 40vw" />
+                </div>
+              )}
+              {p.thumbnail && (
+                <div className="card-thumbnail" aria-hidden>
+                  <Image
+                    src={p.thumbnail}
+                    alt=""
+                    fill
+                    sizes={feature ? "(max-width: 640px) 100vw, (max-width: 1000px) 67vw, 40vw" : "(max-width: 640px) 50vw, (max-width: 1000px) 33vw, 20vw"}
+                  />
                 </div>
               )}
               <div className="card-top">
@@ -72,7 +82,7 @@ export function Work() {
                   {short(p.category)}
                 </span>
               </div>
-              <div>
+              <div className="card-title">
                 <h3>
                   <button type="button" className="card-open" onClick={() => openDialog(dialogId(p.slug))}>
                     {p.name}
@@ -81,6 +91,10 @@ export function Work() {
                 <p className="card-sub">{p.domain}</p>
               </div>
               <div className="card-reveal" aria-hidden>
+                <div>
+                  <h3>{p.name}</h3>
+                  <p className="card-sub">{p.domain}</p>
+                </div>
                 <p>
                   <span className="only-executive">{p.executive.headline}</span>
                   <span className="only-technical">{p.technical.headline}</span>

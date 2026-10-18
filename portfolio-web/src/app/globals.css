@@ -227,7 +227,9 @@ footer {
   -webkit-backdrop-filter: blur(20px) saturate(165%);
   backdrop-filter: blur(20px) saturate(165%);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-shine);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 var(--glass-shine);
   border-radius: var(--r, 22px);
 }
 
@@ -728,8 +730,20 @@ footer {
 }
 .brand-marquee {
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
 }
 .brand-marquee-track {
   display: inline-flex;
@@ -822,12 +836,24 @@ footer {
   min-width: 0;
   padding: clamp(12px, 1.6vw, 18px);
 }
-.card[data-cat="enterprise"] { --cat: oklch(0.82 0.15 80); }
-.card[data-cat="ai"]         { --cat: oklch(0.78 0.16 300); }
-.card[data-cat="web"]        { --cat: oklch(0.78 0.15 45); }
-.card[data-cat="swift"]      { --cat: oklch(0.78 0.13 235); }
-.card[data-cat="automation"] { --cat: oklch(0.8 0.13 185); }
-.card[data-cat="experimental"] { --cat: oklch(0.75 0.02 250); }
+.card[data-cat="enterprise"] {
+  --cat: oklch(0.82 0.15 80);
+}
+.card[data-cat="ai"] {
+  --cat: oklch(0.78 0.16 300);
+}
+.card[data-cat="web"] {
+  --cat: oklch(0.78 0.15 45);
+}
+.card[data-cat="swift"] {
+  --cat: oklch(0.78 0.13 235);
+}
+.card[data-cat="automation"] {
+  --cat: oklch(0.8 0.13 185);
+}
+.card[data-cat="experimental"] {
+  --cat: oklch(0.75 0.02 250);
+}
 
 .card-top {
   display: flex;
@@ -887,7 +913,7 @@ footer {
   justify-content: flex-end;
   gap: 8px;
   padding: 16px;
-  background: var(--glass-opaque);
+  background: color-mix(in oklab, var(--glass-opaque) 70%, transparent);
   transform: translateY(102%);
   transition: transform 450ms var(--ease);
   font-size: 13px;
@@ -895,7 +921,15 @@ footer {
   color: var(--fg-2);
   pointer-events: none;
 }
-.card-reveal p {
+.card-title {
+  transition: opacity 250ms;
+}
+.card-reveal > div:first-child,
+.card-reveal .card-sub {
+  color: #fff;
+  text-shadow: 0 1px 8px rgb(0 0 0 / 0.45);
+}
+.card-reveal p:not(.card-sub) {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -916,6 +950,10 @@ footer {
   .card:focus-within .card-reveal {
     transform: translateY(0);
   }
+  .card:hover .card-title,
+  .card:focus-within .card-title {
+    opacity: 0;
+  }
 }
 .card-feature .card-media {
   position: absolute;
@@ -928,6 +966,21 @@ footer {
 .card-feature .card-media img {
   object-fit: cover;
   object-position: top left;
+}
+.card-thumbnail {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 50%, transparent 92%);
+}
+.card-thumbnail img {
+  object-fit: cover;
+  object-position: center;
+}
+.card-feature .card-thumbnail {
+  -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent 95%);
+  mask-image: linear-gradient(to bottom, #000 65%, transparent 95%);
 }
 .card-feature h3 {
   font-size: clamp(22px, 2.6vw, 36px);
@@ -1598,6 +1651,112 @@ footer {
   font: 400 11px var(--font-mono);
   color: var(--fg-3);
 }
+@media (min-width: 860px) {
+  .dlg-body {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 28px;
+    align-items: start;
+  }
+  .dlg-body .gallery {
+    flex-direction: column;
+    margin: 0;
+    overflow: visible;
+    position: sticky;
+    top: 0;
+  }
+  .dlg-body .shot {
+    flex: none;
+    width: 100%;
+  }
+  .dlg-body .tablist {
+    display: flex;
+    align-self: stretch;
+  }
+  .dlg-body .tab {
+    flex: 1;
+    height: 44px;
+    font-size: 15px;
+  }
+  .dlg-body .dlg-h {
+    font-size: 26px;
+  }
+  .dlg-body .dlg-p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .dlg-body .bullets li {
+    font-size: 15.5px;
+    margin-top: 14px;
+    padding-left: 22px;
+  }
+  .dlg-body .subs {
+    grid-template-columns: 1fr;
+  }
+  .dlg-body .caps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dlg-body .cap {
+    min-height: 108px;
+    justify-content: space-between;
+  }
+  .dlg-body .cap-t {
+    font-size: 18px;
+  }
+}
+/* all panels share one grid cell, so the dialog is as tall as the tallest tab */
+.dlg-body .tabs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+}
+.dlg-body .tabpanel {
+  grid-row: 2;
+  grid-column: 1;
+}
+.dlg-body .tabpanel[data-inactive] {
+  visibility: hidden;
+}
+.caps {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+.cap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 14px 16px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.cap:hover {
+  border-color: var(--glass-border-hi);
+}
+.cap-n {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.1em;
+  color: var(--fg-3);
+}
+.cap-n::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cat, var(--accent));
+}
+.cap-t {
+  font: 600 16px / 1.25 var(--font-display);
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
 .dlg-foot {
   display: flex;
   flex-wrap: wrap;
@@ -1661,12 +1820,24 @@ footer {
 .arch[hidden] {
   display: none;
 }
-.arch[data-cat="enterprise"] { --cat: oklch(0.82 0.15 80); }
-.arch[data-cat="ai"]         { --cat: oklch(0.78 0.16 300); }
-.arch[data-cat="web"]        { --cat: oklch(0.78 0.15 45); }
-.arch[data-cat="swift"]      { --cat: oklch(0.78 0.13 235); }
-.arch[data-cat="automation"] { --cat: oklch(0.8 0.13 185); }
-.arch[data-cat="experimental"] { --cat: oklch(0.75 0.02 250); }
+.arch[data-cat="enterprise"] {
+  --cat: oklch(0.82 0.15 80);
+}
+.arch[data-cat="ai"] {
+  --cat: oklch(0.78 0.16 300);
+}
+.arch[data-cat="web"] {
+  --cat: oklch(0.78 0.15 45);
+}
+.arch[data-cat="swift"] {
+  --cat: oklch(0.78 0.13 235);
+}
+.arch[data-cat="automation"] {
+  --cat: oklch(0.8 0.13 185);
+}
+.arch[data-cat="experimental"] {
+  --cat: oklch(0.75 0.02 250);
+}
 .arch .card-icon {
   flex-shrink: 0;
   background: color-mix(in oklab, var(--cat) 20%, transparent);

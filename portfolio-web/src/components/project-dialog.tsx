@@ -46,6 +46,7 @@ export function ProjectDialog({
         <span className="chip only-technical">{p.scaleSignal}</span>
       </div>
 
+      <div className="dlg-body">
       {shots.length > 0 && (
         <div className="gallery">
           {shots.map((src) => (
@@ -58,6 +59,7 @@ export function ProjectDialog({
 
       <Tabs
         idBase={id}
+        stacked
         items={[
           {
             id: "overview",
@@ -143,13 +145,14 @@ export function ProjectDialog({
             ),
             panel: (
               <>
-                <div className="chips only-executive">
-                  {p.capabilities.map((c) => (
-                    <span key={c} className="chip">
-                      {c}
-                    </span>
+                <ul className="caps only-executive">
+                  {p.capabilities.map((c, i) => (
+                    <li key={c} className="cap">
+                      <span className="cap-n">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="cap-t">{c}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
                 <div className="chips only-technical">
                   {p.stack.map((s) => (
                     <span key={s} className="chip">
@@ -162,6 +165,7 @@ export function ProjectDialog({
           },
         ]}
       />
+      </div>
 
       {p.demoUrl && (
         <div className="dlg-foot">

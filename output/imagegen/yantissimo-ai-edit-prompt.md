@@ -1,0 +1,10 @@
+# Yantissimo — edición copilot, MCP y chatbot
+
+Herramienta: image_gen integrada. Edición del thumbnail original a petición del usuario.
+
+Use case: precise-object-edit
+Edit target: the provided original Yantissimo ecosystem illustration.
+Primary request: Modify ONLY the lower-right content region INSIDE the large central desktop ERP screen, currently occupied by gray table rows and small green/gray status dots. Replace that lower-right portion with a beautiful integrated AI copilot/chatbot + tool-connection panel. This is the region just to the RIGHT of the large foreground tire, BELOW the dashboard calendar and chart, and ABOVE the foreground invoice sheets.
+New panel design: a clean pale lavender inset rounded panel occupying this lower-right screen area, matching the screen perspective. A small elegant lavender AI sparkle emblem at its upper left, two staggered rounded conversation bubbles with tiny non-legible line strokes suggesting assistant dialogue, and along the bottom a compact visual MCP connection motif: a small central glowing lavender node connected by three fine softly luminous lines to tiny database cylinder, document and wrench/tool symbols. Communicate an AI assistant embedded in the ERP that chats and connects to business tools. Clear, restrained, professional; no humanoid robot mascot, no excessive neon. All panel elements should fit within the existing screen area and remain legible as shapes at thumbnail scale.
+Invariants: Preserve the exact original square canvas, overall framing, background, lighting, materials and every other object unchanged. Preserve the central tire and rim, storefront on left, phone on right, backend database above, chart and calendar on top half of ERP, warehouse, workshop car, invoices, audit shield, flowing glass ribbons, colors and shadows. Do not move, resize, redesign or add objects anywhere else.
+No words, no letters, no numbers, no labels, no watermark. Do not add any annotation circle; the final must be the clean illustration. Preserve the existing premium soft 3D aesthetic.
