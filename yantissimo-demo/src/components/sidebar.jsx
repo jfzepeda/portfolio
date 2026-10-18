@@ -101,6 +101,7 @@ const NestedListItemButton = styled(CustomListItemButton, {
 }));
 
 const ROLES_PROTECTED = [
+  ROLES.OWNER,
   ROLES.ADMIN,
   ROLES.MARKETING,
   ROLES.MANAGER,
@@ -110,11 +111,17 @@ const ROLES_PROTECTED = [
   ROLES.MYR_HELPER,
 ];
 
-const ROLES_PATIO = [ROLES.ADMIN, ROLES.MARKETING, ROLES.MANAGER, ROLES.SELLER];
+const ROLES_PATIO = [
+  ROLES.OWNER,
+  ROLES.ADMIN,
+  ROLES.MARKETING,
+  ROLES.MANAGER,
+  ROLES.SELLER,
+];
 
 const ROLES_MYR = [ROLES.MYR_MANAGER, ROLES.MYR_SELLER, ROLES.MYR_HELPER];
 
-const ROLES_CORP = [ROLES.ADMIN, ROLES.MARKETING];
+const ROLES_CORP = [ROLES.OWNER, ROLES.ADMIN, ROLES.MARKETING];
 
 const ROLES_CLIENTS = [ROLES.CLIENT_ADMIN, ROLES.CLIENT];
 
@@ -357,7 +364,8 @@ const Sidebar = () => {
   useEffect(() => {
     // Load user profile on the client to avoid SSR/CSR mismatch
     const profile = getUserProfile();
-    setCurRole(profile?.role ?? 0);
+    // Demo: always render the sidebar as the highest role
+    setCurRole(ROLES.ADMIN);
     setCurSuc(profile?.sucursal ?? null);
     setSidebarColor(profile?.color ?? null);
     if (profile?.logo_url) setLogoUrl(profile.logo_url);
@@ -375,7 +383,7 @@ const Sidebar = () => {
 
   const pathname = usePathname();
   const useContrastMenuIcon = CONTRAST_MENU_ICON_ROUTES.some(
-    (route) => pathname === route || pathname?.startsWith(`${route}/`)
+    (route) => pathname === route || pathname?.startsWith(`${route}/`),
   );
 
   const isActivePath = (basePath) =>
@@ -401,7 +409,7 @@ const Sidebar = () => {
   const visibleMenuItems = menuItems
     .filter((item) => !item.roles || item.roles.includes(curRole))
     .filter(
-      (item) => ["ADMIN", item.onlySuc].includes(curSuc) || !item.onlySuc
+      (item) => ["ADMIN", item.onlySuc].includes(curSuc) || !item.onlySuc,
     );
 
   const renderMenuList = (mobile = false) => (
@@ -434,7 +442,7 @@ const Sidebar = () => {
                   <ListItemIcon>
                     {withBadge(
                       item.icon,
-                      isSubmenuOpen ? 0 : getBadgeCount(item.key)
+                      isSubmenuOpen ? 0 : getBadgeCount(item.key),
                     )}
                   </ListItemIcon>
                   {(showItemLabels || mobile) && (
@@ -450,7 +458,7 @@ const Sidebar = () => {
                 <List component="div" disablePadding>
                   {item.children
                     .filter(
-                      (child) => !child.roles || child.roles.includes(curRole)
+                      (child) => !child.roles || child.roles.includes(curRole),
                     )
                     .map((child) => (
                       <CustomListItem key={child.key}>
