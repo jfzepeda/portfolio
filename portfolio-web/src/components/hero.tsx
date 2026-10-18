@@ -103,22 +103,29 @@ export function Hero() {
           )}
         >
           <div className="brand-marquee-track">
-            {doubled.map(([label, slug], i) => (
-              <div
-                key={`${slug}-${i}`}
-                className="brand-cell"
-                aria-hidden={i >= BRANDS.length || undefined}
-              >
-                <span
-                  className="brand-mark"
-                  style={{
-                    WebkitMaskImage: `url(https://cdn.simpleicons.org/${slug})`,
-                    maskImage: `url(https://cdn.simpleicons.org/${slug})`,
-                  }}
-                />
-                <span className="brand-label">{label}</span>
-              </div>
-            ))}
+            {doubled.map(([label, slug], i) => {
+              // Simple Icons dropped OpenAI, so it is served from /public.
+              const src =
+                slug === "openai"
+                  ? "/icons/openai.svg"
+                  : `https://cdn.simpleicons.org/${slug}`;
+              return (
+                <div
+                  key={`${slug}-${i}`}
+                  className="brand-cell"
+                  aria-hidden={i >= BRANDS.length || undefined}
+                >
+                  <span
+                    className="brand-mark"
+                    style={{
+                      WebkitMaskImage: `url(${src})`,
+                      maskImage: `url(${src})`,
+                    }}
+                  />
+                  <span className="brand-label">{label}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

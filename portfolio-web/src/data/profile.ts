@@ -7,7 +7,7 @@ export const profile = {
   name: "Juan Felipe Zepeda",
   shortName: "Juanfe",
   handle: "juanfe",
-  email: "zepedajuanfe9@gmail.com",
+  email: "ze_zepedajf@outlook.com",
   location: "Mexico",
   timezone: "America/Mexico_City",
 
@@ -28,7 +28,7 @@ export const profile = {
   social: {
     github: "https://github.com/",
     linkedin: "https://linkedin.com/in/",
-    email: "mailto:zepedajuanfe9@gmail.com",
+    email: "mailto:ze_zepedajf@outlook.com",
   },
 
   availability:
@@ -36,9 +36,9 @@ export const profile = {
 
   // Concrete credibility numbers
   credibility: [
-    { label: "Production platforms shipped", value: "3+" },
-    { label: "AI agents in production", value: "5+" },
-    { label: "Tier 1-3 featured projects", value: "10" },
+    { label: "Production platforms shipped", value: "5+" },
+    { label: "AI agents in production", value: "3" },
+    { label: "Featured projects", value: "10" },
     { label: "Total projects in portfolio", value: "40+" },
   ],
 };

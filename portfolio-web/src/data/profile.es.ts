@@ -8,7 +8,7 @@ export const profile = {
   name: "Juan Felipe Zepeda",
   shortName: "Juanfe",
   handle: "juanfe",
-  email: "zepedajuanfe9@gmail.com",
+  email: "ze_zepedajf@outlook.com",
   location: "México",
   timezone: "America/Mexico_City",
 
@@ -24,9 +24,9 @@ export const profile = {
   ],
 
   social: {
-    github: "https://github.com/",
-    linkedin: "https://linkedin.com/in/",
-    email: "mailto:zepedajuanfe9@gmail.com",
+    github: "https://github.com/jfzepeda",
+    linkedin: "https://www.linkedin.com/in/juanfe-zepeda",
+    email: "mailto:ze_zepedajf@outlook.com",
   },
 
   availability:
