@@ -1,15 +1,21 @@
-// Pre-hydration script — only manages Executive/Technical content mode now.
-// Typography (Mono-led) and density (Cozy) are locked in globals.css.
+// Pre-hydration script — restores view mode (executive/technical) and theme
+// (dark/light) before first paint, and flags `.js` so layered reveals only hide
+// content when scripting is available.
 
 const SCRIPT = `
 (function() {
+  var d = document.documentElement;
+  d.classList.add('js');
+  var mode = 'executive', theme = 'dark';
   try {
-    var mode = localStorage.getItem('jfz:mode');
-    if (mode !== 'executive' && mode !== 'technical') mode = 'executive';
-    document.documentElement.setAttribute('data-mode', mode);
-  } catch (e) {
-    document.documentElement.setAttribute('data-mode', 'executive');
-  }
+    var m = localStorage.getItem('jfz:mode');
+    if (m === 'executive' || m === 'technical') mode = m;
+    var t = localStorage.getItem('jfz:theme');
+    if (t === 'dark' || t === 'light') theme = t;
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) theme = 'light';
+  } catch (e) {}
+  d.setAttribute('data-mode', mode);
+  d.setAttribute('data-theme', theme);
 })();
 `;
 

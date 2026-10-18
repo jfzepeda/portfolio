@@ -2,271 +2,136 @@
 
 import { useEffect, useState } from "react";
 import { useLang, useT, bi } from "@/lib/i18n";
+import { Icon } from "./icons";
 
 type Mode = "executive" | "technical";
+type Theme = "dark" | "light";
 
-// Nav adapts to view mode — Pro sees Services/Process, Tech sees Skills/Work.
-// Keeping About / Projects / More / Contact in both, since those exist in
-// both flows.
+const IDS = ["top", "work", "about", "contact"] as const;
+
+function persist(key: string, value: string) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {}
+}
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mode, setMode] = useState<Mode>("executive");
-  const [mounted, setMounted] = useState(false);
-  const { lang, setLang } = useLang();
   const t = useT();
+  const { lang, setLang } = useLang();
+  const [mode, setMode] = useState<Mode>("executive");
+  const [theme, setTheme] = useState<Theme>("dark");
+  const [active, setActive] = useState<string>("top");
 
-  const PRO_LINKS: [string, string][] = [
-    [t(bi("About", "Sobre mí")), "about"],
-    [t(bi("Services", "Servicios")), "services"],
-    [t(bi("Process", "Proceso")), "process"],
-    [t(bi("Projects", "Proyectos")), "projects"],
-    [t(bi("More", "Más")), "more"],
-    [t(bi("Contact", "Contacto")), "contact"],
-  ];
-  const TECH_LINKS: [string, string][] = [
-    [t(bi("About", "Sobre mí")), "about"],
-    [t(bi("Stack", "Stack")), "skills"],
-    [t(bi("Work", "Experiencia")), "experience"],
-    [t(bi("Projects", "Proyectos")), "projects"],
-    [t(bi("More", "Más")), "more"],
-    [t(bi("Contact", "Contacto")), "contact"],
-  ];
+  const links: Record<(typeof IDS)[number], string> = {
+    top: t(bi("Home", "Inicio")),
+    work: t(bi("Work", "Proyectos")),
+    about: t(bi("About", "Sobre mí")),
+    contact: t(bi("Contact", "Contacto")),
+  };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const root = document.documentElement;
+    setMode(root.getAttribute("data-mode") === "technical" ? "technical" : "executive");
+    setTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
   }, []);
 
   useEffect(() => {
-    const v = document.documentElement.getAttribute("data-mode");
-    setMode(v === "technical" ? "technical" : "executive");
-    setMounted(true);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { threshold: 0.5 },
+    );
+    IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
   }, []);
 
   function changeMode(next: Mode) {
     setMode(next);
     document.documentElement.setAttribute("data-mode", next);
-    try {
-      localStorage.setItem("jfz:mode", next);
-    } catch {}
+    persist("jfz:mode", next);
   }
 
-  return (
-    <header
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 40,
-        backdropFilter: scrolled ? "blur(14px) saturate(140%)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(14px) saturate(140%)" : "none",
-        background: scrolled
-          ? "color-mix(in oklab, var(--paper) 80%, transparent)"
-          : "transparent",
-        borderBottom: scrolled
-          ? "1px solid var(--rule)"
-          : "1px solid transparent",
-        transition:
-          "background 200ms, border-color 200ms, backdrop-filter 200ms",
-      }}
+  function toggleTheme() {
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.setAttribute("data-theme", next);
+    persist("jfz:theme", next);
+  }
+
+  const linkEls = IDS.map((id) => (
+    <a
+      key={id}
+      href={`#${id}`}
+      className="nav-link"
+      aria-current={active === id ? "true" : undefined}
     >
-      <div
-        style={{
-          maxWidth: 1400,
-          margin: "0 auto",
-          padding: "14px clamp(20px, 4vw, 40px)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 16,
-        }}
-      >
-        <a
-          href="#top"
-          aria-label="Home"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-            color: "var(--ink)",
-          }}
-        >
-          <span
-            aria-hidden
-            style={{
-              width: 22,
-              height: 22,
-              borderRadius: "50%",
-              background: "var(--accent)",
-              display: "inline-block",
-            }}
-          />
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 13,
-              letterSpacing: "0.04em",
-            }}
-          >
-            jfz
-          </span>
+      {links[id]}
+    </a>
+  ));
+
+  return (
+    <>
+      <header className="nav glass">
+        <a href="#top" className="nav-brand" aria-label="Juan Felipe Zepeda">
+          <i aria-hidden />
+          <span>Juanfe</span>
         </a>
 
-        <nav
-          aria-label="Primary"
-          style={{
-            display: "flex",
-            gap: "clamp(12px, 2vw, 22px)",
-            alignItems: "center",
-            flexWrap: "wrap",
-            justifyContent: "flex-end",
-          }}
-        >
-          {(mounted ? (mode === "technical" ? TECH_LINKS : PRO_LINKS) : PRO_LINKS).map(
-            ([label, id]) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                className="nav-link"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 11.5,
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  color: "var(--ink-2)",
-                }}
-              >
-                {label}
-              </a>
-            ),
-          )}
-
-          {/* EN ↔ ES language toggle */}
-          <div
-            role="radiogroup"
-            aria-label={t(bi("Language", "Idioma"))}
-            suppressHydrationWarning
-            style={{
-              position: "relative",
-              display: "inline-flex",
-              padding: 2,
-              borderRadius: 999,
-              background: "var(--paper-3)",
-              border: "1px solid var(--rule)",
-              userSelect: "none",
-              marginLeft: 6,
-            }}
-          >
-            <span
-              aria-hidden
-              style={{
-                position: "absolute",
-                top: 2,
-                bottom: 2,
-                left: lang === "es" ? "calc(2px + 50%)" : "2px",
-                width: "calc(50% - 2px)",
-                background: "var(--ink)",
-                borderRadius: 999,
-                transition: "left 180ms cubic-bezier(.3,.7,.4,1)",
-              }}
-            />
-            {(["en", "es"] as const).map((l) => {
-              const active = lang === l;
-              return (
-                <button
-                  key={l}
-                  type="button"
-                  role="radio"
-                  aria-checked={active}
-                  onClick={() => setLang(l)}
-                  style={{
-                    position: "relative",
-                    zIndex: 1,
-                    border: 0,
-                    background: "transparent",
-                    color: active ? "var(--paper)" : "var(--ink-2)",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 10.5,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    padding: "6px 12px",
-                    cursor: "pointer",
-                    fontWeight: active ? 500 : 400,
-                  }}
-                >
-                  {l.toUpperCase()}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Executive ↔ Technical mode toggle */}
-          <div
-            role="radiogroup"
-            aria-label={t(bi("View mode", "Modo de vista"))}
-            suppressHydrationWarning
-            style={{
-              position: "relative",
-              display: "inline-flex",
-              padding: 2,
-              borderRadius: 999,
-              background: "var(--paper-3)",
-              border: "1px solid var(--rule)",
-              userSelect: "none",
-              marginLeft: 6,
-            }}
-          >
-            <span
-              aria-hidden
-              style={{
-                position: "absolute",
-                top: 2,
-                bottom: 2,
-                left:
-                  mounted && mode === "technical"
-                    ? "calc(2px + 50%)"
-                    : "2px",
-                width: "calc(50% - 2px)",
-                background: "var(--ink)",
-                borderRadius: 999,
-                transition: "left 180ms cubic-bezier(.3,.7,.4,1)",
-              }}
-            />
-            {(["executive", "technical"] as const).map((m) => {
-              const active = mounted && mode === m;
-              return (
-                <button
-                  key={m}
-                  type="button"
-                  role="radio"
-                  aria-checked={active}
-                  onClick={() => changeMode(m)}
-                  style={{
-                    position: "relative",
-                    zIndex: 1,
-                    border: 0,
-                    background: "transparent",
-                    color: active ? "var(--paper)" : "var(--ink-2)",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 10.5,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    padding: "6px 12px",
-                    cursor: "pointer",
-                    fontWeight: active ? 500 : 400,
-                  }}
-                >
-                  {m === "executive" ? "Pro" : "Tech"}
-                </button>
-              );
-            })}
-          </div>
+        <nav className="nav-links" aria-label={t(bi("Sections", "Secciones"))}>
+          {linkEls}
         </nav>
-      </div>
-    </header>
+
+        <div className="nav-tools">
+          <div
+            className="seg"
+            role="group"
+            aria-label={t(bi("Language", "Idioma"))}
+            data-i={lang === "es" ? 1 : 0}
+          >
+            <span className="seg-thumb" aria-hidden />
+            <button type="button" aria-pressed={lang === "en"} onClick={() => setLang("en")}>
+              EN
+            </button>
+            <button type="button" aria-pressed={lang === "es"} onClick={() => setLang("es")}>
+              ES
+            </button>
+          </div>
+          <div
+            className="seg"
+            role="group"
+            aria-label={t(bi("View mode", "Modo de vista"))}
+            data-i={mode === "technical" ? 1 : 0}
+          >
+            <span className="seg-thumb" aria-hidden />
+            <button type="button" aria-pressed={mode === "executive"} onClick={() => changeMode("executive")}>
+              Pro
+            </button>
+            <button type="button" aria-pressed={mode === "technical"} onClick={() => changeMode("technical")}>
+              Tech
+            </button>
+          </div>
+          <button
+            type="button"
+            className="icon-btn"
+            onClick={toggleTheme}
+            aria-label={t(
+              theme === "dark"
+                ? bi("Switch to light theme", "Cambiar a tema claro")
+                : bi("Switch to dark theme", "Cambiar a tema oscuro"),
+            )}
+          >
+            <Icon name={theme === "dark" ? "sun" : "moon"} />
+          </button>
+        </div>
+      </header>
+
+      <nav className="dock glass" aria-label={t(bi("Sections", "Secciones"))}>
+        {linkEls}
+      </nav>
+    </>
   );
 }

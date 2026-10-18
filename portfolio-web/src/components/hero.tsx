@@ -1,180 +1,113 @@
 "use client";
 
-import { Reveal } from "./reveal";
+import { useState } from "react";
+import { Screen } from "./screen";
+import { Expand } from "./expand";
+import { Icon } from "./icons";
 import { useProfile, useT, bi } from "@/lib/i18n";
+import { layer } from "@/lib/layer";
+
+// Brand silhouettes drawn as CSS masks so colour follows the theme.
+const BRANDS = [
+  ["iOS · Apple", "apple"],
+  ["Swift", "swift"],
+  ["OpenAI", "openai"],
+  ["Anthropic Claude", "anthropic"],
+  ["TypeScript", "typescript"],
+  ["Next.js", "nextdotjs"],
+  ["React", "react"],
+  ["Node.js", "nodedotjs"],
+  ["PostgreSQL", "postgresql"],
+  ["WhatsApp API", "whatsapp"],
+  ["Shopify", "shopify"],
+  ["Vercel", "vercel"],
+] as const;
 
 export function Hero() {
   const t = useT();
   const profile = useProfile();
+  const [open, setOpen] = useState(false);
+  const [first, ...rest] = profile.pitch.split(/(?<=\.)\s+/);
+  const doubled = [...BRANDS, ...BRANDS];
+
   return (
-    <section
-      id="top"
-      style={{
-        minHeight: "100vh",
-        padding:
-          "calc(var(--section-y) * 1.1) clamp(20px, 4vw, 40px) var(--section-y)",
-        maxWidth: 1400,
-        margin: "0 auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        position: "relative",
-      }}
-    >
-      <Reveal>
-        <div
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: 12,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "var(--ink-3)",
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            marginBottom: 28,
-          }}
-        >
-          <span
-            aria-hidden
-            style={{
-              width: 8,
-              height: 8,
-              background: "var(--accent)",
-              borderRadius: "50%",
-              boxShadow:
-                "0 0 0 4px color-mix(in oklab, var(--accent) 22%, transparent)",
-              animation: "pulse 2.4s ease-in-out infinite",
-            }}
-          />
-          {t(
-            bi(
-              "Available for collaborations · 2026",
-              "Disponible para colaboraciones · 2026",
-            ),
-          )}
-        </div>
-      </Reveal>
+    <Screen id="top" className="hero" label="Hero">
+      <div className="hero-grid">
+        <div>
+          <p className="status glass layer" style={layer(0)}>
+            <i aria-hidden />
+            {t(bi("Available · 2026", "Disponible · 2026"))}
+          </p>
 
-      <Reveal delay={80}>
-        <h1
-          className="text-display"
-          style={{
-            fontSize: "clamp(64px, 11vw, 168px)",
-            lineHeight: 0.92,
-            letterSpacing: "-0.025em",
-            margin: 0,
-            color: "var(--ink)",
-          }}
-        >
-          Juan Felipe
-          <br />
-          <span className="italic-display">Zepeda.</span>
-        </h1>
-      </Reveal>
+          <h1 className="layer" style={layer(1)}>
+            Juan Felipe
+            <span>Zepeda.</span>
+          </h1>
 
-      <Reveal delay={160}>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "clamp(16px, 4vw, 56px)",
-            alignItems: "flex-start",
-            marginTop: "clamp(28px, 4vw, 48px)",
-            paddingTop: 28,
-            borderTop: "1px solid var(--rule)",
-          }}
-        >
-          <div style={{ flex: "0 0 auto", minWidth: 220 }}>
-            <div className="kicker" style={{ marginBottom: 10 }}>
-              {t(bi("Role", "Rol"))}
-            </div>
-            <div
-              className="only-executive"
-              style={{ fontSize: 18, color: "var(--ink)", lineHeight: 1.4 }}
-            >
-              {t(
-                bi(
-                  "AI & product engineer",
-                  "Ingeniero de IA y producto",
-                ),
-              )}
-              <br />
-              {t(
-                bi(
-                  "shipping complete platforms",
-                  "que entrega plataformas completas",
-                ),
-              )}
-            </div>
-            <div
-              className="only-technical"
-              style={{ fontSize: 18, color: "var(--ink)", lineHeight: 1.4 }}
-            >
-              {t(
-                bi(
-                  "AI & product engineer",
-                  "Ingeniero de IA y producto",
-                ),
-              )}
-              <br />
-              Next.js · SwiftUI · Node · MCP
-            </div>
-          </div>
+          <p className="hero-role layer" style={layer(2)}>
+            {profile.role}
+          </p>
 
-          <div style={{ flex: "1 1 380px", maxWidth: 640 }}>
-            <div className="kicker" style={{ marginBottom: 10 }}>
-              {t(bi("In their own words", "En sus propias palabras"))}
+          <p className="hero-pitch layer" style={layer(3)}>
+            {first}
+          </p>
+          <Expand id="hero-more" open={open}>
+            <div className="hero-more">
+              <p>{rest.join(" ")}</p>
             </div>
-            <p
-              style={{
-                fontFamily: "var(--font-display)",
-                fontStyle: "var(--display-italic)",
-                fontWeight: "var(--display-weight)" as unknown as number,
-                fontSize: "clamp(20px, 2.4vw, 28px)",
-                lineHeight: 1.35,
-                color: "var(--ink)",
-                margin: 0,
-                textWrap: "pretty",
-              }}
+          </Expand>
+
+          <div className="cta-row layer" style={layer(4)}>
+            <a href="#work" className="btn btn-primary">
+              {t(bi("View work", "Ver proyectos"))}
+              <Icon name="arrow-right" className="arr" />
+            </a>
+            <a href="#contact" className="btn">
+              {t(bi("Contact", "Contacto"))}
+            </a>
+            <button
+              type="button"
+              className="more"
+              aria-expanded={open}
+              aria-controls="hero-more"
+              onClick={() => setOpen((v) => !v)}
             >
-              {t(
-                bi(
-                  "“Innovation distinguishes between a leader and a follower” ~ Steve Jobs.",
-                  "“La innovación distingue a un líder de un seguidor” ~ Steve Jobs.",
-                ),
-              )}
-            </p>
+              <span className="plus">
+                <Icon name="plus" size={12} />
+              </span>
+              {open ? t(bi("Less", "Menos")) : t(bi("More", "Ver más"))}
+            </button>
           </div>
         </div>
-      </Reveal>
 
-      <Reveal delay={240}>
-        <div
-          style={{
-            position: "absolute",
-            bottom: "clamp(32px, 5vh, 64px)",
-            left: "clamp(20px, 4vw, 40px)",
-            fontFamily: "var(--font-mono)",
-            fontSize: 11,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "var(--ink-3)",
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <span>{t(bi("Scroll", "Desliza"))}</span>
-          <span
-            aria-hidden
-            style={{ width: 32, height: 1, background: "var(--ink-3)" }}
-          />
+        <ul className="stats layer" style={layer(5)}>
+          {profile.credibility.map((c) => (
+            <li key={c.label} className="stat glass spot lift">
+              <b className="numerals">{c.value}</b>
+              <span>{c.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="marquee-wrap layer" style={layer(6)}>
+        <div className="brand-marquee" aria-label={t(bi("Tools and platforms I work with", "Herramientas y plataformas con las que trabajo"))}>
+          <div className="brand-marquee-track">
+            {doubled.map(([label, slug], i) => (
+              <div key={`${slug}-${i}`} className="brand-cell" aria-hidden={i >= BRANDS.length || undefined}>
+                <span
+                  className="brand-mark"
+                  style={{
+                    WebkitMaskImage: `url(https://cdn.simpleicons.org/${slug})`,
+                    maskImage: `url(https://cdn.simpleicons.org/${slug})`,
+                  }}
+                />
+                <span className="brand-label">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </Reveal>
-
-      {/* hidden contact for SEO */}
-      <span className="sr-only">{profile.email}</span>
-    </section>
+      </div>
+    </Screen>
   );
 }

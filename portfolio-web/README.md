@@ -6,19 +6,24 @@ recruiters, executives, and AI / LLM scrapers in equal measure.
 
 ## Highlights
 
-- **Two view modes**: Executive vs. Technical. Both copies are rendered to
-  HTML — the toggle just controls visibility — so AI scrapers see all of it.
-- **Four-tier project hierarchy**:
-  - Tier 1 — Yantissimo Platform full case study (3 subproducts).
-  - Tier 2 — 3 featured-deep projects.
-  - Tier 3 — 6 featured projects with expandable architecture detail.
-  - Tier 4 — 25+ projects in a horizontal carousel.
-- **Premium design system**: Fraunces (display) + Inter (body) + JetBrains Mono.
-  Dark-first with light-mode toggle. CSS variables, no runtime theming overhead.
+- **Four screens, exactly 400svh**: Hero · Work · About · Contact. Each
+  `.screen` is `height: 100svh`, so the page is never longer than four
+  viewports on any device.
+- **Glassmorphism, dark + light**: frosted-glass surfaces over drifting colour
+  orbs. Theme follows the system preference on first visit, then the toggle
+  (stored in `localStorage`).
+- **Layered copy**: a headline first, detail behind a button or hover —
+  staggered fade-in per screen, "+ More" on the hero, hover-reveal on project
+  cards, project / bio / archive dialogs, tabs and accordions.
+- **Two view modes**: Executive (Pro) vs. Technical (Tech). Both copies are
+  rendered to HTML — CSS only toggles visibility — so AI scrapers see all of it.
+- **Bilingual**: EN / ES via `useT()` + `bi()` and the `*.es.ts` data files.
+- **Four-tier project data** (`src/data/projects*.ts`): 10 featured projects
+  in the bento grid, the remaining ones in the "more projects" dialog.
 - **AI / GEO / SEO files**: `agents.md`, `llms.txt`, `robots.txt`,
   `sitemap.xml`, and inline schema.org `Person` + `CollectionPage` JSON-LD.
-- **Pre-hydration mode + theme** read from localStorage to avoid flash.
-- **Static-first**: ~883 B page JS, all routes pre-rendered, ~102 KB First Load JS.
+- **No UI dependencies**: Next 15, React 19, Tailwind 4 reset only; all
+  components and styles are in-repo (~150 KB First Load JS).
 
 ## Stack
 
@@ -33,29 +38,23 @@ recruiters, executives, and AI / LLM scrapers in equal measure.
 src/
 ├── app/
 │   ├── layout.tsx        — root layout, metadata, schema.org Person, fonts
-│   ├── page.tsx          — homepage (composes all sections)
-│   ├── sitemap.ts        — programmatic sitemap from project data
-│   └── globals.css       — design tokens, mode/theme CSS, utilities
+│   ├── page.tsx          — composes the four screens + background orbs
+│   ├── sitemap.ts        — sitemap (home + section anchors)
+│   ├── icon.svg          — favicon
+│   └── globals.css       — tokens (dark/light), glass primitives, all layout CSS
 ├── components/
-│   ├── nav.tsx           — sticky nav + ModeToggle + ThemeToggle
-│   ├── hero.tsx          — hero with mode-swappable pitch
-│   ├── capability-pillars.tsx
-│   ├── yantissimo-case-study.tsx — Tier 1 hero platform
-│   ├── featured-grid.tsx — Tier 2 + Tier 3 cards
-│   ├── project-card.tsx  — reusable card with executive/technical accordion
-│   ├── tier4-carousel.tsx — horizontal carousel for remaining projects
-│   ├── skills-matrix.tsx
-│   ├── about.tsx
-│   ├── footer.tsx
-│   ├── toggles.tsx       — Executive/Technical + Light/Dark client toggles
-│   └── mode-script.tsx   — pre-hydration localStorage read
-├── data/
-│   ├── projects.ts       — every project's metadata + copy (single source of truth)
-│   └── profile.ts        — identity, skills matrix, capability pillars
+│   ├── nav.tsx           — floating glass pill (+ bottom dock on phones), lang / mode / theme toggles
+│   ├── hero.tsx          — screen 1: name, layered pitch, stats, brand marquee
+│   ├── work.tsx          — screen 2: bento grid, hover-reveal cards, archive dialog
+│   ├── project-dialog.tsx — per-project dialog (tabs: overview / details / stack)
+│   ├── about.tsx         — screen 3: portrait, tabs (pillars | stack | experience), bio dialog
+│   ├── contact.tsx       — screen 4: mailto / copy email / socials + footer
+│   ├── screen.tsx · expand.tsx · tabs.tsx · glass-dialog.tsx · spotlight.tsx · icons.tsx — primitives
+│   └── mode-script.tsx   — pre-hydration read of mode + theme
+├── data/                 — projects(.es).ts, profile(.es).ts (single source of truth)
+└── lib/                  — i18n.tsx (lang context + data hooks), layer.ts
 public/
-├── llms.txt              — canonical plain-text portfolio summary for LLMs
-├── agents.md             — agent indexing guidance
-├── robots.txt            — explicit allow for AI/LLM crawlers
+├── llms.txt · agents.md · robots.txt
 └── images/projects/      — project screenshots & icons
 ```
 

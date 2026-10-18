@@ -1,16 +1,9 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
-import { BrandStrip } from "@/components/brand-strip";
+import { Work } from "@/components/work";
 import { About } from "@/components/about";
-import { Services } from "@/components/services";
-import { Process } from "@/components/process";
-import { SkillsMatrix } from "@/components/skills-matrix";
-import { Experience } from "@/components/experience";
-import { YantissimoCaseStudy } from "@/components/yantissimo-case-study";
-import { FeaturedGrid } from "@/components/featured-grid";
-import { Tier4Carousel } from "@/components/tier4-carousel";
 import { Contact } from "@/components/contact";
-import { Footer } from "@/components/footer";
+import { Spotlight } from "@/components/spotlight";
 import { featuredProjects, tier4 } from "@/data/projects";
 
 function CollectionSchema() {
@@ -46,37 +39,25 @@ function CollectionSchema() {
   );
 }
 
-// Composition for both views. Each section internally hides itself in the
-// wrong mode via .only-executive / .only-technical, so we render the union
-// — same HTML for SEO/LLMs — and let CSS swap visibility.
-//
-// Pro view sequence    : Hero · Brands · Services · Process · About · Yantissimo · Projects · More · Contact
-// Tech view sequence   : Hero · Brands · Tech Stack · Experience · About · Yantissimo · Projects · More · Contact
-//
-// We render Services + Process (Pro-only) and Tech Stack + Experience
-// (Tech-only) in the order they should APPEAR for their respective viewer.
-// In the DOM, Services/Process come before Tech Stack/Experience; this
-// matches the Pro flow naturally and the Tech-only blocks just slot in.
+// Four full-viewport screens (400svh): Hero · Work · About · Contact.
+// Executive/Technical copy is rendered for both modes in the HTML; CSS
+// (.only-executive / .only-technical) swaps visibility, so crawlers see it all.
 export default function HomePage() {
   return (
     <>
+      <div className="bg-orbs" aria-hidden>
+        <div className="orb orb-1" />
+        <div className="orb orb-2" />
+        <div className="orb orb-3" />
+      </div>
       <Nav />
       <main>
         <Hero />
-        <BrandStrip />
+        <Work />
         <About />
-        {/* § 02 — Services (Pro) / Tech Stack (Tech) */}
-        <Services />
-        <SkillsMatrix />
-        {/* § 03 — Process (Pro) / Experience (Tech) */}
-        <Process />
-        <Experience />
-        <YantissimoCaseStudy />
-        <FeaturedGrid />
-        <Tier4Carousel />
         <Contact />
       </main>
-      <Footer />
+      <Spotlight />
       <CollectionSchema />
     </>
   );
