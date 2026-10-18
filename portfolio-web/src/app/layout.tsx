@@ -58,7 +58,10 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#F1EFE8",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#07090c" },
+    { media: "(prefers-color-scheme: light)", color: "#eceff2" },
+  ],
 };
 
 const SCHEMA = {
@@ -104,7 +107,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="color-scheme" content="light" />
+        <meta name="color-scheme" content="dark light" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
