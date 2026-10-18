@@ -192,6 +192,7 @@ export default function SessionsPanel({ onLoadSession }) {
                           <ArrowUpRight size={14} />
                         </button>
                         <button
+                          disabled={s.demo}
                           onClick={() => handleDelete(s.id)}
                           disabled={deleting === s.id}
                           className="p-1.5 rounded-lg transition-all hover:opacity-80"

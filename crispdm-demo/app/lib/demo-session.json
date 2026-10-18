@@ -1,0 +1,128 @@
+{
+  "id": "housing-demo",
+  "filename": "housing-example.csv",
+  "createdAt": "2026-10-17T12:00:00Z",
+  "step": 6,
+  "completedSteps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "objective": "Illustrative housing price prediction",
+  "profile": {
+    "shape": [
+      120,
+      3
+    ],
+    "dtypes_summary": {
+      "numeric": 3,
+      "categorical": 0
+    },
+    "missing_summary": {
+      "missing_pct": 0
+    },
+    "columns": [
+      {
+        "name": "area_m2",
+        "type": "numeric",
+        "missing_pct": 0,
+        "unique": 75,
+        "stats": {
+          "mean": 95,
+          "std": 28
+        }
+      },
+      {
+        "name": "bedrooms",
+        "type": "numeric",
+        "missing_pct": 0,
+        "unique": 5,
+        "stats": {
+          "mean": 3,
+          "std": 1
+        }
+      },
+      {
+        "name": "price",
+        "type": "numeric",
+        "missing_pct": 0,
+        "unique": 110,
+        "stats": {
+          "mean": 220000,
+          "std": 70000
+        }
+      }
+    ]
+  },
+  "understanding": {
+    "task_type": "regression",
+    "target_column": "price",
+    "needs_feature_weights": true,
+    "recommended_approach": "Compare a linear baseline with a tree ensemble. This is an illustrative demo, not a trained model.",
+    "hypothesis": [
+      "Larger homes tend to have higher prices.",
+      "Bedroom count adds context to floor area."
+    ]
+  },
+  "processingPlan": {
+    "reasoning": "Illustrative workflow: validate numeric columns and separate the target before evaluation."
+  },
+  "processed": {
+    "shape": [
+      120,
+      2
+    ],
+    "log": [
+      "Example: validate numeric features",
+      "Example: split training and test rows",
+      "Example: compare baseline and ensemble"
+    ]
+  },
+  "modelResults": {
+    "task_type": "regression",
+    "best_model": "Random_Forest",
+    "models": [
+      {
+        "name": "Random_Forest",
+        "metrics": {
+          "r2": 0.91,
+          "rmse": 22000,
+          "mae": 17000,
+          "cv_r2_mean": 0.89,
+          "cv_r2_std": 0.03
+        },
+        "is_interpretable": false,
+        "feature_importance": {
+          "area_m2": 0.82,
+          "bedrooms": 0.18
+        }
+      },
+      {
+        "name": "Linear_Regression",
+        "metrics": {
+          "r2": 0.84,
+          "rmse": 31000,
+          "mae": 24000,
+          "cv_r2_mean": 0.82,
+          "cv_r2_std": 0.03
+        },
+        "is_interpretable": true,
+        "feature_importance": {
+          "area_m2": 0.82,
+          "bedrooms": 0.18
+        }
+      }
+    ]
+  },
+  "vizConfig": {
+    "dashboard_title": "Housing example \u2014 simulated results",
+    "key_insights": [
+      "All metrics and data shown here are synthetic examples.",
+      "Compare the models and hover over charts to explore the workflow."
+    ]
+  },
+  "logs": []
+}

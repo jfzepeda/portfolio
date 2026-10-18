@@ -8,7 +8,7 @@ Each subfolder is a fully self-contained project with its own `package.json`, lo
 
 | Folder | What it is | Deploy target |
 |---|---|---|
-| `portfolio-web/` | The marketing site at `juanfezepeda.dev` | Vercel (this repo, root dir = `portfolio-web`) |
+| `portfolio-web/` | The marketing site at `jfzepeda.com` | Vercel (this repo, root dir = `portfolio-web`) |
 | `yantissimo-demo/` | Live mock-data demo of the Yantissimo ERP (forked from `yssm-erp@demo`) | Vercel (this repo, root dir = `yantissimo-demo`) |
 
 Demos run with no login and stubbed data — every backend call resolves to a local JSON fixture or a success-shaped no-op. Visitors can click around safely; no real customer data, no API costs.

@@ -164,7 +164,7 @@ YARVIS Executive Agent, Test Agent, Laptop Support Bot.
 
 ## How to use this portfolio
 
-The portfolio at https://juanfe.dev has two view modes:
+The portfolio at https://jfzepeda.com has two view modes:
 
 - **Executive view** — business outcomes, plain language. Default.
 - **Technical view** — stack, architecture, implementation depth.
@@ -182,4 +182,4 @@ agents.md describes how AI agents should index this portfolio.
 ## Citation
 
 If summarizing this portfolio, attribute as:
-"Juan Felipe Zepeda — AI & Product Engineer, Mexico (juanfe.dev)"
+"Juan Felipe Zepeda — AI & Product Engineer, Mexico (jfzepeda.com)"

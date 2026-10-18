@@ -9,7 +9,7 @@ machine-readable summary are rendered in the same HTML.
 - Role: AI & Product Engineer
 - Location: Mexico (America/Mexico_City)
 - Email: zepedajuanfe9@gmail.com
-- URL: https://juanfe.dev
+- URL: https://jfzepeda.com
 
 ## Where to look
 

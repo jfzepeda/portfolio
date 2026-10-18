@@ -1,189 +1,43 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Bot, CircleAlert, Loader2 } from "lucide-react";
-import { ChatKit, useChatKit } from "@openai/chatkit-react";
+import { useState } from "react";
+import { Bot } from "lucide-react";
 
-import { isSqlToolName, onSqlTool } from "@/lib/openai/sql-tool";
-
-function getDeviceUserId() {
-  const key = "dataknife-chatkit-user";
-  const existing = window.localStorage.getItem(key);
-
-  if (existing) {
-    return existing;
-  }
-
-  const generated = `dataknife-${crypto.randomUUID()}`;
-  window.localStorage.setItem(key, generated);
-  return generated;
-}
+const examples = [
+  { question: "¿Qué documentos puedo consultar?", answer: "La base de ejemplo contiene una política de compras, un procedimiento de incidentes y un playbook comercial. Selecciona Operaciones o Ventas para explorar una respuesta con su fuente.", source: "Índice documental de ejemplo" },
+  { question: "¿Cómo reporto un incidente de operaciones?", answer: "Registra el servicio afectado, la hora y el impacto. Asigna una persona responsable y prioriza los incidentes que interrumpen la operación. Al cerrar, documenta la causa y la acción preventiva.", source: "Procedimiento de incidentes · sección 2 (documento ficticio)" },
+  { question: "¿Qué debe incluir una propuesta de ventas?", answer: "Incluye el problema del cliente, alcance, entregables, calendario y condiciones comerciales. Antes de enviarla, valida los supuestos con el responsable de la oportunidad.", source: "Playbook comercial · sección 3 (documento ficticio)" },
+];
 
 export function ChatKitPanel() {
-  const [error, setError] = useState<string | null>(null);
-  const [initialClientSecret, setInitialClientSecret] = useState<string | null>(
-    null,
-  );
-  const [isPreparing, setIsPreparing] = useState(true);
+  const [question, setQuestion] = useState("");
+  const [messages, setMessages] = useState<{ question: string; answer: string; source: string }[]>([]);
 
-  useEffect(() => {
-    let isActive = true;
-
-    async function prepareSession() {
-      try {
-        const clientSecret = await requestChatKitClientSecret();
-
-        if (isActive) {
-          setInitialClientSecret(clientSecret);
-          setError(null);
-        }
-      } catch (sessionError) {
-        if (isActive) {
-          setError(
-            sessionError instanceof Error
-              ? sessionError.message
-              : "No se pudo iniciar ChatKit.",
-          );
-        }
-      } finally {
-        if (isActive) {
-          setIsPreparing(false);
-        }
-      }
-    }
-
-    prepareSession();
-
-    return () => {
-      isActive = false;
-    };
-  }, []);
+  function ask(value: string) {
+    if (!value.trim()) return;
+    const example = /incidente|operaci/i.test(value) ? examples[1]
+      : /venta|propuesta|comercial/i.test(value) ? examples[2] : examples[0];
+    setMessages((current) => [...current, { ...example, question: value }]);
+    setQuestion("");
+  }
 
   return (
-    <aside className="hidden w-[390px] shrink-0 border-l border-border bg-panel lg:flex lg:flex-col">
-      <div className="flex h-16 items-center gap-3 border-b border-border px-5">
-        <div className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
-          <Bot className="size-4" aria-hidden="true" />
-        </div>
-        <div className="min-w-0">
-          <p className="text-sm font-semibold">ChatKit OpenAI</p>
-          <p className="truncate text-xs text-muted-foreground">
-            Panel lateral conectado al workflow
-          </p>
-        </div>
+    <aside className="w-full shrink-0 border-l border-border bg-panel lg:w-[390px]" aria-label="Asistente de demostración">
+      <div className="flex items-center gap-3 border-b border-border p-5">
+        <Bot className="size-5" aria-hidden="true" />
+        <div><p className="font-semibold">Asistente DataKnife</p><p className="text-xs text-muted-foreground">Demo interactiva · respuestas de ejemplo</p></div>
       </div>
-      {error ? (
-        <div className="m-4 flex gap-3 rounded-lg border border-warning/30 bg-warning/10 p-3 text-sm text-warning-foreground">
-          <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-          <p>{error}</p>
+      <div className="space-y-4 p-4">
+        <p className="text-sm text-muted-foreground">Explora documentos ficticios. Las respuestas están preparadas para esta demo; no se consulta una IA ni los archivos que cargues.</p>
+        {examples.map((example) => <button key={example.question} onClick={() => ask(example.question)} className="block w-full rounded-lg border border-border p-3 text-left text-sm hover:bg-muted">{example.question}</button>)}
+        <div aria-live="polite" className="max-h-[440px] space-y-4 overflow-y-auto">
+          {messages.map((message, index) => <div key={index} className="space-y-2 rounded-lg border border-border p-3 text-sm"><p className="font-semibold">{message.question}</p><p>{message.answer}</p><p className="text-xs text-muted-foreground">Fuente: {message.source}</p></div>)}
         </div>
-      ) : null}
-      <div className="min-h-0 flex-1 p-3">
-        {isPreparing ? (
-          <div className="flex h-full min-h-[680px] items-center justify-center rounded-lg border border-dashed border-border bg-background text-sm text-muted-foreground">
-            <Loader2 className="mr-2 size-4 animate-spin" aria-hidden="true" />
-            Preparando ChatKit
-          </div>
-        ) : error || !initialClientSecret ? (
-          <div className="flex h-full min-h-[680px] items-center justify-center rounded-lg border border-dashed border-border bg-background px-8 text-center text-sm leading-6 text-muted-foreground">
-            Configura las variables de OpenAI para activar la conversacion.
-          </div>
-        ) : (
-          <ChatKitRuntime initialClientSecret={initialClientSecret} />
-        )}
+        <form onSubmit={(event) => { event.preventDefault(); ask(question); }} className="flex gap-2">
+          <input aria-label="Pregunta sobre los documentos de ejemplo" value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Pregunta sobre operaciones o ventas" className="min-w-0 flex-1 rounded border border-border bg-background p-2 text-sm" />
+          <button disabled={!question.trim()} className="rounded bg-primary px-3 text-sm text-primary-foreground disabled:opacity-50">Enviar</button>
+        </form>
       </div>
     </aside>
   );
-}
-
-async function requestChatKitClientSecret() {
-  const response = await fetch("/api/chatkit/session", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      user: getDeviceUserId(),
-    }),
-  });
-
-  const payload = await response.json();
-
-  if (!response.ok) {
-    throw new Error(
-      typeof payload.message === "string"
-        ? payload.message
-        : "No se pudo iniciar ChatKit.",
-    );
-  }
-
-  return payload.client_secret as string;
-}
-
-function ChatKitRuntime({
-  initialClientSecret,
-}: {
-  initialClientSecret: string;
-}) {
-  const initialSecretConsumed = useRef(false);
-
-  const controlOptions = useMemo(
-    () => ({
-      api: {
-        async getClientSecret() {
-          if (!initialSecretConsumed.current) {
-            initialSecretConsumed.current = true;
-            return initialClientSecret;
-          }
-
-          return requestChatKitClientSecret();
-        },
-      },
-      async onClientTool(toolCall: {
-        name: string;
-        params: Record<string, unknown>;
-      }) {
-        if (isSqlToolName(toolCall.name)) {
-          return onSqlTool(toolCall);
-        }
-
-        return {
-          ok: false,
-          error: `Tool local no implementada: ${toolCall.name}`,
-        };
-      },
-      composer: {
-        placeholder: "Pregunta sobre la operacion...",
-      },
-      header: {
-        title: {
-          enabled: true,
-          text: "Asistente",
-        },
-      },
-      startScreen: {
-        greeting: "Listo para consultar la base de conocimiento.",
-        prompts: [
-          {
-            label: "Documentos cargados",
-            prompt: "Resume los documentos disponibles en el vector store.",
-          },
-          {
-            label: "Operaciones",
-            prompt: "Ayudame a revisar riesgos operativos recientes.",
-          },
-        ],
-      },
-      theme: {
-        colorScheme: "light" as const,
-        radius: "soft" as const,
-        density: "compact" as const,
-      },
-    }),
-    [initialClientSecret],
-  );
-
-  const { control } = useChatKit(controlOptions);
-
-  return <ChatKit control={control} className="h-full min-h-[680px] w-full" />;
 }

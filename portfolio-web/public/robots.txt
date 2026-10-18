@@ -23,4 +23,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://juanfe.dev/sitemap.xml
+Sitemap: https://jfzepeda.com/sitemap.xml

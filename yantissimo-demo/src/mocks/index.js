@@ -129,6 +129,37 @@ const SUCCESS_NOOP = (method) => ({
 
 export function resolveMock(rawPath, method = "GET") {
   const path = (rawPath || "").split("?")[0];
+  if (path === "/api/dashboard/store/summary" || path === "/api/dashboard/personal/summary" || path === "/api/dashboard/series") {
+    const params = new URLSearchParams((rawPath || "").split("?")[1]);
+    const branch = dashboard.salesBySucursal.find((item) => item.sucursal === params.get("sucursal")) || dashboard.salesBySucursal[0];
+    const personal = path.includes("/personal/") || params.has("seller");
+    const factor = personal ? 0.25 : 1;
+    const sales = Math.round(branch.ventas * factor);
+    const count = Math.round(branch.ordenes * factor);
+    const from = new Date(`${params.get("from") || "2026-05-01"}T00:00:00Z`);
+    const to = new Date(`${params.get("to") || "2026-05-31"}T00:00:00Z`);
+    const days = Math.max(1, Math.min(366, Math.round((to - from) / 86400000) + 1));
+    const points = Array.from({ length: days }, (_, index) => ({
+      date: new Date(from.getTime() + index * 86400000).toISOString().slice(0, 10),
+      value: params.get("metric") === "quotes" ? Math.round(count / days) : Math.round(sales / days),
+    }));
+    if (path === "/api/dashboard/series") return points;
+    return {
+      demo: true,
+      kpis: {
+        sales_amount_period: sales, sales_count_period: count,
+        quotes_count_period: count + 12, quotes_open_count: 12,
+        avg_ticket_period: count ? sales / count : 0,
+        customers_served_period: count, tires_qty_period: count * 3,
+        services_qty_period: count * 2,
+      },
+      leaderboards: {
+        sellers: dashboard.sellerLeaderboard.filter((item) => item.sucursal === branch.sucursal).map((item) => ({ seller: item.seller, amount: item.ventas * factor })),
+        brands: [{ brand: "Michelin", qty: count * 2 }, { brand: "Yantissimo", qty: count }],
+      },
+      heatmap: [9, 10, 11, 12, 14, 15, 16].map((hour) => ({ ramp: "Rampa A", hour, minutes: 30 + hour })),
+    };
+  }
   if (EXACT[path] !== undefined) return EXACT[path];
   for (const [prefix, value] of PREFIX) {
     if (path.startsWith(prefix)) return value;

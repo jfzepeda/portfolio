@@ -8,7 +8,7 @@ import "./globals.css";
 
 const title = `${profile.name} — ${profile.role}`;
 const description = profile.pitch;
-const url = "https://juanfe.dev";
+const url = "https://jfzepeda.com";
 
 export const metadata: Metadata = {
   title: { default: title, template: `%s — ${profile.name}` },

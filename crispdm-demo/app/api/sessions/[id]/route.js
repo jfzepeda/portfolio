@@ -1,14 +1,10 @@
+import demoSession from "../../../lib/demo-session.json";
 import { NextResponse } from "next/server";
 
-export async function GET() {
-  return NextResponse.json(
-    {
-      error: "not_found",
-      demo: true,
-      message: "Demo mode — no saved sessions are bundled in this build.",
-    },
-    { status: 404 },
-  );
+export async function GET(_request, { params }) {
+  const { id } = await params;
+  if (id !== demoSession.id) return NextResponse.json({ error: "not_found" }, { status: 404 });
+  return NextResponse.json(demoSession);
 }
 
 export async function PUT() {

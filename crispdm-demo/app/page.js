@@ -1,26 +1,19 @@
 "use client";
-import { useState, useRef, useCallback } from "react";
+import { useState, useCallback } from "react";
 import SessionsPanel from "./components/SessionsPanel";
 import {
-  Upload,
-  Play,
   Brain,
-  Database,
   BarChart3,
   Sparkles,
   ChevronRight,
-  AlertCircle,
   CheckCircle2,
   Loader2,
-  FileSpreadsheet,
-  Target,
   Zap,
   Eye,
   TrendingUp,
 } from "lucide-react";
 import StepIndicator from "./components/StepIndicator";
 import LogPanel from "./components/LogPanel";
-import SettingsPanel from "./components/SettingsPanel";
 import {
   ModelComparisonChart,
   FeatureImportanceChart,
@@ -41,44 +34,29 @@ export default function Home() {
   const [logs, setLogs] = useState([]);
 
   // Data state
-  const [file, setFile] = useState(null);
-  const [filepath, setFilepath] = useState("");
-  const [objective, setObjective] = useState("");
   const [profile, setProfile] = useState(null);
   const [understanding, setUnderstanding] = useState(null);
   const [processingPlan, setProcessingPlan] = useState(null);
   const [processed, setProcessed] = useState(null);
   const [modelResults, setModelResults] = useState(null);
   const [vizConfig, setVizConfig] = useState(null);
-  const [aiSettings, setAiSettings] = useState({
-    provider: "anthropic",
-    apiKey: "",
-  });
-
-  const [sessionId, setSessionId] = useState(null);
-
-  const fileInputRef = useRef(null);
-  const logsRef = useRef([]);
-
   const addLog = useCallback((message, type = "info") => {
     const time = new Date().toLocaleTimeString("en-US", { hour12: false });
     const entry = { time, message, type };
     setLogs((prev) => {
       const next = [...prev, entry];
-      logsRef.current = next;
       return next;
     });
   }, []);
 
   const loadSession = async (id) => {
+    setLoading(true);
+    setLoadingMsg("Loading sample analysis...");
     try {
       const res = await fetch(`/api/sessions/${id}`);
       const session = await res.json();
-      if (session.error) return;
+      if (!res.ok || session.error) throw new Error(session.error || "Could not load analysis");
 
-      setFile(null);
-      setFilepath(session.filepath || "");
-      setObjective(session.objective || "");
       setStep(session.step || 6);
       setCompletedSteps(session.completedSteps || []);
       setProfile(session.profile || null);
@@ -88,266 +66,10 @@ export default function Home() {
       setModelResults(session.modelResults || null);
       setVizConfig(session.vizConfig || null);
       setLogs(session.logs || []);
-      logsRef.current = session.logs || [];
-      setSessionId(id);
     } catch (err) {
       addLog(`Failed to load session: ${err.message}`, "error");
-    }
-  };
-
-  const completeStep = useCallback((s) => {
-    setCompletedSteps((prev) => (prev.includes(s) ? prev : [...prev, s]));
-  }, []);
-
-  // Step 1: Upload
-  const handleUpload = async () => {
-    if (!file) return;
-    setLoading(true);
-    setLoadingMsg("Uploading dataset...");
-    addLog(`Uploading ${file.name} (${(file.size / 1024).toFixed(1)} KB)`);
-
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-
-      setFilepath(data.filepath);
-      addLog(`File uploaded: ${data.filename}`, "success");
-      completeStep(1);
-      setStep(2);
-    } catch (err) {
-      addLog(`Upload failed: ${err.message}`, "error");
     } finally {
       setLoading(false);
-    }
-  };
-
-  // Step 2+3+4+5+6: Run entire pipeline
-  const runPipeline = async () => {
-    if (!objective.trim()) return;
-    setLoading(true);
-
-    try {
-      // Phase 1: Business Understanding
-      setLoadingMsg("AI is analyzing business objective...");
-      const providerLabel =
-        aiSettings.provider === "openai" ? "OpenAI" : "Claude";
-      addLog(
-        `Phase 1: Business Understanding - ${providerLabel} is analyzing objective...`
-      );
-      setStep(2);
-
-      const analyzeRes = await fetch("/api/analyze", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ filepath }),
-      });
-      const profileData = await analyzeRes.json();
-      if (profileData.error) throw new Error(profileData.error);
-      setProfile(profileData);
-      addLog(
-        `Data profiled: ${profileData.shape[0]} rows, ${profileData.shape[1]} columns`,
-        "success"
-      );
-
-      const aiRes = await fetch("/api/ai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "understand_business",
-          data: { objective, profile: profileData },
-          provider: aiSettings.provider,
-          apiKey: aiSettings.apiKey,
-        }),
-      });
-      const aiData = await aiRes.json();
-      if (aiData.error) throw new Error(aiData.error);
-      setUnderstanding(aiData);
-      addLog(
-        `Task type: ${aiData.task_type} | Target: ${aiData.target_column}`,
-        "success"
-      );
-      addLog(
-        `Key features identified: ${aiData.key_features?.join(", ")}`,
-        "info"
-      );
-      completeStep(2);
-      setStep(3);
-
-      // Phase 2: Data Understanding (already done via profiling)
-      setLoadingMsg("Analyzing data quality and patterns...");
-      addLog(
-        "Phase 2: Data Understanding - Analyzing distributions, correlations, outliers..."
-      );
-      completeStep(3);
-      setStep(4);
-
-      // Phase 3: Data Preparation
-      setLoadingMsg("AI is designing feature engineering plan...");
-      addLog(
-        `Phase 3: Data Preparation - ${providerLabel} is designing processing plan...`
-      );
-
-      const planRes = await fetch("/api/ai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "plan_processing",
-          data: { understanding: aiData, profile: profileData },
-          provider: aiSettings.provider,
-          apiKey: aiSettings.apiKey,
-        }),
-      });
-      const plan = await planRes.json();
-      if (plan.error) throw new Error(plan.error);
-      setProcessingPlan(plan);
-      addLog(
-        `Processing plan ready: ${plan.drop_columns?.length || 0} drops, ${
-          Object.keys(plan.encoding || {}).length
-        } encodings, ${
-          Object.keys(plan.transformations || {}).length
-        } transforms`,
-        "success"
-      );
-
-      // Execute processing
-      setLoadingMsg("Executing feature engineering...");
-      addLog("Executing feature engineering pipeline...");
-
-      const processRes = await fetch("/api/process", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ filepath, plan }),
-      });
-      const processedData = await processRes.json();
-      if (processedData.error) throw new Error(processedData.error);
-      setProcessed(processedData);
-      processedData.log?.forEach((l) => addLog(`  ↳ ${l}`));
-      addLog(
-        `Processed: ${processedData.shape[0]} rows, ${processedData.shape[1]} features`,
-        "success"
-      );
-      completeStep(4);
-      setStep(5);
-
-      // Phase 4: Modeling
-      setLoadingMsg("AI is selecting models to train...");
-      addLog(`Phase 4: Modeling - ${providerLabel} is selecting algorithms...`);
-
-      const modelSelectRes = await fetch("/api/ai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "select_models",
-          data: { understanding: aiData, processed: processedData },
-          provider: aiSettings.provider,
-          apiKey: aiSettings.apiKey,
-        }),
-      });
-      const modelSelection = await modelSelectRes.json();
-      if (modelSelection.error) throw new Error(modelSelection.error);
-      addLog(`Models selected: ${modelSelection.models?.join(", ")}`, "info");
-
-      // Train models
-      setLoadingMsg("Training and evaluating models...");
-      addLog("Training models with cross-validation...");
-
-      const trainRes = await fetch("/api/model", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          filepath: processedData.output_path,
-          config: {
-            task_type: aiData.task_type,
-            target_column: aiData.target_column,
-            models: modelSelection.models,
-          },
-        }),
-      });
-      const trainData = await trainRes.json();
-      if (trainData.error) throw new Error(trainData.error);
-      setModelResults(trainData);
-      trainData.models?.forEach((m) => {
-        if (m.error) {
-          addLog(`  ✗ ${m.name}: ${m.error}`, "error");
-        } else {
-          const key =
-            aiData.task_type === "regression"
-              ? "cv_r2_mean"
-              : "cv_accuracy_mean";
-          addLog(`  ✓ ${m.name}: ${key}=${m.metrics[key]}`, "success");
-        }
-      });
-      addLog(`Best model: ${trainData.best_model}`, "success");
-      completeStep(5);
-      setStep(6);
-
-      // Phase 5: Evaluation & Visualization
-      setLoadingMsg("AI is selecting visualizations...");
-      addLog(`Phase 5: Evaluation - ${providerLabel} is selecting charts...`);
-
-      const vizRes = await fetch("/api/ai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "select_visualizations",
-          data: {
-            task_type: aiData.task_type,
-            target: aiData.target_column,
-            feature_importance:
-              trainData.models?.[0]?.feature_importance ||
-              processedData.feature_importance,
-            model_results: trainData,
-            columns: processedData.columns,
-            correlations: profileData.correlations,
-          },
-          provider: aiSettings.provider,
-          apiKey: aiSettings.apiKey,
-        }),
-      });
-      const vizData = await vizRes.json();
-      if (vizData.error) throw new Error(vizData.error);
-      setVizConfig(vizData);
-      addLog(`Dashboard ready: ${vizData.charts?.length} charts`, "success");
-      addLog("CRISP-DM pipeline completed!", "success");
-      completeStep(6);
-
-      // Auto-save session
-      try {
-        const saveRes = await fetch("/api/sessions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            filename: file?.name || filepath.split("/").pop(),
-            filepath,
-            objective,
-            step: 6,
-            completedSteps: [1, 2, 3, 4, 5, 6],
-            profile: profileData,
-            understanding: aiData,
-            processingPlan: plan,
-            processed: processedData,
-            modelResults: trainData,
-            vizConfig: vizData,
-            logs: logsRef.current,
-          }),
-        });
-        const saved = await saveRes.json();
-        setSessionId(saved.id);
-        addLog("Session saved automatically", "success");
-      } catch (saveErr) {
-        addLog(`Session save failed: ${saveErr.message}`, "error");
-      }
-    } catch (err) {
-      addLog(`Pipeline error: ${err.message}`, "error");
-    } finally {
-      setLoading(false);
-      setLoadingMsg("");
     }
   };
 
@@ -372,20 +94,19 @@ export default function Home() {
             <div>
               <h1 className="text-lg font-bold">CRISP-DM AutoML Studio</h1>
               <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                Automated ML Pipeline
+                Interactive demo · simulated results
               </p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <SessionsPanel onLoadSession={loadSession} />
-            <SettingsPanel onSettingsChange={setAiSettings} />
+
             <div
               className="flex items-center gap-2 text-xs"
               style={{ color: "var(--text-secondary)" }}
             >
               <Sparkles size={14} style={{ color: "var(--accent)" }} />
-              Powered by{" "}
-              {aiSettings.provider === "openai" ? "OpenAI" : "Claude"}
+              Sample analysis
             </div>
           </div>
         </div>
@@ -417,116 +138,13 @@ export default function Home() {
           </div>
         )}
 
-        {/* Step 1: Upload */}
-        {step === 1 && !completedSteps.includes(1) && (
-          <div className="fade-in">
-            <div className="card max-w-2xl mx-auto">
-              <div className="flex items-center gap-2 mb-6">
-                <Upload size={20} style={{ color: "var(--accent)" }} />
-                <h2 className="text-lg font-bold">Upload Dataset</h2>
-              </div>
-
-              <div
-                className="border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all hover:border-[var(--accent)]"
-                style={{
-                  borderColor: file ? "var(--success)" : "var(--border)",
-                }}
-                onClick={() => fileInputRef.current?.click()}
-              >
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  accept=".csv"
-                  className="hidden"
-                  onChange={(e) => setFile(e.target.files[0])}
-                />
-                {file ? (
-                  <div className="flex flex-col items-center gap-2">
-                    <FileSpreadsheet
-                      size={40}
-                      style={{ color: "var(--success)" }}
-                    />
-                    <p className="font-semibold">{file.name}</p>
-                    <p
-                      className="text-xs"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
-                      {(file.size / 1024).toFixed(1)} KB
-                    </p>
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center gap-2">
-                    <Database
-                      size={40}
-                      style={{ color: "var(--text-secondary)" }}
-                    />
-                    <p className="font-semibold">Click to select CSV file</p>
-                    <p
-                      className="text-xs"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
-                      Supports .csv files
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              <button
-                className="btn-primary w-full mt-6 flex items-center justify-center gap-2"
-                onClick={handleUpload}
-                disabled={!file || loading}
-              >
-                <Upload size={16} />
-                Upload & Continue
-              </button>
-            </div>
+        {step === 1 && (
+          <div className="card max-w-2xl mx-auto space-y-4">
+            <h2 className="text-lg font-bold">Explore a sample CRISP-DM analysis</h2>
+            <p>This interactive demo uses fictional housing data and simulated model results. No uploads, API keys, or training are required.</p>
+            <button className="btn-primary" onClick={() => loadSession("housing-demo")}>Explore sample analysis</button>
           </div>
         )}
-
-        {/* Step 2: Business Objective */}
-        {step === 2 &&
-          completedSteps.includes(1) &&
-          !completedSteps.includes(2) &&
-          !loading && (
-            <div className="fade-in">
-              <div className="card max-w-2xl mx-auto">
-                <div className="flex items-center gap-2 mb-6">
-                  <Target size={20} style={{ color: "var(--accent)" }} />
-                  <h2 className="text-lg font-bold">Business Objective</h2>
-                </div>
-
-                <p
-                  className="text-sm mb-4"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  Describe what you want to predict, classify, or discover from
-                  this data.
-                </p>
-
-                <textarea
-                  className="w-full rounded-lg p-4 text-sm resize-none"
-                  style={{
-                    background: "var(--bg-primary)",
-                    border: "1px solid var(--border)",
-                    color: "var(--text-primary)",
-                    minHeight: 120,
-                  }}
-                  placeholder="e.g., Predecir el precio de un departamento basado en sus características como ubicación, metros cuadrados, número de habitaciones..."
-                  value={objective}
-                  onChange={(e) => setObjective(e.target.value)}
-                />
-
-                <button
-                  className="btn-primary w-full mt-6 flex items-center justify-center gap-2"
-                  onClick={runPipeline}
-                  disabled={!objective.trim() || loading}
-                >
-                  <Zap size={16} />
-                  Run Complete CRISP-DM Pipeline
-                </button>
-              </div>
-            </div>
-          )}
 
         {/* Results Dashboard */}
         {completedSteps.includes(3) && (

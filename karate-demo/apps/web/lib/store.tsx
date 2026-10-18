@@ -162,6 +162,12 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const loaded = loadState(window.localStorage);
+    if (!loaded.tournament.participants.length) {
+      const mock = generateMockTournament();
+      loaded.tournament.categoryDefs = mock.categoryDefs;
+      replaceParticipantsImpl(loaded, mock.participants.map(({ id: _id, ...rest }) => rest));
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(loaded));
+    }
     setLocalState(loaded);
     localStateRef.current = loaded;
   }, []);

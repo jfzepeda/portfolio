@@ -14,26 +14,23 @@ async function loadDemoRun() {
   if (_cachedRun) return _cachedRun;
   const res = await fetch('/data/demo-run.json', { cache: 'force-cache' });
   if (!res.ok) throw new Error(`Could not load demo run: ${res.status}`);
-  _cachedRun = await res.json();
+  const run = await res.json();
+  _cachedRun = { ...run, meta: shapeRunListItem(run) };
   return _cachedRun;
 }
 
 function shapeRunListItem(run) {
   return {
-    run_id: run.run_id,
-    algorithm: run.algorithm,
+    id: run.run_id,
+    algoritmo: run.algorithm,
     finished_at: '2026-05-15T12:00:00-06:00',
-    kpis: run.result?.kpis ?? {},
+    kpis: { ...run.result?.kpis, n_tiendas: new Set((run.result?.routes || []).flatMap((route) => route.sequence.map((stop) => stop.store_id))).size },
     status: 'ok',
   };
 }
 
 export async function fetchAlgoritmos() {
-  return {
-    algoritmos: [
-      { id: 'demo-sunburst', label: 'Demo Sunburst (bundled run)', kind: 'demo' },
-    ],
-  };
+  return [{ name: 'demo-sunburst', runtime_estimado_s: 0, kind: 'demo' }];
 }
 
 export async function fetchPlanMaestro() {
@@ -55,7 +52,7 @@ export async function setPlanMaestroSheet() {
 }
 
 export async function fetchConfigs() {
-  return { configs: [] };
+  return [];
 }
 
 export async function fetchConfig() {
@@ -76,7 +73,7 @@ export async function deleteConfigApi() {
 
 export async function fetchRuns() {
   const run = await loadDemoRun();
-  return { runs: [shapeRunListItem(run)] };
+  return [run.meta];
 }
 
 export async function fetchRun(_runId) {
