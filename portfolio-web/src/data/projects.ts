@@ -89,7 +89,7 @@ export interface Project {
 
 export const yantissimo: Project = {
   id: "yantissimo",
-  thumbnail: "/images/projects/thumbnails-3d/yantissimo.webp",
+  thumbnail: "/images/projects/thumbnails-3d/yantissimo-claude.webp",
   slug: "yantissimo",
   name: "Yantissimo Platform",
   tagline:

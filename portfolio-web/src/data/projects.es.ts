@@ -6,7 +6,7 @@ import type { Project, Tier4Project, Category } from "./projects";
 
 export const yantissimo: Project = {
   id: "yantissimo",
-  thumbnail: "/images/projects/thumbnails-3d/yantissimo.webp",
+  thumbnail: "/images/projects/thumbnails-3d/yantissimo-claude.webp",
   slug: "yantissimo",
   name: "Plataforma Yantissimo",
   tagline:

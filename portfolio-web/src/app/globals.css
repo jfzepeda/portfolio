@@ -913,12 +913,18 @@ footer {
   justify-content: flex-end;
   gap: 8px;
   padding: 16px;
-  background: color-mix(in oklab, var(--glass-opaque) 70%, transparent);
+  background: linear-gradient(
+    to top,
+    rgb(0 0 0 / 0.8) 0%,
+    rgb(0 0 0 / 0.7) 50%,
+    rgb(0 0 0 / 0.5) 75%,
+    rgb(0 0 0 / 0.12) 100%
+  );
   transform: translateY(102%);
   transition: transform 450ms var(--ease);
   font-size: 13px;
   line-height: 1.4;
-  color: var(--fg-2);
+  color: rgb(255 255 255 / 0.85);
   pointer-events: none;
 }
 .card-title {
@@ -940,7 +946,7 @@ footer {
   align-items: center;
   gap: 6px;
   font: 500 12px var(--font-mono);
-  color: var(--accent);
+  color: #fff;
 }
 @media (hover: hover) and (min-width: 641px) {
   .card-reveal {
